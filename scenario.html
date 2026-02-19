@@ -83,8 +83,50 @@
             font-style: italic;
         }
         strong {
-            color: var(--ivory);
-            font-weight: 700;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
         }
         a {
             color: var(--gold);
@@ -113,31 +155,17 @@
             font-size: 0.85em;
             letter-spacing: 0.5px;
         }
-        img {
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
             max-width: 100%;
             height: auto;
-            display: block;
-            margin: 2em auto 0;
             border: 1px solid var(--border-gold);
             border-radius: 2px;
-        }
-        /* Desktop: float image+caption to the right */
-        @media (min-width: 600px) {
-            p:has(> img) {
-                float: right;
-                width: 45%;
-                margin: 0.5em 0 1em 1.5em;
-            }
-            p:has(> img) img {
-                margin: 0;
-                width: 100%;
-            }
-            p:has(> img) + p:has(> em:only-child) {
-                float: right;
-                clear: right;
-                width: 45%;
-                margin: 0 0 1.5em 1.5em;
-            }
         }
         /* Caption: italic paragraph immediately following an image */
         p:has(> img) + p > em:only-child {
@@ -153,12 +181,17 @@
             text-decoration: underline;
         }
         p:has(> img) + p {
-            margin-top: 0.4em;
-            margin-bottom: 2em;
+            max-width: 520px;
+            margin: 0.4em auto 2em;
         }
-        /* Clear floats before new sections */
-        h2, h3, hr {
-            clear: both;
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
         }
         ul, ol {
             padding-left: 1.5em;
@@ -219,28 +252,28 @@
 <p>What is a nation? Is it a people who share a common religion? A common language? A shared geography? A voluntary contract among diverse peoples? India in 1945 contains all of these possibilities, and none of them commands universal agreement.</p>
 <p>The immediate political question is this: <strong>Will India be one nation, two, or many?</strong></p>
 <ul>
-<li>The <strong>Indian National Congress</strong> claims to speak for all Indians and demands a single, united, independent India with a strong central government.</li>
-<li>The <strong>Muslim League</strong> insists that India contains two nations, Hindu and Muslim, and demands the creation of <strong>Pakistan</strong>, a separate state for Muslims.</li>
-<li><strong>Gandhi</strong> envisions a unified India built on village self-governance, nonviolence, and traditional values, not Western-style parliamentary democracy.</li>
-<li>The <strong>Akali Dal</strong> (Sikhs) fear that either a Hindu-dominated India or a Muslim Pakistan will swallow their community, and they demand autonomy or independence in the Punjab.</li>
-<li>The <strong>Scheduled Caste Federation</strong> insists that India's 70 million Untouchables need guaranteed political power, not just promises of equality.</li>
-<li>The <strong>Hindu Mahasabha</strong> demands a strong Hindu nation, Hindustan, that centers Hindu civilization, values, and culture.</li>
-<li>The <strong>Communist Party of India</strong> sees the independence struggle as a mask for class exploitation and seeks revolutionary transformation.</li>
-<li>The <strong>Princely States</strong> (Hyderabad, Kashmir) claim legal independence from British India and resist absorption into any new nation.</li>
-<li>The <strong>British</strong> must decide what to do: transfer power, to whom, and how, while preventing the communal bloodbath that many fear is coming.</li>
+<li>The <strong data-def="Founded 1885, the main vehicle of Indian nationalism; initially reformist, later the party of Gandhi, Nehru, and mass agitation.">Indian National Congress</strong> claims to speak for all Indians and demands a single, united, independent India with a strong central government.</li>
+<li>The <strong data-def="Founded 1906 to protect Muslim political interests; under Jinnah, demanded the creation of Pakistan.">Muslim League</strong> insists that India contains two nations, Hindu and Muslim, and demands the creation of <strong data-def="Name coined by Choudhry Rahmat Ali for a proposed Muslim homeland, from Punjab, Afghania, Kashmir, Sindh, and Baluchistan.">Pakistan</strong>, a separate state for Muslims.</li>
+<li><strong data-def="Leader of the Indian independence movement (1868–1948) who developed satyagraha—non-violent civil disobedience—as a political strategy.">Gandhi</strong> envisions a unified India built on village self-governance, nonviolence, and traditional values, not Western-style parliamentary democracy.</li>
+<li>The <strong data-def="Sikh political party representing the Khalsa community, concentrated in Punjab.">Akali Dal</strong> (Sikhs) fear that either a Hindu-dominated India or a Muslim Pakistan will swallow their community, and they demand autonomy or independence in the Punjab.</li>
+<li>The <strong data-def="Political organization led by Ambedkar representing Dalits (Scheduled Castes) and demanding guaranteed political power.">Scheduled Caste Federation</strong> insists that India's 70 million Untouchables need guaranteed political power, not just promises of equality.</li>
+<li>The <strong data-def="Hindu nationalist organization that championed Hindu values and opposed Congress’s secularism.">Hindu Mahasabha</strong> demands a strong Hindu nation, Hindustan, that centers Hindu civilization, values, and culture.</li>
+<li>The <strong data-def="Indian communist organization aligned with the Soviet Union; supported the British war effort in WWII.">Communist Party of India</strong> sees the independence struggle as a mask for class exploitation and seeks revolutionary transformation.</li>
+<li>The <strong data-def="Some 600 hereditary kingdoms within British India whose rulers retained nominal sovereignty under British paramountcy.">Princely States</strong> (Hyderabad, Kashmir) claim legal independence from British India and resist absorption into any new nation.</li>
+<li>The <strong data-def="The colonial rulers of India from 1858 to 1947, governing through the viceroy and the Indian Civil Service.">British</strong> must decide what to do: transfer power, to whom, and how, while preventing the communal bloodbath that many fear is coming.</li>
 </ul>
 <h3>The Map That Matters</h3>
 <p>India in 1945 is not one place but many. Understanding the geography is essential to the scenario.</p>
-<p><strong>The Punjab</strong> (northwest) is the most dangerous flashpoint. It is home to Muslims, Hindus, and Sikhs in roughly equal measure. If India is partitioned, the Punjab will have to be divided, and no line can be drawn without leaving millions on the wrong side. The five rivers of the Punjab irrigate some of India's richest farmland, largely developed by Sikh labor. Lahore, the cultural capital, is claimed by all three communities.</p>
-<p><strong>Bengal</strong> (northeast) presents a mirror problem. Calcutta, India's largest city and commercial capital, is predominantly Hindu, but the surrounding countryside is largely Muslim. Any partition of India would also partition Bengal.</p>
-<p><strong>The Princely States</strong> cover roughly one-third of India's territory. Hyderabad, in the south, is a Muslim-ruled state with a predominantly Hindu population of 15 million. Kashmir, in the Himalayas, is a Hindu-ruled state with a predominantly Muslim population. Both rulers claim their British treaties guarantee their independence regardless of what happens at Simla.</p>
+<p><strong data-def="Northwestern region watered by five rivers; India’s breadbasket, home to Muslims, Hindus, and Sikhs.">The Punjab</strong> (northwest) is the most dangerous flashpoint. It is home to Muslims, Hindus, and Sikhs in roughly equal measure. If India is partitioned, the Punjab will have to be divided, and no line can be drawn without leaving millions on the wrong side. The five rivers of the Punjab irrigate some of India's richest farmland, largely developed by Sikh labor. Lahore, the cultural capital, is claimed by all three communities.</p>
+<p><strong data-def="Eastern region centered on the Ganges delta and Calcutta; the first part of India conquered by the British.">Bengal</strong> (northeast) presents a mirror problem. Calcutta, India's largest city and commercial capital, is predominantly Hindu, but the surrounding countryside is largely Muslim. Any partition of India would also partition Bengal.</p>
+<p><strong data-def="Some 600 hereditary kingdoms within British India whose rulers retained nominal sovereignty under British paramountcy.">The Princely States</strong> cover roughly one-third of India's territory. Hyderabad, in the south, is a Muslim-ruled state with a predominantly Hindu population of 15 million. Kashmir, in the Himalayas, is a Hindu-ruled state with a predominantly Muslim population. Both rulers claim their British treaties guarantee their independence regardless of what happens at Simla.</p>
 <p><strong>The Hindi-speaking heartland</strong> (United Provinces, Bihar, Central Provinces) is the power base of both Congress and the Hindu Mahasabha, overwhelmingly Hindu, with significant Muslim minorities.</p>
 <hr />
 <h2>Key Concepts for the Scenario</h2>
 <h3>What Is a Nation?</h3>
 <p>This is the question every faction at Simla must answer, and the answer each faction gives is itself a strategic act. Defining "nation" is not a neutral intellectual exercise. It is the most consequential rhetorical move any leader can make, because the definition determines who belongs, who rules, and who gets left out.</p>
 <ul>
-<li>If a nation is defined by <strong>religion</strong>, then India contains at least two nations, and Pakistan follows logically.</li>
+<li>If a nation is defined by <strong data-def="In the Indian context, not merely private belief but a public category tied to law, political representation, and communal identity.">religion</strong>, then India contains at least two nations, and Pakistan follows logically.</li>
 <li>If a nation is defined by <strong>shared civilizational heritage</strong>, then India is fundamentally Hindu, and minorities must assimilate or accept subordination.</li>
 <li>If a nation is defined by <strong>voluntary democratic association</strong>, then India can be one, but only if minorities trust the majority to protect their rights.</li>
 <li>If a nation is defined by <strong>the village and the land</strong>, then the entire framework of centralized government is wrong, and power should flow upward from local communities.</li>
@@ -248,12 +281,12 @@
 <p>Every faction's definition of nationhood serves its strategic interests.</p>
 <h3>Reserved Seats vs. Separate Electorates</h3>
 <p>This is the most important technical concept in the scenario.</p>
-<p><strong>Reserved seats</strong> mean that a certain number of legislative seats are set aside for a minority group (e.g., 15% of seats reserved for Untouchables if they are 15% of the population). However, <em>all voters</em> choose who fills those seats. Critics argue this allows the Hindu majority to elect "their" Untouchables, candidates who will not truly represent Untouchable interests.</p>
-<p><strong>Separate electorates</strong> go further: only members of the minority group can vote for their reserved representatives. Untouchables vote in a separate ballot box for Untouchable candidates; Muslims vote separately for Muslim candidates. Advocates say this is the only way to ensure genuine representation. Opponents, especially Gandhi, argue it permanently fractures Indian society and institutionalizes divisions that should be overcome.</p>
+<p><strong data-def="Seats in legislatures set aside for specific communal groups, ensuring minority representation.">Reserved seats</strong> mean that a certain number of legislative seats are set aside for a minority group (e.g., 15% of seats reserved for Untouchables if they are 15% of the population). However, <em>all voters</em> choose who fills those seats. Critics argue this allows the Hindu majority to elect "their" Untouchables, candidates who will not truly represent Untouchable interests.</p>
+<p><strong data-def="System where Muslims voted only for Muslim candidates; meant to protect minorities, but criticized for deepening communal divisions.">Separate electorates</strong> go further: only members of the minority group can vote for their reserved representatives. Untouchables vote in a separate ballot box for Untouchable candidates; Muslims vote separately for Muslim candidates. Advocates say this is the only way to ensure genuine representation. Opponents, especially Gandhi, argue it permanently fractures Indian society and institutionalizes divisions that should be overcome.</p>
 <p>This distinction is not merely technical. In 1932, Gandhi nearly starved himself to death in a hunger strike to prevent separate electorates for Untouchables. The question will resurface at Simla with explosive force.</p>
 <h3>Nonviolent Protest and Direct Action</h3>
-<p><strong>Satyagraha</strong> ("truth force") is Gandhi's strategy of nonviolent civil disobedience: strikes, boycotts, fasting, refusal to pay taxes or obey unjust laws. It has been the Congress movement's most powerful weapon against British rule.</p>
-<p><strong>Direct Action</strong> is something different. When the Muslim League, or any faction, calls for "direct action," it is a public call for their followers to rise up, often violently, against a specified target. The consequences are unpredictable and can be devastating.</p>
+<p><strong data-def="Gandhi’s philosophy of “truth force”: non-violent civil disobedience as a means of political struggle.">Satyagraha</strong> ("truth force") is Gandhi's strategy of nonviolent civil disobedience: strikes, boycotts, fasting, refusal to pay taxes or obey unjust laws. It has been the Congress movement's most powerful weapon against British rule.</p>
+<p><strong data-def="Muslim League’s strategy of mass demonstrations and strikes to pressure for Pakistan.">Direct Action</strong> is something different. When the Muslim League, or any faction, calls for "direct action," it is a public call for their followers to rise up, often violently, against a specified target. The consequences are unpredictable and can be devastating.</p>
 <p>Any faction may call for nonviolent protest or direct action at any point during the scenario by making a public announcement at the podium. The effectiveness depends on the faction's number of followers and whether other groups join or oppose the action. The Scenario Director, acting through the British administration, determines the outcome.</p>
 <h3>Provincial vs. Central Government Power</h3>
 <p>A recurring tension at Simla is between <strong>a strong central government</strong> (favored by Congress, which expects to dominate it) and <strong>provincial autonomy</strong> (favored by the Muslim League, which controls Muslim-majority provinces, and by the Princely States). The question of how much power rests in the center versus the provinces is inseparable from the question of partition.</p>
@@ -273,75 +306,75 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>ahimsa</strong></td>
+<td><strong data-def="The principle of non-violence, central to Hindu, Jain, and Buddhist ethics, and to Gandhi’s political philosophy.">ahimsa</strong></td>
 <td>Nonviolence; a core principle for Gandhi and his followers</td>
 </tr>
 <tr>
-<td><strong>Bandemataram</strong></td>
+<td><strong data-def="“Hail to the Motherland”—nationalist anthem from Bankim Chandra’s novel, sung at Congress sessions and adopted as a symbol of Hindu nationalism.">Vande Mataram</strong></td>
 <td>"Salutation to the Mother"; the anthem of Hindu nationalism, from Chatterji's novel <em>Anandamath</em></td>
 </tr>
 <tr>
-<td><strong>Brahman</strong></td>
+<td><strong data-def="The priestly caste, highest of the four varnas in the Hindu social hierarchy. Also spelled Brahmin.">Brahman</strong></td>
 <td>The highest priestly caste in the Hindu social hierarchy</td>
 </tr>
 <tr>
-<td><strong>dharma</strong></td>
+<td><strong data-def="One’s duty in Hindu belief, determined by birth, family, and station in life.">dharma</strong></td>
 <td>One's moral and religious duty, determined by birth and past actions</td>
 </tr>
 <tr>
-<td><strong>harijan</strong></td>
+<td><strong data-def="Gandhi’s term for Untouchables, meaning “children of God”—a label many Dalits rejected as patronizing.">harijan</strong></td>
 <td>"Children of God"; Gandhi's term for Untouchables (considered patronizing by many Untouchables)</td>
 </tr>
 <tr>
-<td><strong>Dalit</strong></td>
+<td><strong data-def="Self-chosen name for Untouchables—those below the four-varna hierarchy, historically excluded from temples, wells, and schools.">Dalit</strong></td>
 <td>"Down-trodden"; the term Untouchables use for themselves</td>
 </tr>
 <tr>
-<td><strong>hartal</strong></td>
+<td><strong data-def="A general strike or shutdown of businesses as a form of political protest.">hartal</strong></td>
 <td>A general strike, including the closing of shops, as political protest</td>
 </tr>
 <tr>
-<td><strong>hindutva</strong></td>
+<td><strong data-def="Ideology defining Indian national identity through Hindu civilization, articulated by Savarkar.">hindutva</strong></td>
 <td>Hindu essence or identity; the ideology of Hindu nationalism</td>
 </tr>
 <tr>
-<td><strong>khadi</strong></td>
+<td><strong data-def="Hand-spun cloth that became a symbol of the swadeshi movement and Indian self-reliance.">khadi</strong></td>
 <td>Handwoven cotton cloth; Gandhi's symbol of Indian self-sufficiency</td>
 </tr>
 <tr>
-<td><strong>Khalsa</strong></td>
+<td><strong data-def="The Sikh community of initiated members, bound by a code of discipline and martial tradition.">Khalsa</strong></td>
 <td>The Sikh religious brotherhood, founded by Guru Govind Singh</td>
 </tr>
 <tr>
-<td><strong>Mahatma</strong></td>
+<td><strong data-def="Honorific meaning “great soul,” given to Gandhi by his followers.">Mahatma</strong></td>
 <td>"Great soul"; the honorific applied to Gandhi</td>
 </tr>
 <tr>
-<td><strong>nizam</strong></td>
+<td><strong data-def="Title of the Muslim ruler of Hyderabad, the largest princely state.">nizam</strong></td>
 <td>A Muslim prince or ruler</td>
 </tr>
 <tr>
-<td><strong>Quaid-e-Azam</strong></td>
+<td><strong data-def="Honorific for Jinnah meaning “Great Leader,” used by Muslim League supporters.">Quaid-e-Azam</strong></td>
 <td>"Great Leader"; the title for Muhammad Ali Jinnah</td>
 </tr>
 <tr>
-<td><strong>satyagraha</strong></td>
+<td><strong data-def="Gandhi’s philosophy of “truth force”: non-violent civil disobedience as a means of political struggle.">satyagraha</strong></td>
 <td>"Truth force"; Gandhi's strategy of nonviolent civil disobedience</td>
 </tr>
 <tr>
-<td><strong>shariat</strong></td>
+<td><strong data-def="Islamic law derived from the Quran and the teachings of the Prophet Muhammad.">shariat</strong></td>
 <td>Islamic law, derived from the Quran and the traditions of the Prophet</td>
 </tr>
 <tr>
-<td><strong>swadeshi</strong></td>
+<td><strong data-def="Movement to boycott foreign goods and promote Indian-made products, especially hand-spun cloth.">swadeshi</strong></td>
 <td>"Of our own country"; the movement to buy Indian-made goods</td>
 </tr>
 <tr>
-<td><strong>swaraj</strong></td>
+<td><strong data-def="Self-rule; the central demand of the Indian independence movement.">swaraj</strong></td>
 <td>Self-rule; Indian independence</td>
 </tr>
 <tr>
-<td><strong>varna</strong></td>
+<td><strong data-def="The four broad caste ranks in Sanskrit tradition: Brahmins, Kshatriyas, Vaishyas, and Shudras.">varna</strong></td>
 <td>Caste; the hierarchical arrangement of social groups in Hinduism</td>
 </tr>
 </tbody>
@@ -359,7 +392,7 @@
 <p>However, Congress is not fully united. Jawaharlal Nehru favors a secular, modernizing, socialist-leaning state. Others within Congress lean toward Hindu cultural priorities. All agree on one thing: the British must leave.</p>
 <p><strong>Strategic situation:</strong> Congress commands the largest following but must hold together a coalition that ranges from socialists to Hindu traditionalists. Their biggest rhetorical challenge is convincing Muslims and Untouchables that Congress truly represents all Indians, not just caste Hindus.</p>
 <h3>Muslim League</h3>
-<p>The Muslim League, founded in 1906, contends that the overwhelming Hindu majority poses a permanent danger to India's 100 million Muslims. If the British withdraw and Congress gains power, the Hindu majority will dominate every democratic institution. The League points to the 1937 provincial elections, when Congress governments promoted Hindu symbols, sang the Bandemataram, and endorsed Hindu cultural policies, confirming Muslim fears.</p>
+<p>The Muslim League, founded in 1906, contends that the overwhelming Hindu majority poses a permanent danger to India's 100 million Muslims. If the British withdraw and Congress gains power, the Hindu majority will dominate every democratic institution. The League points to the 1937 provincial elections, when Congress governments promoted Hindu symbols, sang the Vande Mataram, and endorsed Hindu cultural policies, confirming Muslim fears.</p>
 <p>In 1940, at Lahore, Jinnah declared: "Islam and Hinduism are not religions in the strict sense of the word, but in fact are different and distinct social orders... To yoke together two such nations under a single state must lead to growing discontent and final destruction." The League demands the creation of <strong>Pakistan</strong>, a separate Muslim state carved from the Muslim-majority provinces of northwest India and Bengal.</p>
 <p>The League may not be unified on whether Pakistan should be secular or governed by Islamic law (shariat). This internal tension may surface at Simla.</p>
 <p><strong>Strategic situation:</strong> The League must persuade the British and wavering Muslims that partition is inevitable while preventing Congress from peeling away moderate Muslims. Their strongest argument is fear; their greatest vulnerability is that many Muslims, including some within Congress, reject the two-nation theory.</p>
@@ -369,10 +402,10 @@
 <p>The Gandhi faction consists of <strong>two distinct groups</strong> that share fundamental values but differ in emphasis:</p>
 <ul>
 <li>
-<p><strong>Ahimsa Pathiks</strong> (Proponents of Nonviolence) hold that nonviolence is the absolute, non-negotiable foundation of any future India. For them, the <em>process</em> of achieving independence matters as much as the outcome. They seek constitutional guarantees that India will renounce standing armies and offensive warfare. Independence achieved through violence is no victory at all.</p>
+<p><strong data-def="Gandhian faction committed to non-violence (ahimsa) as both political strategy and moral principle.">Ahimsa Pathiks</strong> (Proponents of Nonviolence) hold that nonviolence is the absolute, non-negotiable foundation of any future India. For them, the <em>process</em> of achieving independence matters as much as the outcome. They seek constitutional guarantees that India will renounce standing armies and offensive warfare. Independence achieved through violence is no victory at all.</p>
 </li>
 <li>
-<p><strong>Gram Swaraj Sangh</strong> (Proponents of Traditional India) prioritize the preservation of India's spiritual and cultural traditions rooted in village life. They adamantly oppose industrialization and modernization, seeing the traditional village-based economy, with its emphasis on handicrafts, self-sufficiency, and communal harmony, as the true heart of India. While they share the commitment to nonviolence, their primary concern is ensuring that the new India does not sacrifice its soul to Western-style development.</p>
+<p><strong data-def="Gandhian faction advocating village self-rule as the foundation of Indian democracy.">Gram Swaraj Sangh</strong> (Proponents of Traditional India) prioritize the preservation of India's spiritual and cultural traditions rooted in village life. They adamantly oppose industrialization and modernization, seeing the traditional village-based economy, with its emphasis on handicrafts, self-sufficiency, and communal harmony, as the true heart of India. While they share the commitment to nonviolence, their primary concern is ensuring that the new India does not sacrifice its soul to Western-style development.</p>
 </li>
 </ul>
 <p>Both groups agree that the British must leave immediately, that India must remain unified, that power should rest with local communities rather than a strong central government, and that separate electorates artificially divide the nation. But their differing priorities may lead to different strategic choices as the conference unfolds.</p>
@@ -396,8 +429,8 @@
 <p><strong>Strategic situation:</strong> The Communists must overcome the stigma of wartime collaboration with the British. Their potential allies are workers, peasants, and anyone disillusioned with both Congress and the League, but their revolutionary rhetoric alienates moderates. The question is whether to work within the conference or use it as a platform to call for revolution outside it.</p>
 <h3>Princely States</h3>
 <p>Two of India's most important princes attend the Simla conference, though historically, the princes were summoned to separate meetings.</p>
-<p>The <strong>Nizam of Hyderabad</strong>, perhaps the richest man in the world, is a Muslim ruler governing a predominantly Hindu state of 15 million people in southern India. He contributed warplanes to the British war effort and seeks to preserve Hyderabad as an independent or semi-autonomous state, fearing that Indian independence will allow Hindu-dominated Congress to seize his territory.</p>
-<p><strong>Maharaja Hari Singh</strong> of Kashmir is the mirror image: a Hindu ruler governing a predominantly Muslim state in the Himalayas. He too seeks to maintain his sovereignty, fearing that a Muslim-majority electorate would overthrow his dynasty.</p>
+<p>The <strong data-def="Muslim ruler of Hyderabad, the largest princely state, governing a mostly Hindu population.">Nizam of Hyderabad</strong>, perhaps the richest man in the world, is a Muslim ruler governing a predominantly Hindu state of 15 million people in southern India. He contributed warplanes to the British war effort and seeks to preserve Hyderabad as an independent or semi-autonomous state, fearing that Indian independence will allow Hindu-dominated Congress to seize his territory.</p>
+<p><strong data-def="Hindu ruler of the Muslim-majority princely state of Kashmir, whose allegiance was contested by India and Pakistan.">Maharaja Hari Singh</strong> of Kashmir is the mirror image: a Hindu ruler governing a predominantly Muslim state in the Himalayas. He too seeks to maintain his sovereignty, fearing that a Muslim-majority electorate would overthrow his dynasty.</p>
 <p>Both princes argue that their British treaties guarantee their independence and that they are not legally part of British India. What happens to them, and to the hundreds of smaller princely states they loosely represent, is one of the thorniest questions at Simla.</p>
 <p><strong>Strategic situation:</strong> The princes hold legal claims but face the tide of democratic nationalism. Their challenge is preserving their sovereignty in a world that increasingly sees monarchs as anachronisms. They can play Congress and the League against each other, but if India unifies under a strong central government, their independence ends.</p>
 <h3>Village Leaders</h3>
@@ -466,8 +499,8 @@
 <h4>Nonviolent Protest and Direct Action</h4>
 <p>Any faction, including the Muslim League, INC, Hindu Mahasabha, Sikhs, Communists, or Scheduled Caste Federation, may at any time call upon their followers to take action. Such calls must be made publicly, at the podium.</p>
 <ul>
-<li><strong>Nonviolent protest</strong> (satyagraha) includes strikes, boycotts, fasting, and civil disobedience.</li>
-<li><strong>Direct action</strong> is a public call for followers to rise up, often violently, against a specified target.</li>
+<li><strong data-def="Gandhi’s strategy of achieving political change through civil disobedience, strikes, and moral persuasion rather than force.">Nonviolent protest</strong> (satyagraha) includes strikes, boycotts, fasting, and civil disobedience.</li>
+<li><strong data-def="Muslim League’s strategy of mass demonstrations and strikes to pressure for Pakistan.">Direct action</strong> is a public call for followers to rise up, often violently, against a specified target.</li>
 </ul>
 <p>The effectiveness of any action depends on:
 - How many leaders within the faction support it
