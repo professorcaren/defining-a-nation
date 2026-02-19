@@ -556,6 +556,55 @@
      GAME LOOP
      ═══════════════════════════════════════════════════ */
 
+  function showRevealPrompt(ev) {
+    const eventArea = $('eventCompact');
+    // Show event title as tappable prompt
+    evTitle.textContent = ev.title;
+    evNarr.innerHTML = '';
+
+    // Add tap hint
+    const hint = document.createElement('div');
+    hint.className = 'tap-hint';
+    hint.textContent = 'tap to learn more';
+    eventArea.appendChild(hint);
+
+    // Make the event area clickable
+    eventArea.classList.add('event-prompt');
+
+    const revealHandler = () => {
+      eventArea.classList.remove('event-prompt');
+      hint.remove();
+      eventArea.removeEventListener('click', revealHandler);
+
+      // Reveal narration
+      evNarr.innerHTML = formatText(ev.narration);
+
+      // Learn more
+      if (ev.learnMore) {
+        learnMoreContent.innerHTML = formatText(ev.learnMore);
+        learnMoreToggle.classList.remove('hidden');
+        collapseLearnMore();
+      }
+
+      // Show actions with animation
+      renderActionCards(ev.actions, false);
+      actionArea.classList.add('revealing');
+      actionArea.addEventListener('animationend', () => {
+        actionArea.classList.remove('revealing');
+      }, { once: true });
+      gameActive = true;
+    };
+
+    eventArea.addEventListener('click', revealHandler);
+  }
+
+  function cleanupRevealPrompt() {
+    const eventArea = $('eventCompact');
+    eventArea.classList.remove('event-prompt');
+    const oldHint = eventArea.querySelector('.tap-hint');
+    if (oldHint) oldHint.remove();
+  }
+
   function showEvent() {
     if (!state || state.eventIndex >= TOTAL_EVENTS) return;
     const ev = EVENTS[state.eventIndex];
@@ -565,36 +614,24 @@
 
     // Clear stale content before telegraph
     actionCards.innerHTML = '';
+    actionArea.classList.add('hidden');
     evTitle.textContent = '';
     evNarr.innerHTML = '';
     learnMoreToggle.classList.add('hidden');
     collapseLearnMore();
+    cleanupRevealPrompt();
 
     // Telegraph first
     showTelegraph(ev.telegraph, () => {
-      // Event text
-      evTitle.textContent = ev.title;
-      evNarr.innerHTML = formatText(ev.narration);
-
-      // Learn more
-      if (ev.learnMore) {
-        learnMoreContent.innerHTML = formatText(ev.learnMore);
-        learnMoreToggle.classList.remove('hidden');
-        collapseLearnMore();
-      } else {
-        learnMoreToggle.classList.add('hidden');
-      }
-
-      // Apply strains with stagger
+      // Apply strains FIRST — the visual main event
       svgInd.innerHTML = '';
       applyStrains(ev.strains, () => {
         // Check defeat after strain
         const broken = checkDefeat();
         if (broken) { endGame('defeat', broken); return; }
 
-        // Render action cards
-        renderActionCards(ev.actions, false);
-        gameActive = true;
+        // Show reveal prompt (title only, tappable)
+        showRevealPrompt(ev);
       });
     });
   }
@@ -617,6 +654,7 @@
   function renderActionCards(actions, isTutorial) {
     actionCards.innerHTML = '';
     actionArea.classList.remove('hidden');
+    actionArea.classList.remove('revealing');
 
     actions.forEach(action => {
       const card = document.createElement('button');
@@ -826,8 +864,10 @@
     reflBox.classList.add('hidden');
     restartBtn.classList.add('hidden');
     actionArea.classList.remove('hidden');
+    actionArea.classList.remove('revealing');
     learnMoreToggle.classList.remove('hidden');
     collapseLearnMore();
+    cleanupRevealPrompt();
     state = null;
     gameActive = false;
     tutorialPhase = -1;
