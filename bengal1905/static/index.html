@@ -18,7 +18,7 @@
 </header>
 
 <main>
-  <!-- ═══ VIGNETTE ═══ -->
+  <!-- VIGNETTE -->
   <div class="panel vignette-panel" id="vignettePanel">
     <div class="vignette-header">
       <h2 id="vignetteTitle">Loading...</h2>
@@ -27,27 +27,21 @@
     <button id="vignetteNext" class="cta-button" type="button">Continue</button>
   </div>
 
-  <!-- ═══ GAME ═══ -->
+  <!-- GAME -->
   <div class="hidden" id="gameContainer">
-    <!-- Header: date + turn -->
     <div class="game-header">
-      <div class="game-date" id="gameDate">October 1905</div>
-      <div class="game-turn" id="gameTurn">Event 1 of 18</div>
+      <div class="game-date" id="gameDate"></div>
+      <div class="game-turn" id="gameTurn"></div>
     </div>
 
-    <!-- Network Diagram -->
     <div class="network-container">
-      <svg id="networkSvg" class="network-svg" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- Lines drawn by JS -->
-        <g id="networkLines"></g>
-        <!-- Nodes drawn by JS -->
-        <g id="networkNodes"></g>
-        <!-- Decay/strain indicators -->
-        <g id="networkIndicators"></g>
+      <svg id="networkSvg" class="network-svg" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="svgTies"></g>
+        <g id="svgNodes"></g>
+        <g id="svgIndicators"></g>
       </svg>
     </div>
 
-    <!-- Event Card -->
     <div class="event-card" id="eventCard">
       <div class="event-title" id="eventTitle"></div>
       <div class="event-date-label" id="eventDateLabel"></div>
@@ -57,31 +51,23 @@
         <p id="historicalContextText"></p>
       </div>
       <div class="strain-summary" id="strainSummary">
-        <div class="strain-summary-label">Strained This Turn</div>
+        <div class="strain-summary-label">Ties Strained This Turn</div>
         <div id="strainItems"></div>
       </div>
     </div>
 
-    <!-- Tend Buttons -->
     <div class="tend-actions" id="tendActions">
-      <div class="tend-label">Choose one faction to tend</div>
+      <div class="tend-label">Click a tie in the diagram — or choose below</div>
       <div class="tend-buttons" id="tendButtons"></div>
     </div>
 
-    <!-- Status / Outcome -->
     <div class="status-message" id="statusMessage"></div>
-
-    <!-- Score -->
     <div class="score-panel hidden" id="scorePanel">
       <div class="score-total" id="scoreTotal"></div>
-      <div class="score-label">Final Coalition Strength</div>
+      <div class="score-label">Final Web Strength</div>
       <div class="score-rank" id="scoreRank"></div>
     </div>
-
-    <!-- Reflection -->
     <div class="reflection-box hidden" id="reflectionBox"></div>
-
-    <!-- Restart -->
     <button class="secondary hidden" id="restartBtn" type="button">Start New Game</button>
   </div>
 </main>
@@ -91,569 +77,463 @@
 (function() {
   'use strict';
 
-  // ─── Content References ───
   const VIGNETTE = window.OPENING_VIGNETTE;
+  const NODE_DEFS = window.NODE_DEFINITIONS || [];
+  const TIE_DEFS = window.TIE_DEFINITIONS || [];
   const EVENTS = window.EVENT_CARDS || [];
   const DEFEATS = window.DEFEAT_NARRATIONS || {};
   const VICTORY = window.VICTORY_NARRATION || {};
   const GLOSSARY_ENTRIES = window.GLOSSARY || [];
-  const NODE_DEFS = window.NODE_DEFINITIONS || [];
 
-  // ─── Glossary Setup ───
+  // Glossary
   const GLOSSARY_SORTED = [...GLOSSARY_ENTRIES].sort((a, b) => b.term.length - a.term.length);
   const GLOSSARY_PATTERN = GLOSSARY_SORTED.length
     ? new RegExp(`\\b(${GLOSSARY_SORTED.map(e => e.term.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})\\b`, 'gi')
     : null;
 
-  function escapeHtml(raw) {
-    return (raw || '').replace(/[&<>"']/g, ch => {
-      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-      return map[ch] || ch;
-    });
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c] || c));
   }
-
-  function escapeAttr(raw) {
-    return escapeHtml(raw).replace(/`/g, '&#96;');
-  }
+  function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
 
   function applyGlossary(html) {
     if (!GLOSSARY_PATTERN) return html;
     return html.replace(GLOSSARY_PATTERN, match => {
-      const normalized = match.toLowerCase().replace(/\s+/g, ' ');
-      const entry = GLOSSARY_SORTED.find(e => e.term.toLowerCase() === normalized);
-      if (!entry) return match;
-      return `<span class="glossary-term" tabindex="0" data-description="${escapeAttr(entry.description)}">${match}</span>`;
+      const entry = GLOSSARY_SORTED.find(e => e.term.toLowerCase() === match.toLowerCase().replace(/\s+/g, ' '));
+      return entry ? `<span class="glossary-term" tabindex="0" data-description="${escapeAttr(entry.description)}">${match}</span>` : match;
     });
   }
 
   function formatText(text) {
     if (!text) return '';
-    const trimmed = text.trim();
-    const paragraphs = trimmed.split(/\n{2,}/);
-    const html = paragraphs.map(p => {
-      let escaped = escapeHtml(p)
+    return applyGlossary(text.trim().split(/\n{2,}/).map(p => {
+      let h = escapeHtml(p)
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(?!\*)([^*\n]+)\*/g, '<em>$1</em>')
         .replace(/\n/g, '<br/>');
-      return `<p>${escaped}</p>`;
-    }).join('');
-    return applyGlossary(html);
+      return `<p>${h}</p>`;
+    }).join(''));
   }
 
-  // ─── Node Positions (hexagonal layout) ───
-  const CX = 230, CY = 195, R = 140;
-  const NODE_POSITIONS = NODE_DEFS.map((def, i) => {
+  // Node positions (hexagonal)
+  const CX = 240, CY = 200, RAD = 145;
+  const nodePos = {};
+  NODE_DEFS.forEach((def, i) => {
     const angle = (Math.PI / 2) + (2 * Math.PI * i) / NODE_DEFS.length;
-    return {
-      ...def,
-      x: CX + R * Math.cos(angle),
-      y: CY - R * Math.sin(angle)
-    };
+    nodePos[def.id] = { x: CX + RAD * Math.cos(angle), y: CY - RAD * Math.sin(angle), ...def };
   });
 
-  // ─── Game State ───
-  const INITIAL_STRENGTH = 60;
-  const DECAY_MIN = 3;
-  const DECAY_MAX = 5;
-  const TEND_MIN = 12;
-  const TEND_MAX = 18;
+  // Tie midpoints
+  function tieMidpoint(tieId) {
+    const tie = TIE_DEFS.find(t => t.id === tieId);
+    if (!tie) return { x: CX, y: CY };
+    const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
+    return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+  }
+
+  // Adjacency: ties that share a node
+  function adjacentTies(tieId) {
+    const tie = TIE_DEFS.find(t => t.id === tieId);
+    if (!tie) return [];
+    return TIE_DEFS.filter(t => t.id !== tieId && (t.nodeA === tie.nodeA || t.nodeA === tie.nodeB || t.nodeB === tie.nodeA || t.nodeB === tie.nodeB)).map(t => t.id);
+  }
+
+  // Game constants
+  const INITIAL = 60;
+  const TEND_MIN = 15, TEND_MAX = 20;
+  const DECAY_MIN = 1, DECAY_MAX = 2;
+  const ADJ_BONUS = 1;
   const TOTAL_EVENTS = EVENTS.length;
 
   let state = null;
-  let currentVignetteIndex = 0;
+  let vigIdx = 0;
   let gameActive = false;
+  let hoveredTie = null;
 
   function newState() {
-    const relationships = {};
-    NODE_DEFS.forEach(def => { relationships[def.id] = INITIAL_STRENGTH; });
-    return {
-      relationships,
-      eventIndex: 0,
-      gameOver: false,
-      outcome: null
-    };
+    const ties = {};
+    TIE_DEFS.forEach(t => { ties[t.id] = INITIAL; });
+    return { ties, eventIndex: 0, gameOver: false, outcome: null };
   }
 
-  // ─── DOM References ───
-  const vignettePanel = document.getElementById('vignettePanel');
-  const vignetteTitle = document.getElementById('vignetteTitle');
-  const vignetteText = document.getElementById('vignetteText');
-  const vignetteNext = document.getElementById('vignetteNext');
+  // DOM
+  const $ = id => document.getElementById(id);
+  const vigPanel = $('vignettePanel'), vigTitle = $('vignetteTitle'), vigText = $('vignetteText'), vigNext = $('vignetteNext');
+  const gameCont = $('gameContainer'), gameDateEl = $('gameDate'), gameTurnEl = $('gameTurn');
+  const evTitle = $('eventTitle'), evDate = $('eventDateLabel'), evNarr = $('eventNarration');
+  const histCtx = $('historicalContextText'), strainItems = $('strainItems');
+  const tendBtns = $('tendButtons'), tendAct = $('tendActions');
+  const statusMsg = $('statusMessage'), scorePanel = $('scorePanel'), scoreTotal = $('scoreTotal'), scoreRank = $('scoreRank');
+  const reflBox = $('reflectionBox'), restartBtn = $('restartBtn');
+  const svgTies = $('svgTies'), svgNodes = $('svgNodes'), svgInd = $('svgIndicators');
 
-  const gameContainer = document.getElementById('gameContainer');
-  const gameDateEl = document.getElementById('gameDate');
-  const gameTurnEl = document.getElementById('gameTurn');
-  const eventTitle = document.getElementById('eventTitle');
-  const eventDateLabel = document.getElementById('eventDateLabel');
-  const eventNarration = document.getElementById('eventNarration');
-  const historicalContextText = document.getElementById('historicalContextText');
-  const strainItems = document.getElementById('strainItems');
-  const tendButtons = document.getElementById('tendButtons');
-  const statusMessage = document.getElementById('statusMessage');
-  const scorePanel = document.getElementById('scorePanel');
-  const scoreTotal = document.getElementById('scoreTotal');
-  const scoreRank = document.getElementById('scoreRank');
-  const reflectionBox = document.getElementById('reflectionBox');
-  const restartBtn = document.getElementById('restartBtn');
-  const tendActions = document.getElementById('tendActions');
-
-  const svgLines = document.getElementById('networkLines');
-  const svgNodes = document.getElementById('networkNodes');
-  const svgIndicators = document.getElementById('networkIndicators');
-
-  // ─── Vignette Flow ───
-  function showVignettePage(index) {
+  // Vignette
+  function showVig(idx) {
     if (!VIGNETTE || !VIGNETTE.pages) return;
-    currentVignetteIndex = Math.min(Math.max(index, 0), VIGNETTE.pages.length - 1);
-    const page = VIGNETTE.pages[currentVignetteIndex];
-    vignetteTitle.textContent = page.title || 'Briefing';
-    vignetteText.innerHTML = formatText(page.text || '');
-    const isLast = currentVignetteIndex === VIGNETTE.pages.length - 1;
-    vignetteNext.textContent = page.button || (isLast ? 'Begin Game' : 'Continue');
-    scrollToTop();
+    vigIdx = Math.min(Math.max(idx, 0), VIGNETTE.pages.length - 1);
+    const p = VIGNETTE.pages[vigIdx];
+    vigTitle.textContent = p.title || '';
+    vigText.innerHTML = formatText(p.text || '');
+    vigNext.textContent = p.button || (vigIdx === VIGNETTE.pages.length - 1 ? 'Begin Game' : 'Continue');
+    scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function advanceVignette() {
-    if (VIGNETTE && currentVignetteIndex < VIGNETTE.pages.length - 1) {
-      showVignettePage(currentVignetteIndex + 1);
-    } else {
-      beginGame();
-    }
-  }
+  vigNext.addEventListener('click', () => {
+    if (VIGNETTE && vigIdx < VIGNETTE.pages.length - 1) showVig(vigIdx + 1);
+    else beginGame();
+  });
 
-  vignetteNext.addEventListener('click', advanceVignette);
-
-  // ─── Game Start ───
+  // Begin game
   function beginGame() {
-    vignettePanel.classList.add('hidden');
-    gameContainer.classList.remove('hidden');
+    vigPanel.classList.add('hidden');
+    gameCont.classList.remove('hidden');
     state = newState();
     gameActive = true;
-    renderNetwork();
+    buildSvg();
     showEvent();
   }
 
-  // ─── Network Rendering ───
-  function renderNetwork() {
-    svgLines.innerHTML = '';
+  // Build SVG
+  function buildSvg() {
+    svgTies.innerHTML = '';
     svgNodes.innerHTML = '';
-    svgIndicators.innerHTML = '';
+    svgInd.innerHTML = '';
 
-    // Draw all connecting lines (complete graph)
-    for (let i = 0; i < NODE_POSITIONS.length; i++) {
-      for (let j = i + 1; j < NODE_POSITIONS.length; j++) {
-        const a = NODE_POSITIONS[i];
-        const b = NODE_POSITIONS[j];
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', a.x);
-        line.setAttribute('y1', a.y);
-        line.setAttribute('x2', b.x);
-        line.setAttribute('y2', b.y);
-        line.setAttribute('class', 'network-line');
-        line.setAttribute('data-nodes', `${a.id}-${b.id}`);
-        svgLines.appendChild(line);
-      }
-    }
+    // Draw ties
+    TIE_DEFS.forEach(tie => {
+      const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
+      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
 
-    // Draw nodes
-    NODE_POSITIONS.forEach(node => {
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('class', 'network-node-group');
-      g.setAttribute('data-node', node.id);
+      // Invisible hit area
+      const hit = svgEl('line', {
+        x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+        class: 'tie-hitarea', 'data-tie': tie.id
+      });
+      hit.addEventListener('click', () => onTieClick(tie.id));
+      hit.addEventListener('mouseenter', () => onTieHover(tie.id, true));
+      hit.addEventListener('mouseleave', () => onTieHover(tie.id, false));
+      svgTies.appendChild(hit);
 
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', node.x);
-      circle.setAttribute('cy', node.y);
-      circle.setAttribute('r', 28);
-      circle.setAttribute('fill', node.color);
-      circle.setAttribute('fill-opacity', '0.85');
-      circle.setAttribute('stroke', node.color);
-      circle.setAttribute('stroke-width', '2');
-      circle.setAttribute('class', 'network-node-circle');
-      g.appendChild(circle);
+      // Visible line
+      const line = svgEl('line', {
+        x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+        class: 'tie-line', 'data-tie': tie.id
+      });
+      svgTies.appendChild(line);
 
-      // Value text inside circle
-      const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      valText.setAttribute('x', node.x);
-      valText.setAttribute('y', node.y + 5);
-      valText.setAttribute('class', 'network-node-value');
-      valText.textContent = INITIAL_STRENGTH;
-      g.appendChild(valText);
+      // Value label at midpoint
+      const valLabel = svgEl('text', {
+        x: mid.x, y: mid.y + 4,
+        class: 'tie-value-label', 'data-tie': tie.id
+      });
+      valLabel.textContent = INITIAL;
+      svgTies.appendChild(valLabel);
 
-      // Label below circle
-      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', node.x);
-      label.setAttribute('y', node.y + 46);
-      label.setAttribute('class', 'network-node-label');
-      label.textContent = node.shortLabel;
-      g.appendChild(label);
-
-      svgNodes.appendChild(g);
+      // Hover label (tie name)
+      const hoverLabel = svgEl('text', {
+        x: mid.x, y: mid.y - 8,
+        class: 'tie-hover-label', 'data-tie': tie.id
+      });
+      hoverLabel.textContent = tie.label;
+      svgTies.appendChild(hoverLabel);
     });
 
-    updateNetworkVisuals();
+    // Draw nodes (non-interactive)
+    NODE_DEFS.forEach(def => {
+      const pos = nodePos[def.id];
+      const circle = svgEl('circle', {
+        cx: pos.x, cy: pos.y, r: 22,
+        fill: def.color, 'fill-opacity': '0.9',
+        stroke: def.color, 'stroke-width': '2',
+        class: 'network-node-circle'
+      });
+      svgNodes.appendChild(circle);
+
+      const label = svgEl('text', {
+        x: pos.x, y: pos.y + 4,
+        class: 'network-node-label'
+      });
+      label.textContent = def.shortLabel;
+      svgNodes.appendChild(label);
+    });
+
+    updateSvg();
   }
 
-  function updateNetworkVisuals() {
+  function svgEl(tag, attrs) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    return el;
+  }
+
+  function onTieHover(tieId, entering) {
+    hoveredTie = entering ? tieId : null;
+    svgTies.querySelectorAll(`.tie-hover-label`).forEach(el => {
+      el.classList.toggle('visible', el.getAttribute('data-tie') === hoveredTie);
+    });
+  }
+
+  function onTieClick(tieId) {
+    if (!gameActive || !state || state.gameOver) return;
+    tendTie(tieId);
+  }
+
+  // Update SVG visuals
+  function updateSvg() {
     if (!state) return;
 
-    // Update node circles and values
-    NODE_POSITIONS.forEach(node => {
-      const val = state.relationships[node.id];
-      const g = svgNodes.querySelector(`[data-node="${node.id}"]`);
-      if (!g) return;
+    TIE_DEFS.forEach(tie => {
+      const val = state.ties[tie.id];
+      const lines = svgTies.querySelectorAll(`.tie-line[data-tie="${tie.id}"]`);
+      const valLabels = svgTies.querySelectorAll(`.tie-value-label[data-tie="${tie.id}"]`);
 
-      const circle = g.querySelector('.network-node-circle');
-      const valText = g.querySelector('.network-node-value');
+      const width = 1 + (val / 100) * 5;
+      const opacity = 0.15 + (val / 100) * 0.7;
 
-      // Scale radius based on strength
-      const r = 18 + (val / 100) * 14;
-      circle.setAttribute('r', r);
+      lines.forEach(line => {
+        line.setAttribute('stroke-width', width);
+        line.setAttribute('stroke-opacity', opacity);
+        if (val < 20) {
+          line.classList.add('critical');
+        } else {
+          line.classList.remove('critical');
+        }
+      });
 
-      // Opacity based on strength
-      const opacity = 0.3 + (val / 100) * 0.6;
-      circle.setAttribute('fill-opacity', opacity);
-
-      valText.textContent = val;
-
-      // Crisis styling
-      g.classList.remove('node-crisis', 'node-imminent');
-      if (val <= 0) {
-        circle.setAttribute('fill-opacity', '0.15');
-        circle.setAttribute('stroke', '#666');
-      } else if (val < 15) {
-        g.classList.add('node-imminent');
-      } else if (val < 25) {
-        g.classList.add('node-crisis');
-      }
-    });
-
-    // Update lines
-    svgLines.querySelectorAll('.network-line').forEach(line => {
-      const [idA, idB] = line.getAttribute('data-nodes').split('-');
-      const valA = state.relationships[idA] || 0;
-      const valB = state.relationships[idB] || 0;
-      const avg = (valA + valB) / 2;
-
-      const width = 0.5 + (avg / 100) * 3.5;
-      const opacity = 0.1 + (avg / 100) * 0.5;
-
-      line.setAttribute('stroke-width', width);
-      line.setAttribute('stroke-opacity', opacity);
-
-      // Red pulsing for critical connections
-      if (avg < 25) {
-        line.classList.add('critical');
-      } else {
-        line.classList.remove('critical');
-      }
+      valLabels.forEach(el => {
+        el.textContent = val;
+        el.classList.toggle('critical-text', val < 20);
+      });
     });
   }
 
-  // ─── Show Event ───
+  // Show event
   function showEvent() {
     if (!state || state.eventIndex >= TOTAL_EVENTS) return;
+    const ev = EVENTS[state.eventIndex];
 
-    const event = EVENTS[state.eventIndex];
-
-    gameDateEl.textContent = event.date;
+    gameDateEl.textContent = ev.date;
     gameTurnEl.textContent = `Event ${state.eventIndex + 1} of ${TOTAL_EVENTS}`;
+    evTitle.textContent = ev.title;
+    evDate.textContent = ev.date;
+    evNarr.innerHTML = formatText(ev.narration);
+    histCtx.innerHTML = formatText(ev.historicalContext);
 
-    eventTitle.textContent = event.title;
-    eventDateLabel.textContent = event.date;
-    eventNarration.innerHTML = formatText(event.narration);
-    historicalContextText.innerHTML = formatText(event.historicalContext);
-
-    // Show strain summary
-    let strainHtml = '';
-    event.strains.forEach(s => {
-      const nodeDef = NODE_DEFS.find(n => n.id === s.node);
-      const name = nodeDef ? nodeDef.label : s.node;
-      strainHtml += `<div class="strain-item"><span class="strain-node">${escapeHtml(name)}</span> <span class="strain-amount">-${s.amount}</span>: ${escapeHtml(s.reason)}</div>`;
+    // Strain summary
+    let sHtml = '';
+    ev.strains.forEach(s => {
+      const tieDef = TIE_DEFS.find(t => t.id === s.tie);
+      const name = tieDef ? tieDef.label : s.tie;
+      sHtml += `<div class="strain-item"><span class="strain-tie-name">${escapeHtml(name)}</span> <span class="strain-amount">-${s.amount}</span>: ${escapeHtml(s.reason)}</div>`;
     });
-    strainItems.innerHTML = strainHtml;
+    strainItems.innerHTML = sHtml;
 
     // Apply strains
-    event.strains.forEach(s => {
-      state.relationships[s.node] = Math.max(0, state.relationships[s.node] - s.amount);
+    svgInd.innerHTML = '';
+    ev.strains.forEach(s => {
+      state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
+      showIndicator(s.tie, `-${s.amount}`, 'strain-ind');
     });
 
-    // Show strain indicators on the network
-    showStrainIndicators(event.strains);
+    updateSvg();
 
-    updateNetworkVisuals();
+    // Check defeat after strain
+    const broken = checkDefeat();
+    if (broken) { endGame('defeat', broken); return; }
 
-    // Check for defeat after strains
-    const defeatNode = checkDefeat();
-    if (defeatNode) {
-      endGame('defeat', defeatNode);
-      return;
-    }
+    // Render tend options
+    renderTendButtons();
+    tendAct.classList.remove('hidden');
 
-    // Render tend buttons
-    renderTendButtons(event);
-    tendActions.classList.remove('hidden');
-
-    scrollToTop();
+    scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function showStrainIndicators(strains) {
-    // Remove old indicators
-    svgIndicators.innerHTML = '';
-
-    strains.forEach(s => {
-      const node = NODE_POSITIONS.find(n => n.id === s.node);
-      if (!node) return;
-
-      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      text.setAttribute('x', node.x);
-      text.setAttribute('y', node.y - 38);
-      text.setAttribute('class', 'strain-indicator show');
-      text.textContent = `-${s.amount}`;
-      svgIndicators.appendChild(text);
+  function showIndicator(tieId, text, cls) {
+    const mid = tieMidpoint(tieId);
+    const offset = cls === 'decay-ind' ? 18 : cls === 'bonus-ind' ? -18 : cls === 'tend-ind' ? -22 : 0;
+    const el = svgEl('text', {
+      x: mid.x + (Math.random() * 16 - 8),
+      y: mid.y + offset,
+      class: `svg-indicator ${cls} show`
     });
+    el.textContent = text;
+    svgInd.appendChild(el);
   }
 
-  function showDecayIndicators(decayMap) {
-    Object.entries(decayMap).forEach(([nodeId, amount]) => {
-      const node = NODE_POSITIONS.find(n => n.id === nodeId);
-      if (!node) return;
-
-      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      text.setAttribute('x', node.x + 20);
-      text.setAttribute('y', node.y - 30);
-      text.setAttribute('class', 'decay-indicator show');
-      text.textContent = `-${amount}`;
-      svgIndicators.appendChild(text);
-    });
-  }
-
-  function showBonusIndicator(nodeId, amount) {
-    const node = NODE_POSITIONS.find(n => n.id === nodeId);
-    if (!node) return;
-
-    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    text.setAttribute('x', node.x - 20);
-    text.setAttribute('y', node.y - 30);
-    text.setAttribute('class', 'bonus-indicator show');
-    text.textContent = `+${amount}`;
-    svgIndicators.appendChild(text);
-  }
-
-  // ─── Tend Buttons ───
-  function renderTendButtons(event) {
-    tendButtons.innerHTML = '';
-
-    NODE_DEFS.forEach(def => {
-      const val = state.relationships[def.id];
+  // Tend buttons
+  function renderTendButtons() {
+    tendBtns.innerHTML = '';
+    TIE_DEFS.forEach(tie => {
+      const val = state.ties[tie.id];
+      const nA = nodePos[tie.nodeA], nB = nodePos[tie.nodeB];
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'tend-btn';
-      if (val < 25) btn.classList.add('crisis');
-      btn.style.borderLeftColor = def.color;
-
-      const bonusInfo = event.tendBonus && event.tendBonus[def.id]
-        ? ` (also +${event.tendBonus[def.id].amount} ${NODE_DEFS.find(n => n.id === event.tendBonus[def.id].target)?.shortLabel || ''})`
-        : '';
-
+      if (val < 20) btn.classList.add('crisis');
       btn.innerHTML = `
-        <span class="tend-dot" style="background:${def.color}"></span>
+        <span class="tend-dots">
+          <span class="tend-dot" style="background:${nA.color}"></span>
+          <span class="tend-dot" style="background:${nB.color}"></span>
+        </span>
         <span class="tend-info">
-          <span class="tend-name">${escapeHtml(def.label)}</span>
-          <span class="tend-value">Current: ${val}/100${bonusInfo}</span>
+          <span class="tend-name">${escapeHtml(tie.label)}</span>
+          <span class="tend-value">${escapeHtml(nA.shortLabel)} ↔ ${escapeHtml(nB.shortLabel)} · ${val}/100</span>
         </span>
       `;
-
-      btn.addEventListener('click', () => tendRelationship(def.id, event));
-      tendButtons.appendChild(btn);
+      btn.addEventListener('click', () => tendTie(tie.id));
+      // Highlight SVG on hover
+      btn.addEventListener('mouseenter', () => onTieHover(tie.id, true));
+      btn.addEventListener('mouseleave', () => onTieHover(tie.id, false));
+      tendBtns.appendChild(btn);
     });
   }
 
-  // ─── Tend Action ───
-  function tendRelationship(nodeId, event) {
+  // Tend a tie
+  function tendTie(tieId) {
     if (!gameActive || state.gameOver) return;
+    const ev = EVENTS[state.eventIndex];
 
     // Disable buttons
-    tendButtons.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    tendBtns.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    gameActive = false; // prevent double-click
 
-    // Clear previous indicators
-    svgIndicators.innerHTML = '';
+    svgInd.innerHTML = '';
 
     // Tend: gain points
-    const tendAmount = TEND_MIN + Math.floor(Math.random() * (TEND_MAX - TEND_MIN + 1));
-    state.relationships[nodeId] = Math.min(100, state.relationships[nodeId] + tendAmount);
+    const gain = TEND_MIN + Math.floor(Math.random() * (TEND_MAX - TEND_MIN + 1));
+    state.ties[tieId] = Math.min(100, state.ties[tieId] + gain);
+    showIndicator(tieId, `+${gain}`, 'tend-ind');
 
-    // Show tend glow
-    const tendGroup = svgNodes.querySelector(`[data-node="${nodeId}"]`);
-    if (tendGroup) {
-      tendGroup.classList.add('node-tended');
-      setTimeout(() => tendGroup.classList.remove('node-tended'), 900);
+    // Glow animation on the tended line
+    const tendedLine = svgTies.querySelector(`.tie-line[data-tie="${tieId}"]`);
+    if (tendedLine) {
+      tendedLine.classList.add('tie-tended');
+      setTimeout(() => tendedLine.classList.remove('tie-tended'), 900);
     }
 
-    // Apply bonus
-    if (event.tendBonus && event.tendBonus[nodeId]) {
-      const bonus = event.tendBonus[nodeId];
-      state.relationships[bonus.target] = Math.min(100, Math.max(0, state.relationships[bonus.target] + bonus.amount));
-      showBonusIndicator(bonus.target, bonus.amount);
-    }
+    // Adjacent bonus
+    const adj = adjacentTies(tieId);
+    const strainedSet = new Set(ev.strains.map(s => s.tie));
 
-    // Decay untended, unstrained nodes
-    const strainedNodes = new Set(event.strains.map(s => s.node));
-    const decayMap = {};
-
-    NODE_DEFS.forEach(def => {
-      if (def.id === nodeId) return; // tended
-      if (strainedNodes.has(def.id)) return; // already strained
-      const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
-      state.relationships[def.id] = Math.max(0, state.relationships[def.id] - decay);
-      decayMap[def.id] = decay;
+    adj.forEach(adjId => {
+      if (strainedSet.has(adjId)) return; // don't bonus strained ties
+      state.ties[adjId] = Math.min(100, state.ties[adjId] + ADJ_BONUS);
     });
 
-    showDecayIndicators(decayMap);
-    updateNetworkVisuals();
+    // Decay remaining ties
+    const involved = new Set([tieId, ...adj, ...ev.strains.map(s => s.tie)]);
+    TIE_DEFS.forEach(tie => {
+      if (involved.has(tie.id)) return;
+      const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
+      state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
+      showIndicator(tie.id, `-${decay}`, 'decay-ind');
+    });
+
+    updateSvg();
 
     // Check defeat
-    const defeatNode = checkDefeat();
-    if (defeatNode) {
-      endGame('defeat', defeatNode);
-      return;
-    }
+    const broken = checkDefeat();
+    if (broken) { endGame('defeat', broken); return; }
 
     // Advance
     state.eventIndex++;
+    if (state.eventIndex >= TOTAL_EVENTS) { endGame('victory', null); return; }
 
-    if (state.eventIndex >= TOTAL_EVENTS) {
-      endGame('victory', null);
-      return;
-    }
-
-    // Next event after a brief pause
     setTimeout(() => {
+      gameActive = true;
       showEvent();
     }, 1200);
   }
 
-  // ─── Win/Loss Detection ───
   function checkDefeat() {
-    for (const def of NODE_DEFS) {
-      if (state.relationships[def.id] <= 0) {
-        return def.id;
-      }
+    for (const tie of TIE_DEFS) {
+      if (state.ties[tie.id] <= 0) return tie.id;
     }
     return null;
   }
 
-  function endGame(outcome, brokenNode) {
+  function endGame(outcome, brokenTie) {
     state.gameOver = true;
     state.outcome = outcome;
     gameActive = false;
+    tendAct.classList.add('hidden');
 
-    tendActions.classList.add('hidden');
-
-    const totalScore = Object.values(state.relationships).reduce((a, b) => a + b, 0);
+    const total = Object.values(state.ties).reduce((a, b) => a + b, 0);
 
     if (outcome === 'victory') {
-      statusMessage.textContent = 'Victory — You held the coalition together.';
-      statusMessage.className = 'status-message status-victory';
-
-      // Show victory narration in event card
-      eventTitle.textContent = VICTORY.title || 'Victory';
-      eventDateLabel.textContent = 'December 1908';
-      eventNarration.innerHTML = formatText(VICTORY.narration || '');
-      document.getElementById('historicalContext').classList.add('hidden');
-      document.getElementById('strainSummary').classList.add('hidden');
-
+      statusMsg.textContent = 'Victory — The web holds.';
+      statusMsg.className = 'status-message status-victory';
+      evTitle.textContent = VICTORY.title || 'Victory';
+      evDate.textContent = 'December 1908';
+      evNarr.innerHTML = formatText(VICTORY.narration || '');
+      $('historicalContext').classList.add('hidden');
+      $('strainSummary').classList.add('hidden');
       gameDateEl.textContent = 'December 1908';
       gameTurnEl.textContent = 'Game Complete';
 
-      // Show score
       scorePanel.classList.remove('hidden');
-      scoreTotal.textContent = totalScore;
-      scoreRank.textContent = getRank(totalScore);
+      scoreTotal.textContent = total;
+      scoreRank.textContent = getRank(total);
 
-      // Show reflection
-      if (VICTORY.reflection && VICTORY.reflection.length) {
+      if (VICTORY.reflection) {
         const items = VICTORY.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-        reflectionBox.innerHTML = `
-          <div class="reflection-label">Reflection: The Price of Survival</div>
-          <p>Before you restart, consider these questions in light of the course readings:</p>
-          <ul>${items}</ul>
-        `;
-        reflectionBox.classList.remove('hidden');
+        reflBox.innerHTML = `<div class="reflection-label">Reflection: The Price of Survival</div><p>Consider these questions in light of the course readings:</p><ul>${items}</ul>`;
+        reflBox.classList.remove('hidden');
       }
     } else {
-      const defeat = DEFEATS[brokenNode] || {};
-      statusMessage.textContent = `Defeat — ${defeat.title || 'A faction has broken with you.'}`;
-      statusMessage.className = 'status-message status-defeat';
-
-      // Show defeat narration
-      eventTitle.textContent = defeat.title || 'Coalition Collapse';
-      eventDateLabel.textContent = EVENTS[state.eventIndex] ? EVENTS[state.eventIndex].date : '';
-      eventNarration.innerHTML = formatText(defeat.narration || '');
-      document.getElementById('historicalContext').classList.add('hidden');
-      document.getElementById('strainSummary').classList.add('hidden');
-
+      const defeat = DEFEATS[brokenTie] || {};
+      const tieDef = TIE_DEFS.find(t => t.id === brokenTie);
+      statusMsg.textContent = `Defeat — ${defeat.title || (tieDef ? tieDef.label + ' snapped' : 'A tie has broken.')}`;
+      statusMsg.className = 'status-message status-defeat';
+      evTitle.textContent = defeat.title || 'The Web Breaks';
+      evDate.textContent = EVENTS[state.eventIndex] ? EVENTS[state.eventIndex].date : '';
+      evNarr.innerHTML = formatText(defeat.narration || '');
+      $('historicalContext').classList.add('hidden');
+      $('strainSummary').classList.add('hidden');
       gameTurnEl.textContent = 'Game Over';
 
-      // Show score
       scorePanel.classList.remove('hidden');
-      scoreTotal.textContent = totalScore;
-      scoreRank.textContent = 'Coalition Broken';
+      scoreTotal.textContent = total;
+      scoreRank.textContent = 'Web Broken';
 
-      // Show reflection
-      if (defeat.reflection && defeat.reflection.length) {
-        const nodeDef = NODE_DEFS.find(n => n.id === brokenNode);
+      if (defeat.reflection) {
         const items = defeat.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-        reflectionBox.innerHTML = `
-          <div class="reflection-label">Reflection: ${escapeHtml(defeat.title || 'What Went Wrong')}</div>
-          <p>Consider these questions in light of the course readings:</p>
-          <ul>${items}</ul>
-        `;
-        reflectionBox.classList.remove('hidden');
+        reflBox.innerHTML = `<div class="reflection-label">Reflection: ${escapeHtml(defeat.title || 'What Broke')}</div><p>Consider these questions in light of the course readings:</p><ul>${items}</ul>`;
+        reflBox.classList.remove('hidden');
       }
     }
 
     restartBtn.classList.remove('hidden');
-    scrollToTop();
+    scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function getRank(score) {
-    if (score >= 300) return 'Master Coalition Builder';
-    if (score >= 250) return 'Skilled Diplomat';
-    if (score >= 200) return 'Embattled Leader';
+    if (score >= 750) return 'Master Web-Spinner';
+    if (score >= 600) return 'Skilled Diplomat';
+    if (score >= 450) return 'Embattled Negotiator';
     return 'Barely Survived';
   }
 
-  // ─── Restart ───
   restartBtn.addEventListener('click', () => {
-    gameContainer.classList.add('hidden');
-    vignettePanel.classList.remove('hidden');
-    currentVignetteIndex = 0;
-    showVignettePage(0);
-
-    // Reset UI
-    statusMessage.textContent = '';
-    statusMessage.className = 'status-message';
+    gameCont.classList.add('hidden');
+    vigPanel.classList.remove('hidden');
+    vigIdx = 0;
+    showVig(0);
+    statusMsg.textContent = '';
+    statusMsg.className = 'status-message';
     scorePanel.classList.add('hidden');
-    reflectionBox.innerHTML = '';
-    reflectionBox.classList.add('hidden');
+    reflBox.innerHTML = '';
+    reflBox.classList.add('hidden');
     restartBtn.classList.add('hidden');
-    document.getElementById('historicalContext').classList.remove('hidden');
-    document.getElementById('strainSummary').classList.remove('hidden');
-    tendActions.classList.remove('hidden');
-
+    $('historicalContext').classList.remove('hidden');
+    $('strainSummary').classList.remove('hidden');
+    tendAct.classList.remove('hidden');
     state = null;
     gameActive = false;
   });
 
-  // ─── Utility ───
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // ─── Init ───
-  showVignettePage(0);
-
+  // Init
+  showVig(0);
 })();
 </script>
 </body>
