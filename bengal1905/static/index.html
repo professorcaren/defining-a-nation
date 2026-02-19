@@ -45,6 +45,7 @@
       <div class="telegraph-overlay hidden" id="telegraphOverlay">
         <span id="telegraphText"></span>
       </div>
+      <div class="action-overlay" id="actionOverlay"></div>
     </div>
 
     <!-- Event text (compact) -->
@@ -180,6 +181,8 @@
   const scoreTotal = $('scoreTotal'), scoreRank = $('scoreRank');
   const reflBox = $('reflectionBox'), restartBtn = $('restartBtn');
   const svgTies = $('svgTies'), svgNodes = $('svgNodes'), svgInd = $('svgIndicators');
+  const actionOverlay = $('actionOverlay');
+  const networkSvg = $('networkSvg');
 
   /* ═══════════════════════════════════════════════════
      VIGNETTE
@@ -553,6 +556,103 @@
   }
 
   /* ═══════════════════════════════════════════════════
+     ACTION MARKERS (on network)
+     ═══════════════════════════════════════════════════ */
+
+  function svgToOverlayPercent(svgX, svgY) {
+    // Convert SVG viewBox coords (0-480, 0-420) to percentage of the SVG element
+    return { left: (svgX / 480) * 100, top: (svgY / 420) * 100 };
+  }
+
+  function clearActionMarkers() {
+    actionOverlay.innerHTML = '';
+  }
+
+  function renderActionMarkers(actions) {
+    clearActionMarkers();
+    let expandedMarker = null;
+
+    actions.forEach((action, idx) => {
+      const mid = tieMidpoint(action.primary.tie);
+      const pos = svgToOverlayPercent(mid.x, mid.y);
+
+      const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
+      const primaryName = tieDef ? tieDef.label : action.primary.tie;
+
+      let effectsHtml = `<span style="color:var(--emerald)">${escapeHtml(primaryName)} +${action.primary.amount}</span>`;
+      if (action.side) {
+        const sideDef = TIE_DEFS.find(t => t.id === action.side.tie);
+        const sideName = sideDef ? sideDef.label : action.side.tie;
+        const sign = action.side.amount > 0 ? '+' : '';
+        const color = action.side.amount < 0 ? 'var(--ruby)' : 'var(--emerald)';
+        effectsHtml += ` · <span style="color:${color}">${escapeHtml(sideName)} ${sign}${action.side.amount}</span>`;
+      }
+
+      const marker = document.createElement('div');
+      marker.className = 'tie-action-marker';
+      marker.style.left = pos.left + '%';
+      marker.style.top = pos.top + '%';
+      marker.style.animationDelay = (idx * 100) + 'ms';
+      marker.innerHTML = `
+        <span class="marker-label">${escapeHtml(action.label)}</span>
+        <span class="marker-desc">${escapeHtml(action.description)}</span>
+        <span class="marker-effects">${effectsHtml}</span>
+        <span class="marker-confirm">&#9654; Confirm</span>
+      `;
+
+      // Highlight the tie
+      const line = svgTies.querySelector(`.tie-line[data-tie="${action.primary.tie}"]`);
+
+      marker.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (marker.classList.contains('expanded')) {
+          // Second click: execute the action
+          clearActionMarkers();
+          clearHighlights();
+          executeAction(action, false);
+        } else {
+          // First click: expand to show details
+          // Collapse any other expanded marker
+          if (expandedMarker && expandedMarker !== marker) {
+            expandedMarker.classList.remove('expanded');
+            clearHighlights();
+          }
+          marker.classList.add('expanded');
+          expandedMarker = marker;
+          highlightTies(action);
+        }
+      });
+
+      marker.addEventListener('mouseenter', () => {
+        if (!marker.classList.contains('expanded')) {
+          if (line) line.classList.add('tie-highlight-primary');
+          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
+          if (hoverLabel) hoverLabel.classList.add('visible');
+        }
+      });
+
+      marker.addEventListener('mouseleave', () => {
+        if (!marker.classList.contains('expanded')) {
+          if (line) line.classList.remove('tie-highlight-primary');
+          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
+          if (hoverLabel) hoverLabel.classList.remove('visible');
+        }
+      });
+
+      actionOverlay.appendChild(marker);
+    });
+
+    // Click elsewhere on overlay to collapse expanded marker
+    actionOverlay.addEventListener('click', () => {
+      if (expandedMarker) {
+        expandedMarker.classList.remove('expanded');
+        expandedMarker = null;
+        clearHighlights();
+      }
+    }, { once: true });
+  }
+
+  /* ═══════════════════════════════════════════════════
      GAME LOOP
      ═══════════════════════════════════════════════════ */
 
@@ -586,12 +686,9 @@
         collapseLearnMore();
       }
 
-      // Show actions with animation
-      renderActionCards(ev.actions, false);
-      actionArea.classList.add('revealing');
-      actionArea.addEventListener('animationend', () => {
-        actionArea.classList.remove('revealing');
-      }, { once: true });
+      // Show action markers on the network (not cards at bottom)
+      actionArea.classList.add('hidden');
+      renderActionMarkers(ev.actions);
       gameActive = true;
     };
 
@@ -603,6 +700,7 @@
     eventArea.classList.remove('event-prompt');
     const oldHint = eventArea.querySelector('.tap-hint');
     if (oldHint) oldHint.remove();
+    clearActionMarkers();
   }
 
   function showEvent() {
@@ -615,6 +713,7 @@
     // Clear stale content before telegraph
     actionCards.innerHTML = '';
     actionArea.classList.add('hidden');
+    clearActionMarkers();
     evTitle.textContent = '';
     evNarr.innerHTML = '';
     learnMoreToggle.classList.add('hidden');
@@ -707,8 +806,9 @@
     if (!isTutorial && (!gameActive || state.gameOver)) return;
     gameActive = false;
 
-    // Disable all cards
+    // Disable all cards and clear markers
     actionCards.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    clearActionMarkers();
     clearHighlights();
 
     svgInd.innerHTML = '';
