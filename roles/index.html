@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Role</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 3em 2.5em;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.5em;
+            color: var(--gold);
+            margin: 0 0 0.3em;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: 2em;
+        }
+        label {
+            display: block;
+            text-align: left;
+            color: var(--ivory-dim);
+            font-size: 0.85em;
+            margin-bottom: 0.4em;
+            letter-spacing: 0.5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 1em;
+            font-family: 'Lato', sans-serif;
+            margin-bottom: 1.5em;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1em;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: var(--gold-light);
+        }
+        .error {
+            color: #e57373;
+            font-size: 0.85em;
+            margin-top: 1em;
+            display: none;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="../index.html">&larr; Home</a></div>
+<div class="card">
+    <h1>Find Your Role</h1>
+    <p class="subtitle">Defining India, 1945</p>
+    <form id="role-form" onsubmit="return handleSubmit(event)">
+        <label for="onyen">Enter your Onyen</label>
+        <input type="text" id="onyen" name="onyen" placeholder="e.g. ncaren" autocomplete="off" autofocus>
+        <button type="submit">View My Role</button>
+    </form>
+    <p class="error" id="error-msg">Onyen not found. Check your spelling and try again.</p>
+</div>
+<script>
+function handleSubmit(e) {
+    e.preventDefault();
+    var onyen = document.getElementById('onyen').value.trim().toLowerCase();
+    if (!onyen) return false;
+    // Navigate to the onyen subdirectory — if it doesn't exist, GitHub Pages returns 404
+    window.location.href = './' + encodeURIComponent(onyen) + '/';
+    return false;
+}
+</script>
+</body>
+</html>
