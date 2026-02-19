@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
   <title>Bengal 1905: The Web of Alliances</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
 
 <main>
   <!-- VIGNETTE -->
-  <div class="panel vignette-panel" id="vignettePanel">
+  <div class="vignette-panel" id="vignettePanel">
     <div class="vignette-header">
       <h2 id="vignetteTitle">Loading...</h2>
     </div>
@@ -29,38 +29,41 @@
 
   <!-- GAME -->
   <div class="hidden" id="gameContainer">
-    <div class="game-header">
-      <div class="game-date" id="gameDate"></div>
-      <div class="game-turn" id="gameTurn"></div>
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar">
+      <span class="game-date" id="gameDate"></span>
+      <div class="progress-dots" id="progressDots"></div>
     </div>
 
+    <!-- Network diagram -->
     <div class="network-container">
       <svg id="networkSvg" class="network-svg" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
         <g id="svgTies"></g>
         <g id="svgNodes"></g>
         <g id="svgIndicators"></g>
       </svg>
+      <div class="telegraph-overlay hidden" id="telegraphOverlay">
+        <span id="telegraphText"></span>
+      </div>
     </div>
 
-    <div class="event-card" id="eventCard">
+    <!-- Event text (compact) -->
+    <div class="event-compact" id="eventCompact">
       <div class="event-title" id="eventTitle"></div>
-      <div class="event-date-label" id="eventDateLabel"></div>
       <div class="event-narration" id="eventNarration"></div>
-      <div class="historical-context" id="historicalContext">
-        <div class="historical-context-label">Historical Context</div>
-        <p id="historicalContextText"></p>
-      </div>
-      <div class="strain-summary" id="strainSummary">
-        <div class="strain-summary-label">Ties Strained This Turn</div>
-        <div id="strainItems"></div>
-      </div>
+      <button class="learn-more-toggle hidden" id="learnMoreToggle" type="button">Learn more &#9656;</button>
+      <div class="learn-more-content" id="learnMoreContent"></div>
     </div>
 
-    <div class="tend-actions" id="tendActions">
-      <div class="tend-label">Click a tie in the diagram — or choose below</div>
-      <div class="tend-buttons" id="tendButtons"></div>
+    <!-- Action cards -->
+    <div class="action-area" id="actionArea">
+      <div class="action-cards" id="actionCards"></div>
     </div>
 
+    <!-- Tutorial hint -->
+    <div class="tutorial-hint hidden" id="tutorialHint"></div>
+
+    <!-- End game panels -->
     <div class="status-message" id="statusMessage"></div>
     <div class="score-panel hidden" id="scorePanel">
       <div class="score-total" id="scoreTotal"></div>
@@ -68,7 +71,7 @@
       <div class="score-rank" id="scoreRank"></div>
     </div>
     <div class="reflection-box hidden" id="reflectionBox"></div>
-    <button class="secondary hidden" id="restartBtn" type="button">Start New Game</button>
+    <button class="secondary hidden" id="restartBtn" type="button">Play Again</button>
   </div>
 </main>
 
@@ -77,15 +80,23 @@
 (function() {
   'use strict';
 
+  /* ═══════════════════════════════════════════════════
+     DATA
+     ═══════════════════════════════════════════════════ */
+
   const VIGNETTE = window.OPENING_VIGNETTE;
   const NODE_DEFS = window.NODE_DEFINITIONS || [];
   const TIE_DEFS = window.TIE_DEFINITIONS || [];
   const EVENTS = window.EVENT_CARDS || [];
+  const TUTORIAL = window.TUTORIAL_EVENT;
   const DEFEATS = window.DEFEAT_NARRATIONS || {};
   const VICTORY = window.VICTORY_NARRATION || {};
   const GLOSSARY_ENTRIES = window.GLOSSARY || [];
 
-  // Glossary
+  /* ═══════════════════════════════════════════════════
+     GLOSSARY
+     ═══════════════════════════════════════════════════ */
+
   const GLOSSARY_SORTED = [...GLOSSARY_ENTRIES].sort((a, b) => b.term.length - a.term.length);
   const GLOSSARY_PATTERN = GLOSSARY_SORTED.length
     ? new RegExp(`\\b(${GLOSSARY_SORTED.map(e => e.term.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})\\b`, 'gi')
@@ -115,7 +126,10 @@
     }).join(''));
   }
 
-  // Node positions (hexagonal)
+  /* ═══════════════════════════════════════════════════
+     GEOMETRY
+     ═══════════════════════════════════════════════════ */
+
   const CX = 240, CY = 200, RAD = 145;
   const nodePos = {};
   NODE_DEFS.forEach((def, i) => {
@@ -123,7 +137,6 @@
     nodePos[def.id] = { x: CX + RAD * Math.cos(angle), y: CY - RAD * Math.sin(angle), ...def };
   });
 
-  // Tie midpoints
   function tieMidpoint(tieId) {
     const tie = TIE_DEFS.find(t => t.id === tieId);
     if (!tie) return { x: CX, y: CY };
@@ -131,24 +144,18 @@
     return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
   }
 
-  // Adjacency: ties that share a node
-  function adjacentTies(tieId) {
-    const tie = TIE_DEFS.find(t => t.id === tieId);
-    if (!tie) return [];
-    return TIE_DEFS.filter(t => t.id !== tieId && (t.nodeA === tie.nodeA || t.nodeA === tie.nodeB || t.nodeB === tie.nodeA || t.nodeB === tie.nodeB)).map(t => t.id);
-  }
+  /* ═══════════════════════════════════════════════════
+     GAME CONSTANTS
+     ═══════════════════════════════════════════════════ */
 
-  // Game constants
   const INITIAL = 60;
-  const TEND_MIN = 15, TEND_MAX = 20;
   const DECAY_MIN = 1, DECAY_MAX = 2;
-  const ADJ_BONUS = 1;
   const TOTAL_EVENTS = EVENTS.length;
 
   let state = null;
   let vigIdx = 0;
   let gameActive = false;
-  let hoveredTie = null;
+  let tutorialPhase = -1; // -1 = not in tutorial
 
   function newState() {
     const ties = {};
@@ -156,44 +163,139 @@
     return { ties, eventIndex: 0, gameOver: false, outcome: null };
   }
 
-  // DOM
+  /* ═══════════════════════════════════════════════════
+     DOM REFS
+     ═══════════════════════════════════════════════════ */
+
   const $ = id => document.getElementById(id);
-  const vigPanel = $('vignettePanel'), vigTitle = $('vignetteTitle'), vigText = $('vignetteText'), vigNext = $('vignetteNext');
-  const gameCont = $('gameContainer'), gameDateEl = $('gameDate'), gameTurnEl = $('gameTurn');
-  const evTitle = $('eventTitle'), evDate = $('eventDateLabel'), evNarr = $('eventNarration');
-  const histCtx = $('historicalContextText'), strainItems = $('strainItems');
-  const tendBtns = $('tendButtons'), tendAct = $('tendActions');
-  const statusMsg = $('statusMessage'), scorePanel = $('scorePanel'), scoreTotal = $('scoreTotal'), scoreRank = $('scoreRank');
+  const vigPanel = $('vignettePanel'), vigTitle = $('vignetteTitle');
+  const vigText = $('vignetteText'), vigNext = $('vignetteNext');
+  const gameCont = $('gameContainer'), gameDateEl = $('gameDate');
+  const evTitle = $('eventTitle'), evNarr = $('eventNarration');
+  const learnMoreToggle = $('learnMoreToggle'), learnMoreContent = $('learnMoreContent');
+  const actionCards = $('actionCards'), actionArea = $('actionArea');
+  const telegraphOverlay = $('telegraphOverlay'), telegraphText = $('telegraphText');
+  const tutorialHint = $('tutorialHint');
+  const statusMsg = $('statusMessage'), scorePanel = $('scorePanel');
+  const scoreTotal = $('scoreTotal'), scoreRank = $('scoreRank');
   const reflBox = $('reflectionBox'), restartBtn = $('restartBtn');
   const svgTies = $('svgTies'), svgNodes = $('svgNodes'), svgInd = $('svgIndicators');
 
-  // Vignette
+  /* ═══════════════════════════════════════════════════
+     VIGNETTE
+     ═══════════════════════════════════════════════════ */
+
   function showVig(idx) {
     if (!VIGNETTE || !VIGNETTE.pages) return;
     vigIdx = Math.min(Math.max(idx, 0), VIGNETTE.pages.length - 1);
     const p = VIGNETTE.pages[vigIdx];
     vigTitle.textContent = p.title || '';
     vigText.innerHTML = formatText(p.text || '');
-    vigNext.textContent = p.button || (vigIdx === VIGNETTE.pages.length - 1 ? 'Begin Game' : 'Continue');
-    scrollTo({ top: 0, behavior: 'smooth' });
+    vigNext.textContent = p.button || 'Continue';
   }
 
   vigNext.addEventListener('click', () => {
-    if (VIGNETTE && vigIdx < VIGNETTE.pages.length - 1) showVig(vigIdx + 1);
-    else beginGame();
+    if (VIGNETTE && vigIdx < VIGNETTE.pages.length - 1) {
+      showVig(vigIdx + 1);
+    } else {
+      startTutorial();
+    }
   });
 
-  // Begin game
-  function beginGame() {
+  /* ═══════════════════════════════════════════════════
+     TUTORIAL
+     ═══════════════════════════════════════════════════ */
+
+  function startTutorial() {
     vigPanel.classList.add('hidden');
     gameCont.classList.remove('hidden');
     state = newState();
-    gameActive = true;
     buildSvg();
-    showEvent();
+    buildProgressDots();
+    tutorialPhase = 0;
+    showTutorialEvent();
   }
 
-  // Build SVG
+  function showTutorialEvent() {
+    const ev = TUTORIAL;
+    gameDateEl.textContent = ev.date;
+    updateProgressDots(-1); // no dot highlighted
+
+    // Show telegraph
+    showTelegraph(ev.telegraph, () => {
+      evTitle.textContent = ev.title;
+      evNarr.innerHTML = formatText(ev.narration);
+      learnMoreToggle.classList.add('hidden');
+
+      // Apply strain with hint
+      showHint('Watch: this event strains a tie in your web...');
+
+      setTimeout(() => {
+        ev.strains.forEach(s => {
+          state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
+          animateStrain(s.tie, s.amount);
+        });
+        updateSvg();
+
+        setTimeout(() => {
+          hideHint();
+          showHint('Now pick an action to respond. Each has a different trade-off.');
+          renderActionCards(ev.actions, true);
+          tutorialPhase = 1;
+        }, 1200);
+      }, 800);
+    });
+  }
+
+  function finishTutorialAction(action) {
+    tutorialPhase = 2;
+    hideHint();
+
+    const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
+    let msg = `You strengthened ${tieDef ? tieDef.label : 'a tie'}.`;
+    if (action.side) {
+      const sideTie = TIE_DEFS.find(t => t.id === action.side.tie);
+      msg += ` But it cost ${sideTie ? sideTie.label : 'another tie'}.`;
+    }
+    msg += ' Every choice has consequences.';
+
+    setTimeout(() => {
+      showHint(msg);
+      setTimeout(() => {
+        hideHint();
+        showHint("You've got it. Now the real crisis begins.");
+        setTimeout(() => {
+          hideHint();
+          tutorialPhase = -1;
+          // Reset state for the real game
+          state = newState();
+          updateSvg();
+          gameActive = true;
+          showEvent();
+        }, 1500);
+      }, 2500);
+    }, 600);
+  }
+
+  function showHint(text) {
+    tutorialHint.textContent = text;
+    tutorialHint.classList.remove('hidden');
+  }
+
+  function hideHint() {
+    tutorialHint.classList.add('hidden');
+  }
+
+  /* ═══════════════════════════════════════════════════
+     SVG — BUILD & UPDATE
+     ═══════════════════════════════════════════════════ */
+
+  function svgEl(tag, attrs) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    return el;
+  }
+
   function buildSvg() {
     svgTies.innerHTML = '';
     svgNodes.innerHTML = '';
@@ -203,16 +305,6 @@
     TIE_DEFS.forEach(tie => {
       const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
       const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
-
-      // Invisible hit area
-      const hit = svgEl('line', {
-        x1: a.x, y1: a.y, x2: b.x, y2: b.y,
-        class: 'tie-hitarea', 'data-tie': tie.id
-      });
-      hit.addEventListener('click', () => onTieClick(tie.id));
-      hit.addEventListener('mouseenter', () => onTieHover(tie.id, true));
-      hit.addEventListener('mouseleave', () => onTieHover(tie.id, false));
-      svgTies.appendChild(hit);
 
       // Visible line
       const line = svgEl('line', {
@@ -238,19 +330,28 @@
       svgTies.appendChild(hoverLabel);
     });
 
-    // Draw nodes (non-interactive)
+    // Draw nodes
     NODE_DEFS.forEach(def => {
       const pos = nodePos[def.id];
+
+      // Ambient glow
+      const glow = svgEl('circle', {
+        cx: pos.x, cy: pos.y, r: 28,
+        fill: def.color, 'fill-opacity': '0.08',
+        class: 'node-glow', 'data-node': def.id
+      });
+      svgNodes.appendChild(glow);
+
       const circle = svgEl('circle', {
-        cx: pos.x, cy: pos.y, r: 22,
+        cx: pos.x, cy: pos.y, r: 18,
         fill: def.color, 'fill-opacity': '0.9',
-        stroke: def.color, 'stroke-width': '2',
-        class: 'network-node-circle'
+        stroke: def.color, 'stroke-width': '1.5',
+        class: 'network-node-circle', 'data-node': def.id
       });
       svgNodes.appendChild(circle);
 
       const label = svgEl('text', {
-        x: pos.x, y: pos.y + 4,
+        x: pos.x, y: pos.y + 3,
         class: 'network-node-label'
       });
       label.textContent = def.shortLabel;
@@ -260,25 +361,6 @@
     updateSvg();
   }
 
-  function svgEl(tag, attrs) {
-    const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
-    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
-    return el;
-  }
-
-  function onTieHover(tieId, entering) {
-    hoveredTie = entering ? tieId : null;
-    svgTies.querySelectorAll(`.tie-hover-label`).forEach(el => {
-      el.classList.toggle('visible', el.getAttribute('data-tie') === hoveredTie);
-    });
-  }
-
-  function onTieClick(tieId) {
-    if (!gameActive || !state || state.gameOver) return;
-    tendTie(tieId);
-  }
-
-  // Update SVG visuals
   function updateSvg() {
     if (!state) return;
 
@@ -287,16 +369,22 @@
       const lines = svgTies.querySelectorAll(`.tie-line[data-tie="${tie.id}"]`);
       const valLabels = svgTies.querySelectorAll(`.tie-value-label[data-tie="${tie.id}"]`);
 
-      const width = 1 + (val / 100) * 5;
-      const opacity = 0.15 + (val / 100) * 0.7;
+      const width = 1 + (val / 100) * 4;
+      const opacity = 0.12 + (val / 100) * 0.7;
 
       lines.forEach(line => {
         line.setAttribute('stroke-width', width);
         line.setAttribute('stroke-opacity', opacity);
-        if (val < 20) {
+
+        // Remove all state classes first
+        line.classList.remove('critical', 'healthy');
+
+        if (val <= 0) {
+          line.setAttribute('stroke-opacity', '0');
+        } else if (val < 20) {
           line.classList.add('critical');
-        } else {
-          line.classList.remove('critical');
+        } else if (val > 70) {
+          line.classList.add('healthy');
         }
       });
 
@@ -307,143 +395,345 @@
     });
   }
 
-  // Show event
-  function showEvent() {
-    if (!state || state.eventIndex >= TOTAL_EVENTS) return;
-    const ev = EVENTS[state.eventIndex];
-
-    gameDateEl.textContent = ev.date;
-    gameTurnEl.textContent = `Event ${state.eventIndex + 1} of ${TOTAL_EVENTS}`;
-    evTitle.textContent = ev.title;
-    evDate.textContent = ev.date;
-    evNarr.innerHTML = formatText(ev.narration);
-    histCtx.innerHTML = formatText(ev.historicalContext);
-
-    // Strain summary
-    let sHtml = '';
-    ev.strains.forEach(s => {
-      const tieDef = TIE_DEFS.find(t => t.id === s.tie);
-      const name = tieDef ? tieDef.label : s.tie;
-      sHtml += `<div class="strain-item"><span class="strain-tie-name">${escapeHtml(name)}</span> <span class="strain-amount">-${s.amount}</span>: ${escapeHtml(s.reason)}</div>`;
-    });
-    strainItems.innerHTML = sHtml;
-
-    // Apply strains
-    svgInd.innerHTML = '';
-    ev.strains.forEach(s => {
-      state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
-      showIndicator(s.tie, `-${s.amount}`, 'strain-ind');
-    });
-
-    updateSvg();
-
-    // Check defeat after strain
-    const broken = checkDefeat();
-    if (broken) { endGame('defeat', broken); return; }
-
-    // Render tend options
-    renderTendButtons();
-    tendAct.classList.remove('hidden');
-
-    scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  /* ═══════════════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════════════ */
 
   function showIndicator(tieId, text, cls) {
     const mid = tieMidpoint(tieId);
-    const offset = cls === 'decay-ind' ? 18 : cls === 'bonus-ind' ? -18 : cls === 'tend-ind' ? -22 : 0;
+    const xOff = (Math.random() * 14 - 7);
+    const yOff = cls === 'tend-ind' ? -16 : cls === 'decay-ind' ? 14 : cls === 'side-cost-ind' ? -20 : 0;
     const el = svgEl('text', {
-      x: mid.x + (Math.random() * 16 - 8),
-      y: mid.y + offset,
+      x: mid.x + xOff,
+      y: mid.y + yOff,
       class: `svg-indicator ${cls} show`
     });
     el.textContent = text;
     svgInd.appendChild(el);
   }
 
-  // Tend buttons
-  function renderTendButtons() {
-    tendBtns.innerHTML = '';
-    TIE_DEFS.forEach(tie => {
-      const val = state.ties[tie.id];
-      const nA = nodePos[tie.nodeA], nB = nodePos[tie.nodeB];
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'tend-btn';
-      if (val < 20) btn.classList.add('crisis');
-      btn.innerHTML = `
-        <span class="tend-dots">
-          <span class="tend-dot" style="background:${nA.color}"></span>
-          <span class="tend-dot" style="background:${nB.color}"></span>
-        </span>
-        <span class="tend-info">
-          <span class="tend-name">${escapeHtml(tie.label)}</span>
-          <span class="tend-value">${escapeHtml(nA.shortLabel)} ↔ ${escapeHtml(nB.shortLabel)} · ${val}/100</span>
-        </span>
-      `;
-      btn.addEventListener('click', () => tendTie(tie.id));
-      // Highlight SVG on hover
-      btn.addEventListener('mouseenter', () => onTieHover(tie.id, true));
-      btn.addEventListener('mouseleave', () => onTieHover(tie.id, false));
-      tendBtns.appendChild(btn);
+  function animateStrain(tieId, amount) {
+    // Flash the line red
+    const line = svgTies.querySelector(`.tie-line[data-tie="${tieId}"]`);
+    if (line) {
+      line.classList.add('strain-flash');
+      setTimeout(() => line.classList.remove('strain-flash'), 500);
+    }
+
+    // Show floating indicator
+    showIndicator(tieId, `-${amount}`, 'strain-ind');
+
+    // Show hover label briefly
+    const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${tieId}"]`);
+    if (hoverLabel) {
+      hoverLabel.classList.add('visible');
+      setTimeout(() => hoverLabel.classList.remove('visible'), 1500);
+    }
+  }
+
+  function animateTend(tieId, amount) {
+    const line = svgTies.querySelector(`.tie-line[data-tie="${tieId}"]`);
+    if (line) {
+      line.classList.add('tie-tended');
+      setTimeout(() => line.classList.remove('tie-tended'), 900);
+    }
+
+    // Node bounce
+    const tie = TIE_DEFS.find(t => t.id === tieId);
+    if (tie) {
+      [tie.nodeA, tie.nodeB].forEach(nodeId => {
+        const circle = svgNodes.querySelector(`.network-node-circle[data-node="${nodeId}"]`);
+        if (circle) {
+          circle.classList.add('node-react');
+          setTimeout(() => circle.classList.remove('node-react'), 400);
+        }
+      });
+    }
+
+    showIndicator(tieId, `+${amount}`, 'tend-ind');
+
+    // Show hover label
+    const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${tieId}"]`);
+    if (hoverLabel) {
+      hoverLabel.classList.add('visible');
+      setTimeout(() => hoverLabel.classList.remove('visible'), 1200);
+    }
+  }
+
+  function animateSideCost(tieId, amount) {
+    if (amount < 0) {
+      animateStrain(tieId, Math.abs(amount));
+    } else {
+      showIndicator(tieId, `+${amount}`, 'bonus-ind');
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     TELEGRAPH
+     ═══════════════════════════════════════════════════ */
+
+  function showTelegraph(text, callback) {
+    if (!text) { callback(); return; }
+    telegraphText.textContent = text;
+    telegraphOverlay.classList.remove('hidden', 'fading');
+
+    setTimeout(() => {
+      telegraphOverlay.classList.add('fading');
+      setTimeout(() => {
+        telegraphOverlay.classList.add('hidden');
+        telegraphOverlay.classList.remove('fading');
+        callback();
+      }, 400);
+    }, 1400);
+  }
+
+  /* ═══════════════════════════════════════════════════
+     PROGRESS DOTS
+     ═══════════════════════════════════════════════════ */
+
+  function buildProgressDots() {
+    const container = $('progressDots');
+    container.innerHTML = '';
+    for (let i = 0; i < TOTAL_EVENTS; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'progress-dot';
+      container.appendChild(dot);
+    }
+  }
+
+  function updateProgressDots(currentIndex) {
+    const dots = document.querySelectorAll('.progress-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('completed', i < currentIndex);
+      dot.classList.toggle('current', i === currentIndex);
     });
   }
 
-  // Tend a tie
-  function tendTie(tieId) {
-    if (!gameActive || state.gameOver) return;
+  /* ═══════════════════════════════════════════════════
+     LEARN MORE
+     ═══════════════════════════════════════════════════ */
+
+  learnMoreToggle.addEventListener('click', () => {
+    const isOpen = learnMoreContent.classList.toggle('expanded');
+    learnMoreToggle.innerHTML = isOpen ? 'Less &#9662;' : 'Learn more &#9656;';
+  });
+
+  function collapseLearnMore() {
+    learnMoreContent.classList.remove('expanded');
+    learnMoreToggle.innerHTML = 'Learn more &#9656;';
+  }
+
+  /* ═══════════════════════════════════════════════════
+     HIGHLIGHT SYSTEM
+     ═══════════════════════════════════════════════════ */
+
+  function highlightTies(action) {
+    const primaryLine = svgTies.querySelector(`.tie-line[data-tie="${action.primary.tie}"]`);
+    if (primaryLine) primaryLine.classList.add('tie-highlight-primary');
+
+    const primaryLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
+    if (primaryLabel) primaryLabel.classList.add('visible');
+
+    if (action.side) {
+      const sideLine = svgTies.querySelector(`.tie-line[data-tie="${action.side.tie}"]`);
+      if (sideLine) sideLine.classList.add(action.side.amount < 0 ? 'tie-highlight-cost' : 'tie-highlight-bonus');
+
+      const sideLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.side.tie}"]`);
+      if (sideLabel) sideLabel.classList.add('visible');
+    }
+  }
+
+  function clearHighlights() {
+    svgTies.querySelectorAll('.tie-line').forEach(el => {
+      el.classList.remove('tie-highlight-primary', 'tie-highlight-cost', 'tie-highlight-bonus');
+    });
+    svgTies.querySelectorAll('.tie-hover-label').forEach(el => {
+      el.classList.remove('visible');
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════
+     GAME LOOP
+     ═══════════════════════════════════════════════════ */
+
+  function showEvent() {
+    if (!state || state.eventIndex >= TOTAL_EVENTS) return;
     const ev = EVENTS[state.eventIndex];
 
-    // Disable buttons
-    tendBtns.querySelectorAll('button').forEach(b => { b.disabled = true; });
-    gameActive = false; // prevent double-click
+    updateProgressDots(state.eventIndex);
+    gameDateEl.textContent = ev.date;
+
+    // Clear stale content before telegraph
+    actionCards.innerHTML = '';
+    evTitle.textContent = '';
+    evNarr.innerHTML = '';
+    learnMoreToggle.classList.add('hidden');
+    collapseLearnMore();
+
+    // Telegraph first
+    showTelegraph(ev.telegraph, () => {
+      // Event text
+      evTitle.textContent = ev.title;
+      evNarr.innerHTML = formatText(ev.narration);
+
+      // Learn more
+      if (ev.learnMore) {
+        learnMoreContent.innerHTML = formatText(ev.learnMore);
+        learnMoreToggle.classList.remove('hidden');
+        collapseLearnMore();
+      } else {
+        learnMoreToggle.classList.add('hidden');
+      }
+
+      // Apply strains with stagger
+      svgInd.innerHTML = '';
+      applyStrains(ev.strains, () => {
+        // Check defeat after strain
+        const broken = checkDefeat();
+        if (broken) { endGame('defeat', broken); return; }
+
+        // Render action cards
+        renderActionCards(ev.actions, false);
+        gameActive = true;
+      });
+    });
+  }
+
+  function applyStrains(strains, callback) {
+    strains.forEach((s, i) => {
+      setTimeout(() => {
+        state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
+        animateStrain(s.tie, s.amount);
+        updateSvg();
+      }, i * 450);
+    });
+    setTimeout(callback, strains.length * 450 + 350);
+  }
+
+  /* ═══════════════════════════════════════════════════
+     ACTION CARDS
+     ═══════════════════════════════════════════════════ */
+
+  function renderActionCards(actions, isTutorial) {
+    actionCards.innerHTML = '';
+    actionArea.classList.remove('hidden');
+
+    actions.forEach(action => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'action-card';
+
+      const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
+      const primaryName = tieDef ? tieDef.label : action.primary.tie;
+
+      let sideHtml = '';
+      if (action.side) {
+        const sideTieDef = TIE_DEFS.find(t => t.id === action.side.tie);
+        const sideName = sideTieDef ? sideTieDef.label : action.side.tie;
+        const sign = action.side.amount > 0 ? '+' : '';
+        const cls = action.side.amount < 0 ? 'action-side' : 'action-side bonus';
+        sideHtml = `<span class="${cls}">${sideName} ${sign}${action.side.amount}</span>`;
+      }
+
+      card.innerHTML = `
+        <span class="action-label">${escapeHtml(action.label)}</span>
+        <span class="action-desc">${escapeHtml(action.description)}</span>
+        <span class="action-effects">
+          <span class="action-primary">${escapeHtml(primaryName)} +${action.primary.amount}</span>
+          ${sideHtml}
+        </span>
+      `;
+
+      // Hover: highlight affected ties
+      card.addEventListener('mouseenter', () => highlightTies(action));
+      card.addEventListener('mouseleave', () => clearHighlights());
+
+      // Touch: highlight on touchstart, clear on touchend
+      card.addEventListener('touchstart', () => highlightTies(action), { passive: true });
+      card.addEventListener('touchend', () => clearHighlights(), { passive: true });
+
+      // Click: execute
+      card.addEventListener('click', () => {
+        if (isTutorial) {
+          executeAction(action, true);
+        } else {
+          executeAction(action, false);
+        }
+      });
+
+      actionCards.appendChild(card);
+    });
+  }
+
+  function executeAction(action, isTutorial) {
+    if (!isTutorial && (!gameActive || state.gameOver)) return;
+    gameActive = false;
+
+    // Disable all cards
+    actionCards.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    clearHighlights();
 
     svgInd.innerHTML = '';
 
-    // Tend: gain points
-    const gain = TEND_MIN + Math.floor(Math.random() * (TEND_MAX - TEND_MIN + 1));
-    state.ties[tieId] = Math.min(100, state.ties[tieId] + gain);
-    showIndicator(tieId, `+${gain}`, 'tend-ind');
+    // Apply primary effect
+    state.ties[action.primary.tie] = Math.min(100, state.ties[action.primary.tie] + action.primary.amount);
+    animateTend(action.primary.tie, action.primary.amount);
 
-    // Glow animation on the tended line
-    const tendedLine = svgTies.querySelector(`.tie-line[data-tie="${tieId}"]`);
-    if (tendedLine) {
-      tendedLine.classList.add('tie-tended');
-      setTimeout(() => tendedLine.classList.remove('tie-tended'), 900);
+    // Apply side effect
+    if (action.side) {
+      setTimeout(() => {
+        const amt = action.side.amount;
+        state.ties[action.side.tie] = Math.max(0, Math.min(100, state.ties[action.side.tie] + amt));
+        animateSideCost(action.side.tie, amt);
+        updateSvg();
+      }, 300);
     }
 
-    // Adjacent bonus
-    const adj = adjacentTies(tieId);
-    const strainedSet = new Set(ev.strains.map(s => s.tie));
+    // Passive decay on untouched ties (skip during tutorial)
+    if (!isTutorial) {
+      const touched = new Set([action.primary.tie]);
+      if (action.side) touched.add(action.side.tie);
+      const currentEv = EVENTS[state.eventIndex];
+      if (currentEv) currentEv.strains.forEach(s => touched.add(s.tie));
 
-    adj.forEach(adjId => {
-      if (strainedSet.has(adjId)) return; // don't bonus strained ties
-      state.ties[adjId] = Math.min(100, state.ties[adjId] + ADJ_BONUS);
-    });
-
-    // Decay remaining ties
-    const involved = new Set([tieId, ...adj, ...ev.strains.map(s => s.tie)]);
-    TIE_DEFS.forEach(tie => {
-      if (involved.has(tie.id)) return;
-      const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
-      state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
-      showIndicator(tie.id, `-${decay}`, 'decay-ind');
-    });
+      TIE_DEFS.forEach(tie => {
+        if (touched.has(tie.id)) return;
+        const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
+        state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
+      });
+    }
 
     updateSvg();
 
+    // Tutorial path
+    if (isTutorial) {
+      finishTutorialAction(action);
+      return;
+    }
+
     // Check defeat
     const broken = checkDefeat();
-    if (broken) { endGame('defeat', broken); return; }
+    if (broken) {
+      setTimeout(() => endGame('defeat', broken), 600);
+      return;
+    }
 
     // Advance
     state.eventIndex++;
-    if (state.eventIndex >= TOTAL_EVENTS) { endGame('victory', null); return; }
+    if (state.eventIndex >= TOTAL_EVENTS) {
+      setTimeout(() => endGame('victory', null), 600);
+      return;
+    }
 
     setTimeout(() => {
       gameActive = true;
       showEvent();
-    }, 1200);
+    }, 1100);
   }
+
+  /* ═══════════════════════════════════════════════════
+     WIN / LOSS
+     ═══════════════════════════════════════════════════ */
 
   function checkDefeat() {
     for (const tie of TIE_DEFS) {
@@ -456,55 +746,60 @@
     state.gameOver = true;
     state.outcome = outcome;
     gameActive = false;
-    tendAct.classList.add('hidden');
+
+    actionArea.classList.add('hidden');
+    gameCont.classList.add('game-over');
 
     const total = Object.values(state.ties).reduce((a, b) => a + b, 0);
 
     if (outcome === 'victory') {
-      statusMsg.textContent = 'Victory — The web holds.';
+      statusMsg.textContent = 'Victory \u2014 The web holds.';
       statusMsg.className = 'status-message status-victory';
       evTitle.textContent = VICTORY.title || 'Victory';
-      evDate.textContent = 'December 1908';
       evNarr.innerHTML = formatText(VICTORY.narration || '');
-      $('historicalContext').classList.add('hidden');
-      $('strainSummary').classList.add('hidden');
+      learnMoreToggle.classList.add('hidden');
       gameDateEl.textContent = 'December 1908';
-      gameTurnEl.textContent = 'Game Complete';
 
       scorePanel.classList.remove('hidden');
-      scoreTotal.textContent = total;
-      scoreRank.textContent = getRank(total);
+      animateScore(total, scoreTotal);
+      setTimeout(() => { scoreRank.textContent = getRank(total); }, 1200);
 
       if (VICTORY.reflection) {
         const items = VICTORY.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-        reflBox.innerHTML = `<div class="reflection-label">Reflection: The Price of Survival</div><p>Consider these questions in light of the course readings:</p><ul>${items}</ul>`;
+        reflBox.innerHTML = `<div class="reflection-label">Reflection: The Price of Survival</div><p>Consider these questions:</p><ul>${items}</ul>`;
         reflBox.classList.remove('hidden');
       }
     } else {
       const defeat = DEFEATS[brokenTie] || {};
       const tieDef = TIE_DEFS.find(t => t.id === brokenTie);
-      statusMsg.textContent = `Defeat — ${defeat.title || (tieDef ? tieDef.label + ' snapped' : 'A tie has broken.')}`;
+      statusMsg.textContent = `Defeat \u2014 ${defeat.title || (tieDef ? tieDef.label + ' snapped' : 'A tie has broken.')}`;
       statusMsg.className = 'status-message status-defeat';
       evTitle.textContent = defeat.title || 'The Web Breaks';
-      evDate.textContent = EVENTS[state.eventIndex] ? EVENTS[state.eventIndex].date : '';
       evNarr.innerHTML = formatText(defeat.narration || '');
-      $('historicalContext').classList.add('hidden');
-      $('strainSummary').classList.add('hidden');
-      gameTurnEl.textContent = 'Game Over';
+      learnMoreToggle.classList.add('hidden');
 
       scorePanel.classList.remove('hidden');
-      scoreTotal.textContent = total;
-      scoreRank.textContent = 'Web Broken';
+      animateScore(total, scoreTotal);
+      setTimeout(() => { scoreRank.textContent = 'Web Broken'; }, 1200);
 
       if (defeat.reflection) {
         const items = defeat.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-        reflBox.innerHTML = `<div class="reflection-label">Reflection: ${escapeHtml(defeat.title || 'What Broke')}</div><p>Consider these questions in light of the course readings:</p><ul>${items}</ul>`;
+        reflBox.innerHTML = `<div class="reflection-label">Reflection: ${escapeHtml(defeat.title || 'What Broke')}</div><p>Consider these questions:</p><ul>${items}</ul>`;
         reflBox.classList.remove('hidden');
       }
     }
 
     restartBtn.classList.remove('hidden');
-    scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function animateScore(total, el) {
+    let current = 0;
+    const step = Math.max(1, Math.ceil(total / 40));
+    const interval = setInterval(() => {
+      current = Math.min(current + step, total);
+      el.textContent = current;
+      if (current >= total) clearInterval(interval);
+    }, 30);
   }
 
   function getRank(score) {
@@ -514,8 +809,13 @@
     return 'Barely Survived';
   }
 
+  /* ═══════════════════════════════════════════════════
+     RESTART
+     ═══════════════════════════════════════════════════ */
+
   restartBtn.addEventListener('click', () => {
     gameCont.classList.add('hidden');
+    gameCont.classList.remove('game-over');
     vigPanel.classList.remove('hidden');
     vigIdx = 0;
     showVig(0);
@@ -525,15 +825,20 @@
     reflBox.innerHTML = '';
     reflBox.classList.add('hidden');
     restartBtn.classList.add('hidden');
-    $('historicalContext').classList.remove('hidden');
-    $('strainSummary').classList.remove('hidden');
-    tendAct.classList.remove('hidden');
+    actionArea.classList.remove('hidden');
+    learnMoreToggle.classList.remove('hidden');
+    collapseLearnMore();
     state = null;
     gameActive = false;
+    tutorialPhase = -1;
   });
 
-  // Init
+  /* ═══════════════════════════════════════════════════
+     INIT
+     ═══════════════════════════════════════════════════ */
+
   showVig(0);
+
 })();
 </script>
 </body>

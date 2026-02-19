@@ -3,28 +3,13 @@
     pages: [
       {
         title: "Calcutta, July 1905",
-        text: "You are **Surendranath Banerjee**, and the rumor has finally hardened into fact.\n\nThe telegram from your contacts in the Viceroy's office arrived this morning, hand-delivered by a student courier who bicycled through the monsoon rain: Lord Curzon will partition Bengal. The announcement comes in October. Seventy-eight million people split along a line drawn in a London office.\n\nYou set the telegram on your desk beside this morning's edition of *The Bengalee* — your newspaper, your voice — and stare at the rain streaking the window of your College Square office.\n\nYou have spent thirty years building a political career on constitutional methods. Petitions. Deputations. Reasoned argument in the language the British understand. You were the second Indian to pass the Indian Civil Service examination — and the first to be dismissed from it, for the crime of being too capable.\n\nThat dismissal taught you something: the system will bend, but only if you push from inside.",
+        text: "You are **Surendranath Banerjee**, and the rumor has hardened into fact.\n\nLord Curzon will partition Bengal. Seventy-eight million people split along a line drawn in a London office — Muslim east, Hindu west — to break the largest, most politically dangerous province in the Empire.\n\nYou have spent thirty years building a career on petitions, deputations, and reasoned argument. You were the second Indian to pass the Civil Service exam and the first dismissed from it.\n\nNow every alliance you have built is about to be tested. The moderates want strategy. The radicals want fire. The merchants want stability. The students want revolution. The Muslim leaders want guarantees. And the British want silence.\n\nYou have until December 1908. Hold them all together — or watch your world come apart.",
         button: "Continue"
       },
       {
         title: "The Web",
-        text: "The problem is not the Partition itself. The problem is what it will do to the **relationships** that hold your world together.\n\nYour coalition is not a list of allies. It is a **web of ties** — fragile threads connecting groups that often despise each other. The moderates and the radicals. The students and the merchants. The Muslims and the Hindus. The nationalists and the British.\n\nEach tie is a relationship built on years of negotiation, shared interest, or grudging tolerance. And each tie is about to be tested.\n\n**Congress Moderates** and **Radical Nationalists** — united only by opposition to the Partition. The radicals think your petitions are a waste of ink. You think their bombs are a waste of lives. But as long as you share a platform, the British must take the movement seriously.\n\n**Students** and **Merchants** — the foot soldiers and the funders. Students want revolution; merchants want stability. But merchants' sons fill the colleges, and students buy swadeshi cloth. The tie holds — for now.\n\n**Muslim Leaders** and everyone else — the Partition offers Muslims a province of their own. Can you keep them in the coalition when the British are offering them something better?",
-        button: "Continue"
-      },
-      {
-        title: "The Fifteen Threads",
-        text: "You count the relationships in your head. Six groups, each connected to five others. **Fifteen ties** in all — fifteen threads holding the web together.\n\nSome are strong: the **Constitutional Channel** between moderates and the British, built on decades of petitions and receptions. The **Elite Consensus** between moderates and merchants, sealed in drawing rooms and editorial offices.\n\nSome are fragile: the **Anti-Colonial Solidarity** between radicals and Muslims, strained by competing visions of the future. The **Campus Coexistence** between Hindu and Muslim students, tested every time communal rhetoric heats up.\n\nAnd some are actively antagonistic: the **Antagonistic Respect** between radicals and the British — each side needing the other as a foil, despising the other as an obstacle.\n\nEvery tie matters. Every tie can break. And when a tie breaks, it is not just two groups that separate — it is the **entire web** that weakens.\n\nYou are the spider at the center of this web. Your job is to keep it intact.",
-        button: "Continue"
-      },
-      {
-        title: "The Impossible Arithmetic",
-        text: "Here is the truth that keeps you awake at night: **you can only tend one relationship at a time.**\n\nEvery meeting with the British is ammunition for the radicals. Every gesture toward the Muslims risks alienating the Hindu nationalists. Every hour spent reassuring the merchants is an hour the students drift toward Aurobindo's secret societies.\n\nAnd every crisis — every arrest, every riot, every bomb — strains specific ties. Not factions. **Ties.** The Carlyle Circular doesn't just hurt the students — it strains the tie between students and the British, and the tie between students and the moderates who failed to protect them.\n\nYou cannot tend every thread. You can only choose which ones to strengthen, and pray that the others hold.\n\nThe Partition will arrive in October. Between now and 1908, you will face eighteen crises drawn from history. Each one will strain your web.\n\nThe question is not whether some threads will fray.\n\nThe question is whether any will snap.",
-        button: "Continue"
-      },
-      {
-        title: "How to Play",
-        text: "You will see a **network diagram** showing the fifteen ties between six factions. Each tie starts at 60 out of 100.\n\n**Every turn:**\n- A historical **event** appears, straining 2-3 specific ties\n- You **click one tie to tend** — to mend, to negotiate, to shore up\n- The tended tie strengthens (+15-20 points)\n- Ties **adjacent** to the one you tended get a small boost (+1)\n- All **remaining ties** passively decay from neglect (-1-2)\n\n**You lose** if any tie drops to zero — that relationship snaps, and your web collapses.\n\n**You win** if you survive all eighteen events with every tie intact.\n\nClick directly on the **lines in the diagram** or use the **buttons below** to tend a tie. Thicker lines are stronger ties. Red pulsing lines are in crisis.\n\nYour final score is the sum of all fifteen tie values. Can you hold the web together?\n\n*Every event in this game is drawn from real history. The relationships Banerjee navigated — between moderates and radicals, Hindus and Muslims, nationalists and the Raj — defined the trajectory of Indian nationalism.*",
-        button: "Begin Game"
+        text: "Your coalition is not a list of allies. It is a **web of ties** — fifteen fragile threads connecting six factions that often despise each other.\n\nModerates and radicals. Students and merchants. Muslims and Hindus. Nationalists and the British. Each tie is built on years of negotiation, shared interest, or grudging tolerance.\n\nEvery crisis strains specific ties. Every turn, you can tend **one relationship** — strengthen it, mend it, shore it up. But while you tend one thread, the others fray from neglect.\n\nIf any single tie snaps to zero, the web collapses and you lose.\n\nThe ties matter more than the factions. Every choice has a cost. There is no safe move — only less dangerous ones.",
+        button: "Let me show you"
       }
     ]
   };
@@ -56,203 +41,611 @@
     { id: "merchants-british", nodeA: "merchants", nodeB: "british", label: "Trade Stability", description: "The commercial relationship underpinning imperial rule" }
   ];
 
+  const TUTORIAL_EVENT = {
+    title: "A Test of Alliances",
+    date: "August 1905",
+    narration: "Rumors from Simla filter through the bazaars and editorial offices. The Partition plan is advancing. Delegations are rebuffed. Your petition to the Viceroy is returned with a polite note and no concessions. The first cracks appear.",
+    telegraph: "RUMOURS FROM SIMLA — PARTITION PLANS ADVANCING — STOP",
+    strains: [
+      { tie: "moderates-british", amount: 8, reason: "Officials dismiss your petition" }
+    ],
+    actions: [
+      {
+        label: "Draft a Joint Petition",
+        description: "Unite moderates and radicals behind a shared demand",
+        primary: { tie: "moderates-radicals", amount: 16 },
+        side: { tie: "moderates-british", amount: -4 }
+      },
+      {
+        label: "Reassure the Viceroy",
+        description: "Send a measured letter emphasizing constitutional loyalty",
+        primary: { tie: "moderates-british", amount: 14 },
+        side: null
+      },
+      {
+        label: "Rally the Students",
+        description: "Speak at Presidency College to channel youthful anger",
+        primary: { tie: "moderates-students", amount: 18 },
+        side: { tie: "moderates-merchants", amount: -3 }
+      }
+    ]
+  };
+
   const EVENT_CARDS = [
     {
       id: "partition_announced",
       date: "October 1905",
       title: "Partition Announced",
-      narration: "The proclamation is published in the *Gazette of India*. Bengal is to be divided: a Muslim-majority east with its capital at Dacca, and a Hindu-majority west centered on Calcutta. Lord Curzon calls it administrative necessity.\n\nYou know better. You have read the confidential dispatches that speak of \"diluting\" Bengali Hindu influence. You have seen how the line was drawn to split your political base in two.\n\nThe Congress moderates want you to draft a formal petition. The radicals want to burn British cloth in the streets. Both are watching to see what you do first.\n\nThe Partition is not merely a map redrawn. It is a challenge to every relationship you have built.",
-      historicalContext: "The Partition of Bengal was announced on July 19, 1905 and took effect on October 16, 1905. Curzon framed it as administrative reform, but internal British documents reveal the intent to weaken Bengali Hindu political influence. The day of Partition was observed as a day of mourning across Bengal.",
+      narration: "The *Gazette of India* publishes the proclamation. Bengal is severed: Muslim-majority east under Dacca, Hindu-majority west under Calcutta. Curzon calls it administrative necessity. You have read the confidential dispatches — this is about diluting Bengali Hindu political power. The moderates want a formal petition. The radicals want bonfires. Both are watching you.",
+      telegraph: "URGENT — GAZETTE OF INDIA — BENGAL DIVIDED — STOP",
+      learnMore: "The Partition of Bengal was announced on July 19, 1905 and took effect on October 16, 1905. Curzon framed it as administrative reform, but internal British documents reveal the intent to weaken Bengali Hindu political influence. The day of Partition was observed as a day of mourning across Bengal.",
       strains: [
         { tie: "moderates-british", amount: 10, reason: "The Partition proves petitions were ignored" },
         { tie: "moderates-radicals", amount: 11, reason: "Radicals see moderation as failure" }
+      ],
+      actions: [
+        {
+          label: "Publish Joint Condemnation",
+          description: "Co-author an editorial with radical leaders denouncing the Partition in The Bengalee",
+          primary: { tie: "moderates-radicals", amount: 18 },
+          side: { tie: "moderates-british", amount: -6 }
+        },
+        {
+          label: "Send Formal Deputation",
+          description: "Lead a delegation of merchants and moderates to the Lieutenant Governor",
+          primary: { tie: "moderates-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Address the Students",
+          description: "Speak at College Square to channel anger into organized boycott",
+          primary: { tie: "moderates-students", amount: 16 },
+          side: { tie: "moderates-muslims", amount: -4 }
+        }
       ]
     },
     {
       id: "raksha_bandhan",
       date: "October 1905",
       title: "Raksha Bandhan Unity March",
-      narration: "Rabindranath Tagore has called for a day of mourning and unity. On the day the Partition takes effect, tens of thousands bathe in the Ganges and march through Calcutta singing *Amar Sonar Bangla*. Hindus and Muslims tie yellow threads — *rakhis* — on each other's wrists, vowing brotherhood.\n\nIt is a masterstroke of cultural protest. Even the police constables seem uncertain whether to intervene. But the British see the radical hand behind the march, and Muslim leaders in the east view the Hindu symbolism with growing unease.\n\nYou march at the front, torn between exhilaration and anxiety. The unity is real — but is it durable?",
-      historicalContext: "Tagore organized the Raksha Bandhan observance on October 16, 1905, the day the Partition took effect. The ceremony of tying rakhis across Hindu-Muslim lines was a powerful symbol of unity, though some Muslim leaders viewed it as imposing Hindu ritual frameworks on a political movement.",
+      narration: "Tagore calls for a day of mourning. Tens of thousands march through Calcutta tying rakhis across communal lines, singing *Amar Sonar Bangla*. The unity is electric — even the police hesitate. But Muslim leaders in the east see Hindu symbolism wrapped around a political demand. The British blame radical organizers. You march at the front, torn between exhilaration and anxiety.",
+      telegraph: "CALCUTTA MARCHES — RAKHIS ACROSS COMMUNAL LINES — STOP",
+      learnMore: "Tagore organized the Raksha Bandhan observance on October 16, 1905, the day the Partition took effect. The ceremony of tying rakhis across Hindu-Muslim lines was a powerful symbol of unity, though some Muslim leaders viewed it as imposing Hindu ritual frameworks on a political movement.",
       strains: [
         { tie: "students-muslims", amount: 9, reason: "Hindu-coded symbolism strains campus coexistence" },
         { tie: "radicals-british", amount: 10, reason: "Officials blame radical organizers for the march" }
+      ],
+      actions: [
+        {
+          label: "Host Interfaith Dialogue",
+          description: "Organize a meeting with Muslim leaders to address concerns about Hindu symbolism",
+          primary: { tie: "students-muslims", amount: 17 },
+          side: { tie: "radicals-students", amount: -4 }
+        },
+        {
+          label: "Amplify the March",
+          description: "Publish Tagore's speeches in The Bengalee to sustain momentum",
+          primary: { tie: "moderates-radicals", amount: 13 },
+          side: null
+        },
+        {
+          label: "Reassure Muslim Merchants",
+          description: "Visit bazaar leaders to separate the economic boycott from Hindu ritual",
+          primary: { tie: "muslims-merchants", amount: 16 },
+          side: { tie: "radicals-british", amount: -3 }
+        }
       ]
     },
     {
       id: "carlyle_circular",
       date: "November 1905",
       title: "The Carlyle Circular",
-      narration: "The government issues the Carlyle Circular: any student participating in political meetings will lose their scholarship. Schools that harbor activists will lose their grants.\n\nThe effect is immediate and electric. Instead of silencing the students, it radicalizes them. Expelled students become full-time agitators. The Anti-Circular Society forms overnight, turning campuses into command centers for the boycott.\n\nPrincipals beg you to intervene. Parents write anxious letters. The British congratulate themselves on firm action while the movement doubles in size.\n\nYou realize with a sinking feeling that the government has just manufactured an army of volunteers — and severed the trust between students and the institutions that educated them.",
-      historicalContext: "The Carlyle Circular of 1905 threatened to withdraw grants and scholarships from schools whose students participated in political activities. Rather than suppressing student activism, it created the Anti-Circular Society and pushed students into full-time political organizing.",
+      narration: "The government strikes: any student at political meetings loses their scholarship. Schools harboring activists lose their grants. The effect is electric — and opposite to intended. Expelled students become full-time agitators. The Anti-Circular Society forms overnight. Campuses become boycott command centers. The British have manufactured an army of volunteers and severed the trust between students and every institution that educated them.",
+      telegraph: "CARLYLE CIRCULAR ISSUED — STUDENT SCHOLARSHIPS REVOKED — STOP",
+      learnMore: "The Carlyle Circular of 1905 threatened to withdraw grants and scholarships from schools whose students participated in political activities. Rather than suppressing student activism, it created the Anti-Circular Society and pushed students into full-time political organizing.",
       strains: [
         { tie: "students-british", amount: 13, reason: "The education system has betrayed its students" },
         { tie: "moderates-students", amount: 9, reason: "Moderates failed to prevent the Circular" }
+      ],
+      actions: [
+        {
+          label: "Challenge the Circular",
+          description: "File a formal legal challenge and petition the Viceroy to withdraw it",
+          primary: { tie: "moderates-students", amount: 18 },
+          side: { tie: "moderates-british", amount: -5 }
+        },
+        {
+          label: "Fund Alternative Schools",
+          description: "Ask merchant donors to support the National Education Movement",
+          primary: { tie: "students-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Shelter Student Leaders",
+          description: "Use radical networks to protect expelled students from prosecution",
+          primary: { tie: "radicals-students", amount: 17 },
+          side: { tie: "radicals-british", amount: -6 }
+        }
       ]
     },
     {
       id: "swadeshi_bonfires",
       date: "December 1905",
       title: "Swadeshi Bonfires",
-      narration: "The boycott has found its ritual: bonfires of British cloth. In College Square, in the bazaars of north Calcutta, in towns across Bengal, crowds gather to feed Manchester textiles into the flames.\n\nThe symbolism is powerful. The economics are complicated. Bengali merchants who stockpiled British goods are watching their inventory burn. Student picketers enforce the boycott at market gates, sometimes with more enthusiasm than restraint.\n\nThe merchants come to you, caught between patriotism and ruin. The British warn that trade disruption cannot be tolerated.\n\nYou stand between the flames and the ledger books, watching two relationships burn.",
-      historicalContext: "Swadeshi bonfires of British cloth became a central ritual of the boycott movement. While symbolically powerful, they created real economic hardship for merchants who had invested in British goods. The tension between symbolic politics and economic reality was a persistent challenge.",
+      narration: "The boycott finds its ritual: bonfires of British cloth. In College Square and bazaars across Bengal, crowds feed Manchester textiles to the flames. The symbolism is powerful; the economics are brutal. Merchants watch their inventory burn. Student picketers enforce the boycott at market gates with more enthusiasm than restraint. The British warn that trade disruption will not be tolerated.",
+      telegraph: "BRITISH CLOTH BURNING IN COLLEGE SQUARE — BOYCOTT SPREADS — STOP",
+      learnMore: "Swadeshi bonfires of British cloth became a central ritual of the boycott movement. While symbolically powerful, they created real economic hardship for merchants who had invested in British goods. The tension between symbolic politics and economic reality was a persistent challenge.",
       strains: [
         { tie: "students-merchants", amount: 11, reason: "Student picketers damage merchant livelihoods" },
         { tie: "merchants-british", amount: 9, reason: "Trade disruption strains the commercial relationship" }
+      ],
+      actions: [
+        {
+          label: "Mediate Boycott Terms",
+          description: "Negotiate a phased transition so merchants can sell existing stock before the boycott hardens",
+          primary: { tie: "students-merchants", amount: 16 },
+          side: { tie: "radicals-merchants", amount: -4 }
+        },
+        {
+          label: "Promote Swadeshi Mills",
+          description: "Redirect energy from burning cloth to buying Indian-made goods",
+          primary: { tie: "radicals-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Lead the Bonfire",
+          description: "Stand with the students at College Square to show moderate solidarity",
+          primary: { tie: "moderates-students", amount: 18 },
+          side: { tie: "merchants-british", amount: -5 }
+        }
       ]
     },
     {
       id: "barisal_crackdown",
       date: "April 1906",
       title: "Barisal Conference Crackdown",
-      narration: "You organize a Provincial Conference at Barisal to demonstrate that the movement can be disciplined, constitutional, orderly. Delegates arrive from across Bengal. Speeches are planned. Resolutions are drafted.\n\nThen the police charge the procession.\n\nMagistrate Emerson bans the cry of *Bande Mataram*. When delegates refuse to stop singing, lathis fall. You are arrested, manhandled, fined. Moderate leaders who preached patience are dragged through the streets.\n\nStanding in the magistrate's court, your clothes torn, you realize the constitutional channel you spent decades building has just been answered with a policeman's stick. And the merchants who funded your conference are now reconsidering their investment.",
-      historicalContext: "The Barisal Conference of April 1906 was violently dispersed by police under Magistrate Emerson. Banerjee himself was arrested and fined. The crackdown deeply embarrassed moderate leaders who had argued that working within the system could produce results.",
+      narration: "You organize a Provincial Conference at Barisal to prove the movement can be disciplined and constitutional. Then Magistrate Emerson sends in the police. Lathis fall on singing delegates. You are arrested, manhandled, fined. Your constitutional conference has been answered with a policeman's stick. The merchants who funded it are reconsidering every rupee.",
+      telegraph: "BARISAL CONFERENCE CHARGED — BANERJEE ARRESTED — STOP",
+      learnMore: "The Barisal Conference of April 1906 was violently dispersed by police under Magistrate Emerson. Banerjee himself was arrested and fined. The crackdown deeply embarrassed moderate leaders who had argued that working within the system could produce results.",
       strains: [
         { tie: "moderates-british", amount: 12, reason: "Your constitutional conference met with police batons" },
         { tie: "moderates-merchants", amount: 8, reason: "Merchants question whether your conferences produce anything but trouble" }
+      ],
+      actions: [
+        {
+          label: "Publicize the Brutality",
+          description: "Print eyewitness accounts and rally radicals around the shared outrage",
+          primary: { tie: "moderates-radicals", amount: 18 },
+          side: { tie: "moderates-british", amount: -7 }
+        },
+        {
+          label: "File Legal Complaint",
+          description: "Use the courts to challenge Emerson's actions and restore constitutional credibility",
+          primary: { tie: "moderates-british", amount: 13 },
+          side: null
+        },
+        {
+          label: "Reassure the Funders",
+          description: "Meet privately with merchant backers to present the crackdown as proof of the movement's significance",
+          primary: { tie: "moderates-merchants", amount: 16 },
+          side: { tie: "moderates-students", amount: -3 }
+        }
       ]
     },
     {
       id: "muslim_league_founded",
       date: "December 1906",
       title: "Muslim League Founded",
-      narration: "At Ahsan Manzil, the grand palace of Nawab Salimullah in Dacca, delegates gather to found the All-India Muslim League. The speeches praise the Partition as a triumph for Muslim political representation. Loyalist addresses thank the Raj for creating a Muslim-majority province.\n\nIn Calcutta, your Hindu colleagues read the news as proof of divide-and-rule. They want you to denounce the League. But you know Salimullah — you have shared tea with him, discussed education policy, exchanged polite letters about civic improvement.\n\nThe League is not your enemy. But it is now an organized counterweight to Congress, and the radicals see it as a British tool. The tie between radicals and Muslims frays as each side hardens its position.",
-      historicalContext: "The All-India Muslim League was founded on December 30, 1906 at Dacca. While it initially focused on protecting Muslim interests within the colonial framework, its formation marked a new phase of organized communal politics that would reshape Indian nationalism permanently.",
+      narration: "At Ahsan Manzil in Dacca, delegates found the All-India Muslim League. Speeches praise the Partition as a triumph for Muslim representation. Loyalist addresses thank the Raj. Your Hindu colleagues demand you denounce it. But you know Nawab Salimullah — you have shared tea and discussed education policy. The League is not your enemy, but it is now an organized counterweight to Congress.",
+      telegraph: "MUSLIM LEAGUE FOUNDED AT DACCA — NEW POLITICAL FORCE — STOP",
+      learnMore: "The All-India Muslim League was founded on December 30, 1906 at Dacca. While it initially focused on protecting Muslim interests within the colonial framework, its formation marked a new phase of organized communal politics that would reshape Indian nationalism permanently.",
       strains: [
         { tie: "radicals-muslims", amount: 11, reason: "Radicals denounce the League as a British puppet" },
         { tie: "moderates-muslims", amount: 9, reason: "Muslim leaders formalize their separate political path" }
+      ],
+      actions: [
+        {
+          label: "Attend the Inauguration",
+          description: "Go to Dacca in person to signal respect and keep communication open",
+          primary: { tie: "moderates-muslims", amount: 18 },
+          side: { tie: "radicals-muslims", amount: -5 }
+        },
+        {
+          label: "Quiet Back-Channel Talks",
+          description: "Write privately to Salimullah proposing areas of cooperation between Congress and League",
+          primary: { tie: "muslims-british", amount: 13 },
+          side: null
+        },
+        {
+          label: "Rally Congress Unity",
+          description: "Use the League's founding to argue that Congress must present a united front",
+          primary: { tie: "moderates-radicals", amount: 16 },
+          side: { tie: "moderates-muslims", amount: -4 }
+        }
       ]
     },
     {
       id: "anti_circular_expulsions",
       date: "January 1907",
       title: "Anti-Circular Society Expulsions",
-      narration: "The government makes good on its threats. Dozens of students are formally expelled. Scholarships are revoked. Families that depend on education as a path out of poverty watch their children's futures dissolve.\n\nThe expelled students don't go home. They set up a parallel education network — the National Education Movement — with volunteer teachers and makeshift classrooms. Some drift toward Aurobindo's inner circle, where the curriculum includes more than literature.\n\nThe moderates in Congress are horrified. They want education reform, not education revolution. But how can they condemn young people who were punished for singing patriotic songs?\n\nThe tie between students and your moderate base strains further. And the tie between students and the British snaps tighter with every expulsion notice.",
-      historicalContext: "The enforcement of the Carlyle Circular led to mass expulsions and the creation of the National Education Movement, which established alternative schools outside government control. This radicalized a generation of students.",
+      narration: "The government makes good on its threats. Dozens expelled, scholarships revoked, futures dissolved. The expelled students do not go home — they build a parallel education network with volunteer teachers and makeshift classrooms. Some drift toward Aurobindo's inner circle. The moderates are horrified but cannot condemn young people punished for singing patriotic songs.",
+      telegraph: "MASS EXPULSIONS ENFORCED — STUDENTS BUILD OWN SCHOOLS — STOP",
+      learnMore: "The enforcement of the Carlyle Circular led to mass expulsions and the creation of the National Education Movement, which established alternative schools outside government control. This radicalized a generation of students.",
       strains: [
         { tie: "students-british", amount: 11, reason: "More expulsions deepen the betrayal" },
         { tie: "moderates-students", amount: 10, reason: "Students see moderates as powerless to help" }
+      ],
+      actions: [
+        {
+          label: "Endorse National Education",
+          description: "Publicly support the alternative schools and lend your credibility to the effort",
+          primary: { tie: "moderates-students", amount: 17 },
+          side: { tie: "students-british", amount: -5 }
+        },
+        {
+          label: "Negotiate Readmission",
+          description: "Use your remaining contacts with British educators to get expelled students reinstated",
+          primary: { tie: "students-british", amount: 14 },
+          side: null
+        },
+        {
+          label: "Connect Students to Radicals",
+          description: "Channel expelled students into Aurobindo's network where they can continue organizing",
+          primary: { tie: "radicals-students", amount: 19 },
+          side: { tie: "moderates-students", amount: -6 }
+        }
       ]
     },
     {
       id: "boycott_picket_violence",
       date: "March 1907",
       title: "Boycott Picket Violence",
-      narration: "The swadeshi picket lines have turned ugly. In Mymensingh, a merchant who refused to stop selling British cloth had his shop set ablaze. In Comilla, student picketers beat a Muslim trader who resisted the boycott.\n\nThe merchants are furious. They signed on to a voluntary boycott, not mob enforcement. The radicals who encouraged \"direct action\" at the picket lines are losing the trust of the very merchants who fund the swadeshi mills.\n\nYou stand at the intersection of economic interest and nationalist fervor. The boycott is the movement's most powerful weapon — but if it becomes coercive, the ties between merchants and everyone who needs them will fray.",
-      historicalContext: "As the swadeshi boycott intensified, incidents of picket violence and coercion against merchants — particularly Muslim traders — increased. This created tensions between the economic and moral dimensions of the movement.",
+      narration: "The picket lines turn ugly. In Mymensingh, a merchant's shop burns for selling British cloth. In Comilla, student picketers beat a Muslim trader. The merchants signed on to a voluntary boycott, not mob enforcement. The radicals who encouraged 'direct action' are losing the trust of the people who fund the swadeshi mills. The boycott is the movement's most powerful weapon — but it is becoming coercive.",
+      telegraph: "PICKET VIOLENCE IN MYMENSINGH AND COMILLA — SHOPS BURN — STOP",
+      learnMore: "As the swadeshi boycott intensified, incidents of picket violence and coercion against merchants — particularly Muslim traders — increased. This created tensions between the economic and moral dimensions of the movement.",
       strains: [
         { tie: "students-merchants", amount: 12, reason: "Student picketers intimidate and damage merchant businesses" },
         { tie: "radicals-merchants", amount: 10, reason: "Radical boycott tactics threaten merchant livelihoods" }
+      ],
+      actions: [
+        {
+          label: "Enforce Nonviolent Discipline",
+          description: "Tour picket lines with student leaders to impose rules of conduct",
+          primary: { tie: "students-merchants", amount: 17 },
+          side: { tie: "radicals-students", amount: -4 }
+        },
+        {
+          label: "Compensate Affected Traders",
+          description: "Organize a merchant fund to reimburse those who lost goods to boycott enforcement",
+          primary: { tie: "radicals-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Meet Muslim Traders",
+          description: "Visit affected Muslim shopkeepers in Comilla to rebuild trust across communal lines",
+          primary: { tie: "muslims-merchants", amount: 16 },
+          side: { tie: "students-merchants", amount: -3 }
+        }
       ]
     },
     {
       id: "press_censorship",
       date: "May 1907",
       title: "Press Censorship Threats",
-      narration: "The government warns that newspapers publishing \"seditious\" material will be shut down. The threat is aimed at the radical press — Aurobindo's *Bande Mataram*, Brahmabandhab Upadhyay's *Sandhya* — but your own *Bengalee* is also under scrutiny.\n\nThe radicals dare the government to act. Censorship, they argue, will prove that the British fear the truth. But the radicals also pressure you to run their editorials — and when you hesitate, they accuse you of cowardice.\n\nMeanwhile, your relationship with British officials depends on being seen as responsible. Publishing radical material could slam that door shut forever.",
-      historicalContext: "Press censorship was a recurring tool of colonial control. The Newspapers (Incitement to Offences) Act of 1908 eventually gave the government sweeping powers to seize printing presses. The threat forced nationalist editors into constant calculations about risk.",
+      narration: "The government warns that 'seditious' newspapers will be shut down. The threat targets Aurobindo's *Bande Mataram* and Upadhyay's *Sandhya*, but your own *Bengalee* is under scrutiny. The radicals dare the government to act and pressure you to run their editorials. Publishing radical material could destroy your access to the British. Refusing makes you a coward in radical eyes.",
+      telegraph: "PRESS CENSORSHIP THREATENED — SEDITION CHARGES LOOM — STOP",
+      learnMore: "Press censorship was a recurring tool of colonial control. The Newspapers (Incitement to Offences) Act of 1908 eventually gave the government sweeping powers to seize printing presses. The threat forced nationalist editors into constant calculations about risk.",
       strains: [
         { tie: "radicals-british", amount: 11, reason: "Censorship proves British tyranny to the radicals" },
         { tie: "moderates-british", amount: 8, reason: "Even moderate papers face scrutiny" }
+      ],
+      actions: [
+        {
+          label: "Publish Radical Editorials",
+          description: "Run Aurobindo's pieces in The Bengalee, daring the government to shut you down",
+          primary: { tie: "moderates-radicals", amount: 19 },
+          side: { tie: "moderates-british", amount: -8 }
+        },
+        {
+          label: "Defend Press Freedom",
+          description: "Write a measured legal argument for press liberty addressed to the Viceroy",
+          primary: { tie: "moderates-british", amount: 13 },
+          side: null
+        },
+        {
+          label: "Fund Underground Presses",
+          description: "Quietly channel merchant money to keep radical papers publishing from hidden locations",
+          primary: { tie: "radicals-merchants", amount: 16 },
+          side: { tie: "merchants-british", amount: -5 }
+        }
       ]
     },
     {
       id: "surat_split",
       date: "December 1907",
       title: "Surat Congress Split",
-      narration: "The Indian National Congress meets at Surat, and it breaks apart.\n\nThe dispute is over the presidency, but it is really about everything: methods, goals, the meaning of the movement itself. Tilak's supporters hurl chairs. Moderates are shouted down. A shoe flies through the air. The session dissolves in chaos.\n\nYou leave the pandal shaken. You have spent your career arguing that Congress is the vehicle for Indian self-governance — a parliament-in-waiting. Now it looks like a brawl.\n\nThe Congress Unity tie — the central thread of your entire political career — has never been more frayed. And with Congress fractured, the radicals' access to merchant funding dries up.",
-      historicalContext: "The Surat Split of December 1907 formally divided Congress into Moderate and Extremist factions. The immediate cause was a dispute over the presidency, but deeper disagreements about methods made the split inevitable.",
+      narration: "Congress meets at Surat and breaks apart. Tilak's supporters hurl chairs. Moderates are shouted down. A shoe flies through the air. The session dissolves in chaos. You leave the pandal shaken. The Congress Unity tie — the central thread of your political career — has never been more frayed. With Congress fractured, the radicals lose access to merchant networks that funded the movement.",
+      telegraph: "CONGRESS SPLITS AT SURAT — CHAIRS THROWN — SESSION DISSOLVED — STOP",
+      learnMore: "The Surat Split of December 1907 formally divided Congress into Moderate and Extremist factions. The immediate cause was a dispute over the presidency, but deeper disagreements about methods made the split inevitable.",
       strains: [
         { tie: "moderates-radicals", amount: 14, reason: "The formal Congress split — chairs thrown, unity shattered" },
         { tie: "radicals-merchants", amount: 9, reason: "Without Congress, radicals lose access to merchant networks" }
+      ],
+      actions: [
+        {
+          label: "Propose Reconciliation Terms",
+          description: "Draft a compromise platform that gives radicals a voice without ceding moderate control",
+          primary: { tie: "moderates-radicals", amount: 18 },
+          side: { tie: "moderates-merchants", amount: -5 }
+        },
+        {
+          label: "Steady the Merchants",
+          description: "Assure commercial backers that the moderate wing remains disciplined and credible",
+          primary: { tie: "moderates-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Bridge Through Students",
+          description: "Use student organizations that still respect both factions to keep informal channels open",
+          primary: { tie: "radicals-students", amount: 16 },
+          side: { tie: "moderates-students", amount: -4 }
+        }
       ]
     },
     {
       id: "muzaffarpur_bombing",
       date: "April 1908",
       title: "Muzaffarpur Bombing",
-      narration: "A bomb explodes at Muzaffarpur, aimed at Magistrate Kingsford. It hits the wrong carriage. Two British women are killed — Mrs. and Miss Kennedy, who had nothing to do with the Partition or the movement.\n\nThe news travels faster than the telegraph. In London, parliamentarians demand swift justice. In Calcutta, moderates are horrified.\n\nYou publish an immediate condemnation in *The Bengalee*. But you know the damage is done. The British now see every nationalist as a potential bomber. And your ability to defend the radicals — to argue they are patriots, not terrorists — has been destroyed.\n\nThe tie between radicals and the British is nearly severed. And your own ability to bridge the moderate-radical divide has never been weaker.",
-      historicalContext: "Khudiram Bose and Prafulla Chaki threw a bomb at what they believed was Magistrate Kingsford's carriage on April 30, 1908. The victims were actually Mrs. and Miss Kennedy. The bombing triggered massive police raids and the Alipore Conspiracy Case.",
+      narration: "A bomb at Muzaffarpur misses Magistrate Kingsford and kills two British women — Mrs. and Miss Kennedy, who had nothing to do with the movement. The news detonates across India. London demands justice. You publish an immediate condemnation. But the damage is done: the British now see every nationalist as a potential bomber. Your ability to defend the radicals as patriots, not terrorists, has been destroyed.",
+      telegraph: "BOMB AT MUZAFFARPUR — TWO BRITISH WOMEN KILLED — STOP",
+      learnMore: "Khudiram Bose and Prafulla Chaki threw a bomb at what they believed was Magistrate Kingsford's carriage on April 30, 1908. The victims were actually Mrs. and Miss Kennedy. The bombing triggered massive police raids and the Alipore Conspiracy Case.",
       strains: [
         { tie: "radicals-british", amount: 14, reason: "The bombing destroys any remaining trust" },
         { tie: "moderates-radicals", amount: 10, reason: "Impossible to defend radicals after civilian deaths" }
+      ],
+      actions: [
+        {
+          label: "Condemn and Distinguish",
+          description: "Publish a forceful condemnation of violence while defending legitimate nationalist demands",
+          primary: { tie: "moderates-british", amount: 16 },
+          side: { tie: "moderates-radicals", amount: -6 }
+        },
+        {
+          label: "Protect the Students",
+          description: "Work to shield student organizations from the coming police crackdown",
+          primary: { tie: "moderates-students", amount: 14 },
+          side: null
+        },
+        {
+          label: "Meet Radical Leaders",
+          description: "Visit radical contacts privately to demand they renounce bombing and preserve the alliance",
+          primary: { tie: "moderates-radicals", amount: 17 },
+          side: { tie: "moderates-british", amount: -7 }
+        }
       ]
     },
     {
       id: "alipore_trial",
       date: "May 1908",
       title: "Alipore Conspiracy Trial",
-      narration: "Police raids sweep across Calcutta. The Alipore Conspiracy Case unfolds: dozens arrested, a cache of explosives discovered, revolutionary literature seized. Aurobindo Ghose himself is in the dock.\n\nThe trial becomes political theater. Students pack the galleries. But the raids don't discriminate — student organizations are raided alongside revolutionary cells. The tie between students and the radical underground is suddenly dangerous for both sides.\n\nAnd the British, rattled by the bombing, treat every student meeting as a potential conspiracy.\n\nYou watch from a careful distance, knowing that every visit to the courthouse is noted by the CID.",
-      historicalContext: "The Alipore Conspiracy Case (1908-1909) was one of the most significant political trials in colonial India. Aurobindo Ghose was eventually acquitted, largely through C.R. Das's defense. The trial paradoxically increased public sympathy for the accused.",
+      narration: "Police raids sweep Calcutta. Dozens arrested, explosives discovered, revolutionary literature seized. Aurobindo himself is in the dock. Students pack the galleries, but the raids do not discriminate — student organizations are raided alongside revolutionary cells. The British, rattled by the bombing, treat every student meeting as a potential conspiracy. You watch from a careful distance, knowing the CID notes every courthouse visit.",
+      telegraph: "ALIPORE RAIDS — AUROBINDO IN DOCK — STUDENTS SWEPT UP — STOP",
+      learnMore: "The Alipore Conspiracy Case (1908-1909) was one of the most significant political trials in colonial India. Aurobindo Ghose was eventually acquitted, largely through C.R. Das's defense. The trial paradoxically increased public sympathy for the accused.",
       strains: [
         { tie: "radicals-students", amount: 10, reason: "Association with radicals now brings police raids on students" },
         { tie: "students-british", amount: 10, reason: "British treat every student organization as a conspiracy" }
+      ],
+      actions: [
+        {
+          label: "Fund the Defense",
+          description: "Raise money from merchant contacts to pay for C.R. Das's legal team",
+          primary: { tie: "radicals-merchants", amount: 16 },
+          side: { tie: "merchants-british", amount: -5 }
+        },
+        {
+          label: "Petition for Fair Trial",
+          description: "Write to the Governor demanding due process and separation of political from criminal charges",
+          primary: { tie: "students-british", amount: 13 },
+          side: null
+        },
+        {
+          label: "Rally Student Support",
+          description: "Organize a campus solidarity campaign for the accused to keep students engaged",
+          primary: { tie: "radicals-students", amount: 18 },
+          side: { tie: "students-british", amount: -6 }
+        }
       ]
     },
     {
       id: "tilak_arrested",
       date: "June 1908",
       title: "Tilak Arrested",
-      narration: "Bal Gangadhar Tilak is convicted of sedition for articles in *Kesari* and sentenced to six years' transportation to Mandalay. The news detonates across India.\n\nIn Bombay, mill workers walk out in a spontaneous general strike — the first of its kind. In Calcutta, radicals call for hartals. Moderate leaders plead for calm while privately wondering if the government has gone too far.\n\nThe merchants are nervous. A general strike means closed shops, lost revenue, disrupted supply chains. The radical-merchant relationship — already strained by boycott violence — frays further as strikes threaten Indian-owned businesses.\n\nTilak's imprisonment has made him a martyr. And martyrs are harder to argue with than living politicians.",
-      historicalContext: "Tilak was sentenced to six years in Mandalay prison in July 1908. His conviction triggered a six-day general strike in Bombay — the first political mass strike in Indian history.",
+      narration: "Tilak is convicted of sedition for articles in *Kesari* and sentenced to six years at Mandalay. Bombay's mill workers walk out in India's first political general strike. In Calcutta, radicals call for hartals. Merchants are terrified — strikes mean closed shops, lost revenue, disrupted supply chains. Tilak's imprisonment has made him a martyr, and martyrs are harder to argue with than living politicians.",
+      telegraph: "TILAK SENTENCED SIX YEARS MANDALAY — BOMBAY STRIKES — STOP",
+      learnMore: "Tilak was sentenced to six years in Mandalay prison in July 1908. His conviction triggered a six-day general strike in Bombay — the first political mass strike in Indian history.",
       strains: [
         { tie: "radicals-merchants", amount: 11, reason: "Strikes in Tilak's name threaten merchant businesses" },
         { tie: "radicals-british", amount: 10, reason: "Tilak's imprisonment cements radical-British hostility" }
+      ],
+      actions: [
+        {
+          label: "Channel the Outrage",
+          description: "Organize a controlled hartal in Calcutta to honor Tilak without spiraling into disorder",
+          primary: { tie: "moderates-radicals", amount: 17 },
+          side: { tie: "moderates-merchants", amount: -5 }
+        },
+        {
+          label: "Shield the Markets",
+          description: "Work with merchant leaders to keep bazaars open while allowing symbolic protests",
+          primary: { tie: "radicals-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Student Memorial March",
+          description: "Let students lead a disciplined procession honoring Tilak as a political prisoner",
+          primary: { tie: "radicals-students", amount: 16 },
+          side: { tie: "students-british", amount: -4 }
+        }
       ]
     },
     {
       id: "rural_unrest",
       date: "July 1908",
       title: "Rural Unrest Spreads",
-      narration: "The movement has jumped the city walls. In the eastern districts — the Muslim-majority areas that the Partition was supposed to pacify — peasant unrest is spreading. Tenant farmers refuse to pay rents to Hindu zamindars, framing economic grievance in communal language.\n\nThe *Red Pamphlet* circulates in the villages, urging Muslims to boycott Hindu traders. Swadeshi organizers who venture into the countryside are sometimes met with stones.\n\nThe commercial trust between Muslim and Hindu merchants — the bazaar relationships that have survived centuries of political change — is cracking under communal pressure. And the moderate-Muslim tie, always fragile, strains as each side blames the other.",
-      historicalContext: "By 1907-1908, rural unrest in eastern Bengal took on communal dimensions, with Muslim peasants clashing with Hindu landlords. The 'Red Pamphlet' (Lal Ishtahar) urged Muslims to resist Hindu economic dominance.",
+      narration: "The movement has jumped the city walls. In eastern Bengal, peasant unrest spreads. Tenants refuse to pay rents to Hindu zamindars, framing economic grievance in communal language. The *Red Pamphlet* circulates, urging Muslims to boycott Hindu traders. Swadeshi organizers venturing into the countryside are met with stones. The bazaar relationships that survived centuries of political change are cracking.",
+      telegraph: "RED PAMPHLET CIRCULATES EAST — RURAL TENSION RISING — STOP",
+      learnMore: "By 1907-1908, rural unrest in eastern Bengal took on communal dimensions, with Muslim peasants clashing with Hindu landlords. The 'Red Pamphlet' (Lal Ishtahar) urged Muslims to resist Hindu economic dominance.",
       strains: [
         { tie: "muslims-merchants", amount: 11, reason: "Communal framing turns economic relationships toxic" },
         { tie: "moderates-muslims", amount: 9, reason: "Rural communal tension undermines political dialogue" }
+      ],
+      actions: [
+        {
+          label: "Joint Rural Tour",
+          description: "Travel to eastern districts with Muslim leaders to address tenant grievances together",
+          primary: { tie: "moderates-muslims", amount: 18 },
+          side: { tie: "moderates-british", amount: -4 }
+        },
+        {
+          label: "Bazaar Peace Council",
+          description: "Convene Hindu and Muslim merchants to reaffirm commercial trust across communal lines",
+          primary: { tie: "muslims-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Address Zamindar Abuses",
+          description: "Publicly call for rent reform to undercut the communal framing of economic grievances",
+          primary: { tie: "radicals-muslims", amount: 16 },
+          side: { tie: "moderates-merchants", amount: -5 }
+        }
       ]
     },
     {
       id: "mill_workers_strike",
       date: "August 1908",
       title: "Mill Workers Strike",
-      narration: "The Bombay strikes have inspired action in Calcutta. Jute mill workers in Howrah walk out, demanding better wages and shorter hours. The strikers wave swadeshi banners, but their demands are economic, not nationalist.\n\nThe students rush to support them, seeing workers' solidarity as the next stage of the movement. But the merchants — many of whom own the mills — are appalled. They funded a boycott of British goods, not a revolution against Indian capital.\n\nThe tie between merchants and moderates strains as merchants demand you condemn the strikes, while your moderate allies argue that workers' rights are part of the national cause.\n\nThe movement has grown beyond boycotts into class conflict, and your web was never built to handle that.",
-      historicalContext: "Labor unrest in Calcutta's jute mills became increasingly tied to the nationalist movement in 1908. The convergence of labor and nationalist politics created tensions within the movement, particularly between working-class supporters and merchant-class funders.",
+      narration: "Jute mill workers in Howrah walk out demanding better wages. They wave swadeshi banners but their demands are economic, not nationalist. Students rush to support them. Merchants — many of whom own the mills — are appalled. They funded a boycott of British goods, not a revolution against Indian capital. The movement has grown beyond boycotts into class conflict, and your web was never built to handle that.",
+      telegraph: "HOWRAH JUTE MILLS STRIKE — WORKERS WAVE SWADESHI FLAGS — STOP",
+      learnMore: "Labor unrest in Calcutta's jute mills became increasingly tied to the nationalist movement in 1908. The convergence of labor and nationalist politics created tensions within the movement, particularly between working-class supporters and merchant-class funders.",
       strains: [
         { tie: "students-merchants", amount: 12, reason: "Students support strikers against merchant-owned mills" },
         { tie: "moderates-merchants", amount: 9, reason: "Merchants blame moderates for failing to control the movement" }
+      ],
+      actions: [
+        {
+          label: "Mediate the Dispute",
+          description: "Broker a compromise between mill owners and workers to defuse the crisis",
+          primary: { tie: "students-merchants", amount: 17 },
+          side: { tie: "radicals-students", amount: -4 }
+        },
+        {
+          label: "Back the Mill Owners",
+          description: "Publicly separate the nationalist movement from labor agitation to reassure funders",
+          primary: { tie: "moderates-merchants", amount: 14 },
+          side: null
+        },
+        {
+          label: "Embrace Worker Solidarity",
+          description: "Declare workers' rights a nationalist cause and march with students to the mills",
+          primary: { tie: "radicals-students", amount: 18 },
+          side: { tie: "moderates-merchants", amount: -7 }
+        }
       ]
     },
     {
       id: "morley_minto_rumors",
       date: "September 1908",
       title: "Morley-Minto Reforms Rumored",
-      narration: "Rumors reach Calcutta that London is drafting constitutional reforms. Secretary of State Morley and Viceroy Minto are said to be planning expanded Indian representation in legislative councils — but with **separate electorates** for Muslims.\n\nThe radicals are disgusted. Reform, they say, is a trap — a way to co-opt moderates while dividing Hindus from Muslims. You are caught in the middle, as always. The reforms could validate your lifetime of constitutional argument. But separate electorates would institutionalize the communal divide.\n\nThe tie between you and the radicals strains — they see your interest in reform as proof of collaboration. And the tie between Muslims and radicals hardens as separate electorates become a wedge.",
-      historicalContext: "The Morley-Minto Reforms of 1909 expanded Indian representation in legislative councils but introduced separate electorates for Muslims — a provision that would shape Indian politics until Partition in 1947.",
+      narration: "Rumors from London: Morley and Minto are drafting constitutional reforms with expanded Indian representation — but with **separate electorates** for Muslims. The radicals call it a trap to co-opt moderates and divide communities. You are caught again. The reforms could validate your lifetime of constitutional argument, but separate electorates would institutionalize the communal divide forever.",
+      telegraph: "LONDON DRAFTS REFORMS — SEPARATE ELECTORATES PROPOSED — STOP",
+      learnMore: "The Morley-Minto Reforms of 1909 expanded Indian representation in legislative councils but introduced separate electorates for Muslims — a provision that would shape Indian politics until Partition in 1947.",
       strains: [
         { tie: "moderates-radicals", amount: 10, reason: "Radicals see reform engagement as collaboration" },
         { tie: "radicals-muslims", amount: 9, reason: "Separate electorates become a wedge between communities" }
+      ],
+      actions: [
+        {
+          label: "Engage the Reforms",
+          description: "Write to Morley supporting expanded representation while opposing separate electorates",
+          primary: { tie: "moderates-british", amount: 16 },
+          side: { tie: "moderates-radicals", amount: -6 }
+        },
+        {
+          label: "Consult Muslim Leaders",
+          description: "Meet with League representatives to find common ground on representation",
+          primary: { tie: "radicals-muslims", amount: 14 },
+          side: null
+        },
+        {
+          label: "Reject the Reforms",
+          description: "Stand with radicals in publicly denouncing the reforms as a divide-and-rule scheme",
+          primary: { tie: "moderates-radicals", amount: 18 },
+          side: { tie: "moderates-british", amount: -7 }
+        }
       ]
     },
     {
       id: "jamalpur_riots",
       date: "October 1908",
       title: "Communal Riots in Jamalpur",
-      narration: "The communal fracture has become a communal explosion. In Jamalpur and Comilla, Hindu-Muslim riots erupt. Swadeshi volunteers defending Hindu shops clash with Muslim tenants. Temples and mosques are damaged. The police, overwhelmed, fire into crowds.\n\nThe unity of 1905 — the rakhis, the marches, the vows of brotherhood — feels like ancient history. The tie between Muslim and Hindu students on campus, already strained, snaps taut as each community retreats into its own circles.\n\nYou wonder, not for the first time, whether the Partition has already won — whether the line on the map has become a line in people's hearts.",
-      historicalContext: "Communal riots in eastern Bengal in 1907-1908 shattered the Hindu-Muslim unity that characterized the early swadeshi movement. The violence was partly driven by economic tensions between Hindu landlords and Muslim tenants.",
+      narration: "The communal fracture explodes. In Jamalpur and Comilla, Hindu-Muslim riots erupt. Swadeshi volunteers clash with Muslim tenants. Temples and mosques are damaged. Police fire into crowds. The rakhis and marches of 1905 feel like ancient history. On campus, each community retreats into its own circles. The Partition line on the map has become a line in people's hearts.",
+      telegraph: "COMMUNAL RIOTS JAMALPUR AND COMILLA — POLICE FIRE ON CROWDS — STOP",
+      learnMore: "Communal riots in eastern Bengal in 1907-1908 shattered the Hindu-Muslim unity that characterized the early swadeshi movement. The violence was partly driven by economic tensions between Hindu landlords and Muslim tenants.",
       strains: [
         { tie: "students-muslims", amount: 12, reason: "Communal riots destroy campus coexistence" },
         { tie: "muslims-merchants", amount: 9, reason: "Bazaar relationships collapse amid communal violence" }
+      ],
+      actions: [
+        {
+          label: "Emergency Peace Committee",
+          description: "Form a joint Hindu-Muslim committee with campus leaders to restore dialogue",
+          primary: { tie: "students-muslims", amount: 18 },
+          side: { tie: "radicals-muslims", amount: -4 }
+        },
+        {
+          label: "Protect Bazaar Relations",
+          description: "Station trusted intermediaries in the markets to prevent commercial retaliation",
+          primary: { tie: "muslims-merchants", amount: 13 },
+          side: null
+        },
+        {
+          label: "Demand British Accountability",
+          description: "Blame the government for failing to protect civilians and demand an inquiry",
+          primary: { tie: "muslims-british", amount: 16 },
+          side: { tie: "merchants-british", amount: -5 }
+        }
       ]
     },
     {
       id: "london_petition_rejected",
       date: "November 1908",
       title: "London Petition Rejected",
-      narration: "Your deputation to London has returned empty-handed. The petition — months of careful drafting, pages of constitutional argument, signatures from across Bengal — has been received, acknowledged, and filed. The Secretary of State expressed \"sympathy\" but offered nothing.\n\nThis is the moment you have dreaded for thirty years. The moment when the system you believed in — petitions, deputations, reasoned argument — demonstrates its final inadequacy.\n\nThe moderates look to you with desperate eyes: *What now?* The radicals don't bother to say *we told you so*. And the merchants who funded the deputation are now questioning every rupee they spent on your constitutional strategy.\n\nHistory is watching. December 1908 approaches.",
-      historicalContext: "Multiple petitions and deputations to London were politely received and effectively ignored throughout the Partition crisis. The failure of constitutional methods to produce results was a central argument used by radicals to discredit moderate leadership.",
+      narration: "Your deputation returns from London empty-handed. Months of careful drafting, pages of constitutional argument, signatures from across Bengal — received, acknowledged, filed. The Secretary of State expressed 'sympathy.' This is the moment you have dreaded for thirty years: the system you believed in has demonstrated its final inadequacy. The moderates ask *What now?* The radicals do not bother to say *we told you so.*",
+      telegraph: "LONDON PETITION RECEIVED AND FILED — NO ACTION TAKEN — STOP",
+      learnMore: "Multiple petitions and deputations to London were politely received and effectively ignored throughout the Partition crisis. The failure of constitutional methods to produce results was a central argument used by radicals to discredit moderate leadership.",
       strains: [
         { tie: "moderates-british", amount: 13, reason: "London's rejection proves the constitutional channel is dead" },
         { tie: "moderates-merchants", amount: 10, reason: "Merchants lose faith in the moderate strategy they funded" }
+      ],
+      actions: [
+        {
+          label: "Pivot to Mass Action",
+          description: "Acknowledge the failure publicly and endorse broader protest methods alongside the radicals",
+          primary: { tie: "moderates-radicals", amount: 19 },
+          side: { tie: "moderates-british", amount: -8 }
+        },
+        {
+          label: "Double Down on Reform",
+          description: "Argue that the petition laid groundwork for the Morley-Minto process and keep the channel open",
+          primary: { tie: "moderates-british", amount: 12 },
+          side: null
+        },
+        {
+          label: "Rally Merchant Support",
+          description: "Present the rejection as proof that economic pressure, not petitions, is the path forward",
+          primary: { tie: "moderates-merchants", amount: 17 },
+          side: { tie: "moderates-british", amount: -5 }
+        }
       ]
     }
   ];
@@ -370,6 +763,7 @@
   window.OPENING_VIGNETTE = OPENING_VIGNETTE;
   window.NODE_DEFINITIONS = NODE_DEFINITIONS;
   window.TIE_DEFINITIONS = TIE_DEFINITIONS;
+  window.TUTORIAL_EVENT = TUTORIAL_EVENT;
   window.EVENT_CARDS = EVENT_CARDS;
   window.DEFEAT_NARRATIONS = DEFEAT_NARRATIONS;
   window.VICTORY_NARRATION = VICTORY_NARRATION;
