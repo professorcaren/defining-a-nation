@@ -156,7 +156,6 @@
   let state = null;
   let vigIdx = 0;
   let gameActive = false;
-  let tutorialPhase = -1; // -1 = not in tutorial
 
   function newState() {
     const ties = {};
@@ -201,83 +200,18 @@
     if (VIGNETTE && vigIdx < VIGNETTE.pages.length - 1) {
       showVig(vigIdx + 1);
     } else {
-      startTutorial();
+      startGame();
     }
   });
 
-  /* ═══════════════════════════════════════════════════
-     TUTORIAL
-     ═══════════════════════════════════════════════════ */
-
-  function startTutorial() {
+  function startGame() {
     vigPanel.classList.add('hidden');
     gameCont.classList.remove('hidden');
     state = newState();
     buildSvg();
     buildProgressDots();
-    tutorialPhase = 0;
-    showTutorialEvent();
-  }
-
-  function showTutorialEvent() {
-    const ev = TUTORIAL;
-    gameDateEl.textContent = ev.date;
-    updateProgressDots(-1); // no dot highlighted
-
-    // Show telegraph
-    showTelegraph(ev.telegraph, () => {
-      evTitle.textContent = ev.title;
-      evNarr.innerHTML = formatText(ev.narration);
-      learnMoreToggle.classList.add('hidden');
-
-      // Apply strain with hint
-      showHint('Watch: this event strains a tie in your web...');
-
-      setTimeout(() => {
-        ev.strains.forEach(s => {
-          state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
-          animateStrain(s.tie, s.amount);
-        });
-        updateSvg();
-
-        setTimeout(() => {
-          hideHint();
-          showHint('Now pick an action to respond. Each has a different trade-off.');
-          renderActionCards(ev.actions, true);
-          tutorialPhase = 1;
-        }, 1200);
-      }, 800);
-    });
-  }
-
-  function finishTutorialAction(action) {
-    tutorialPhase = 2;
-    hideHint();
-
-    const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
-    let msg = `You strengthened ${tieDef ? tieDef.label : 'a tie'}.`;
-    if (action.side) {
-      const sideTie = TIE_DEFS.find(t => t.id === action.side.tie);
-      msg += ` But it cost ${sideTie ? sideTie.label : 'another tie'}.`;
-    }
-    msg += ' Every choice has consequences.';
-
-    setTimeout(() => {
-      showHint(msg);
-      setTimeout(() => {
-        hideHint();
-        showHint("You've got it. Now the real crisis begins.");
-        setTimeout(() => {
-          hideHint();
-          tutorialPhase = -1;
-          // Reset state for the real game
-          state = newState();
-          updateSvg();
-          gameActive = true;
-          showEvent();
-        }, 1500);
-      }, 2500);
-    }, 600);
+    gameActive = true;
+    showEvent();
   }
 
   function showHint(text) {
@@ -609,7 +543,7 @@
           // Second click: execute the action
           clearActionMarkers();
           clearHighlights();
-          executeAction(action, false);
+          executeAction(action);
         } else {
           // First click: expand to show details
           // Collapse any other expanded marker
@@ -746,68 +680,13 @@
     setTimeout(callback, strains.length * 450 + 350);
   }
 
-  /* ═══════════════════════════════════════════════════
-     ACTION CARDS
-     ═══════════════════════════════════════════════════ */
+  /* (Action cards removed — actions now live on the network as markers) */
 
-  function renderActionCards(actions, isTutorial) {
-    actionCards.innerHTML = '';
-    actionArea.classList.remove('hidden');
-    actionArea.classList.remove('revealing');
-
-    actions.forEach(action => {
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'action-card';
-
-      const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
-      const primaryName = tieDef ? tieDef.label : action.primary.tie;
-
-      let sideHtml = '';
-      if (action.side) {
-        const sideTieDef = TIE_DEFS.find(t => t.id === action.side.tie);
-        const sideName = sideTieDef ? sideTieDef.label : action.side.tie;
-        const sign = action.side.amount > 0 ? '+' : '';
-        const cls = action.side.amount < 0 ? 'action-side' : 'action-side bonus';
-        sideHtml = `<span class="${cls}">${sideName} ${sign}${action.side.amount}</span>`;
-      }
-
-      card.innerHTML = `
-        <span class="action-label">${escapeHtml(action.label)}</span>
-        <span class="action-desc">${escapeHtml(action.description)}</span>
-        <span class="action-effects">
-          <span class="action-primary">${escapeHtml(primaryName)} +${action.primary.amount}</span>
-          ${sideHtml}
-        </span>
-      `;
-
-      // Hover: highlight affected ties
-      card.addEventListener('mouseenter', () => highlightTies(action));
-      card.addEventListener('mouseleave', () => clearHighlights());
-
-      // Touch: highlight on touchstart, clear on touchend
-      card.addEventListener('touchstart', () => highlightTies(action), { passive: true });
-      card.addEventListener('touchend', () => clearHighlights(), { passive: true });
-
-      // Click: execute
-      card.addEventListener('click', () => {
-        if (isTutorial) {
-          executeAction(action, true);
-        } else {
-          executeAction(action, false);
-        }
-      });
-
-      actionCards.appendChild(card);
-    });
-  }
-
-  function executeAction(action, isTutorial) {
-    if (!isTutorial && (!gameActive || state.gameOver)) return;
+  function executeAction(action) {
+    if (!gameActive || state.gameOver) return;
     gameActive = false;
 
-    // Disable all cards and clear markers
-    actionCards.querySelectorAll('button').forEach(b => { b.disabled = true; });
+    // Clear markers and highlights
     clearActionMarkers();
     clearHighlights();
 
@@ -827,27 +706,19 @@
       }, 300);
     }
 
-    // Passive decay on untouched ties (skip during tutorial)
-    if (!isTutorial) {
-      const touched = new Set([action.primary.tie]);
-      if (action.side) touched.add(action.side.tie);
-      const currentEv = EVENTS[state.eventIndex];
-      if (currentEv) currentEv.strains.forEach(s => touched.add(s.tie));
+    // Passive decay on untouched ties
+    const touched = new Set([action.primary.tie]);
+    if (action.side) touched.add(action.side.tie);
+    const currentEv = EVENTS[state.eventIndex];
+    if (currentEv) currentEv.strains.forEach(s => touched.add(s.tie));
 
-      TIE_DEFS.forEach(tie => {
-        if (touched.has(tie.id)) return;
-        const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
-        state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
-      });
-    }
+    TIE_DEFS.forEach(tie => {
+      if (touched.has(tie.id)) return;
+      const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
+      state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
+    });
 
     updateSvg();
-
-    // Tutorial path
-    if (isTutorial) {
-      finishTutorialAction(action);
-      return;
-    }
 
     // Check defeat
     const broken = checkDefeat();
@@ -970,7 +841,6 @@
     cleanupRevealPrompt();
     state = null;
     gameActive = false;
-    tutorialPhase = -1;
   });
 
   /* ═══════════════════════════════════════════════════
