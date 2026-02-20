@@ -500,7 +500,15 @@
 
   function clearActionMarkers() {
     actionOverlay.innerHTML = '';
+    svgInd.querySelectorAll('.marker-connector').forEach(el => el.remove());
   }
+
+  /* Fixed anchor points in SVG coords for connector lines */
+  const MARKER_ANCHORS = [
+    { x: 70, y: 50 },   /* slot-0: near top-left marker */
+    { x: 410, y: 50 },  /* slot-1: near top-right marker */
+    { x: 240, y: 380 }  /* slot-2: near bottom-center marker */
+  ];
 
   function renderActionMarkers(actions) {
     clearActionMarkers();
@@ -508,7 +516,15 @@
 
     actions.forEach((action, idx) => {
       const mid = tieMidpoint(action.primary.tie);
-      const pos = svgToOverlayPercent(mid.x, mid.y);
+      const anchor = MARKER_ANCHORS[idx];
+
+      /* Draw connector line from slot anchor to tie midpoint */
+      const connLine = svgEl('line', {
+        x1: anchor.x, y1: anchor.y,
+        x2: mid.x, y2: mid.y,
+        class: 'marker-connector'
+      });
+      svgInd.appendChild(connLine);
 
       const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
       const primaryName = tieDef ? tieDef.label : action.primary.tie;
@@ -519,13 +535,11 @@
         const sideName = sideDef ? sideDef.label : action.side.tie;
         const sign = action.side.amount > 0 ? '+' : '';
         const color = action.side.amount < 0 ? 'var(--ruby)' : 'var(--emerald)';
-        effectsHtml += ` · <span style="color:${color}">${escapeHtml(sideName)} ${sign}${action.side.amount}</span>`;
+        effectsHtml += ` &middot; <span style="color:${color}">${escapeHtml(sideName)} ${sign}${action.side.amount}</span>`;
       }
 
       const marker = document.createElement('div');
-      marker.className = 'tie-action-marker';
-      marker.style.left = pos.left + '%';
-      marker.style.top = pos.top + '%';
+      marker.className = 'tie-action-marker slot-' + idx;
       marker.style.animationDelay = (idx * 100) + 'ms';
       marker.innerHTML = `
         <span class="marker-label">${escapeHtml(action.label)}</span>
@@ -534,19 +548,15 @@
         <span class="marker-confirm">&#9654; Confirm</span>
       `;
 
-      // Highlight the tie
       const line = svgTies.querySelector(`.tie-line[data-tie="${action.primary.tie}"]`);
 
       marker.addEventListener('click', (e) => {
         e.stopPropagation();
         if (marker.classList.contains('expanded')) {
-          // Second click: execute the action
           clearActionMarkers();
           clearHighlights();
           executeAction(action);
         } else {
-          // First click: expand to show details
-          // Collapse any other expanded marker
           if (expandedMarker && expandedMarker !== marker) {
             expandedMarker.classList.remove('expanded');
             clearHighlights();
@@ -576,7 +586,6 @@
       actionOverlay.appendChild(marker);
     });
 
-    // Click elsewhere on overlay to collapse expanded marker
     actionOverlay.addEventListener('click', () => {
       if (expandedMarker) {
         expandedMarker.classList.remove('expanded');
