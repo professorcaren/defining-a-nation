@@ -3,13 +3,13 @@
     pages: [
       {
         title: "Calcutta, July 1905",
-        text: "You are **Surendranath Banerjee**, and the rumor has hardened into fact.\n\nLord Curzon will partition Bengal. Seventy-eight million people split along a line drawn in a London office — Muslim east, Hindu west — to break the largest, most politically dangerous province in the Empire.\n\nYou have spent thirty years building a career on petitions, deputations, and reasoned argument. You were the second Indian to pass the Civil Service exam and the first dismissed from it.\n\nNow every alliance you have built is about to be tested. The moderates want strategy. The radicals want fire. The merchants want stability. The students want revolution. The Muslim leaders want guarantees. And the British want silence.\n\nYou have until December 1908. Hold them all together — or watch your world come apart.",
+        text: "You are **Surendranath Banerjee**. Lord Curzon will partition Bengal — seventy-eight million people split along a line drawn in London to break the most politically dangerous province in the Empire.\n\nEvery alliance you have built is about to be tested. Hold them all together until December 1908 — or watch your world come apart.",
         button: "Continue"
       },
       {
         title: "The Web",
-        text: "Your coalition is not a list of allies. It is a **web of ties** — fifteen fragile threads connecting six factions that often despise each other.\n\nModerates and radicals. Students and merchants. Muslims and Hindus. Nationalists and the British. Each tie is built on years of negotiation, shared interest, or grudging tolerance.\n\nEvery crisis strains specific ties. Every turn, you can tend **one relationship** — strengthen it, mend it, shore it up. But while you tend one thread, the others fray from neglect.\n\nIf any single tie snaps to zero, the web collapses and you lose.\n\nThe ties matter more than the factions. Every choice has a cost. There is no safe move — only less dangerous ones.",
-        button: "Let me show you"
+        text: "Six factions. Fifteen ties. Each crisis **strains** specific ties — watch for the lines that glow. Each turn you can **tend one relationship**, but the others fray from neglect.\n\nIf any tie snaps to zero, the web collapses and you lose. There is no safe move — only less dangerous ones.",
+        button: "Begin"
       }
     ]
   };
