@@ -307,6 +307,28 @@ main {
   100% { transform: translate(0, 0); }
 }
 
+/* Persistent strained glow — clickable to see reason */
+.tie-line.strained {
+  stroke: var(--saffron) !important;
+  stroke-opacity: 0.9 !important;
+  filter: drop-shadow(0 0 6px var(--saffron));
+  animation: strained-pulse 2s ease-in-out infinite;
+}
+
+@keyframes strained-pulse {
+  0%, 100% { filter: drop-shadow(0 0 3px var(--saffron)); stroke-opacity: 0.7; }
+  50% { filter: drop-shadow(0 0 10px var(--saffron)); stroke-opacity: 1; }
+}
+
+/* Invisible wide hit area for tapping strained lines */
+.tie-hit-area {
+  pointer-events: stroke;
+  cursor: pointer;
+  stroke: transparent;
+  stroke-width: 24;
+  fill: none;
+}
+
 /* Tend glow pulse */
 .tie-line.tie-tended {
   filter: drop-shadow(0 0 8px var(--gold-light));
@@ -488,6 +510,29 @@ main {
   min-height: 0;
   mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+
+/* When showing a strain reason (tapped a glowing line) */
+.event-compact.showing-strain {
+  border-left-color: var(--saffron);
+  cursor: pointer;
+}
+
+.strain-back {
+  font-size: 0.65rem;
+  color: var(--saffron);
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+  opacity: 0.7;
+}
+
+.strain-amount {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ruby);
 }
 
 .event-compact .event-title {
@@ -508,34 +553,7 @@ main {
 .event-compact .event-narration strong { color: var(--text-primary); font-weight: 700; }
 .event-compact .event-narration em { color: var(--ivory-dim); }
 
-/* ─── Reveal Prompt ─── */
-.event-compact.event-prompt {
-  cursor: pointer;
-  padding: 8px 12px;
-  text-align: center;
-  border: 1px solid var(--border-gold);
-  border-radius: 3px;
-  background: rgba(212, 168, 67, 0.06);
-  transition: background 0.2s, border-color 0.2s;
-}
-.event-compact.event-prompt:hover {
-  background: rgba(212, 168, 67, 0.12);
-  border-color: var(--gold);
-}
-.event-compact.event-prompt .event-title {
-  margin-bottom: 2px;
-}
-.tap-hint {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-  margin-top: 2px;
-  animation: hint-pulse 2s ease-in-out infinite;
-}
-@keyframes hint-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
+/* (Reveal prompt removed — narration shows immediately) */
 
 /* Action area slide-in */
 .action-area.revealing {
@@ -1028,10 +1046,6 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
     max-height: 100px;
     padding: 8px 6px;
   }
-  .event-compact.event-prompt {
-    max-height: 80px;
-  }
-
   .network-svg {
     max-width: 480px;
   }

@@ -24,21 +24,21 @@
   ];
 
   const TIE_DEFINITIONS = [
-    { id: "moderates-radicals", nodeA: "moderates", nodeB: "radicals", label: "Congress Unity", description: "The fragile alliance between petition-writers and street fighters" },
-    { id: "moderates-students", nodeA: "moderates", nodeB: "students", label: "Generational Bridge", description: "Moderate leaders' connection to campus activism" },
-    { id: "moderates-muslims", nodeA: "moderates", nodeB: "muslims", label: "Secular Alliance", description: "Cross-communal political cooperation within Congress" },
-    { id: "moderates-merchants", nodeA: "moderates", nodeB: "merchants", label: "Elite Consensus", description: "Shared interests of political and commercial elites" },
-    { id: "moderates-british", nodeA: "moderates", nodeB: "british", label: "Constitutional Channel", description: "The belief that petitions and deputations matter" },
-    { id: "radicals-students", nodeA: "radicals", nodeB: "students", label: "Revolutionary Pipeline", description: "Students drawn to radical thought and direct action" },
-    { id: "radicals-muslims", nodeA: "radicals", nodeB: "muslims", label: "Anti-Colonial Solidarity", description: "Shared opposition to British rule across communal lines" },
-    { id: "radicals-merchants", nodeA: "radicals", nodeB: "merchants", label: "Economic Nationalism", description: "Merchants funding the radical swadeshi vision" },
-    { id: "radicals-british", nodeA: "radicals", nodeB: "british", label: "Antagonistic Respect", description: "The grudging engagement between radicals and officials" },
-    { id: "students-muslims", nodeA: "students", nodeB: "muslims", label: "Campus Coexistence", description: "Hindu and Muslim students sharing classrooms and causes" },
-    { id: "students-merchants", nodeA: "students", nodeB: "merchants", label: "Class Bridge", description: "Merchants' sons in colleges, students buying swadeshi goods" },
-    { id: "students-british", nodeA: "students", nodeB: "british", label: "Educational Dependency", description: "Students need British institutions; British need educated subjects" },
-    { id: "muslims-merchants", nodeA: "muslims", nodeB: "merchants", label: "Commercial Trust", description: "Trade relationships across communal lines in the bazaars" },
-    { id: "muslims-british", nodeA: "muslims", nodeB: "british", label: "Loyalist Compact", description: "The understanding between Muslim leaders and the Raj" },
-    { id: "merchants-british", nodeA: "merchants", nodeB: "british", label: "Trade Stability", description: "The commercial relationship underpinning imperial rule" }
+    { id: "moderates-radicals", nodeA: "moderates", nodeB: "radicals", label: "Congress Unity", description: "The fragile alliance between petition-writers and street fighters", initial: 55 },
+    { id: "moderates-students", nodeA: "moderates", nodeB: "students", label: "Generational Bridge", description: "Moderate leaders' connection to campus activism", initial: 70 },
+    { id: "moderates-muslims", nodeA: "moderates", nodeB: "muslims", label: "Secular Alliance", description: "Cross-communal political cooperation within Congress", initial: 45 },
+    { id: "moderates-merchants", nodeA: "moderates", nodeB: "merchants", label: "Elite Consensus", description: "Shared interests of political and commercial elites", initial: 75 },
+    { id: "moderates-british", nodeA: "moderates", nodeB: "british", label: "Constitutional Channel", description: "The belief that petitions and deputations matter", initial: 70 },
+    { id: "radicals-students", nodeA: "radicals", nodeB: "students", label: "Revolutionary Pipeline", description: "Students drawn to radical thought and direct action", initial: 55 },
+    { id: "radicals-muslims", nodeA: "radicals", nodeB: "muslims", label: "Anti-Colonial Solidarity", description: "Shared opposition to British rule across communal lines", initial: 40 },
+    { id: "radicals-merchants", nodeA: "radicals", nodeB: "merchants", label: "Economic Nationalism", description: "Merchants funding the radical swadeshi vision", initial: 50 },
+    { id: "radicals-british", nodeA: "radicals", nodeB: "british", label: "Antagonistic Respect", description: "The grudging engagement between radicals and officials", initial: 40 },
+    { id: "students-muslims", nodeA: "students", nodeB: "muslims", label: "Campus Coexistence", description: "Hindu and Muslim students sharing classrooms and causes", initial: 60 },
+    { id: "students-merchants", nodeA: "students", nodeB: "merchants", label: "Class Bridge", description: "Merchants' sons in colleges, students buying swadeshi goods", initial: 55 },
+    { id: "students-british", nodeA: "students", nodeB: "british", label: "Educational Dependency", description: "Students need British institutions; British need educated subjects", initial: 70 },
+    { id: "muslims-merchants", nodeA: "muslims", nodeB: "merchants", label: "Commercial Trust", description: "Trade relationships across communal lines in the bazaars", initial: 75 },
+    { id: "muslims-british", nodeA: "muslims", nodeB: "british", label: "Loyalist Compact", description: "The understanding between Muslim leaders and the Raj", initial: 70 },
+    { id: "merchants-british", nodeA: "merchants", nodeB: "british", label: "Trade Stability", description: "The commercial relationship underpinning imperial rule", initial: 80 }
   ];
 
   const TUTORIAL_EVENT = {
