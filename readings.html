@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readings &middot; Defining a Nation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --saffron: #e87d2f;
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 1; }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 24px 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 32px auto;
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .part-group {
+            margin-bottom: 48px;
+        }
+
+        .part-heading {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .part-period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .card {
+            display: block;
+            background: var(--gold-glow);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            background: var(--gold-dim);
+            border-color: var(--gold);
+            transform: translateY(-1px);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--ivory);
+            margin-bottom: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .card-type {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .card-type.interactive { color: var(--saffron); }
+
+        .card.interactive-card {
+            background: transparent;
+            border: 1px dashed var(--border-gold);
+            padding: 12px 16px;
+        }
+
+        .card.interactive-card:hover {
+            background: var(--gold-glow);
+            border-style: solid;
+        }
+
+        .card.interactive-card .card-title {
+            font-size: 0.95rem;
+            color: var(--ivory-dim);
+        }
+
+        .card.interactive-card .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .source-group {
+            margin-top: 12px;
+        }
+
+        .source-item {
+            display: block;
+            padding: 10px 16px;
+            border-left: 2px solid var(--border-gold);
+            margin-bottom: 2px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.15s ease;
+        }
+
+        .source-item:hover {
+            color: var(--ivory);
+            border-left-color: var(--gold);
+            background: var(--gold-glow);
+        }
+
+        .source-item .source-title {
+            color: var(--ivory-dim);
+            font-weight: 400;
+        }
+
+        .source-item:hover .source-title {
+            color: var(--ivory);
+        }
+
+        .source-item .source-detail {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        .source-item .pages {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">&larr; Home</a>
+
+<div class="page-header">
+    <h1 class="page-title">Readings</h1>
+    <p class="page-subtitle">
+        Background readings and shared primary sources that all delegates should complete before the conference begins.
+    </p>
+    <div class="divider"></div>
+</div>
+
+<div class="content">
+
+    <div class="part-group">
+        <div class="part-heading">Part 1: Empire and the Making of Modern India</div>
+        <div class="part-period">From the Mughals through the British Conquest</div>
+
+        <a href="reading-1-what-is-india.html" class="card">
+            <div class="card-type">Preparatory Reading</div>
+            <div class="card-title">Empire and the Making of Modern India</div>
+            <div class="card-desc">The subcontinent's geography, the Mughal Empire and its collapse, the East India Company, and the structure of British rule.</div>
+        </a>
+
+        <div class="source-group">
+            <a href="sources/rammohan-roy-the-future-of-india.pdf" class="source-item">
+                <span class="source-title">Rammohan Roy: The Future of India</span> <span class="pages">(1 p.)</span>
+                <span class="source-detail">The earliest major Indian intellectual asks what India should become under British rule.</span>
+            </a>
+            <a href="sources/shah-abdul-aziz-islam-in-danger.pdf" class="source-item">
+                <span class="source-title">Shah Abdul-Aziz: Islam in Danger</span> <span class="pages">(2 pp.)</span>
+                <span class="source-detail">A Muslim scholar declares British-ruled India is no longer safe for Islam.</span>
+            </a>
+            <a href="sources/queen-victoria-proclamation-of-1858.pdf" class="source-item">
+                <span class="source-title">Queen Victoria: Proclamation of 1858</span> <span class="pages">(3 pp.)</span>
+                <span class="source-detail">The constitutional framework establishing the British Raj.</span>
+            </a>
+        </div>
+
+        <a href="last-maharaja/" class="card interactive-card" style="margin-top: 12px;">
+            <div class="card-type interactive">Interactive</div>
+            <div class="card-title">The Last Maharaja: Survival 1790&ndash;1857</div>
+            <div class="card-desc">Play through 67 years as the ruler of a princely state, balancing your treasury, British favor, and your people's loyalty.</div>
+        </a>
+    </div>
+
+    <div class="part-group">
+        <div class="part-heading">Part 2: The Birth of Indian Nationalism</div>
+        <div class="part-period">From the Indian National Congress to Gandhi's Arrival (1885&ndash;1919)</div>
+
+        <a href="reading-2-the-birth-of-indian-nationalism.html" class="card">
+            <div class="card-type">Preparatory Reading</div>
+            <div class="card-title">The Birth of Indian Nationalism</div>
+            <div class="card-desc">The rise of Congress, Hindu revivalism, Muslim separatism, and Gandhi's arrival on the political stage.</div>
+        </a>
+
+        <div class="source-group">
+            <a href="sources/dadabhai-naoroji-pros-and-cons-of-british-rule.pdf" class="source-item">
+                <span class="source-title">Dadabhai Naoroji: The Pros and Cons of British Rule</span> <span class="pages">(4 pp.)</span>
+                <span class="source-detail">The "drain of wealth" argument: Britain is impoverishing India.</span>
+            </a>
+            <a href="sources/bankim-chandra-chatterji-hail-to-the-mother.pdf" class="source-item">
+                <span class="source-title">Bankim Chandra Chatterji: Hail to the Mother</span> <span class="pages">(7 pp.)</span>
+                <span class="source-detail">The poem that became the anthem of Indian nationalism.</span>
+            </a>
+            <a href="sources/sayyid-ahmad-khan-congress-as-a-danger-and-a-folly.pdf" class="source-item">
+                <span class="source-title">Sayyid Ahmad Khan: Congress as a Danger and a Folly</span> <span class="pages">(8 pp.)</span>
+                <span class="source-detail">The founding argument for Muslim separatism.</span>
+            </a>
+        </div>
+
+        <a href="bengal1905/static/" class="card interactive-card" style="margin-top: 12px;">
+            <div class="card-type interactive">Interactive</div>
+            <div class="card-title">Divide and Rule: The Bengal Partition Crisis of 1905</div>
+            <div class="card-desc">Navigate the 1905 Bengal Partition crisis by managing a web of alliances among competing political factions.</div>
+        </a>
+    </div>
+
+    <div class="part-group">
+        <div class="part-heading">Part 3: Fracturing and the Struggles for Independence</div>
+        <div class="part-period">From Non-Cooperation to the Eve of Simla (1920&ndash;1945)</div>
+
+        <a href="reading-3-gandhi-ambedkar-and-the-fracturing.html" class="card">
+            <div class="card-type">Preparatory Reading</div>
+            <div class="card-title">Fracturing and the Struggles for Independence</div>
+            <div class="card-desc">Gandhi's campaigns, Ambedkar's fight for Untouchable rights, Jinnah's demand for Pakistan, and the road to Simla.</div>
+        </a>
+
+        <div class="source-group">
+            <a href="sources/the-gandhi-ambedkar-debate-on-caste.pdf" class="source-item">
+                <span class="source-title">Ambedkar: The Evils of Caste</span> <span class="pages">(5 pp.)</span>
+                <span class="source-detail">Ambedkar's indictment of the caste system.</span>
+            </a>
+            <a href="sources/gandhi-responses-to-ambedkar.pdf" class="source-item">
+                <span class="source-title">Gandhi: Responses to Ambedkar's Indictment</span> <span class="pages">(3 pp.)</span>
+                <span class="source-detail">Gandhi's reply on caste and the stakes of separate electorates.</span>
+            </a>
+            <a href="sources/muhammad-ali-jinnah-two-separate-nations.pdf" class="source-item">
+                <span class="source-title">Muhammad Ali Jinnah: Founder of Pakistan</span> <span class="pages">(9 pp.)</span>
+                <span class="source-detail">Jinnah's case for Pakistan, including the 1940 Lahore Resolution.</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="site-footer">
+    SOCI 274 &middot; Spring 2026
+</div>
+
+</body>
+</html>
