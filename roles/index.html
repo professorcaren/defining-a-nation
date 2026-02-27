@@ -133,12 +133,17 @@
     <p class="error" id="error-msg">Onyen not found. Check your spelling and try again.</p>
 </div>
 <script>
+var ROLE_MAP = {"ncaren": "jawaharlal-nehru"};
 function handleSubmit(e) {
     e.preventDefault();
     var onyen = document.getElementById('onyen').value.trim().toLowerCase();
     if (!onyen) return false;
-    // Navigate to the onyen subdirectory — if it doesn't exist, GitHub Pages returns 404
-    window.location.href = './' + encodeURIComponent(onyen) + '/';
+    var slug = ROLE_MAP[onyen];
+    if (slug) {
+        window.location.href = './' + encodeURIComponent(slug) + '/';
+    } else {
+        document.getElementById('error-msg').style.display = 'block';
+    }
     return false;
 }
 </script>
