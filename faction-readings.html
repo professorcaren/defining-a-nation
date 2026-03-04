@@ -25,148 +25,48 @@
             --border-gold: rgba(212, 168, 67, 0.25);
             --border-subtle: rgba(240, 233, 214, 0.08);
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             font-family: 'Lato', 'Segoe UI', sans-serif;
             background: var(--bg-deep);
-            background-image:
-                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            background-image: radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
             color: var(--text-primary);
             min-height: 100vh;
         }
-
         .back-link {
-            position: fixed;
-            top: 0.75rem;
-            left: 1rem;
-            z-index: 9999;
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gold);
-            opacity: 0.7;
-            text-decoration: none;
-            transition: opacity 0.2s;
+            position: fixed; top: 0.75rem; left: 1rem; z-index: 9999;
+            font-family: 'Cinzel', serif; font-size: 0.85rem;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--gold); opacity: 0.7; text-decoration: none; transition: opacity 0.2s;
         }
         .back-link:hover { opacity: 1; }
-
-        .page-header {
-            text-align: center;
-            padding: 60px 24px 40px;
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .page-header { text-align: center; padding: 60px 24px 40px; animation: fadeIn 1s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .page-title {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            color: var(--gold);
-            letter-spacing: 2px;
+            font-family: 'Cinzel', serif; font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--gold); letter-spacing: 2px;
         }
-
         .page-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 12px;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
+            font-size: 0.9rem; color: var(--text-secondary); margin-top: 12px;
+            max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6;
         }
-
-        .divider {
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 32px auto;
-        }
-
-        /* ═══════ CONTENT ═══════ */
-
-        .content {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 24px 80px;
-        }
-
-        .faction {
-            margin-bottom: 48px;
-        }
-
-        .faction-name {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--gold-light);
-            margin-bottom: 4px;
-        }
-
-        .faction-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-            line-height: 1.5;
-        }
-
+        .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 32px auto; }
+        .content { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+        .faction { margin-bottom: 48px; }
+        .faction-name { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.15rem; color: var(--gold-light); margin-bottom: 4px; }
+        .faction-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
         .source-item {
-            display: block;
-            padding: 10px 16px;
-            border-left: 2px solid var(--border-gold);
-            margin-bottom: 2px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            transition: all 0.15s ease;
+            display: block; padding: 10px 16px; border-left: 2px solid var(--border-gold);
+            margin-bottom: 2px; text-decoration: none; color: var(--text-secondary);
+            font-size: 1rem; transition: all 0.15s ease;
         }
-
-        .source-item:hover {
-            color: var(--ivory);
-            border-left-color: var(--gold);
-            background: var(--gold-glow);
-        }
-
-        .source-item .source-title {
-            color: var(--ivory-dim);
-        }
-
-        .source-item:hover .source-title {
-            color: var(--ivory);
-        }
-
-        .source-item .source-detail {
-            display: block;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-            line-height: 1.4;
-        }
-
-        .source-item .pages {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        .shared {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .site-footer {
-            text-align: center;
-            padding: 40px 24px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
+        .source-item:hover { color: var(--ivory); border-left-color: var(--gold); background: var(--gold-glow); }
+        .source-item .source-title { color: var(--ivory-dim); }
+        .source-item:hover .source-title { color: var(--ivory); }
+        .source-item .source-detail { display: block; font-size: 0.88rem; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+        .source-item .pages { font-size: 0.82rem; color: var(--text-muted); }
+        .shared { font-size: 0.82rem; color: var(--text-muted); font-style: italic; }
+        .site-footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border-subtle); font-size: 0.75rem; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -186,25 +86,35 @@
 
 <div class="content">
 
-    <!-- British -->
     <div class="faction">
         <div class="faction-name">British</div>
         <div class="faction-desc">You preside over the conference. Understand the ideology behind British rule and the frameworks that have been proposed.</div>
+        <a href="sources/queen-victoria-proclamation-of-1858.pdf" class="source-item">
+            <span class="source-title">Queen Victoria: Proclamation of 1858</span> <span class="pages">(3 pp.)</span>
+            <span class="source-detail">The foundational document of Crown rule in India. The treaty obligations you must honor or abandon.</span>
+            <span class="shared">Also assigned to: Princely States</span>
+        </a>
         <a href="sources/macaulay-minute-on-education.pdf" class="source-item">
             <span class="source-title">Thomas Babington Macaulay: The Minute on Education</span> <span class="pages">(3 pp.)</span>
-            <span class="source-detail">The civilizing-mission ideology that shaped British India's education system.</span>
+            <span class="source-detail">The civilizing-mission ideology that shaped British India’s education system.</span>
+        </a>
+        <a href="sources/dadabhai-naoroji-pros-and-cons-of-british-rule.pdf" class="source-item">
+            <span class="source-title">Dadabhai Naoroji: The Pros and Cons of British Rule</span> <span class="pages">(6 pp.)</span>
+            <span class="source-detail">The economic case against empire. The ‘drain theory’ that every Indian faction will cite against you.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC)</span>
         </a>
         <a href="sources/cabinet-mission-plan-the-last-british-offer.pdf" class="source-item">
             <span class="source-title">The Cabinet Mission Plan: The Last British Offer</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">The British framework for transferring power. The kind of proposal you will need to draft.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC), Muslim League, Princely States</span>
         </a>
         <a href="sources/congress-response-to-the-cabinet-mission-plan.pdf" class="source-item">
-            <span class="source-title">Congress's Response to the Cabinet Mission Plan</span> <span class="pages">(2 pp.)</span>
+            <span class="source-title">Congress’s Response to the Cabinet Mission Plan</span> <span class="pages">(2 pp.)</span>
             <span class="source-detail">How Congress reacted. Anticipate these objections when crafting your own proposal.</span>
+            <span class="shared">Also assigned to: Princely States</span>
         </a>
     </div>
 
-    <!-- Congress -->
     <div class="faction">
         <div class="faction-name">Indian National Congress (INC)</div>
         <div class="faction-desc">You claim to speak for all Indians. These readings show both the promise and the vulnerability of that claim.</div>
@@ -215,10 +125,12 @@
         <a href="sources/sarojini-naidu-indian-unity.pdf" class="source-item">
             <span class="source-title">Sarojini Naidu: For the Evolution of National Life</span> <span class="pages">(4 pp.)</span>
             <span class="source-detail">Congress secularism articulated by one of its most prominent voices.</span>
+            <span class="shared">Also assigned to: British</span>
         </a>
         <a href="sources/nehru-be-not-afraid.pdf" class="source-item">
-            <span class="source-title">Jawaharlal Nehru: "Be Not Afraid"</span> <span class="pages">(5 pp.)</span>
-            <span class="source-detail">Nehru's socialist, modernizing vision for India's future.</span>
+            <span class="source-title">Jawaharlal Nehru: “Be Not Afraid”</span> <span class="pages">(5 pp.)</span>
+            <span class="source-detail">Nehru’s socialist, modernizing vision for India’s future.</span>
+            <span class="shared">Also assigned to: Muslim League, Princely States, Village Leaders</span>
         </a>
         <a href="sources/abul-kalam-azad-muslims-of-india-and-the-future-of-india.pdf" class="source-item">
             <span class="source-title">Abul Kalam Azad: The Muslims of India and the Future of India</span> <span class="pages">(8 pp.)</span>
@@ -231,8 +143,13 @@
         </a>
         <a href="sources/gandhi-hindu-muslim-tension-its-cause-and-cure.pdf" class="source-item">
             <span class="source-title">Gandhi: Hindu-Muslim Tension, Its Cause and Cure</span> <span class="pages">(3 pp.)</span>
-            <span class="source-detail">Your ally Gandhi's diagnosis of communal conflict.</span>
-            <span class="shared">Also assigned to: Gandhi's Adherents</span>
+            <span class="source-detail">Your ally Gandhi’s diagnosis of communal conflict.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Ahimsa Pathiks), Gandhi’s Adherents (Gram Swaraj Sangh)</span>
+        </a>
+        <a href="sources/dadabhai-naoroji-pros-and-cons-of-british-rule.pdf" class="source-item">
+            <span class="source-title">Dadabhai Naoroji: The Pros and Cons of British Rule</span> <span class="pages">(6 pp.)</span>
+            <span class="source-detail">The economic case against empire. Masani’s father wrote Naoroji’s biography—this is your intellectual inheritance.</span>
+            <span class="shared">Also assigned to: British</span>
         </a>
         <a href="sources/cabinet-mission-plan-the-last-british-offer.pdf" class="source-item">
             <span class="source-title">The Cabinet Mission Plan: The Last British Offer</span> <span class="pages">(6 pp.)</span>
@@ -241,113 +158,136 @@
         </a>
     </div>
 
-    <!-- Muslim League -->
     <div class="faction">
         <div class="faction-name">Muslim League</div>
         <div class="faction-desc">You demand Pakistan. These readings trace the intellectual case for a separate Muslim state, and the arguments you must overcome.</div>
+        <a href="sources/muhammad-ali-jinnah-two-separate-nations.pdf" class="source-item">
+            <span class="source-title">Muhammad Ali Jinnah: “The Thrust Toward a New Muslim Nation”</span> <span class="pages">(5 pp.)</span>
+            <span class="source-detail">Jinnah’s own case for Pakistan—the two-nation theory in his words.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC)</span>
+        </a>
         <a href="sources/muhammad-iqbal-a-separate-muslim-state-and-letters-to-jinnah.pdf" class="source-item">
             <span class="source-title">Muhammad Iqbal: A Separate Muslim State, and Letters to Jinnah</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">The intellectual foundation for Pakistan, from the poet-philosopher who inspired the idea.</span>
         </a>
         <a href="sources/choudhary-rahmat-ali-fatherland-of-the-pak-nation.pdf" class="source-item">
-            <span class="source-title">Choudhary Rahmat Ali: "The Fatherland of the Pak Nation"</span> <span class="pages">(3 pp.)</span>
-            <span class="source-detail">The man who coined the name "Pakistan" and mapped its geography.</span>
+            <span class="source-title">Choudhary Rahmat Ali: “The Fatherland of the Pak Nation”</span> <span class="pages">(3 pp.)</span>
+            <span class="source-detail">The man who coined the name “Pakistan” and mapped its geography.</span>
+            <span class="shared">Also assigned to: Akali Dal (Sikhs)</span>
+        </a>
+        <a href="sources/sayyid-ahmad-khan-congress-as-a-danger-and-a-folly.pdf" class="source-item">
+            <span class="source-title">Sayyid Ahmad Khan: Congress as a Danger and a Folly</span> <span class="pages">(5 pp.)</span>
+            <span class="source-detail">The foundational argument for Muslim separatism: why Congress cannot represent Muslims.</span>
         </a>
         <a href="sources/mohamed-ali-hindu-muslim-unity-then-adversary.pdf" class="source-item">
             <span class="source-title">Mohamed Ali: Hindu-Muslim Unity, Then Adversary of Gandhi</span> <span class="pages">(7 pp.)</span>
-            <span class="source-detail">A Muslim leader who allied with Gandhi, then turned against him. The trajectory from unity to separation.</span>
+            <span class="source-detail">A Muslim leader who allied with Gandhi, then turned against him.</span>
         </a>
         <a href="sources/begum-shaista-ikramullah-encounters-with-jinnah.pdf" class="source-item">
             <span class="source-title">Begum Shaista Ikramullah: Cherished Encounters with Jinnah</span> <span class="pages">(9 pp.)</span>
-            <span class="source-detail">A Muslim League woman's account of Jinnah and the movement for Pakistan.</span>
+            <span class="source-detail">A Muslim League woman’s account of Jinnah and the movement for Pakistan.</span>
+        </a>
+        <a href="sources/shah-abdul-aziz-islam-in-danger.pdf" class="source-item">
+            <span class="source-title">Shah Abdul Aziz: Islam in Danger</span> <span class="pages">(3 pp.)</span>
+            <span class="source-detail">An early theological argument that Muslim life under non-Muslim rule is imperiled.</span>
         </a>
         <a href="sources/abul-kalam-azad-muslims-of-india-and-the-future-of-india.pdf" class="source-item">
             <span class="source-title">Abul Kalam Azad: The Muslims of India and the Future of India</span> <span class="pages">(8 pp.)</span>
             <span class="source-detail">A Muslim leader who opposes partition. Know this argument: Congress will use Azad against you.</span>
-            <span class="shared">Also assigned to: Congress</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC)</span>
         </a>
         <a href="sources/ambedkar-must-there-be-a-pakistan.pdf" class="source-item">
             <span class="source-title">B. R. Ambedkar: Must There Be a Pakistan?</span> <span class="pages">(8 pp.)</span>
-            <span class="source-detail">A non-Muslim's strategic analysis of partition. Ambedkar takes the demand seriously and probes its weaknesses.</span>
-            <span class="shared">Also assigned to: SCF</span>
+            <span class="source-detail">A non-Muslim’s strategic analysis of partition. Ambedkar takes the demand seriously and probes its weaknesses.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC), Scheduled Caste Federation, Hindu Mahasabha</span>
         </a>
         <a href="sources/cabinet-mission-plan-the-last-british-offer.pdf" class="source-item">
             <span class="source-title">The Cabinet Mission Plan: The Last British Offer</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">The provisions on grouping provinces are especially relevant to Pakistan.</span>
-            <span class="shared">Also assigned to: British, Congress, Princely States</span>
+            <span class="shared">Also assigned to: British, Indian National Congress (INC), Princely States</span>
         </a>
     </div>
 
-    <!-- Gandhi's Adherents -->
     <div class="faction">
-        <div class="faction-name">Gandhi's Adherents</div>
-        <div class="faction-desc">You carry Gandhi's moral authority. Master his arguments, and know the strongest objections to them.</div>
+        <div class="faction-name">Gandhi’s Adherents</div>
+        <div class="faction-desc">You carry Gandhi’s moral authority. Master his arguments, and know the strongest objections to them.</div>
         <a href="sources/gandhi-hind-swaraj.pdf" class="source-item">
             <span class="source-title">Gandhi: Hind Swaraj</span> <span class="pages">(6 pp.)</span>
-            <span class="source-detail">Gandhi's foundational text rejecting Western modernity. The philosophical basis for village self-rule.</span>
+            <span class="source-detail">Gandhi’s foundational text rejecting Western modernity. The philosophical basis for village self-rule.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh), Communist Party of India</span>
         </a>
         <a href="sources/gandhi-the-crime-of-chauri-chaura.pdf" class="source-item">
             <span class="source-title">Gandhi: The Crime of Chauri Chaura</span> <span class="pages">(3 pp.)</span>
             <span class="source-detail">Gandhi calls off the entire non-cooperation movement after a single act of violence.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/gandhi-hindu-muslim-tension-its-cause-and-cure.pdf" class="source-item">
             <span class="source-title">Gandhi: Hindu-Muslim Tension, Its Cause and Cure</span> <span class="pages">(3 pp.)</span>
-            <span class="source-detail">Gandhi's diagnosis of communal conflict and his prescription for healing it.</span>
-            <span class="shared">Also assigned to: Congress</span>
+            <span class="source-detail">Gandhi’s diagnosis of communal conflict and his prescription for healing it.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC), Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/gandhi-letter-to-lord-irwin.pdf" class="source-item">
             <span class="source-title">Gandhi: Letter to Lord Irwin (Salt Satyagraha)</span> <span class="pages">(5 pp.)</span>
             <span class="source-detail">Gandhi explains the Salt March to the Viceroy. Satyagraha in practice.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/gandhi-from-the-gandhi-irwin-pact-to-quit-india.pdf" class="source-item">
             <span class="source-title">Gandhi: From the Gandhi-Irwin Pact to Quit India</span> <span class="pages">(3 pp.)</span>
             <span class="source-detail">The immediate political backdrop to Simla.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/gandhi-untouchability-and-swaraj.pdf" class="source-item">
             <span class="source-title">Gandhi: Untouchability and Swaraj</span> <span class="pages">(4 pp.)</span>
             <span class="source-detail">Gandhi on caste, untouchability, and women.</span>
-            <span class="shared">Also assigned to: Congress, SCF, Village Leaders</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh), Scheduled Caste Federation, Village Leaders</span>
         </a>
         <a href="sources/tagore-critique-of-gandhi-and-gandhi-response.pdf" class="source-item">
-            <span class="source-title">Tagore's Critique of Gandhi, and Gandhi's Response</span> <span class="pages">(9 pp.)</span>
+            <span class="source-title">Tagore’s Critique of Gandhi, and Gandhi’s Response</span> <span class="pages">(9 pp.)</span>
             <span class="source-detail">The sharpest internal debate about nonviolence and non-cooperation.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/periyar-responds-to-gandhi-on-caste.pdf" class="source-item">
             <span class="source-title">Periyar Responds to Gandhi on Caste</span> <span class="pages">(4 pp.)</span>
-            <span class="source-detail">The most devastating critique of Gandhi's approach to untouchability.</span>
-            <span class="shared">Also assigned to: SCF</span>
+            <span class="source-detail">The most devastating critique of Gandhi’s approach to untouchability.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Gram Swaraj Sangh), Scheduled Caste Federation</span>
         </a>
     </div>
 
-    <!-- SCF -->
     <div class="faction">
         <div class="faction-name">Scheduled Caste Federation</div>
         <div class="faction-desc">You fight for 70 million Untouchables. Arm yourself with the intellectual case for political power.</div>
+        <a href="sources/the-gandhi-ambedkar-debate-on-caste.pdf" class="source-item">
+            <span class="source-title">The Gandhi-Ambedkar Debate on Caste</span> <span class="pages">(6 pp.)</span>
+            <span class="source-detail">The central confrontation: Ambedkar’s case for annihilating caste versus Gandhi’s defense of varnashrama.</span>
+        </a>
+        <a href="sources/gandhi-responses-to-ambedkar.pdf" class="source-item">
+            <span class="source-title">Gandhi’s Responses to Ambedkar</span> <span class="pages">(4 pp.)</span>
+            <span class="source-detail">Gandhi’s specific arguments against Ambedkar’s demands. Know these so you can refute them.</span>
+        </a>
         <a href="sources/jotirao-phule-tyranny-of-brahman-dominated-history.pdf" class="source-item">
             <span class="source-title">Jotirao Phule: The Tyranny of a Brahman-Dominated History</span> <span class="pages">(5 pp.)</span>
-            <span class="source-detail">The intellectual precursor to Ambedkar: a 19th-century radical's attack on Brahmin domination.</span>
+            <span class="source-detail">The intellectual precursor to Ambedkar: a 19th-century radical’s attack on Brahmin domination.</span>
         </a>
         <a href="sources/periyar-responds-to-gandhi-on-caste.pdf" class="source-item">
             <span class="source-title">Periyar Responds to Gandhi on Caste</span> <span class="pages">(4 pp.)</span>
-            <span class="source-detail">Periyar's sharp critique of Gandhi's paternalism toward Untouchables.</span>
-            <span class="shared">Also assigned to: Gandhi's Adherents</span>
+            <span class="source-detail">Periyar’s sharp critique of Gandhi’s paternalism toward Untouchables.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Ahimsa Pathiks), Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/ambedkar-must-there-be-a-pakistan.pdf" class="source-item">
             <span class="source-title">B. R. Ambedkar: Must There Be a Pakistan?</span> <span class="pages">(8 pp.)</span>
-            <span class="source-detail">Ambedkar's strategic analysis of partition from an Untouchable perspective.</span>
-            <span class="shared">Also assigned to: Muslim League</span>
+            <span class="source-detail">Ambedkar’s strategic analysis of partition from an Untouchable perspective.</span>
+            <span class="shared">Also assigned to: Indian National Congress (INC), Muslim League, Hindu Mahasabha</span>
         </a>
         <a href="sources/gandhi-untouchability-and-swaraj.pdf" class="source-item">
             <span class="source-title">Gandhi: Untouchability and Swaraj</span> <span class="pages">(4 pp.)</span>
-            <span class="source-detail">Gandhi's position on untouchability. Know the argument you are fighting against.</span>
-            <span class="shared">Also assigned to: Congress, Gandhi's Adherents, Village Leaders</span>
+            <span class="source-detail">Gandhi’s position on untouchability. Know the argument you are fighting against.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Ahimsa Pathiks), Gandhi’s Adherents (Gram Swaraj Sangh), Village Leaders</span>
         </a>
     </div>
 
-    <!-- Hindu Mahasabha -->
     <div class="faction">
         <div class="faction-name">Hindu Mahasabha</div>
-        <div class="faction-desc">You demand a Hindu nation. These readings build the case that India's identity is fundamentally Hindu.</div>
+        <div class="faction-desc">You demand a Hindu nation. These readings build the case that India’s identity is fundamentally Hindu.</div>
         <a href="sources/tilak-gita-versus-the-penal-code-and-tenets-of-the-new-party.pdf" class="source-item">
             <span class="source-title">Bal Gangadhar Tilak: The Gita Versus the Penal Code</span> <span class="pages">(7 pp.)</span>
             <span class="source-detail">The founding texts of Hindu militant nationalism.</span>
@@ -357,22 +297,39 @@
             <span class="source-detail">Hindutva articulated: India as a Hindu civilization-state.</span>
         </a>
         <a href="sources/aurobindo-ghosh-passive-resistance-and-hindu-mission.pdf" class="source-item">
-            <span class="source-title">Aurobindo Ghosh: Passive Resistance and India's Hindu Mission</span> <span class="pages">(11 pp.)</span>
-            <span class="source-detail">Spiritual nationalism: India's destiny as the resurrection of Hinduism.</span>
+            <span class="source-title">Aurobindo Ghosh: Passive Resistance and India’s Hindu Mission</span> <span class="pages">(11 pp.)</span>
+            <span class="source-detail">Spiritual nationalism: India’s destiny as the resurrection of Hinduism.</span>
+            <span class="shared">Also assigned to: Scheduled Caste Federation</span>
+        </a>
+        <a href="sources/bankim-chandra-chatterji-hail-to-the-mother.pdf" class="source-item">
+            <span class="source-title">Bankim Chandra Chatterji: Hail to the Mother</span> <span class="pages">(4 pp.)</span>
+            <span class="source-detail">The author of Vande Mataram. The cultural nationalism behind the anthem that divides the conference.</span>
+        </a>
+        <a href="sources/dayananda-saraswati-gokarunanidhi.pdf" class="source-item">
+            <span class="source-title">Dayananda Saraswati: Gokarunanidhi</span> <span class="pages">(20 pp.)</span>
+            <span class="source-detail">The foundational Hindu text on cow protection. The moral and religious case that drives your agitation.</span>
+        </a>
+        <a href="sources/gandhi-communal-problems.pdf" class="source-item">
+            <span class="source-title">Gandhi: Communal Problems (Ch. 14: Cow Protection)</span> <span class="pages">(37 pp.)</span>
+            <span class="source-detail">Gandhi on cow slaughter and Hindu-Muslim friction. He agrees cows are sacred but opposes legal compulsion—understand his position to counter it.</span>
+            <span class="shared">Also assigned to: Village Leaders</span>
         </a>
     </div>
 
-    <!-- Akali Dal -->
     <div class="faction">
         <div class="faction-name">Akali Dal (Sikhs)</div>
-        <div class="faction-desc">You are too small to win alone but too important to ignore. Understand Sikh identity and the Punjab's stakes in partition.</div>
+        <div class="faction-desc">You are too small to win alone but too important to ignore. Understand Sikh identity and the Punjab’s stakes in partition.</div>
+        <a href="sources/sikhism-a-very-short-introduction.pdf" class="source-item">
+            <span class="source-title">Eleanor Nesbitt: Sikhism — A Very Short Introduction</span> <span class="pages">(book)</span>
+            <span class="source-detail">A concise overview of Sikh history, beliefs, and identity.</span>
+        </a>
         <a href="sources/sikh-religious-code-lives-of-discipline-and-devotion.pdf" class="source-item">
             <span class="source-title">The Sikh Religious Code: Lives of Discipline and Devotion</span> <span class="pages">(2 pp.)</span>
             <span class="source-detail">The Khalsa code that defines Sikh identity.</span>
         </a>
         <a href="sources/lala-lajpat-rai-the-hindu-muslim-problem.pdf" class="source-item">
             <span class="source-title">Lala Lajpat Rai: The Hindu-Muslim Problem, 1924</span> <span class="pages">(10 pp.)</span>
-            <span class="source-detail">A Punjab leader's early proposal to divide the Punjab and Bengal along communal lines.</span>
+            <span class="source-detail">A Punjab leader’s early proposal to divide the Punjab and Bengal along communal lines.</span>
         </a>
         <a href="sources/gurbachan-singh-demanding-a-sikh-state.pdf" class="source-item">
             <span class="source-title">Gurbachan Singh and Lal Singh Gyani: Demanding a Sikh State</span> <span class="pages">(6 pp.)</span>
@@ -380,59 +337,100 @@
         </a>
     </div>
 
-    <!-- CPI -->
     <div class="faction">
         <div class="faction-name">Communist Party of India</div>
         <div class="faction-desc">You see class, not religion, as the real divide. These readings provide the Marxist analysis of Indian nationalism.</div>
         <a href="sources/communist-responses-to-gandhi-roy-and-dutt.pdf" class="source-item">
             <span class="source-title">M. N. Roy and Rajani Palme Dutt: Communist Responses to Gandhi</span> <span class="pages">(11 pp.)</span>
             <span class="source-detail">Two Marxist critiques of Gandhian nonviolence as a mask for bourgeois exploitation.</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Ahimsa Pathiks), Gandhi’s Adherents (Gram Swaraj Sangh)</span>
         </a>
         <a href="sources/g-d-adhikari-national-unity-now.pdf" class="source-item">
             <span class="source-title">G. D. Adhikari: National Unity Now!</span> <span class="pages">(8 pp.)</span>
-            <span class="source-detail">The CPI's wartime position on nationality and self-determination.</span>
+            <span class="source-detail">The CPI’s wartime position on nationality and self-determination.</span>
         </a>
         <a href="sources/jayaprakash-narayan-plea-for-communitarian-polity.pdf" class="source-item">
             <span class="source-title">Jayaprakash Narayan: A Plea for a Communitarian Polity and Economy</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">A Marxist who moved toward Gandhian communalism. The tension between theory and Indian realities.</span>
         </a>
+        <a href="sources/kisan-sabha-history.pdf" class="source-item">
+            <span class="source-title">Outline History of the All India Kisan Sabha</span> <span class="pages">(100 pp.)</span>
+            <span class="source-detail">The peasant movement’s own account of its founding, demands, and growth from 1936 onward.</span>
+            <span class="shared">Also assigned to: Village Leaders</span>
+        </a>
+        <a href="sources/telangana-excerpts.pdf" class="source-item">
+            <span class="source-title">P. Sundarayya: Excerpts from Telangana People’s Struggle</span> <span class="pages">(5 pp.)</span>
+            <span class="source-detail">A communist leader’s account of armed peasant insurrection against the Nizam of Hyderabad.</span>
+        </a>
+        <a href="sources/tebhaga-struggle.pdf" class="source-item">
+            <span class="source-title">M. Abdullah Rasul: The Tebhaga Struggle of Bengal</span> <span class="pages">(15 pp.)</span>
+            <span class="source-detail">The 1946 sharecropper uprising in Bengal—peasants demanding two-thirds of the harvest.</span>
+            <span class="shared">Also assigned to: Village Leaders</span>
+        </a>
     </div>
 
-    <!-- Princely States -->
     <div class="faction">
         <div class="faction-name">Princely States</div>
         <div class="faction-desc">You claim sovereignty. Understand the proposals on the table and the arguments for independent or autonomous states.</div>
+        <a href="sources/queen-victoria-proclamation-of-1858.pdf" class="source-item">
+            <span class="source-title">Queen Victoria: Proclamation of 1858</span> <span class="pages">(3 pp.)</span>
+            <span class="source-detail">The foundational document of Crown rule. Your treaties with the Crown are your legal basis for sovereignty.</span>
+            <span class="shared">Also assigned to: British</span>
+        </a>
         <a href="sources/cabinet-mission-plan-the-last-british-offer.pdf" class="source-item">
             <span class="source-title">The Cabinet Mission Plan: The Last British Offer</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">The British framework for transferring power, including provisions for princely states.</span>
-            <span class="shared">Also assigned to: British, Congress, Muslim League</span>
+            <span class="shared">Also assigned to: British, Indian National Congress (INC), Muslim League</span>
         </a>
         <a href="sources/congress-response-to-the-cabinet-mission-plan.pdf" class="source-item">
-            <span class="source-title">Congress's Response to the Cabinet Mission Plan</span> <span class="pages">(2 pp.)</span>
+            <span class="source-title">Congress’s Response to the Cabinet Mission Plan</span> <span class="pages">(2 pp.)</span>
             <span class="source-detail">Congress wants a strong central government that absorbs your territories.</span>
+            <span class="shared">Also assigned to: British</span>
         </a>
         <a href="sources/sarat-chandra-bose-proposing-a-bengal-free-state.pdf" class="source-item">
             <span class="source-title">Sarat Chandra Bose: Proposing a Bengal Free State</span> <span class="pages">(7 pp.)</span>
             <span class="source-detail">A bold proposal for an independent Bengal. A model for the sovereignty you seek.</span>
         </a>
+        <a href="sources/cabinet-mission-memorandum-paramountcy-1946.pdf" class="source-item">
+            <span class="source-title">Cabinet Mission Memorandum on Paramountcy, 1946</span> <span class="pages">(2 pp.)</span>
+            <span class="source-detail">The British state that paramountcy will not transfer to any successor government. Your legal trump card.</span>
+        </a>
+        <a href="sources/butler-committee-report-1929.pdf" class="source-item">
+            <span class="source-title">Butler Committee Report, 1929</span> <span class="pages">(75 pp.)</span>
+            <span class="source-detail">The earlier ruling: paramountcy cannot be transferred without princely consent. The legal foundation of your sovereignty claim.</span>
+        </a>
     </div>
 
-    <!-- Village Leaders -->
     <div class="faction">
         <div class="faction-name">Village Leaders</div>
         <div class="faction-desc">You represent the vast majority of Indians. Every faction claims to speak for you. These readings give voice to rural India.</div>
         <a href="sources/romesh-chunder-dutt-causes-of-indias-poverty.pdf" class="source-item">
-            <span class="source-title">Romesh Chunder Dutt: The Causes of India's Poverty</span> <span class="pages">(6 pp.)</span>
+            <span class="source-title">Romesh Chunder Dutt: The Causes of India’s Poverty</span> <span class="pages">(6 pp.)</span>
             <span class="source-detail">The economic devastation of rural India under British rule.</span>
         </a>
         <a href="sources/tagore-the-problem-of-india.pdf" class="source-item">
-            <span class="source-title">Rabindranath Tagore: "The Problem of India"</span> <span class="pages">(4 pp.)</span>
+            <span class="source-title">Rabindranath Tagore: “The Problem of India”</span> <span class="pages">(4 pp.)</span>
             <span class="source-detail">Tagore on the poverty, isolation, and unrealized potential of the villages.</span>
         </a>
         <a href="sources/gandhi-untouchability-and-swaraj.pdf" class="source-item">
             <span class="source-title">Gandhi: Untouchability and Swaraj</span> <span class="pages">(4 pp.)</span>
             <span class="source-detail">Gandhi on the village-level injustices that no constitution can solve from above.</span>
-            <span class="shared">Also assigned to: Congress, Gandhi's Adherents, SCF</span>
+            <span class="shared">Also assigned to: Gandhi’s Adherents (Ahimsa Pathiks), Gandhi’s Adherents (Gram Swaraj Sangh), Scheduled Caste Federation</span>
+        </a>
+        <a href="sources/kisan-sabha-history.pdf" class="source-item">
+            <span class="source-title">Outline History of the All India Kisan Sabha</span> <span class="pages">(100 pp.)</span>
+            <span class="source-detail">The peasant movement organized. Their demands for land, debt relief, and fair rents are your demands.</span>
+            <span class="shared">Also assigned to: Communist Party of India</span>
+        </a>
+        <a href="sources/tebhaga-struggle.pdf" class="source-item">
+            <span class="source-title">M. Abdullah Rasul: The Tebhaga Struggle of Bengal</span> <span class="pages">(15 pp.)</span>
+            <span class="source-detail">Bengal sharecroppers rise up to claim two-thirds of the harvest. The village fights back.</span>
+            <span class="shared">Also assigned to: Communist Party of India</span>
+        </a>
+        <a href="sources/gandhi-communal-problems.pdf" class="source-item">
+            <span class="source-title">Gandhi: Communal Problems (Ch. 14: Cow Protection)</span> <span class="pages">(37 pp.)</span>
+            <span class="source-detail">Cow protection stirs your villages more than any constitutional debate. Gandhi’s position shapes how this plays out.</span>
+            <span class="shared">Also assigned to: Hindu Mahasabha</span>
         </a>
     </div>
 
