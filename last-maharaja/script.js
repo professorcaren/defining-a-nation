@@ -50,7 +50,7 @@ const anchorEvents = [
         advisor: 'resident',
         title: "The Subsidiary Alliance",
         desc: "Lord Wellesley offers you a treaty. British troops will garrison your borders for 'protection.' In exchange, you must dismiss your French-trained officers, surrender foreign policy, and pay handsomely for the soldiers' upkeep.",
-        note: "The Subsidiary Alliance was perfected by Wellesley to neutralize the French threat. The Nizam of Hyderabad accepted in 1798, ceding fertile districts to pay for troops he didn't control. The cost was deliberately set high to create a debt spiral.",
+        note: "The Subsidiary Alliance was perfected by Wellesley to neutralize the French threat. The Nizam of Hyderabad accepted in 1798, ceding fertile districts to pay for troops he didn't control. The costs were high, and states that fell behind on payments were often forced to cede territory.",
         left: {
             text: "Accept the Treaty",
             effect: { treasury: -15, britishFavor: 25, loyalty: -10 },
@@ -101,7 +101,7 @@ const anchorEvents = [
         advisor: 'resident',
         title: "Macaulay's Minute",
         desc: "Thomas Macaulay has declared that 'a single shelf of a good European library is worth the whole native literature of India.' The British offer funding for an English-language college in your capital, promising modern education.",
-        note: "Macaulay's education policy aimed to create 'a class of persons Indian in blood and colour, but English in tastes, in opinions, in morals and in intellect.' This new class would staff the colonial bureaucracy, displacing traditional scholars.",
+        note: "Macaulay's education policy aimed to create 'a class of persons Indian in blood and colour, but English in taste, in opinions, in morals and in intellect.' This new class would staff the colonial bureaucracy, displacing traditional scholars.",
         left: {
             text: "Accept English Education",
             effect: { treasury: 10, britishFavor: 15, loyalty: -15 },
@@ -118,7 +118,7 @@ const anchorEvents = [
         advisor: 'spy',
         title: "The Doctrine of Lapse",
         desc: "Lord Dalhousie declares that if a dependent ruler dies without a natural male heir, the state 'lapses' to British sovereignty. Satara—seat of Shivaji's descendants—has just been annexed. You have no son.",
-        note: "The Doctrine of Lapse negated the ancient Hindu custom of adoption for political succession. Satara (1848), Nagpur (1853), and Jhansi (1853) were all annexed this way. When Nagpur's royal jewels were auctioned in Calcutta's bazaar, the humiliation resonated across every princely court.",
+        note: "The Doctrine of Lapse negated the ancient Hindu custom of adoption for political succession. Satara (1848), Jhansi (1854), and Nagpur (1854) were all annexed this way. Nagpur's royal jewels and elephants were later auctioned off, a humiliation noticed in every princely court.",
         left: {
             text: "Adopt an Heir",
             effect: { treasury: -5, britishFavor: -25, loyalty: 15 },
@@ -135,7 +135,7 @@ const anchorEvents = [
         advisor: 'merchant',
         title: "The Iron Horse",
         desc: "The British want to build a railway through your kingdom. It requires seizing peasant farmland, raising taxes, and granting unrestricted British access. They promise 'progress and prosperity.' Your peasants promise resistance.",
-        note: "Railways were laid out to maximize military mobility. Land acquisition displaced thousands of peasants. The mixing of castes in railway carriages was seen by the orthodox as an attack on the social order, fueling anxieties before 1857.",
+        note: "Military needs shaped where the early railways ran. Land acquisition displaced thousands of peasants. The mixing of castes in railway carriages was seen by the orthodox as an attack on the social order, fueling anxieties before 1857.",
         left: {
             text: "Build the Railway",
             effect: { treasury: 10, britishFavor: 20, loyalty: -20 },
@@ -168,7 +168,7 @@ const anchorEvents = [
         year: 1857,
         advisor: 'general',
         title: "The Great Rebellion",
-        desc: "The cartridge has been bitten. Sepoys in Meerut have mutinied and marched to Delhi. The rebellion spreads like wildfire. Princes, peasants, and soldiers rise together. A rider arrives at your gate: Whose side are you on?",
+        desc: "At Meerut, sepoys jailed for refusing the new greased cartridges have been freed by their comrades, who killed their officers and marched to Delhi. The rising is spreading across the north. Princes, peasants, and soldiers are joining it. A rider arrives at your gate: Whose side are you on?",
         note: "The rebellion of 1857 was the culmination of decades of grievance. Princes who joined fought with nothing left to lose. Those who stayed loyal became 'breakwaters to the storm,' saving the British Raj.",
         left: {
             text: "Side with the British",
@@ -178,7 +178,7 @@ const anchorEvents = [
         right: {
             text: "Join the Rebellion",
             effect: { treasury: -30, britishFavor: -100, loyalty: 40 },
-            msg: "You ride out under your ancestral banner, joining the tide of rebellion. Your people roar with joy—at last, a king who fights. The outcome is uncertain, but win or lose, they will sing of this day."
+            msg: "You ride out under your ancestral banner, joining the tide of rebellion. Your people cheer a king who will fight. The outcome is uncertain, but win or lose, they will remember this day."
         }
     }
 ];
@@ -194,7 +194,7 @@ const poolEvents = {
         {
             year: 1791,
             title: "The Tiger's Envoy",
-            desc: "Tipu Sultan of Mysore has been defeated but not destroyed. He sends a secret envoy to your court, proposing an alliance against the Company. The British Resident watches closely.",
+            desc: "Tipu Sultan of Mysore is at war with the Company and its allies. He sends a secret envoy to your court, proposing an alliance against the Company. The British Resident watches closely.",
             note: "Tipu maintained anti-British alliances, seeking support from revolutionary France and the Ottoman Empire. Any prince who received his envoys risked British retaliation.",
             left: {
                 text: "Receive the Envoy",
@@ -275,11 +275,11 @@ const poolEvents = {
             year: 1796,
             title: "The Trading Post",
             desc: "The East India Company requests permission to establish a permanent trading post and warehouse ('factory') in your capital. They promise increased commerce and tax revenue. Your merchants are wary of competition.",
-            note: "Every British trading post was a foothold. The 'factory' came with armed guards, a flag, and extraterritorial legal claims. What began as commerce invariably became control.",
+            note: "Every British trading post was a foothold. The 'factory' came with armed guards, a flag, and extraterritorial legal claims. In state after state, commerce was the first step toward control.",
             left: {
                 text: "Allow the Factory",
                 effect: { treasury: 8, britishFavor: 10, loyalty: -5 },
-                msg: "British goods flow through your bazaars—cheaper and abundant. Tax revenue rises, but your weavers and artisans cannot compete with Manchester cloth. A Union Jack now flies in your capital."
+                msg: "Trade picks up and so does your tax revenue. But Company agents claim exemption from your customs duties, and your own merchants lose ground to them. A Company flag now flies in your capital."
             },
             right: {
                 text: "Restrict Trade",
@@ -300,7 +300,7 @@ const poolEvents = {
             right: {
                 text: "Modernize the Foundry",
                 effect: { treasury: -10, britishFavor: -3, loyalty: -5 },
-                msg: "New cannons are cast with improved bore. Your army gains firepower, but the neglected temple sends a message: this king serves Mars, not the gods. Priests murmur their discontent."
+                msg: "New cannons are cast with improved bore. Your army gains firepower, but the neglected temple sends a message: this king cares more for cannon than for the gods. Priests murmur their discontent."
             }
         }
     ],
@@ -311,7 +311,7 @@ const poolEvents = {
             year: 1799,
             title: "The Fall of Seringapatam",
             desc: "Tipu Sultan is dead, killed defending his capital. His kingdom is partitioned. The British auction his treasury—his mechanical tiger, his jeweled throne. A message arrives: will you attend the victory celebrations hosted by the Governor-General?",
-            note: "The fall of Seringapatam in 1799 was a spectacle of imperial triumph. Tipu's body was found among his fallen soldiers. His sons were pensioned off. The message to every remaining prince was clear: resistance means annihilation.",
+            note: "The fall of Seringapatam in 1799 was a spectacle of imperial triumph. Tipu's body was found among his fallen soldiers. His sons were pensioned off. Every remaining prince understood what resistance would cost.",
             left: {
                 text: "Attend the Celebration",
                 effect: { treasury: -5, britishFavor: 10, loyalty: -8 },
@@ -342,7 +342,7 @@ const poolEvents = {
         {
             year: 1801,
             title: "The Carnatic Precedent",
-            desc: "The British have annexed the Carnatic, deposing the Nawab for 'misgovernance.' A British official arrives to inspect your court's finances. The message is clear: any ruler deemed incompetent can be removed.",
+            desc: "The British have annexed the Carnatic, deposing the Nawab for 'misgovernance.' A British official arrives to inspect your court's finances. Any ruler the Company judges incompetent can now be removed.",
             note: "The annexation of the Carnatic in 1801 established that the Company could depose rulers for administrative failures—a tool of control that would be wielded repeatedly.",
             left: {
                 text: "Open Your Books",
@@ -463,7 +463,7 @@ const poolEvents = {
             left: {
                 text: "Grant Asylum",
                 effect: { treasury: -5, britishFavor: -10, loyalty: 8 },
-                msg: "You welcome the prince with full honors. His stories of dispossession spread through your court like wildfire. The Resident demands you hand him over. You refuse—for now."
+                msg: "You welcome the prince with full honors. His stories of dispossession spread through your court. The Resident demands you hand him over. You refuse—for now."
             },
             right: {
                 text: "Turn Him Away",
@@ -508,10 +508,10 @@ const poolEvents = {
     // ERA 4: Between Missionaries and Macaulay (1814-1834)
     era4: [
         {
-            year: 1818,
+            year: 1817,
             title: "The Pindari Menace",
-            desc: "The Third Anglo-Maratha War has shattered the Confederacy. Thousands of demobilized soldiers roam as Pindari raiders. The British demand permission to march through your territory to 'suppress the bandits.'",
-            note: "The Pindari campaigns of 1817-1818 gave the British a pretext to move armies through sovereign territories. Once troops crossed your borders, they rarely left. The operations completed British paramountcy over central India.",
+            desc: "Pindari raiders, irregular horsemen who once rode with the Maratha armies, are plundering central India. The British are assembling a huge army to crush them and demand permission to march through your territory to 'suppress the bandits.'",
+            note: "The Pindari campaign of 1817-1818 grew into the Third Anglo-Maratha War, which destroyed the Maratha Confederacy. It also gave the British a pretext to move armies through sovereign territories. Once troops crossed your borders, they rarely left. The operations completed British paramountcy over central India.",
             left: {
                 text: "Allow British Passage",
                 effect: { treasury: 0, britishFavor: 12, loyalty: -8 },
@@ -531,7 +531,7 @@ const poolEvents = {
             left: {
                 text: "Welcome the Planters",
                 effect: { treasury: 10, britishFavor: 8, loyalty: -12 },
-                msg: "Rent payments boost your revenue. But the planters bring their own laws—peasants who resist are beaten, and your magistrates are told not to interfere. The soil turns pale blue with exhaustion."
+                msg: "Rent payments boost your revenue. But the planters bring their own laws—peasants who resist are beaten, and your magistrates are told not to interfere."
             },
             right: {
                 text: "Forbid Indigo Planting",
@@ -542,17 +542,17 @@ const poolEvents = {
         {
             year: 1825,
             title: "Opium for China",
-            desc: "The Company wants opium cultivated on your most fertile farmland. The poppy crop will be sold to China. The profits are enormous, but it will displace food crops in your most populated districts.",
-            note: "The Malwa opium trade integrated princely states into global capitalism. Short-term profits were immense, but the shift from food to cash crops made the peasant economy vulnerable to famine.",
+            desc: "Your farmers grow opium, and merchants carry it to the western coast for sale in China. The Company's own Bengal opium competes with yours, so it demands that you sell your entire crop to its agents at a fixed price.",
+            note: "Malwa opium, grown in the princely states of central India, competed with the Company's Bengal monopoly. In the 1820s the Company pressed Malwa rulers into agreements to sell only to its agents. When smuggling defeated that scheme, it let the crop through Bombay for a heavy transit duty. Either way, the Company took a cut of the China trade.",
             left: {
-                text: "Plant the Poppies",
-                effect: { treasury: 20, britishFavor: 10, loyalty: -18 },
-                msg: "Gold flows in as opium caravans head east. But grain stores thin. When the monsoon fails next year, there is no surplus. Villagers starve while your coffers overflow."
+                text: "Sign the Agreement",
+                effect: { treasury: 10, britishFavor: 10, loyalty: -12 },
+                msg: "Company agents buy your crop at their price, and your treasury receives a steady payment. But growers and merchants who once sold at market rates are furious, and smugglers' routes spring up through your hills."
             },
             right: {
-                text: "Protect Food Crops",
-                effect: { treasury: -5, britishFavor: -12, loyalty: 15 },
-                msg: "You refuse to let fertile land grow poison. The Company loses projected profits. But your granaries hold, and village elders praise the wisdom of their king."
+                text: "Protect Your Growers",
+                effect: { treasury: -5, britishFavor: -12, loyalty: 12 },
+                msg: "You refuse. Your merchants keep selling at market prices, and your growers are grateful. The Company calls you a friend of smugglers and looks for other ways to squeeze Malwa."
             }
         },
         {
@@ -690,7 +690,7 @@ const poolEvents = {
         {
             year: 1843,
             title: "The Fall of Sindh",
-            desc: "Sir Charles Napier has conquered Sindh on a thin pretext, famously quipping 'Peccavi'—'I have sinned.' The Amirs are dispossessed. Neighboring princes panic. A coalition asks you to sign a joint letter of protest.",
+            desc: "Sir Charles Napier has conquered Sindh on a thin pretext. (A London magazine joked that he announced it in one Latin word: 'Peccavi,' or 'I have sinned.') The Amirs are dispossessed. Neighboring princes panic. A coalition asks you to sign a joint letter of protest.",
             note: "The annexation of Sindh in 1843 showed that even rulers who posed no military threat could be conquered. Napier's brutal campaign alarmed every remaining prince.",
             left: {
                 text: "Sign the Protest",
@@ -720,7 +720,7 @@ const poolEvents = {
             }
         },
         {
-            year: 1845,
+            year: 1854,
             title: "The Telegraph Line",
             desc: "The British propose running a telegraph line through your territory, connecting their military commands. The speed of communication would let Calcutta react to events in hours. They offer rental payments for the right of way.",
             note: "The telegraph, like the railway, was a tool of imperial control. It allowed centralized command and rapid military coordination, making it nearly impossible for local rebellions to succeed before British reinforcements arrived.",
@@ -758,8 +758,8 @@ const poolEvents = {
         {
             year: 1849,
             title: "The Lion of Punjab Falls",
-            desc: "The mighty Sikh Empire has been conquered. Young Maharaja Duleep Singh—eleven years old—is forced to surrender the Koh-i-Noor diamond and exiled to England. If the Sikhs could not resist, can anyone?",
-            note: "The annexation of Punjab in 1849 eliminated the last major military power in India. The forced surrender of the Koh-i-Noor and exile of the child-king demonstrated that no force could guarantee survival.",
+            desc: "The mighty Sikh Empire has been conquered. The boy Maharaja Duleep Singh, ten years old, has been deposed, and the Koh-i-Noor diamond is on its way to Queen Victoria. If the Sikhs could not resist, can anyone?",
+            note: "The annexation of Punjab in 1849 eliminated the last major military power in India. The seizure of the Koh-i-Noor and the removal of the child-king (sent to England in 1854) showed that no force could guarantee survival.",
             left: {
                 text: "Strengthen Defenses",
                 effect: { treasury: -12, britishFavor: -8, loyalty: 8 },
@@ -772,9 +772,9 @@ const poolEvents = {
             }
         },
         {
-            year: 1850,
+            year: 1854,
             title: "The Nagpur Auction",
-            desc: "The Raja of Nagpur has died, and Dalhousie has annexed the state. The royal elephants, horses, and jewels are being auctioned in the Calcutta bazaar. A merchant offers to buy items 'on your behalf.' The humiliation resonates across India.",
+            desc: "The Raja of Nagpur has died without a natural heir, and Dalhousie has annexed the state. The royal elephants, horses, and jewels are being auctioned off. A merchant offers to buy items 'on your behalf.'",
             note: "The public auction of Nagpur's royal property was a calculated humiliation—demonstrating that an Indian kingdom's heritage could be sold like common merchandise. It deepened the fury that would erupt in 1857.",
             left: {
                 text: "Buy Royal Items",
@@ -820,7 +820,7 @@ const poolEvents = {
             }
         },
         {
-            year: 1852,
+            year: 1855,
             title: "The Widow Remarriage Question",
             desc: "The social reformer Ishwar Chandra Vidyasagar petitions you to allow widow remarriage in your territory. Conservative nobles threaten to revolt if you agree. The British Resident supports the reform.",
             note: "The Hindu Widow Remarriage Act of 1856 was another example of social reform being used as both genuine humanitarian progress and a tool to delegitimize traditional rulers who resisted.",
@@ -843,7 +843,7 @@ const poolEvents = {
             year: 1854,
             title: "The Arms Confiscation",
             desc: "The Company issues an order for all princely states to surrender their heavy artillery to British arsenals 'for safekeeping.' They promise the cannons will be returned 'if needed.' Your ancestors cast those guns.",
-            note: "Systematic disarmament of princely states accelerated under Dalhousie. Artillery was the decisive weapon of the era—surrendering it made resistance impossible and dependence complete.",
+            note: "The British worked steadily to limit princely armies, especially their artillery. Artillery was the decisive weapon of the era—surrendering it made resistance impossible and dependence complete.",
             left: {
                 text: "Surrender the Guns",
                 effect: { treasury: 0, britishFavor: 12, loyalty: -15 },
@@ -856,10 +856,10 @@ const poolEvents = {
             }
         },
         {
-            year: 1855,
+            year: 1856,
             title: "The Greased Cartridges",
-            desc: "Disturbing rumors reach your court: the new Enfield rifle cartridges issued to sepoys are greased with cow and pig fat, defiling both Hindu and Muslim soldiers. Sepoys in your region are refusing to drill. Tension is electric.",
-            note: "The cartridge controversy was the immediate trigger of the 1857 rebellion. Whether or not the grease actually contained animal fat, the rumor crystallized decades of religious anxiety about British intentions.",
+            desc: "Disturbing rumors reach your court: the new Enfield rifle cartridges issued to sepoys are greased with cow and pig fat, defiling both Hindu and Muslim soldiers. Sepoys in your region are refusing to drill.",
+            note: "The cartridge controversy was the immediate trigger of the 1857 rebellion. The first grease probably did contain animal fat, and the Company's later fixes came too late. The rumor fed decades of religious anxiety about British intentions.",
             left: {
                 text: "Calm the Sepoys",
                 effect: { treasury: -5, britishFavor: 5, loyalty: 5 },
@@ -888,10 +888,10 @@ const poolEvents = {
             }
         },
         {
-            year: 1855,
+            year: 1856,
             title: "The Secret Alliance",
             desc: "A messenger arrives after dark from a powerful prince: a secret network of rulers is forming, ready to act when the moment comes. They want your pledge. Joining could mean liberation—or destruction.",
-            note: "In the months before 1857, clandestine networks of communication spread among disaffected princes, soldiers, and rural leaders. The distribution of chapatis (flatbreads) and lotus flowers were signals of an approaching storm.",
+            note: "In the months before the rising, networks of communication spread among disaffected princes, soldiers, and rural leaders. The distribution of chapatis (flatbreads) and lotus flowers were signals of an approaching storm.",
             left: {
                 text: "Join the Network",
                 effect: { treasury: 0, britishFavor: -8, loyalty: 10 },
@@ -1101,6 +1101,8 @@ function makeChoice(side) {
     const currentEvent = state.deck[state.eventIndex];
     const choice = currentEvent[side];
 
+    if (currentEvent.title === "The Great Rebellion") state.finalChoice = side;
+
     state.decisionsLog.push({
         year: currentEvent.year,
         title: currentEvent.title,
@@ -1185,7 +1187,7 @@ function checkGameOver() {
         triggerGameOver(
             "Overthrown",
             "\u26A0",
-            "Your own people have risen against you. Peasants refuse taxes, soldiers desert, nobles conspire. You are overthrown from within—a king who lost the mandate of heaven long before he lost his throne."
+            "Your own people have risen against you. Peasants refuse taxes, soldiers desert, nobles conspire. You are overthrown from within—a king who lost his people's trust long before he lost his throne."
         );
         return true;
     }
@@ -1214,7 +1216,17 @@ function triggerVictory() {
 
     let title, icon, text;
 
-    if (state.britishFavor >= 60 && state.loyalty >= 40) {
+    if (state.finalChoice === 'right') {
+        if (state.loyalty >= 60) {
+            title = "The Rebel King";
+            icon = "\u2764";
+            text = "You fight beside the sepoys and your own people. The British retake Delhi in September 1857 and crush the last rebel armies in 1858. Your kingdom is annexed and your title abolished, but your people remember you the way they remember the Rani of Jhansi.";
+        } else {
+            title = "The Lost Cause";
+            icon = "\u2694";
+            text = "You join the rebellion, but your people are divided and your army is thin. When British columns reach your capital, few rise to defend you. Your kingdom is annexed, and you die in exile, one more prince who gambled and lost.";
+        }
+    } else if (state.britishFavor >= 60 && state.loyalty >= 40) {
         title = "The Survivor";
         icon = "\u2654";
         text = "Through cunning diplomacy and careful governance, your dynasty endures. The Queen's Proclamation of 1858 guarantees your throne. You survived the Company—and lived to see it abolished.";
@@ -1222,19 +1234,15 @@ function triggerVictory() {
         title = "The Puppet King";
         icon = "\u265F";
         text = "Your kingdom survives, but as a hollow ornament. You kept the Crown's favor by sacrificing your subjects' trust. Your dynasty endures—gilded and irrelevant—a museum piece of empire.";
-    } else if (state.britishFavor < 40 && state.loyalty >= 60) {
-        title = "The People's King";
-        icon = "\u2764";
-        text = "When the rebellion erupts, your people rise with you. Whether it succeeds or fails, your name will be remembered with honor. You chose your people over the conqueror.";
     } else {
         title = "The Enduring";
         icon = "\u2696";
-        text = "Neither fully compliant nor openly defiant, you walked the razor's edge. The Company is dissolved, the Crown takes over, and your kingdom—battered but breathing—enters a new age. The game was rigged, but you survived it.";
+        text = "You sided with the British in 1857 without ever winning their full trust. The Company is dissolved, the Crown takes over, and your kingdom—battered but breathing—enters a new age. The game was rigged, but you survived it.";
     }
 
     document.getElementById('game-over-icon').innerText = icon;
     document.getElementById('end-title').innerText = title;
-    document.getElementById('end-year').innerText = 'You survived until 1857!';
+    document.getElementById('end-year').innerText = state.finalChoice === 'right' ? 'You reached 1857 and chose rebellion.' : 'You survived until 1857!';
     document.getElementById('end-reason').innerText = text;
 
     document.getElementById('card-area').classList.add('hidden');
