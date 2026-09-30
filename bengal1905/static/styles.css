@@ -17,6 +17,8 @@
   --saffron: #e87d2f;
   --emerald: #2d8a5e;
   --ruby: #c0392b;
+  --good: #5fc492;
+  --bad: #e8796a;
   --copper: #8b5e3c;
   --blue-steel: #4a6fa5;
   --ivory: #f0e9d6;
@@ -188,7 +190,8 @@ main {
     "network"
     "event"
     "actions";
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 0 10px;
   gap: 0;
 }
@@ -277,7 +280,7 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 55vh;
+  min-height: 36vh;
   overflow: hidden;
 }
 
@@ -330,6 +333,7 @@ main {
 
 /* End screen: let the narration take its full height */
 #gameContainer.game-over .event-compact {
+  max-height: none;
   overflow: visible;
   flex-shrink: 0;
   mask-image: none;
@@ -407,12 +411,6 @@ main {
 }
 
 /* Highlight from action card hover */
-.tie-line.tie-highlight-primary {
-  stroke: var(--gold-light) !important;
-  filter: drop-shadow(0 0 8px var(--gold)) !important;
-  stroke-opacity: 1 !important;
-}
-
 .tie-line.tie-highlight-cost {
   stroke: var(--ruby) !important;
   filter: drop-shadow(0 0 8px var(--ruby)) !important;
@@ -660,118 +658,7 @@ main {
 }
 .learn-more-content p { margin: 0; }
 
-/* ─── Action Overlay (on network) ─── */
-.action-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Markers anchored to fixed slots around the network */
-.tie-action-marker {
-  position: absolute;
-  pointer-events: auto;
-  cursor: pointer;
-  background: var(--bg-card);
-  border: 1px solid var(--gold);
-  border-radius: 4px;
-  padding: 5px 10px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--gold-light);
-  white-space: nowrap;
-  text-align: left;
-  box-shadow: 0 0 12px rgba(212, 168, 67, 0.25);
-  transition: background 0.15s, box-shadow 0.15s, border-color 0.15s, max-width 0.25s;
-  animation: marker-fade-in 0.35s ease-out both;
-  max-width: 46%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  z-index: 11;
-}
-
-/* Fixed slot positions — stable across all events */
-.tie-action-marker.slot-0 { left: 4px; top: 4px; }
-.tie-action-marker.slot-1 { right: 4px; top: 4px; }
-.tie-action-marker.slot-2 { left: 50%; bottom: 4px; transform: translateX(-50%); text-align: center; }
-
-.tie-action-marker:hover {
-  background: var(--bg-card-light);
-  box-shadow: 0 0 20px rgba(212, 168, 67, 0.45);
-  z-index: 12;
-}
-
-.tie-action-marker.expanded {
-  white-space: normal;
-  max-width: 56%;
-  padding: 8px 12px;
-  z-index: 15;
-  border-color: var(--gold-light);
-  box-shadow: 0 0 24px rgba(212, 168, 67, 0.5);
-}
-
-.tie-action-marker .marker-label {
-  display: block;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-}
-
-.tie-action-marker .marker-desc {
-  display: none;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-  margin-top: 4px;
-  line-height: 1.3;
-}
-
-.tie-action-marker .marker-effects {
-  display: none;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.62rem;
-  margin-top: 4px;
-  color: var(--text-muted);
-}
-
-.tie-action-marker.expanded .marker-desc,
-.tie-action-marker.expanded .marker-effects {
-  display: block;
-}
-
-.tie-action-marker .marker-confirm {
-  display: none;
-  font-family: 'Cinzel', serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--gold);
-  margin-top: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.tie-action-marker.expanded .marker-confirm {
-  display: block;
-}
-
-@keyframes marker-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Connector lines from markers to their target ties */
-.marker-connector {
-  pointer-events: none;
-  stroke: rgba(212, 168, 67, 0.18);
-  stroke-width: 1;
-  stroke-dasharray: 3 3;
-  fill: none;
-}
-
-/* ─── Action Cards (fallback / tutorial) ─── */
+/* ─── Action Cards ─── */
 .action-area {
   grid-area: actions;
   padding: 4px 0 8px;
@@ -784,11 +671,9 @@ main {
 }
 
 .action-card {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  align-items: center;
-  gap: 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   text-align: left;
   border-radius: 3px;
   border: 1px solid var(--border-subtle);
@@ -800,16 +685,18 @@ main {
   color: var(--text-primary);
   transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
   min-height: 44px;
+  animation: card-fade-in 0.3s ease-out both;
 }
 
-.action-card:hover {
+@keyframes card-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.action-card:hover,
+.action-card:focus-visible {
   background: var(--bg-card-light);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-  border-color: var(--gold-dim);
-}
-
-.action-card:active {
-  transform: scale(0.98);
 }
 
 .action-card:focus-visible {
@@ -817,55 +704,68 @@ main {
   outline-offset: 1px;
 }
 
-.action-card:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  transform: none;
+.action-card.selected {
+  background: var(--bg-card-light);
+  border-color: var(--gold);
+  box-shadow: 0 0 16px rgba(212, 168, 67, 0.3);
 }
 
 .action-label {
+  font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 0.82rem;
-  grid-column: 1;
-  grid-row: 1;
+  font-size: 0.8rem;
+  color: var(--gold-light);
 }
 
+/* On phones the description waits until the card is selected */
 .action-desc {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  grid-column: 1;
-  grid-row: 2;
-  line-height: 1.3;
+  display: none;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
 }
+.action-card.selected .action-desc { display: block; }
 
 .action-effects {
-  grid-column: 2;
-  grid-row: 1 / 3;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
 }
 
-.action-primary {
-  font-size: 0.68rem;
+.effect-chip {
+  font-size: 0.66rem;
   font-weight: 700;
-  color: var(--emerald);
+  padding: 1px 6px;
+  border-radius: 2px;
   white-space: nowrap;
 }
+.effect-chip.good { color: var(--good); background: rgba(95, 196, 146, 0.12); }
+.effect-chip.bad { color: var(--bad); background: rgba(232, 121, 106, 0.12); }
 
-.action-side {
-  font-size: 0.65rem;
+.action-confirm {
+  display: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.64rem;
   font-weight: 600;
-  color: var(--ruby);
-  white-space: nowrap;
-  opacity: 0.8;
+  color: var(--gold);
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
+.action-card.selected .action-confirm { display: block; }
 
-.action-side.bonus {
-  color: var(--emerald);
+/* Option preview on the network */
+.tie-value-label.preview-good,
+.tie-value-label.preview-bad {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 1 !important;
 }
+.tie-value-label.preview-good { fill: var(--good); }
+.tie-value-label.preview-bad { fill: var(--bad); }
+.front-gauge.preview-good { color: var(--good); border-color: var(--good); }
+.front-gauge.preview-bad { color: var(--bad); border-color: var(--bad); }
 
 /* ─── Tutorial Hint ─── */
 .tutorial-hint {
@@ -1065,9 +965,6 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
   .action-cards {
     gap: 6px;
   }
-  .action-card {
-    padding: 10px 12px;
-  }
   .event-compact {
     max-height: 120px;
   }
@@ -1094,18 +991,10 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
 
   .action-card {
     flex: 1;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    padding: 10px 12px;
   }
 
-  .action-effects {
-    grid-column: 1;
-    grid-row: 3;
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 8px;
-    margin-top: 4px;
-  }
+  .action-desc { display: block; }
 
   .event-compact {
     max-height: 100px;
@@ -1138,11 +1027,36 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
   }
 }
 
-/* Large desktop */
-@media (min-width: 1024px) {
+/* Desktop: map on the left, dispatch and options on the right */
+@media (min-width: 960px) {
   main {
-    max-width: 800px;
+    max-width: 1120px;
   }
+
+  #gameContainer {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "progress progress"
+      "network  event"
+      "network  actions";
+    column-gap: 24px;
+  }
+
+  .network-svg { max-width: 640px; }
+
+  .event-compact {
+    max-height: 38vh;
+    padding: 16px 0 8px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .event-compact .event-title { font-size: 1.05rem; }
+  .event-compact .event-narration { font-size: 0.9rem; }
+
+  .action-area { overflow-y: auto; min-height: 0; }
+  .action-cards { flex-direction: column; }
+  .action-card { flex: none; }
 }
 
 /* ─── Reduced Motion ─── */
@@ -1164,4 +1078,39 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
 @media (max-width: 639px) {
   .back-link { position: static; display: block; padding: 6px 12px 0; font-size: 0.75rem; }
   .tie-legend { display: none; }
+
+  /* Phone: the map stays pinned while the dispatch and options scroll beneath it */
+  body { display: flex; flex-direction: column; }
+  header .subtitle { display: none; }
+  main { flex: 1; min-height: 0; height: auto; }
+
+  #gameContainer { display: block; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    background: var(--bg-deep);
+  }
+  .network-container {
+    position: sticky;
+    top: 32px;
+    z-index: 5;
+    background: var(--bg-deep);
+    height: min(44vh, 87.5vw);
+    min-height: 0;
+  }
+  #gameContainer.game-over .network-container { position: static; }
+
+  .event-compact {
+    max-height: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  /* The map is drawn at about 80% scale here, so enlarge its text */
+  .network-node-label { font-size: 11px; }
+  .tie-value-label { font-size: 12px; }
+  .tie-hover-label { font-size: 11px; }
+  .tie-value-label.preview-good,
+  .tie-value-label.preview-bad { font-size: 13px; }
 }
