@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide to Rhetorical Techniques</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Home</a></div>
+<h1>Guide to Rhetorical Techniques</h1>
+<p><a href="framing-your-argument.html">Framing Your Argument</a> describes the structure of a Simla speech: your standing at the opening, one of six frameworks in the middle, your terms at the close. This guide covers single sentences.</p>
+<p>The speeches of 1945 were mostly plain. Their authors were lawyers, administrators, and organizers, and they relied on dates and documents. One well-made sentence in such a speech was noticed and repeated. Use this guide to write a few sentences of that kind, and leave the rest of your speech plain.</p>
+<p>Choose a device by what you need it to do:</p>
+<ul>
+<li>To make a rival answer for something, use the <strong>hostile witness</strong>, the <strong>mirror</strong>, or a <strong>direct question</strong>.</li>
+<li>To give the room one line to remember, use the <strong>restated question</strong>, <strong>antithesis</strong>, or <strong>repetition</strong>.</li>
+<li>To be heard by people who distrust you, use <strong>concession</strong>, the <strong>assuring definition</strong>, or <strong>two hats</strong>.</li>
+<li>To make the stakes visible, use <strong>one specific image</strong>.</li>
+<li>To criticize without raising your voice, use <strong>understatement</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>About the examples.</strong> As in <em>Framing Your Argument</em>, the sample lines argue for a separate Andhra province for Telugu speakers. The cause was real, and it is not on the agenda at Simla. The lines show how each device works. Write your own, in your character's voice.</p>
+</blockquote>
+<h2>Devices of the conference table</h2>
+<p>The speakers of the period used these more than any others. Learn them first.</p>
+<h3>1. The hostile witness</h3>
+<p>Make your point in the other side's words. Quote their resolution, their leader, or their own report, and give the date.</p>
+<ul>
+<li>"I shall not give my own opinion. I shall give the opinion of the Madras legislature in 1938."</li>
+<li>"My friend's party resolved at Nagpur in 1920 that provinces should follow language. I have nothing to add."</li>
+</ul>
+<h3>2. The mirror</h3>
+<p>Take the principle your rival asks the room to accept and apply it to your own case.</p>
+<ul>
+<li>"Every party here asks Britain for self-government because a people should not be ruled by men who cannot speak to them. We ask the same of Madras."</li>
+</ul>
+<h3>3. Concession</h3>
+<p>Grant what is true in the objection, in a complete sentence, before you answer the rest.</p>
+<ul>
+<li>"I think a good deal of this is true."</li>
+<li>"A new province costs money, and both peoples have a claim on the city of Madras. I accept both points."</li>
+</ul>
+<h3>4. The restated question</h3>
+<p>Say in one sentence what the dispute is about, in terms that favor you.</p>
+<ul>
+<li>"I am told this is a matter of administrative convenience. The question is whether a man is entitled to understand the orders of his own government."</li>
+</ul>
+<p>Use this once in a speech. A second restatement weakens the first.</p>
+<h3>5. The conditional</h3>
+<p>State your position as an "if" and a "then." The room learns what your agreement will cost.</p>
+<ul>
+<li>"If the principle is written into the constitution, we will accept arbitration on every boundary."</li>
+<li>"If the provinces follow language, we support the settlement. If they do not, the Telugu members cannot vote for it."</li>
+</ul>
+<h3>6. Contested naming</h3>
+<p>Choose your word for the thing and keep to it. Much of the argument at Simla is over names: a minority or a nation, a partition or a homeland, a safeguard or a veto.</p>
+<ul>
+<li>"My friend calls it the division of Madras. We call it the creation of Andhra."</li>
+<li>"This was promised in 1920. It is not a concession."</li>
+</ul>
+<h3>7. The assuring definition</h3>
+<p>Define your goal so that it alarms the listener less.</p>
+<ul>
+<li>"An Andhra province does not mean a frontier or a customs post at Nellore. It means a government at a town the Telugu cultivator can reach, in a language he can read."</li>
+</ul>
+<h3>8. Two hats</h3>
+<p>Separate what you believe from what you were sent to say. You can then show conviction without exceeding your mandate.</p>
+<ul>
+<li>"Speaking for myself, I would go further. Speaking for those who sent me, this is what I am authorised to accept."</li>
+</ul>
+<h3>9. The numbered list</h3>
+<p>Count your conditions or your grounds aloud. The room can follow a numbered list, and a later speaker can refer to it.</p>
+<ul>
+<li>"We have three requirements. I shall give them in order of importance."</li>
+<li>"I oppose the motion on two grounds. It proposes nothing, and its mover has said he does not expect it to pass."</li>
+</ul>
+<h2>Devices of style</h2>
+<h3>1. Repetition</h3>
+<p>Repeat a short phrase to fix an idea. A refrain after each step of a chronology works well.</p>
+<ul>
+<li>"We asked in 1914. We asked in 1928. We asked in 1938."</li>
+<li>"The Government took no action. We waited."</li>
+</ul>
+<h3>2. Parallel structure</h3>
+<p>Put matching ideas in sentences of matching form.</p>
+<ul>
+<li>"To the Crown we are bound by treaty. To India we are bound by birth."</li>
+</ul>
+<h3>3. Antithesis</h3>
+<p>Set two opposed ideas side by side.</p>
+<ul>
+<li>"We do not ask to leave India. We ask to enter it as Telugus."</li>
+</ul>
+<p>Antithesis is easy to overuse. One in a speech is enough.</p>
+<h3>4. The direct question</h3>
+<p>Ask a question that a party in the room must answer.</p>
+<ul>
+<li>"Was that a principle, or an arrangement of convenience?"</li>
+<li>"Who drew this boundary, and who was consulted?"</li>
+</ul>
+<p>Avoid questions that nobody is expected to answer, and do not end your speech on one.</p>
+<h2>Images</h2>
+<h3>1. One specific image</h3>
+<p>Give the room one thing it can picture: a village, a notice, a well. Listeners pass over large numbers. They remember a single object.</p>
+<ul>
+<li>"A notice about four acres, in a language the owner cannot read."</li>
+<li>"One examination hall, in one city, three hundred miles from the candidate's home."</li>
+</ul>
+<h3>2. Metaphor</h3>
+<p>Explain an unfamiliar idea by a familiar one. The speakers of the period drew their comparisons from law, debt, and the household.</p>
+<ul>
+<li>"A promise made in 1920 is a debt."</li>
+<li>"A man does not love his mother less because he knows her name."</li>
+</ul>
+<p>Use one metaphor in a speech, and only if your voice allows it. The barrister and the organizer used almost none.</p>
+<p><strong>Avoid exaggeration.</strong> It belonged to the rally. At the conference table, state a large fact plainly. If you have written "the greatest injustice in history," cut it and give the figure.</p>
+<h2>Speaking to the room</h2>
+<h3>1. The roll-call</h3>
+<p>Address each party in turn, with one sentence for each.</p>
+<ul>
+<li>"To the Government I say that you did this for Orissa. To the Congress, that you promised it in 1920. To my friends from Madras, that you voted for it in 1938."</li>
+</ul>
+<h3>2. A short witness</h3>
+<p>Report one thing you saw yourself, in two or three sentences. Then return to the argument.</p>
+<ul>
+<li>"I was at Nagpur when the resolution passed. I went home and told my district it was a pledge."</li>
+</ul>
+<h2>Irony</h2>
+<p>Nobody at these conferences built a whole speech on satire. A single dry sentence was common, and it was usually aimed at the British. Use one at most. The person you mock will still vote on your proposal.</p>
+<h3>1. Understatement</h3>
+<p>Say less than the facts warrant.</p>
+<ul>
+<li>"The Government has had the matter under consideration since 1914. I would not call that haste."</li>
+</ul>
+<h3>2. Feigned puzzlement</h3>
+<p>Ask, as if you did not understand, the simple question the other side cannot answer.</p>
+<ul>
+<li>"Perhaps my friend will help me. If the rule was sound at Cuttack, why is it unsound at Bezwada?"</li>
+</ul>
+<h3>3. Reduction to absurdity</h3>
+<p>Follow the opponent's principle to a conclusion the opponent cannot accept.</p>
+<ul>
+<li>"If a boundary must stand because the Company drew it, then every boundary the Company drew must stand. I do not think my friend believes that."</li>
+</ul>
+</body>
+</html>

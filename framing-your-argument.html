@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framing Your Argument</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Home</a></div>
+<h1>Framing Your Argument</h1>
+<p>Two delegates at a constitutional conference ask for the same thing: a province for the Telugu-speaking districts of Madras. The first reads a list of grievances about jobs, schools, and courts. The room has heard such lists and waits for him to finish. The second reads one sentence from a resolution that the largest party in the room passed twenty-five years ago, then asks that party whether it meant what it said. Someone now has to answer him.</p>
+<p>The two delegates had the same facts and arranged them differently. This guide describes the arrangements that the leaders of 1945 used when they spoke to rivals and to the British across a table. Use them to build your presentation.</p>
+<blockquote>
+<p><strong>About the examples.</strong> Every example speech in this guide argues for a separate <strong>Andhra province</strong> for Telugu speakers, to be made from part of the Madras Presidency. The demand was real and decades old by 1945. It is not on the agenda at Simla, so you cannot lift an example into your own speech.</p>
+<p>The examples were written for this guide. They are not historical speeches, and the incidents in them are invented. Each framework also names real speeches that used it.</p>
+<p>Take the structure from this guide. Take your material and your voice from your role sheet and from the primary sources assigned to your faction.</p>
+</blockquote>
+<h2>The three parts of a Simla speech</h2>
+<ol>
+<li><strong>The opening: your standing.</strong> Say whom you speak for and what entitles you to speak for them.</li>
+<li><strong>The middle: your argument.</strong> Use one of the six frameworks below.</li>
+<li><strong>The close: your terms.</strong> Say what you offer, what you require, and what will happen if you do not get it.</li>
+</ol>
+<p>Everyone opens and closes the same way. The middle is where you choose.</p>
+<p><strong>The six frameworks:</strong></p>
+<ul>
+<li><strong>The Brief</strong> reads the other side's own words into the record, examines them, and then restates what the dispute is about.</li>
+<li><strong>Record and Reckoning</strong> gives the dated history of what your side asked for and how it was answered, and ends on one question.</li>
+<li><strong>Objection Met</strong> takes the strongest charge against you, concedes what is true in it, and answers the rest.</li>
+<li><strong>Credo</strong> says who your people are, with history as proof, and claims a place in the nation on those terms.</li>
+<li><strong>Pledge and Vow</strong> holds someone to a promise they made, and then says what you yourself will do about it.</li>
+<li><strong>Incident to System</strong> starts from one specific wrong and works outward to the arrangement that produces it.</li>
+</ul>
+<h2>Persuasion at a conference table</h2>
+<p>A conference speech differs from a rally speech in its audience, its evidence, and its goals.</p>
+<p><strong>The audience.</strong> You are speaking to rivals, each of whom can block a settlement, and to the Governors General, who will write the draft plan. The people you represent will also hear what you said. You will not convert anyone in the room. You can change what they think you will accept and what they will have to answer for.</p>
+<p><strong>The evidence.</strong> The classical appeals still apply, with some changes.</p>
+<ul>
+<li><strong>Logos (reason).</strong> These leaders relied on documents: the dated record of who offered what, the text of acts and pacts and resolutions, census figures, seat counts, and history. They relied most on what the other side had said. A rival can dispute your statistic. Disputing their own resolution is harder.</li>
+<li><strong>Ethos (credibility).</strong> At Simla, credibility means standing. You earn a hearing by showing that you speak for someone. Who speaks for whom is the main question before the conference.</li>
+<li><strong>Pathos (emotion).</strong> These speakers used emotion sparingly. They appealed to honor, shame, and sacrifice, and they warned of what would follow failure. They described the suffering of a whole people far more often than the suffering of one person.</li>
+</ul>
+<p><strong>The goals.</strong> A conference speech usually tries to do one or more of these things:</p>
+<ol>
+<li><strong>Fix the question.</strong> Get the room to argue about the problem as you define it.</li>
+<li><strong>Stake a claim.</strong> Put on the record whom you represent and what cannot be settled without you.</li>
+<li><strong>Hold someone to their word.</strong> Make a rival or the British answer for a promise.</li>
+<li><strong>Show what you would accept.</strong> The bargaining after the speeches needs a place to start.</li>
+</ol>
+<h2>The opening: who are you to speak?</h2>
+<p>Every speaker studied for this guide spent the first minute on standing. Do the same. Before you argue anything, tell the conference whom you represent and why your claim to represent them is good.</p>
+<p>Standing can rest on several kinds of title. Use the ones your character holds.</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th>What you point to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Numbers</strong></td>
+<td>The size of the people you represent, by census or by share of a province</td>
+</tr>
+<tr>
+<td><strong>Mandate</strong></td>
+<td>Elections won, seats held, an organization that chose you</td>
+</tr>
+<tr>
+<td><strong>Treaty or law</strong></td>
+<td>A written agreement or statute that names your people or your office</td>
+</tr>
+<tr>
+<td><strong>Service and sacrifice</strong></td>
+<td>Years in prison, soldiers sent to war, what your people have paid</td>
+</tr>
+<tr>
+<td><strong>History</strong></td>
+<td>Who ruled here, who built this, how long your people have lived on this land</td>
+</tr>
+<tr>
+<td><strong>Office</strong></td>
+<td>The authority you were sent with, and who sent you</td>
+</tr>
+<tr>
+<td><strong>Conduct</strong></td>
+<td>The life you have led, if you hold no office and command no votes</td>
+</tr>
+</tbody>
+</table>
+<p>Three rules:</p>
+<ul>
+<li><strong>Keep it to three sentences.</strong> You will need the time for your argument.</li>
+<li><strong>Give the proof.</strong> "I speak for the Telugu people" is an assertion. "I speak for the Andhra Mahasabha, which has met since 1913" names an organization the room can check.</li>
+<li><strong>Answer the rival claimant.</strong> If someone else in the room claims the same people, say why your title is better. Do it before they raise it.</li>
+</ul>
+<p><strong>Example openings (Andhra).</strong></p>
+<blockquote>
+<p><em>By mandate.</em> Mr. Chairman, I speak for the Andhra Mahasabha, which first met at Bapatla in 1913. It represents the Telugu districts of the Madras Presidency.</p>
+<p><em>By service.</em> Mr. Chairman, I hold no office. I have worked for thirty years in the villages of the Kistna district, and I have been to prison three times with the men I speak for.</p>
+<p><em>Against a rival claim.</em> Mr. Chairman, my friend from Madras says that he speaks for the whole Presidency. A large part of it does not speak his language. I speak for that part.</p>
+</blockquote>
+<h2>The Brief</h2>
+<p>This is the lawyer's speech, and many of the leaders at Simla were lawyers. You say little about your own opinion. You read out what your opponents have said and examine it.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>Read the record.</strong> Quote the rival's resolution, the Government's report, or the text of the act. Give the date. Keep each quotation short enough to follow by ear.</li>
+<li><strong>Examine it.</strong> Ask what the words commit their authors to. If you can, offer two readings and show that each one supports you.</li>
+<li><strong>Restate the question.</strong> In one sentence, move the dispute into a different category: "This is a question of Y, and we have been treating it as a question of X."</li>
+<li><strong>Show the consequence</strong> of keeping the old definition.</li>
+<li><strong>State the remedy</strong> in one or two sentences.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>You have documents, and the other side wrote them.</li>
+<li>The room treats your demand as a small matter.</li>
+<li>You want to appear exact and unhurried.</li>
+</ul>
+<h4>Real models</h4>
+<p>Jinnah's presidential address at Lahore in March 1940 reads his opponents' own letters to the audience and then argues that the dispute concerns a nation, where it had been treated as a dispute about a minority. His speech in the Central Legislative Assembly in February 1935 uses the same method in debate. There he says it is his duty "not merely to indulge in a flat negative," and he ends with his own proposal.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a barrister.</em></p>
+<blockquote>
+<p>Mr. Chairman, I do not ask the conference to accept my opinion. I shall read three documents, none of them mine.</p>
+<p>The first is the constitution that the Congress adopted at Nagpur in 1920. It organised the party's provinces by language. The Telugu districts had had a committee of their own since 1918, and Nagpur made that the rule for the whole country. I ask my friends in the Congress whether that was a principle or an arrangement of convenience. If it was a principle, it applies to the provinces of India as it applied to the provinces of the party. If it was a convenience, I should like them to say so.</p>
+<p>The second is the Government's own decision of 1936. It made Orissa a province so that the Oriya people, until then divided among three administrations, should be under one. The Telugu people ask for the same thing on the same ground. I know of no ground on which the two cases can be distinguished, and none has been offered.</p>
+<p>The third is the resolution of the Madras legislature in 1938, in favour of provinces drawn by language. I am told that Madras would be injured by what we ask. Madras has voted for it.</p>
+<p>I am also told that this is a matter of administrative convenience. I submit that it is not. The question is whether a man is entitled to understand the orders of his own government. The Government answered that question for the Oriyas in 1936. I ask for the same answer, and I ask that it be written into the constitution.</p>
+</blockquote>
+<h4>Variants</h4>
+<ul>
+<li><strong>The Document on Trial.</strong> Take one text, announce your tests in advance, and apply them to its provisions one at a time. Rajendra Prasad treated the White Paper this way in 1934, and Nehru the 1935 Act. In an opening presentation you can test a past offer or act. If you present after the Governors General issue their draft plan, as the village leaders do, test the draft itself: this is the framework for your speech. Everyone else will find it useful for the pamphlet.</li>
+<li><strong>Reject and counter-propose.</strong> Show that the proposal before the room only refuses something. Say which part you accept. Number your grounds for refusing the rest. End with your own proposal in one sentence.</li>
+<li><strong>The Party Report.</strong> The Communist version. Give figures first, then the position of each class, then your record compared with each rival's, then the tasks ahead.</li>
+</ul>
+<h2>Record and Reckoning</h2>
+<p>This was the most common structure in the speeches of the period. It is a chronology used as an argument. You show that your side asked, waited, offered, and was refused, so that your present demand appears as the result of other people's refusals.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>Pose the question.</strong> "Where do we stand, and how did we come here?"</li>
+<li><strong>Recall what your side declared</strong>, with the date.</li>
+<li><strong>Go through the exchanges in order.</strong> Say what you asked or offered and how it was answered. Summarize the other side fairly. An unfair summary gives them an easy reply.</li>
+<li><strong>Reduce the dispute to one question</strong> that can be answered yes or no.</li>
+<li><strong>Say what you will do</strong>, and what would change it.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>Your side made moderate requests in the past and was refused.</li>
+<li>You are accused of being unreasonable or of having changed your position.</li>
+<li>The dates favor you.</li>
+</ul>
+<h4>Real models</h4>
+<p>Maulana Azad's presidential address at Ramgarh in March 1940 goes through the offers and answers between Congress and the Viceroy, then reduces the matter to one question of right. The Muslim League used the same structure for the opposite case. Its speakers gave a history of smaller demands refused, which made the demand for Pakistan the last in a series.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a party organiser.</em></p>
+<blockquote>
+<p>Mr. Chairman, I speak for the Andhra Mahasabha. We are told that our demand is new and badly timed. I shall give the dates.</p>
+<p>In 1913 we first met at Bapatla. In 1914, at Bezwada, we resolved that the Telugu districts should form a province. The Government took no action. We waited.</p>
+<p>In 1918 the Congress gave the Telugu districts a committee of their own, and at Nagpur in 1920 it organised all its provinces by language. We took that as a promise and we worked under it. We waited.</p>
+<p>In 1928 the Nehru Report recommended provinces by language. In 1936 the Government made Orissa a province on exactly that ground. We asked for the same treatment and were told the time was not suitable. In 1938 the Madras legislature passed a resolution in our favour. The Secretary of State declined to act on it.</p>
+<p>There are two real difficulties and I will name them. A new province costs money. And both peoples have a claim on the city of Madras. We will pay our share of the cost. On the city we will accept arbitration.</p>
+<p>That leaves one question. Will the provinces of the new constitution follow language or not? If they will, we support the settlement. If they will not, the Telugu members cannot vote for it, and I would rather say so today than at the end.</p>
+</blockquote>
+<h4>Variants</h4>
+<ul>
+<li><strong>"We asked for less."</strong> Shorten the chronology to a few lines and make the present demand the last item. We asked for a university and waited. We asked for a share of the services and waited. Now we ask for a province.</li>
+<li><strong>The Historical Lesson.</strong> Give a longer series of episodes that all teach the same thing. The Hindu Mahasabha's addresses went from 1857 through 1906 and 1916 to the present in this way. At conference length, use three episodes.</li>
+</ul>
+<h2>Objection Met</h2>
+<p>The room already knows what it holds against you. This speech states the objection and answers it. Use it when the other parties distrust yours.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>State the charge</strong> in words its holders would accept as fair.</li>
+<li><strong>Concede what is true in it.</strong> Give the concession its own sentence. Do not attach a "but" to it.</li>
+<li><strong>Give your principle and your record</strong> on the point.</li>
+<li><strong>Define the disputed word.</strong> The disagreement often turns on what "unity" or "minority" means.</li>
+<li><strong>Apply the objector's principle to your own case</strong>, or ask the objector to propose a fairer rule.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>One objection will defeat you if you leave it unanswered.</li>
+<li>You speak after someone who has made the charge.</li>
+<li>You can afford to concede something. The room listens more readily to a speaker who has conceded a point.</li>
+</ul>
+<h4>Real models</h4>
+<p>Azad at Ramgarh grants that the communal problem is real and then denies that it bars freedom. Master Tara Singh and other Sikh spokesmen argued that whatever the League claimed against a Hindu majority, the Sikhs could claim against a Muslim one. Liaquat Ali Khan, in the Central Legislative Assembly in February 1943, states his opponents' objections in their own words and answers each in turn.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a parliamentarian.</em></p>
+<blockquote>
+<p>Mr. Chairman, several speakers have raised an objection to the Telugu claim. My friend from Madras put it best, so I shall take it in his form. India is about to become one nation. This is the worst moment to divide it by language. If the Telugus have a province, the Tamils, the Kannadigas and the Malayalis will each want one, and the country will be weaker for it.</p>
+<p>I think a good deal of this is true. Provincial feeling can be turned against the nation, and we have seen it done. There are also practical difficulties which I do not wish to minimise. Both peoples built the city of Madras. And the Rayalaseema districts are as wary of the coast as the coast is of Madras.</p>
+<p>Where I part from my friend is on what unity requires. He does not, I think, mean that every Indian should be governed in a language he cannot follow. Yet that is the present arrangement for some millions of Telugus. Every party here asks Britain for self-government on the ground that a people should not be ruled by men who cannot speak to them. We ask the same thing of Madras, for the same reason.</p>
+<p>If my friend knows a better rule for drawing provinces than the language of the people who live in them, I hope he will propose it, and we will consider it seriously. The boundaries we have now follow the order in which the Company's armies arrived. I doubt he wishes to defend that.</p>
+</blockquote>
+<h4>Variant</h4>
+<ul>
+<li><strong>The Mirror.</strong> Build the whole speech on step five. Take the principle your rival asks the room to accept and show that it supports your claim as well.</li>
+</ul>
+<h2>Credo</h2>
+<p>Some delegates are told that they cannot be what they say they are. A Muslim is told he cannot speak for Congress, a prince that he cannot be a patriot, a Communist that he cannot be a nationalist. The Credo answers by stating both identities and declining to choose between them.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>Say who you are</strong>, including the identity your opponents claim to speak for.</li>
+<li><strong>Say what that inheritance gives you</strong> and what you will not give up.</li>
+<li><strong>Claim the larger belonging</strong> next.</li>
+<li><strong>Offer history as proof</strong> that the two have gone together.</li>
+<li><strong>Address your own community.</strong> Ask them to act from confidence and not from fear.</li>
+<li><strong>End with a statement of fact</strong> about what the nation already is.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>Others dispute your right to speak because of who you are.</li>
+<li>Your argument depends on two loyalties being compatible.</li>
+<li>You are speaking partly to your own community outside the room.</li>
+</ul>
+<h4>Real models</h4>
+<p>In his Ramgarh address Azad says that he is a Muslim and proud of it, and that he is equally proud to be an Indian. Sarojini Naidu spoke in a similar way as a woman, and as a Hindu addressing Muslims. The princes stated a double loyalty in two parallel sentences: to the Crown by treaty and to India by birth. Iqbal in 1930 and Savarkar in 1937 gave a more abstract version, a lecture that defines a key term and derives a position from the definition.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a scholar.</em></p>
+<blockquote>
+<p>Mr. Chairman, I am a Telugu. It is the language in which I was taught to pray. It was spoken at the court of Vijayanagar, and Tyagaraja composed in it the songs that are sung today in every Tamil concert hall. I am proud of it, and I see no reason to apologise for that.</p>
+<p>I am also an Indian, and I have never found the two in conflict. In 1921, in 1930 and in 1942 the Telugu districts answered the national call, and their men and women went to prison in large numbers. None of them supposed that they were going for Andhra only.</p>
+<p>It is said that to ask for an Andhra province is to care less for India. I cannot accept that. A man does not love his mother less because he knows her name. I came to India through Telugu, as my Tamil friends came to it through Tamil, and I do not know any other way to come to it.</p>
+<p>To my own people I would say this. Do not ask for the province out of fear of the Tamils. They have done us no injury that a fair boundary cannot settle. Ask for it because people who govern themselves in their own language will have more to contribute.</p>
+<p>India has always had many languages and has been one country all the same. I ask the conference to write a constitution for that country.</p>
+</blockquote>
+<h4>Variants</h4>
+<ul>
+<li><strong>The Double Loyalty.</strong> The princes' form. State each loyalty in a sentence of equal weight, then give the terms on which you will serve both.</li>
+<li><strong>The First-Principles Lecture.</strong> Disclaim political authority and claim the authority of a scholar or a religious teacher. Pose a question of definition, such as what a nation is. Derive your position from the answer and test the proposals in the room against it.</li>
+<li><strong>The Wide Frame.</strong> Nehru often began with the world and the century, placed India in that picture, and drew his position from it. The method takes time. At conference length, give it one paragraph.</li>
+</ul>
+<h2>Pledge and Vow</h2>
+<p>This is the conference form of the appeal to conscience. It holds a named party to a promise already made. The speaker then says what they will do themselves, and asks nothing of the room. A speaker who puts something of their own at stake is hard to dismiss.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>The pledge.</strong> Quote the promise, and say who made it and when.</li>
+<li><strong>The breach.</strong> Show that it has not been kept. Do not abuse those who made it.</li>
+<li><strong>Your own part.</strong> Admit what you did or failed to do. Most speakers leave this out. The vow that follows is more credible with it.</li>
+<li><strong>The vow.</strong> Say what you will do, or go without, until the pledge is honored.</li>
+<li><strong>The choice.</strong> Return the decision to the party that made the promise.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>Someone in the room made a promise that you can quote.</li>
+<li>You cannot compel anyone, but you hold the moral position.</li>
+<li>You intend to keep the vow. The room will remember it, and so will the Scenario Director.</li>
+</ul>
+<h4>Real models</h4>
+<p>Gandhi's statement at his trial in 1922 is the model. He accepts the charge, explains how a loyal subject became a rebel, condemns the system without hating the men in it, and asks for the heaviest penalty. His Quit India speech of August 1942 adds a roll-call, with an instruction to each group in turn. Speakers in every camp quoted British pledges back to the British: the Queen's Proclamation of 1858, the declaration of 1917, the Atlantic Charter. Suhrawardy's convention speech of 1946 is a League version, a vow of sacrifice followed by a conditional warning.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a Gandhian village worker.</em></p>
+<blockquote>
+<p>Mr. Chairman, I hold no office. I have worked for thirty years in the villages of the Kistna district, and I speak only of what I know there.</p>
+<p>In 1920 the Congress resolved at Nagpur that its provinces should follow the languages of the people. I was present. I went home and told the cultivators of my district that this was a pledge, and that it would be kept when India governed herself. They believed me. Some of them went to prison, and they believed it there too.</p>
+<p>The pledge has not been kept. I do not blame those who made it. Each time there was a reason to wait: the struggle, then the elections, then the war. They were honest reasons.</p>
+<p>The fault I can speak of is my own. The promise was not mine to give, and I gave it. When the people grew tired of waiting I told them to be patient. It cost me nothing to say that. It cost them a good deal.</p>
+<p>So I must say what I will do. Until the Telugu districts are governed together, I will take no seat in the legislature at Madras and no post under it. I do not ask anyone to join me in this. I ask the Congress, which made the pledge, to tell us here whether it still stands.</p>
+</blockquote>
+<h4>Variants</h4>
+<ul>
+<li><strong>The Roll-Call.</strong> State your one condition. Then address each party in the room in turn, with one sentence on what you ask of them and what you promise them.</li>
+<li><strong>The Petitioner's Appeal.</strong> For a speaker without numbers or office. Give thanks, endorse the shared aim, and state one grievance tied to one sentence of one document. Then appeal to both sides. Jahanara Shahnawaz spoke this way at the Round Table Conference in 1930.</li>
+</ul>
+<p>Steps one and two also work as a section inside another framework. Quoting a promise back to the party that made it was the most common move of the period.</p>
+<h2>Incident to System</h2>
+<p>The leaders of 1945 seldom told one person's story. They spoke of peoples and provinces. A few speeches do begin from one specific wrong and work outward, and the method stands out in a room where most speakers deal in abstractions. It suits delegates who speak for people with no seat at the conference.</p>
+<p>Keep the incident to about a minute. The argument about the system needs most of your time.</p>
+<h4>Structure</h4>
+<ol>
+<li><strong>One specific wrong.</strong> Give the place, the time, and what happened.</li>
+<li><strong>Ask why decent people do it.</strong> Do not look for a villain.</li>
+<li><strong>Name the system</strong> and whose interest it serves.</li>
+<li><strong>Reject the smaller remedy</strong> that leaves the system in place.</li>
+<li><strong>Say who must act.</strong> Present the change as a service to the whole nation.</li>
+</ol>
+<h4>When to use it</h4>
+<ul>
+<li>You speak for people with no seat at the table.</li>
+<li>The room has heard the argument in general terms many times.</li>
+<li>You have an incident you can defend. At Simla, take it from your role sheet or your assigned sources.</li>
+</ul>
+<h4>Real models</h4>
+<p>Ambedkar's address at Mahad in 1927 starts from a water tank that one group of townspeople was forbidden to use. He asks why the rest of the town enforced the rule, and his answer leads to the caste order as a whole. His conference speeches are different. At the Round Table Conference he argued from numbers and law, judged each party's record in turn, and ended on a condition.</p>
+<h4>Example (Andhra)</h4>
+<p><em>Speaker: a village leader.</em></p>
+<blockquote>
+<p>Mr. Chairman, I come from a village near Ongole, and I want to tell the conference about one of my neighbours.</p>
+<p>Last year he received a notice about the water-rate on his four acres. It was in English. He took it to the taluk office. The clerk there explained it to him in Tamil, which he does not speak. A man in our village who had worked in Madras told him what the clerk had said. The notice gave him thirty days to appeal. By then thirty-four had gone.</p>
+<p>I do not say anyone wronged him. The officer who signed the notice did his work properly. So did the clerk. But my neighbour lost his appeal, and the same thing happens in our district every season.</p>
+<p>It happens because the Presidency is governed from Madras city. The services are recruited there and the examinations are held there. A boy from our district who wants a government post has to go to Madras and do his work in other languages.</p>
+<p>We have been offered more translators, and a Telugu clerk in each taluk office. That would help, and I am grateful for it. But the notices would still come from Madras.</p>
+<p>We ask for a province where the man who writes the notice and the man who receives it speak the same language. I think every part of India will want the same once it governs itself.</p>
+</blockquote>
+<h2>The close: name your terms</h2>
+<p>The speeches of the period end by committing the speaker to something. When you sit down, the room should know what you will give, what you must have, and what follows if you do not get it.</p>
+<p>A close can include any of these. Most strong closes use two or three.</p>
+<ul>
+<li><strong>The offer.</strong> Say what you will accept, concede, or contribute. Say it plainly, so that nobody misses it.</li>
+<li><strong>The condition.</strong> "We will accept the general settlement on one condition." If you have several conditions, number them.</li>
+<li><strong>The red line.</strong> Name the one thing you cannot sign. One red line is more credible than three.</li>
+<li><strong>The warning.</strong> Say calmly what will happen outside the room if the conference fails you. At Simla a threat costs nothing, but an action must be called from the podium. Do not warn of anything you are not ready to call.</li>
+<li><strong>The vow.</strong> Say what you yourself will do.</li>
+<li><strong>Two outcomes.</strong> Describe in a sentence or two what follows if the conference succeeds and what follows if it fails.</li>
+</ul>
+<p><strong>Example closes (Andhra).</strong></p>
+<blockquote>
+<p><em>Offer, condition, red line.</em> We will accept a boundary commission, and we will accept its award on the city of Madras whichever way it goes. In return we ask that the constitution itself provide for provinces by language. We cannot accept a promise to consider the matter later. We have been asking since 1914.</p>
+<p><em>Two outcomes.</em> If the conference agrees, the Telugu districts will support the settlement, and I will go home and say so. If it does not, I will have to tell them that the new government gave the same answer as the old one. I do not know what they will do then.</p>
+</blockquote>
+<p>Do not end on a rhetorical question. Do not announce your structure with a phrase like "in conclusion" or "let me build my case."</p>
+<h2>Finding your voice</h2>
+<p>The example speeches above are written in six different voices. Each is modeled on a kind of speaker who was at Simla or at the conferences before it. Choose the one closest to your character, and read your assigned sources to hear how that person spoke.</p>
+<table>
+<thead>
+<tr>
+<th>Voice</th>
+<th>Who spoke this way</th>
+<th>How it sounds</th>
+<th>What to avoid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Barrister</strong></td>
+<td>Jinnah, Liaquat Ali Khan, Ambedkar at the Round Table</td>
+<td>Exact and cool. Documents, dates, "I submit." Short sentences.</td>
+<td>Imagery, and any show of feeling</td>
+</tr>
+<tr>
+<td><strong>Organizer</strong></td>
+<td>Patel, Prasad, the Communist leaders</td>
+<td>Flat and itemized. Lists, dates, "we" more than "I."</td>
+<td>Wit and ornament</td>
+</tr>
+<tr>
+<td><strong>Parliamentarian</strong></td>
+<td>Masani, Mookerjee, Cripps</td>
+<td>Courteous. Concedes points. One dry remark.</td>
+<td>A second dry remark</td>
+</tr>
+<tr>
+<td><strong>Scholar</strong></td>
+<td>Azad, Naidu, Iqbal</td>
+<td>Measured and historical. Longer sentences. One figure of speech.</td>
+<td>Fine language with no fact under it</td>
+</tr>
+<tr>
+<td><strong>Gandhian worker</strong></td>
+<td>Gandhi, Vinoba Bhave</td>
+<td>First person, plain words, admits their own faults.</td>
+<td>Irony, and blaming others</td>
+</tr>
+<tr>
+<td><strong>Witness</strong></td>
+<td>The village leaders, Jogendranath Mandal</td>
+<td>Local and specific. Reports what they saw.</td>
+<td>General claims before the facts are given</td>
+</tr>
+</tbody>
+</table>
+<p>Two more voices belong to particular roles. The British <strong>official</strong> speaks plainly, blames no one by name, and says what is reserved as clearly as what is offered. The <strong>prince</strong> is courtly and states every offer as a conditional one, made of their own free will.</p>
+<p>Voice and framework are separate choices. The examples pair them one to one only to show all six. A barrister can give a Credo, and a scholar can give a Brief.</p>
+<p>Whichever voice you choose, keep most of your sentences plain. The speeches of the period carried dates and documents for several sentences at a time. A speech in which every paragraph ends on a polished line sounds written, and the room stops trusting it.</p>
+<h2>The conventions of the room</h2>
+<p>The real conferences were formal and courteous, and speeches were short. Follow these conventions and your speech will sound like 1945.</p>
+<ul>
+<li><strong>Address the chair.</strong> Begin "Your Excellency" to the Governors General, or "Mr. Chairman." Speak to your rivals through the chair.</li>
+<li><strong>Say "my friend."</strong> Call an opponent "my friend from Madras" or "my friend Mr. So-and-so," especially when you are about to disagree.</li>
+<li><strong>Do not abuse a rival by name.</strong> The real speakers often left opponents unnamed: "some of my co-religionists," "those who counsel patience." Everyone knew who was meant.</li>
+<li><strong>Reply to those who spoke before you.</strong> Refer courteously to at least one earlier speaker. If someone has covered your ground, say so and shorten your speech.</li>
+<li><strong>Number your points.</strong> Azad's statement at the real Simla conference survives as a numbered list, with lettered requests for clarification.</li>
+<li><strong>Admit a fault on your own side.</strong> Nearly every speaker of the period did.</li>
+<li><strong>Be brief.</strong> The Round Table Conference set a limit of ten minutes. Wavell opened the real Simla conference in about two and a half. If you look up your character you may find addresses that ran an hour or more. Those were given to the speaker's own party. At the conference table the same people spoke briefly and stated conditions.</li>
+</ul>
+<h2>Choosing your framework</h2>
+<p>Choose by your situation at the conference.</p>
+<table>
+<thead>
+<tr>
+<th>If this is your situation</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The other side's own words help you</td>
+<td>The Brief</td>
+</tr>
+<tr>
+<td>Your side asked for less in the past and was refused</td>
+<td>Record and Reckoning</td>
+</tr>
+<tr>
+<td>One objection will defeat you unless you answer it</td>
+<td>Objection Met</td>
+</tr>
+<tr>
+<td>Others doubt your right to speak because of who you are</td>
+<td>Credo</td>
+</tr>
+<tr>
+<td>Someone in the room made a promise you can quote</td>
+<td>Pledge and Vow</td>
+</tr>
+<tr>
+<td>You speak for people the room does not see</td>
+<td>Incident to System</td>
+</tr>
+<tr>
+<td>You present after the draft plan is issued</td>
+<td>The Document on Trial, a variant of The Brief</td>
+</tr>
+</tbody>
+</table>
+<p>You can combine two. Use one framework for the middle and borrow a single step from another. A Brief can include one incident, and a Record and Reckoning can end in a vow. Do not attempt three in seven minutes.</p>
+<p>A speech built on documents can be dry. Give it one sentence the room will remember, one specific thing it can picture, and one question a rival must answer. The <a href="rhetorical-techniques.html">Guide to Rhetorical Techniques</a> shows how.</p>
+<h2>From outline to speech</h2>
+<p>Your role sheet gives the question your presentation must answer and the sources to draw on. Work out your framework in your <strong>Argument &amp; Evidence outline</strong>. Before you draft the speech, the outline should answer these questions:</p>
+<ol>
+<li><strong>Standing.</strong> Whom do I speak for, by what title, and who in the room disputes it?</li>
+<li><strong>Framework.</strong> Which one, and why does it fit my situation?</li>
+<li><strong>Evidence.</strong> Which dates, documents, figures, and quotations support each step? Which come from the other side?</li>
+<li><strong>The restated question.</strong> What one sentence do I want the room to remember?</li>
+<li><strong>The objection.</strong> What is the strongest thing that will be said against me, and where do I answer it?</li>
+<li><strong>Terms.</strong> What do I offer, what do I require, and what is my red line?</li>
+</ol>
+<p><strong>A note on the pamphlet.</strong> Your second assignment is addressed to your own constituency and written after the Governors General issue their draft plan. The Document on Trial suits it, because you will have a text to test. The long speeches your character gave to their own party are poor models for the conference table and good models for the pamphlet.</p>
+</body>
+</html>
