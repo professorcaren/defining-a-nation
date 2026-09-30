@@ -202,6 +202,24 @@ main {
   padding: 6px 4px;
 }
 
+.front-gauge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  color: #d0685a;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid rgba(208, 104, 90, 0.4);
+  border-radius: 3px;
+}
+.front-gauge.danger {
+  color: #fff;
+  background: var(--ruby);
+  animation: critical-pulse 1s ease-in-out infinite;
+}
+
 .game-date {
   font-family: 'Cinzel', serif;
   font-size: 0.75rem;
@@ -217,6 +235,12 @@ main {
   align-items: center;
   flex-wrap: nowrap;
   overflow: hidden;
+  min-width: 0;
+  flex-shrink: 1;
+}
+@media (max-width: 639px) {
+  .progress-dots { display: none; }
+  .tie-legend { font-size: 0.6rem; }
 }
 
 .progress-dot {
@@ -272,6 +296,47 @@ main {
   pointer-events: none;
   transition: stroke-width 0.5s ease, stroke-opacity 0.5s ease, stroke 0.5s ease, filter 0.3s;
 }
+
+/* Divide and Rule: loyalty spokes are blue; movement ties are red, National Front ties bright red */
+.tie-line.kind-loyalty { stroke: #7fa6e6; }
+.tie-line.kind-opposition { stroke: #8e4a44; }
+.tie-line.kind-opposition.front-tie { stroke: #e0705f; }
+.tie-value-label.minor { opacity: 0; transition: opacity 0.2s; }
+.tie-value-label.minor.show { opacity: 0.8; }
+
+.tie-legend {
+  position: absolute;
+  left: 8px;
+  bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.66rem;
+  color: var(--text-secondary, #aaa);
+  pointer-events: none;
+}
+.tie-legend .lg::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.tie-legend .lg-loyal::before { background: #7fa6e6; }
+.tie-legend .lg-front::before { background: #e0705f; }
+.tie-legend .lg-opp::before { background: #8e4a44; }
+
+/* End screen: let the narration take its full height */
+#gameContainer.game-over .event-compact {
+  overflow: visible;
+  flex-shrink: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+  margin-top: 8px;
+}
+#gameContainer.game-over .tie-legend { display: none; }
 
 /* Critical: dashed red pulse */
 .tie-line.critical {
@@ -1087,4 +1152,16 @@ button.secondary:focus-visible { outline: 2px solid var(--gold); outline-offset:
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ─── Divide and Rule: decision emphasis ─── */
+#svgTies.choosing .tie-line:not(.in-play),
+#svgTies.choosing .tie-value-label:not(.in-play) { opacity: 0.22; transition: opacity 0.3s; }
+#svgTies.choosing .tie-line.in-play { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.35)); }
+#svgTies.choosing .tie-value-label.minor.in-play { opacity: 0.85; }
+#svgTies.choosing .tie-value-label.in-play { font-weight: 700; }
+
+@media (max-width: 639px) {
+  .back-link { position: static; display: block; padding: 6px 12px 0; font-size: 0.75rem; }
+  .tie-legend { display: none; }
 }

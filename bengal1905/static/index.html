@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-  <title>Bengal 1905: The Web of Alliances</title>
+  <title>Bengal 1905: Divide and Rule</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
 <a href="../../index.html" class="back-link">&larr; All Readings</a>
 
 <header>
-  <h1>Bengal 1905: The Web of Alliances</h1>
-  <div class="subtitle">A Network Game of Coalition Politics</div>
+  <h1>Bengal 1905: Divide and Rule</h1>
+  <div class="subtitle">The Partition Crisis from Inside the Raj</div>
 </header>
 
 <main>
@@ -32,6 +32,7 @@
     <!-- Progress bar -->
     <div class="progress-bar" id="progressBar">
       <span class="game-date" id="gameDate"></span>
+      <span class="front-gauge" id="frontGauge" title="Average of Congress Unity and the four Hindu-Muslim ties. You lose if it reaches the threshold."></span>
       <div class="progress-dots" id="progressDots"></div>
     </div>
 
@@ -46,6 +47,11 @@
         <span id="telegraphText"></span>
       </div>
       <div class="action-overlay" id="actionOverlay"></div>
+      <div class="tie-legend">
+        <span class="lg lg-loyal">Loyalty to the Raj: keep above 0</span>
+        <span class="lg lg-front">National Front: keep low</span>
+        <span class="lg lg-opp">Other movement ties</span>
+      </div>
     </div>
 
     <!-- Event text (compact) -->
@@ -68,7 +74,7 @@
     <div class="status-message" id="statusMessage"></div>
     <div class="score-panel hidden" id="scorePanel">
       <div class="score-total" id="scoreTotal"></div>
-      <div class="score-label">Final Web Strength</div>
+      <div class="score-label">Final National Front</div>
       <div class="score-rank" id="scoreRank"></div>
     </div>
     <div class="reflection-box hidden" id="reflectionBox"></div>
@@ -131,26 +137,44 @@
      GEOMETRY
      ═══════════════════════════════════════════════════ */
 
-  const CX = 240, CY = 200, RAD = 145;
+  const CX = 240, CY = 205, RAD = 160;
   const nodePos = {};
-  NODE_DEFS.forEach((def, i) => {
-    const angle = (Math.PI / 2) + (2 * Math.PI * i) / NODE_DEFS.length;
+  const RING = NODE_DEFS.filter(d => !d.center);
+  NODE_DEFS.filter(d => d.center).forEach(def => { nodePos[def.id] = { x: CX, y: CY, ...def }; });
+  RING.forEach((def, i) => {
+    const angle = (Math.PI / 2) + (2 * Math.PI * i) / RING.length;
     nodePos[def.id] = { x: CX + RAD * Math.cos(angle), y: CY - RAD * Math.sin(angle), ...def };
   });
 
+  // Where a tie's label sits. Spokes from the center are labeled toward the
+  // outer node, and long diagonals away from the crowded middle.
+  function labelT(tie) {
+    const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
+    if (a.center || b.center) return a.center ? 0.62 : 0.38;
+    const len = Math.hypot(a.x - b.x, a.y - b.y);
+    return len > RAD * 1.5 ? 0.74 : 0.5;
+  }
   function tieMidpoint(tieId) {
     const tie = TIE_DEFS.find(t => t.id === tieId);
     if (!tie) return { x: CX, y: CY };
-    const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
-    return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB], t = labelT(tie);
+    return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
   }
 
   /* ═══════════════════════════════════════════════════
      GAME CONSTANTS
      ═══════════════════════════════════════════════════ */
 
-  const DECAY_MIN = 1, DECAY_MAX = 2;
+  const RULES = window.GAME_RULES || { frontThreshold: 65, driftMin: 1, driftMax: 2 };
   const TOTAL_EVENTS = EVENTS.length;
+  const tieDef = id => TIE_DEFS.find(t => t.id === id);
+  // A change is "bad" for the player if it strengthens the opposition or weakens loyalty.
+  const isBad = (tieId, amt) => { const d = tieDef(tieId); return d && ((d.kind === 'opposition' && amt > 0) || (d.kind === 'loyalty' && amt < 0)); };
+  const signed = n => (n > 0 ? '+' : '\u2212') + Math.abs(n);
+  function nationalFront() {
+    const ft = TIE_DEFS.filter(t => t.front);
+    return Math.round(ft.reduce((a, t) => a + state.ties[t.id], 0) / ft.length);
+  }
 
   let state = null;
   let vigIdx = 0;
@@ -241,19 +265,19 @@
     // Draw ties
     TIE_DEFS.forEach(tie => {
       const a = nodePos[tie.nodeA], b = nodePos[tie.nodeB];
-      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+      const mid = tieMidpoint(tie.id);
 
       // Visible line
       const line = svgEl('line', {
         x1: a.x, y1: a.y, x2: b.x, y2: b.y,
-        class: 'tie-line', 'data-tie': tie.id
+        class: `tie-line kind-${tie.kind || 'opposition'}${tie.front ? ' front-tie' : ''}`, 'data-tie': tie.id
       });
       svgTies.appendChild(line);
 
       // Value label at midpoint
       const valLabel = svgEl('text', {
         x: mid.x, y: mid.y + 4,
-        class: 'tie-value-label', 'data-tie': tie.id
+        class: `tie-value-label${tie.kind === 'opposition' && !tie.front ? ' minor' : ''}`, 'data-tie': tie.id
       });
       valLabel.textContent = '';
       svgTies.appendChild(valLabel);
@@ -306,8 +330,13 @@
       const lines = svgTies.querySelectorAll(`.tie-line[data-tie="${tie.id}"]`);
       const valLabels = svgTies.querySelectorAll(`.tie-value-label[data-tie="${tie.id}"]`);
 
-      const width = 1 + (val / 100) * 4;
-      const opacity = 0.12 + (val / 100) * 0.7;
+      // Three visual weights: National Front ties heaviest, loyalty spokes
+      // strong, the other movement ties thin background lines.
+      const f = val / 100;
+      let width, opacity;
+      if (tie.kind === 'loyalty') { width = 2 + f * 5; opacity = 0.45 + f * 0.5; }
+      else if (tie.front) { width = 2.5 + f * 6.5; opacity = 0.55 + f * 0.45; }
+      else { width = 0.8 + f * 1.4; opacity = 0.15 + f * 0.25; }
 
       lines.forEach(line => {
         line.setAttribute('stroke-width', width);
@@ -315,21 +344,24 @@
 
         // Remove all state classes first
         line.classList.remove('critical', 'healthy');
-
-        if (val <= 0) {
+        const danger = tie.kind === 'loyalty' ? val < 20 : (tie.front && val >= 70);
+        if (val <= 0 && tie.kind === 'loyalty') {
           line.setAttribute('stroke-opacity', '0');
-        } else if (val < 20) {
+        } else if (danger) {
           line.classList.add('critical');
-        } else if (val > 70) {
-          line.classList.add('healthy');
         }
       });
 
       valLabels.forEach(el => {
         el.textContent = val;
-        el.classList.toggle('critical-text', val < 20);
+        el.classList.toggle('critical-text', tie.kind === 'loyalty' ? val < 20 : (tie.front && val >= 70));
       });
     });
+
+    const nf = nationalFront();
+    const g = $('frontGauge');
+    g.textContent = `National Front ${nf} / ${RULES.frontThreshold}`;
+    g.classList.toggle('danger', nf >= RULES.frontThreshold - 8);
   }
 
   /* ═══════════════════════════════════════════════════
@@ -361,7 +393,7 @@
     }
 
     // Show floating indicator
-    showIndicator(tieId, `-${amount}`, 'strain-ind');
+    showIndicator(tieId, signed(amount), 'strain-ind');
 
     // Show hover label briefly
     const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${tieId}"]`);
@@ -390,7 +422,7 @@
       });
     }
 
-    showIndicator(tieId, `+${amount}`, 'tend-ind');
+    showIndicator(tieId, signed(amount), 'tend-ind');
 
     // Show hover label
     const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${tieId}"]`);
@@ -401,10 +433,10 @@
   }
 
   function animateSideCost(tieId, amount) {
-    if (amount < 0) {
-      animateStrain(tieId, Math.abs(amount));
+    if (isBad(tieId, amount)) {
+      animateStrain(tieId, amount);
     } else {
-      showIndicator(tieId, `+${amount}`, 'bonus-ind');
+      animateTend(tieId, amount);
     }
   }
 
@@ -476,19 +508,14 @@
      ═══════════════════════════════════════════════════ */
 
   function highlightTies(action) {
-    const primaryLine = svgTies.querySelector(`.tie-line[data-tie="${action.primary.tie}"]`);
-    if (primaryLine) primaryLine.classList.add('tie-highlight-primary');
-
-    const primaryLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
-    if (primaryLabel) primaryLabel.classList.add('visible');
-
-    if (action.side) {
-      const sideLine = svgTies.querySelector(`.tie-line[data-tie="${action.side.tie}"]`);
-      if (sideLine) sideLine.classList.add(action.side.amount < 0 ? 'tie-highlight-cost' : 'tie-highlight-bonus');
-
-      const sideLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.side.tie}"]`);
-      if (sideLabel) sideLabel.classList.add('visible');
-    }
+    action.effects.forEach((e, i) => {
+      const line = svgTies.querySelector(`.tie-line[data-tie="${e.tie}"]`);
+      if (line) line.classList.add(i === 0 ? 'tie-highlight-primary' : (isBad(e.tie, e.amount) ? 'tie-highlight-cost' : 'tie-highlight-bonus'));
+      const label = svgTies.querySelector(`.tie-hover-label[data-tie="${e.tie}"]`);
+      if (label) label.classList.add('visible');
+      const val = svgTies.querySelector(`.tie-value-label[data-tie="${e.tie}"]`);
+      if (val) val.classList.add('show');
+    });
   }
 
   function clearHighlights() {
@@ -498,6 +525,7 @@
     svgTies.querySelectorAll('.tie-hover-label').forEach(el => {
       el.classList.remove('visible');
     });
+    svgTies.querySelectorAll('.tie-value-label.show').forEach(el => el.classList.remove('show'));
   }
 
   /* ═══════════════════════════════════════════════════
@@ -512,6 +540,18 @@
   function clearActionMarkers() {
     actionOverlay.innerHTML = '';
     svgInd.querySelectorAll('.marker-connector').forEach(el => el.remove());
+    svgTies.classList.remove('choosing');
+    svgTies.querySelectorAll('.in-play').forEach(el => el.classList.remove('in-play'));
+  }
+
+  // While a decision is open, emphasize every tie any option would change.
+  function markInPlay(actions) {
+    const ids = new Set();
+    actions.forEach(a => a.effects.forEach(e => ids.add(e.tie)));
+    ids.forEach(id => {
+      svgTies.querySelectorAll(`[data-tie="${id}"]`).forEach(el => el.classList.add('in-play'));
+    });
+    svgTies.classList.add('choosing');
   }
 
   /* Fixed anchor points in SVG coords for connector lines */
@@ -523,10 +563,11 @@
 
   function renderActionMarkers(actions) {
     clearActionMarkers();
+    markInPlay(actions);
     let expandedMarker = null;
 
     actions.forEach((action, idx) => {
-      const mid = tieMidpoint(action.primary.tie);
+      const mid = tieMidpoint(action.effects[0].tie);
       const anchor = MARKER_ANCHORS[idx];
 
       /* Draw connector line from slot anchor to tie midpoint */
@@ -537,17 +578,11 @@
       });
       svgInd.appendChild(connLine);
 
-      const tieDef = TIE_DEFS.find(t => t.id === action.primary.tie);
-      const primaryName = tieDef ? tieDef.label : action.primary.tie;
-
-      let effectsHtml = `<span style="color:var(--emerald)">${escapeHtml(primaryName)} +${action.primary.amount}</span>`;
-      if (action.side) {
-        const sideDef = TIE_DEFS.find(t => t.id === action.side.tie);
-        const sideName = sideDef ? sideDef.label : action.side.tie;
-        const sign = action.side.amount > 0 ? '+' : '';
-        const color = action.side.amount < 0 ? 'var(--ruby)' : 'var(--emerald)';
-        effectsHtml += ` &middot; <span style="color:${color}">${escapeHtml(sideName)} ${sign}${action.side.amount}</span>`;
-      }
+      const effectsHtml = action.effects.map(e => {
+        const d = tieDef(e.tie);
+        const color = isBad(e.tie, e.amount) ? 'var(--ruby)' : 'var(--emerald)';
+        return `<span style="color:${color}">${escapeHtml(d ? d.label : e.tie)} ${signed(e.amount)}</span>`;
+      }).join(' &middot; ');
 
       const marker = document.createElement('div');
       marker.className = 'tie-action-marker slot-' + idx;
@@ -559,7 +594,7 @@
         <span class="marker-confirm">&#9654; Confirm</span>
       `;
 
-      const line = svgTies.querySelector(`.tie-line[data-tie="${action.primary.tie}"]`);
+      const line = svgTies.querySelector(`.tie-line[data-tie="${action.effects[0].tie}"]`);
 
       marker.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -581,7 +616,7 @@
       marker.addEventListener('mouseenter', () => {
         if (!marker.classList.contains('expanded')) {
           if (line) line.classList.add('tie-highlight-primary');
-          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
+          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.effects[0].tie}"]`);
           if (hoverLabel) hoverLabel.classList.add('visible');
         }
       });
@@ -589,7 +624,7 @@
       marker.addEventListener('mouseleave', () => {
         if (!marker.classList.contains('expanded')) {
           if (line) line.classList.remove('tie-highlight-primary');
-          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.primary.tie}"]`);
+          const hoverLabel = svgTies.querySelector(`.tie-hover-label[data-tie="${action.effects[0].tie}"]`);
           if (hoverLabel) hoverLabel.classList.remove('visible');
         }
       });
@@ -629,7 +664,7 @@
 
   function showStrainReason(tieDef, strain) {
     evTitle.textContent = tieDef.label;
-    evNarr.innerHTML = `<p class="strain-back">&larr; tap to return</p><p>${escapeHtml(strain.reason)}</p><p class="strain-amount">&minus;${strain.amount}</p>`;
+    evNarr.innerHTML = `<p class="strain-back">&larr; tap to return</p><p>${escapeHtml(strain.reason)}</p><p class="strain-amount">${signed(strain.amount)}</p>`;
     learnMoreToggle.classList.add('hidden');
     learnMoreContent.classList.remove('expanded');
     $('eventCompact').classList.add('showing-strain');
@@ -638,7 +673,7 @@
   /* ─── Strained line interactivity ─── */
 
   function makeStrainedLinesClickable(ev) {
-    ev.strains.forEach(strain => {
+    ev.shifts.forEach(strain => {
       const tieDef = TIE_DEFS.find(t => t.id === strain.tie);
       if (!tieDef) return;
       const a = nodePos[tieDef.nodeA], b = nodePos[tieDef.nodeB];
@@ -683,7 +718,7 @@
     showTelegraph(ev.telegraph, () => {
       // Apply strains — lines glow persistently
       svgInd.innerHTML = '';
-      applyStrains(ev.strains, () => {
+      applyStrains(ev.shifts, () => {
         // Check defeat after strain
         const broken = checkDefeat();
         if (broken) { endGame('defeat', broken); return; }
@@ -705,8 +740,8 @@
   function applyStrains(strains, callback) {
     strains.forEach((s, i) => {
       setTimeout(() => {
-        state.ties[s.tie] = Math.max(0, state.ties[s.tie] - s.amount);
-        animateStrain(s.tie, s.amount);
+        state.ties[s.tie] = Math.max(0, Math.min(100, state.ties[s.tie] + s.amount));
+        animateSideCost(s.tie, s.amount);
         updateSvg();
       }, i * 450);
     });
@@ -726,30 +761,24 @@
 
     svgInd.innerHTML = '';
 
-    // Apply primary effect
-    state.ties[action.primary.tie] = Math.min(100, state.ties[action.primary.tie] + action.primary.amount);
-    animateTend(action.primary.tie, action.primary.amount);
+    // Apply every effect
+    action.effects.forEach((e, i) => {
+      state.ties[e.tie] = Math.max(0, Math.min(100, state.ties[e.tie] + e.amount));
+      setTimeout(() => { animateSideCost(e.tie, e.amount); updateSvg(); }, i * 300);
+    });
 
-    // Apply side effect
-    if (action.side) {
-      setTimeout(() => {
-        const amt = action.side.amount;
-        state.ties[action.side.tie] = Math.max(0, Math.min(100, state.ties[action.side.tie] + amt));
-        animateSideCost(action.side.tie, amt);
-        updateSvg();
-      }, 300);
-    }
-
-    // Passive decay on untouched ties
-    const touched = new Set([action.primary.tie]);
-    if (action.side) touched.add(action.side.tie);
+    // Drift: untouched opposition ties strengthen; untouched loyalty ties erode
+    const touched = new Set(action.effects.map(e => e.tie));
     const currentEv = EVENTS[state.eventIndex];
-    if (currentEv) currentEv.strains.forEach(s => touched.add(s.tie));
-
+    if (currentEv) currentEv.shifts.forEach(s => touched.add(s.tie));
     TIE_DEFS.forEach(tie => {
       if (touched.has(tie.id)) return;
-      const decay = DECAY_MIN + Math.floor(Math.random() * (DECAY_MAX - DECAY_MIN + 1));
-      state.ties[tie.id] = Math.max(0, state.ties[tie.id] - decay);
+      if (tie.kind === 'opposition') {
+        const drift = RULES.driftMin + Math.floor(Math.random() * (RULES.driftMax - RULES.driftMin + 1));
+        state.ties[tie.id] = Math.min(100, state.ties[tie.id] + drift);
+      } else {
+        state.ties[tie.id] = Math.max(0, state.ties[tie.id] - (RULES.loyaltyErosion || 0));
+      }
     });
 
     updateSvg();
@@ -780,8 +809,9 @@
 
   function checkDefeat() {
     for (const tie of TIE_DEFS) {
-      if (state.ties[tie.id] <= 0) return tie.id;
+      if (tie.kind === 'loyalty' && state.ties[tie.id] <= 0) return tie.id;
     }
+    if (nationalFront() >= RULES.frontThreshold) return 'national_front';
     return null;
   }
 
@@ -793,10 +823,10 @@
     actionArea.classList.add('hidden');
     gameCont.classList.add('game-over');
 
-    const total = Object.values(state.ties).reduce((a, b) => a + b, 0);
+    const total = nationalFront();
 
     if (outcome === 'victory') {
-      statusMsg.textContent = 'Victory \u2014 The web holds.';
+      statusMsg.textContent = 'Victory \u2014 The partition holds.';
       statusMsg.className = 'status-message status-victory';
       evTitle.textContent = VICTORY.title || 'Victory';
       evNarr.innerHTML = formatText(VICTORY.narration || '');
@@ -809,21 +839,21 @@
 
       if (VICTORY.reflection) {
         const items = VICTORY.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
-        reflBox.innerHTML = `<div class="reflection-label">Reflection: The Price of Survival</div><p>Consider these questions:</p><ul>${items}</ul>`;
+        reflBox.innerHTML = `<div class="reflection-label">Reflection</div><p>Consider these questions:</p><ul>${items}</ul>`;
         reflBox.classList.remove('hidden');
       }
     } else {
       const defeat = DEFEATS[brokenTie] || {};
       const tieDef = TIE_DEFS.find(t => t.id === brokenTie);
-      statusMsg.textContent = `Defeat \u2014 ${defeat.title || (tieDef ? tieDef.label + ' snapped' : 'A tie has broken.')}`;
+      statusMsg.textContent = `Defeat \u2014 ${defeat.title || (tieDef ? tieDef.label + ' broke' : 'You lost control.')}`;
       statusMsg.className = 'status-message status-defeat';
-      evTitle.textContent = defeat.title || 'The Web Breaks';
+      evTitle.textContent = defeat.title || 'You Lose Control';
       evNarr.innerHTML = formatText(defeat.narration || '');
       learnMoreToggle.classList.add('hidden');
 
       scorePanel.classList.remove('hidden');
       animateScore(total, scoreTotal);
-      setTimeout(() => { scoreRank.textContent = 'Web Broken'; }, 1200);
+      setTimeout(() => { scoreRank.textContent = 'Control Lost'; }, 1200);
 
       if (defeat.reflection) {
         const items = defeat.reflection.map(p => `<li>${escapeHtml(p)}</li>`).join('');
@@ -845,11 +875,11 @@
     }, 30);
   }
 
-  function getRank(score) {
-    if (score >= 750) return 'Master Web-Spinner';
-    if (score >= 600) return 'Skilled Diplomat';
-    if (score >= 450) return 'Embattled Negotiator';
-    return 'Barely Survived';
+  function getRank(front) {
+    if (front < 35) return 'Master of Divide and Rule';
+    if (front < 45) return 'Effective Administrator';
+    if (front < 55) return 'Holding the Line';
+    return 'Barely in Control';
   }
 
   /* ═══════════════════════════════════════════════════
