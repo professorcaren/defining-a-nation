@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Speaking Booth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Home</a></div>
+<h1>The Speaking Booth</h1>
+<p class="lede">Rehearse anything you will deliver at the conference: your opening claim to standing, a single argument, or your whole presentation. The Booth reports your pace, your pauses, and each place you said &ldquo;um.&rdquo; Your recording stays in your browser and is never uploaded. Say it, fix one thing, and say it again.</p>
+
+<div class="booth">
+  <details class="script" id="script">
+    <summary>Optional: paste what you plan to say (or use the &ldquo;written text only&rdquo; button below)</summary>
+    <textarea id="target" rows="4" placeholder="Paste your opening, an argument, or your whole presentation here. The Booth compares it against what you actually delivered."></textarea>
+  </details>
+
+  <div class="evalrow" id="evalrow" style="display:none">
+    <label>Rehearsing your role? The Booth will read your argument as your character.
+      <select id="character">
+        <option value="generic">My character isn&rsquo;t listed: read it as a general 1945 conference speech</option>
+        <optgroup label="Akali Dal">
+<option value="master-tara-singh">Master Tara Singh</option>
+<option value="sardar-baldev-singh">Sardar Baldev Singh</option>
+</optgroup>
+<optgroup label="British">
+<option value="archibald-wavell">Archibald Wavell</option>
+<option value="stafford-cripps">Sir Stafford Cripps</option>
+</optgroup>
+<optgroup label="Communist">
+<option value="bt-ranadive">B.T. Ranadive</option>
+<option value="irabot-singh">Hijam Irabot Singh</option>
+<option value="pc-joshi">P.C. Joshi</option>
+</optgroup>
+<optgroup label="Gandhi - Ahimsa Pathiks">
+<option value="narayan-desai">Narayan Desai</option>
+<option value="ravishankar-vyas">Ravishankar Vyas</option>
+</optgroup>
+<optgroup label="Gandhi - Gram Swaraj Sangh">
+<option value="jc-kumarappa">J. C. Kumarappa</option>
+<option value="vinoba-bhave">Vinoba Bhave</option>
+</optgroup>
+<optgroup label="Hindu Mahasabha">
+<option value="bhai-parmanand">Bhai Parmanand</option>
+<option value="shyama-prasad-mukherjee">Shyama Prasad Mukherjee</option>
+<option value="vinayak-savarkar">Vinayak Damodar Savarkar</option>
+</optgroup>
+<optgroup label="INC">
+<option value="jawaharlal-nehru">Jawaharlal Nehru</option>
+<option value="maulana-azad">Maulana Azad</option>
+<option value="minoo-masani">Minoo Masani</option>
+<option value="rajendra-prasad">Rajendra Prasad</option>
+<option value="sarojini-naidu">Sarojini Naidu</option>
+<option value="vallabhbhai-patel">Vallabhbhai Patel</option>
+</optgroup>
+<optgroup label="Muslim League">
+<option value="huseyn-shaheed-suhrawardy">Huseyn Shaheed Suhrawardy</option>
+<option value="liaqat-ali-khan">Liaqat Ali Khan</option>
+<option value="muhammad-ali-jinnah">Muhammad Ali Jinnah</option>
+<option value="mumtaz-shahnawaz">Mumtaz Shahnawaz</option>
+<option value="syed-mawdudi">Syed Mawdudi</option>
+</optgroup>
+<optgroup label="Princely States">
+<option value="hari-singh">Maharaja Hari Singh</option>
+<option value="osman-ali-khan">Osman Ali Khan, Nizam of Hyderabad</option>
+</optgroup>
+<optgroup label="SCF">
+<option value="b-shyam-sunder">B. Shyam Sunder</option>
+<option value="br-ambedkar">B.R. Ambedkar</option>
+<option value="jogendranath-mandal">Jogendranath Mandal</option>
+</optgroup>
+<optgroup label="Village Leader">
+<option value="chenniyar-venkati">Chenniyar Venkati</option>
+<option value="rajiv-darpan">Rajiv Darpan</option>
+<option value="ranjendra-chaterjee">Ranjendra Chaterjee</option>
+</optgroup>
+      </select>
+    </label>
+  </div>
+
+  <div class="controls">
+    <button id="rec" class="btn-rec">Record</button>
+    <button id="stop" class="btn-stop" disabled>Stop &amp; read it back</button>
+    <span id="timer" class="timer">0:00</span>
+  </div>
+  <div class="altmodes">
+    <label class="uploadbtn">Upload audio or video<input id="file" type="file" accept="audio/*,video/*" hidden></label>
+    <button id="textbtn" class="btn-text" style="display:none">Evaluate written text only</button>
+  </div>
+  <p id="status" class="status">The first time you use the Booth it downloads a small speech model (about 75&nbsp;MB, then cached). After that it&rsquo;s instant and works offline.</p>
+  <div class="press" id="press"></div>
+
+  <div id="report" class="report" style="display:none"></div>
+
+  <div id="verdictbtnwrap" style="display:none"><button id="verdictbtn" class="btn-verdict">Now get a reading of your argument &rarr;</button></div>
+  <div id="verdict" class="report" style="display:none"></div>
+
+  <p class="disclaimer">The Booth hears only what a microphone can: <b>pace, pauses, and filler</b>. It cannot judge eye contact, your stance, or whether the far seat could hear you. Ask a classmate to watch for those.</p>
+</div>
+
+<style>
+:root{--ink:#f0e9d6; --paper:#1a1932; --rule:rgba(212,168,67,.25); --red:#e07a5f; --muted:rgba(240,233,214,.6)}
+.lede{font-size:1.05rem}
+.section-head{font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.12em; font-size:.8rem; color:var(--gold); margin:1.2rem 0 .4rem}
+.booth{margin:2rem 0}
+.booth details.script{margin:0 0 1.4rem; border:1px solid var(--rule); border-radius:3px; background:rgba(240,233,214,.04)}
+.booth summary{cursor:pointer; padding:.7rem .9rem; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.08em; font-size:.74rem; color:var(--muted)}
+.booth textarea{width:100%; border:0; border-top:1px solid var(--rule); background:transparent; color:var(--ink); font-family:'Lato',sans-serif; font-size:1rem; padding:.7rem .9rem; resize:vertical}
+.booth textarea:focus{outline:none}
+.controls{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; margin:1rem 0 .4rem}
+.altmodes{display:flex; gap:.7rem; flex-wrap:wrap; align-items:center; margin:.1rem 0 .5rem}
+.uploadbtn,.btn-text{font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.09em; font-size:.7rem; font-weight:600; padding:.5rem 1rem; border:1px solid var(--rule); background:var(--paper); color:var(--muted); cursor:pointer; border-radius:2px}
+.uploadbtn:hover,.btn-text:hover{color:var(--ink); border-color:var(--ink)}
+.booth button{font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.1em; font-size:.82rem; font-weight:600; padding:.7rem 1.4rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer; border-radius:2px}
+.booth button:hover:not(:disabled){background:var(--ink); color:var(--paper)}
+.booth button:disabled{opacity:.35; cursor:default}
+.booth .btn-rec{border-color:var(--red); color:var(--red)}
+.booth .btn-rec:hover:not(:disabled){background:var(--red); color:#fff}
+.booth .btn-rec.live{background:var(--red); color:#fff; animation:pulse 1.3s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55}}
+.timer{font-family:'Cinzel',serif; font-size:1.3rem; letter-spacing:.05em; color:var(--muted)}
+.status{font-style:italic; color:var(--muted); font-size:.95rem; min-height:1.4em}
+/* "Setting the type" progress sweep — a transform animation so it keeps moving
+   on the compositor even while Whisper blocks the main JS thread. */
+.press{position:relative; height:4px; background:rgba(240,233,214,.12); overflow:hidden; border-radius:2px; margin:.5rem 0; display:none}
+.press.on{display:block}
+.press::before{content:""; position:absolute; top:0; left:0; height:100%; width:35%; background:var(--red); will-change:transform; animation:sweep 1s linear infinite}
+@keyframes sweep{from{transform:translateX(-100%)} to{transform:translateX(386%)}}
+.disclaimer{font-size:.85rem; color:var(--muted); border-top:1px solid var(--rule); padding-top:1rem; margin-top:2rem}
+/* Report */
+.report{margin:1.6rem 0 0}
+.verdict{font-family:'Cinzel',serif; font-weight:800; font-size:1.5rem; line-height:1.2; margin:.2rem 0 1rem}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr)); gap:.7rem; margin:1.2rem 0}
+.stat{border:1px solid var(--rule); padding:.7rem .8rem; text-align:center}
+.stat .num{font-family:'Cinzel',serif; font-weight:700; font-size:1.8rem; line-height:1; color:var(--ink)}
+.stat .num.warn{color:var(--red)}
+.stat .lab{font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.09em; font-size:.62rem; color:var(--muted); margin-top:.35em}
+.coach{list-style:none; padding:0; margin:1.4rem 0}
+.coach li{border-left:3px solid var(--red); padding:.15em 0 .15em .9em; margin:.7em 0}
+.coach .ok{border-left-color:#7fb069}
+.tscript{background:var(--paper); color:var(--ink); border:1px solid var(--rule); padding:1rem 1.1rem; margin:1.2rem 0; font-size:1.08rem; line-height:1.9}
+.tscript .crutch{background:#e8c96a; color:#0f0e17; padding:0 .12em; border-radius:2px; font-weight:600}
+.tscript .filled{color:var(--red); font-weight:700; font-family:'Cinzel',serif; font-size:.8em; letter-spacing:.03em; vertical-align:.05em}
+.tscript .silence{color:var(--muted); font-style:italic; font-size:.82em}
+.tscript .hesit{border-bottom:2px dotted var(--red)}
+.ts-key{font-size:.8rem; color:var(--muted); margin:.3rem 0 0}
+.ts-key .filled{color:var(--red); font-weight:700}
+/* Content evaluation (The Room's Verdict) */
+.evalrow{margin:.2rem 0 .6rem}
+.evalrow label{font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.06em; font-size:.68rem; color:var(--muted); display:block}
+.evalrow select{display:block; margin-top:.4rem; font-family:'Lato',sans-serif; font-size:1rem; padding:.4rem .5rem; max-width:100%; border:1px solid var(--rule); background:var(--paper); color:var(--ink)}
+.btn-verdict{margin:.4rem 0; font-family:'Cinzel',serif; text-transform:uppercase; letter-spacing:.1em; font-size:.82rem; font-weight:600; padding:.7rem 1.4rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer; border-radius:2px}
+.btn-verdict:hover:not(:disabled){background:var(--ink); color:var(--paper)}
+.btn-verdict:disabled{opacity:.4; cursor:default}
+.verdict-line{font-family:'Cinzel',serif; font-weight:800; font-size:1.4rem; line-height:1.25; margin:.2rem 0 1rem}
+.vrow{display:grid; grid-template-columns:6rem 1fr; gap:.4rem .8rem; border-top:1px solid var(--rule); padding:.7em 0; align-items:start}
+.vname{font-family:'Cinzel',serif; text-transform:uppercase; font-size:.7rem; letter-spacing:.06em; padding-top:.15em}
+.vband{display:inline-block; font-family:'Cinzel',serif; text-transform:uppercase; font-size:.6rem; letter-spacing:.08em; padding:.2em .5em; border-radius:2px; margin-bottom:.3em}
+.vband.Missing{background:var(--red); color:#fff}
+.vband.Developing{background:#c98a00; color:#fff}
+.vband.Landed{background:#7fb069; color:#fff}
+.vnote{font-size:1rem}
+.vextra{border-left:3px solid var(--red); padding-left:.9em; margin:1em 0}
+.again{margin-top:1.4rem}
+.nomic{border:1px solid var(--red); padding:1rem; color:var(--red)}
+</style>
+
+<script type="module">
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1';
+// Serve the speech model from OUR origin (the copy the Save the Masses site already hosts), never Hugging Face.
+// A whole class pulling ~75MB from HF at once gets 429-rate-limited; same-origin
+// files don't, cache after first load, and keep working offline.
+env.allowLocalModels  = true;
+env.allowRemoteModels = false;
+env.localModelPath    = new URL('/save-the-masses/models/', location.origin).href;
+
+const MODEL = 'Xenova/whisper-base.en';
+const $ = id => document.getElementById(id);
+const setStatus = m => { $('status').innerHTML = m; };
+
+// Words Whisper keeps that read as crutches (it scrubs um/uh, so those we infer).
+const CRUTCH = ['like','you know','i mean','sort of','kind of','i think','i guess','basically','actually','literally'];
+
+let asr = null, recorder, chunks = [], stream, tick, t0;
+let lastTranscript = "";
+
+// v2 content evaluation endpoint (Cloudflare Worker). Empty => feature hidden.
+const EVAL_ENDPOINT = "https://save-the-masses-eval.neal-caren.workers.dev/simla";
+const esc = s => String(s == null ? "" : s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const pressOn = () => $('press').classList.add('on');
+const pressOff = () => $('press').classList.remove('on');
+if (EVAL_ENDPOINT) $('evalrow').style.display = "";
+
+if (!navigator.mediaDevices || !window.MediaRecorder) {
+  $('report').style.display = 'block';
+  $('report').innerHTML = '<div class="nomic">This browser can\'t reach the microphone. Open the Booth in Chrome, Edge, or Safari on a laptop or phone.</div>';
+  $('rec').disabled = true;
+}
+
+$('rec').onclick = async () => {
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+  catch (e) { setStatus('Microphone blocked (' + e.message + '). Allow mic access and try again.'); return; }
+  chunks = [];
+  recorder = new MediaRecorder(stream);
+  recorder.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+  recorder.onstop = () => analyze(new Blob(chunks, { type: recorder.mimeType || 'audio/webm' }));
+  recorder.start();
+  t0 = performance.now();
+  tick = setInterval(() => {
+    const s = Math.floor((performance.now() - t0) / 1000);
+    $('timer').textContent = Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+  }, 250);
+  $('rec').classList.add('live'); $('rec').disabled = true; $('stop').disabled = false;
+  $('report').style.display = 'none';
+  $('verdictbtnwrap').style.display = 'none';
+  $('verdict').style.display = 'none';
+  setStatus('Listening. Stand up and deliver it as you would to the conference.');
+};
+
+$('stop').onclick = () => {
+  clearInterval(tick);
+  recorder.stop();
+  stream.getTracks().forEach(t => t.stop());
+  $('rec').classList.remove('live'); $('stop').disabled = true;
+};
+
+// ---- audio helpers ----
+async function toMono16k(blob) {
+  // Close the realtime context in a finally: Chrome caps a document at ~6 live
+  // AudioContexts, so leaking one per take breaks analysis after 6 records (and
+  // pins each take's decoded audio in memory until GC).
+  const ac = new (window.AudioContext || window.webkitAudioContext)();
+  try {
+    const decoded = await ac.decodeAudioData(await blob.arrayBuffer());
+    const off = new OfflineAudioContext(1, Math.max(1, Math.ceil(decoded.duration * 16000)), 16000);
+    const src = off.createBufferSource(); src.buffer = decoded; src.connect(off.destination); src.start();
+    return (await off.startRendering()).getChannelData(0);
+  } finally {
+    try { await ac.close(); } catch (_) {}
+  }
+}
+
+// Per-10ms voiced/unvoiced map from short-frame RMS with an adaptive threshold.
+function voicedMap(pcm, sr) {
+  const hop = Math.round(sr * 0.01), win = Math.round(sr * 0.025);
+  const n = Math.max(0, Math.floor((pcm.length - win) / hop));
+  const rms = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    let s = 0; const st = i * hop;
+    for (let j = 0; j < win; j++) { const v = pcm[st + j]; s += v * v; }
+    rms[i] = Math.sqrt(s / win);
+  }
+  const sorted = Array.from(rms).sort((a,b) => a-b);
+  const pc = p => sorted.length ? sorted[Math.min(sorted.length-1, Math.floor(p*sorted.length))] : 0;
+  const floor = pc(0.2), peak = pc(0.95), thr = floor + 0.10 * Math.max(1e-6, peak - floor);
+  const v = new Uint8Array(n);
+  for (let i = 0; i < n; i++) v[i] = rms[i] > thr ? 1 : 0;
+  return { v, hop, sr };
+}
+function voicedIn(vm, a, b) {
+  const lo = Math.max(0, Math.floor(a * vm.sr / vm.hop));
+  const hi = Math.min(vm.v.length, Math.ceil(b * vm.sr / vm.hop));
+  if (hi <= lo) return { frac: 0, secs: 0 };
+  let c = 0; for (let i = lo; i < hi; i++) c += vm.v[i];
+  return { frac: c / (hi - lo), secs: c * vm.hop / vm.sr };
+}
+const sylls = w => {
+  w = w.toLowerCase().replace(/[^a-z]/g, ''); if (!w) return 1;
+  const m = w.match(/[aeiouy]+/g); let n = m ? m.length : 1;
+  if (w.length > 2 && w.endsWith('e') && n > 1) n--;
+  return Math.max(1, n);
+};
+const clean = s => s.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
+
+// "like" is only a filler when a clause/hedge follows it ("like, maybe…",
+// "and like we…"), NOT when it means "such as" ("things like race"). Count it
+// only when the next word is a discourse/hedge cue.
+const LIKE_FILLER_NEXT = new Set(["i","im","i'm","you","we","they","he","she","it","it's","that's","maybe","just","really","um","uh","so","well","yeah","okay","kind","sort"]);
+function likeIsFiller(words, i) {
+  if (clean(words[i].text) !== 'like') return false;
+  const nxt = i + 1 < words.length ? clean(words[i + 1].text) : '';
+  return LIKE_FILLER_NEXT.has(nxt);
+}
+function isCrutchToken(words, i) {
+  const w = clean(words[i].text);
+  if (w === 'like') return likeIsFiller(words, i);
+  return CRUTCH.includes(w);
+}
+
+async function analyze(blob) {
+  try {
+    pressOn();
+    if (!asr) {
+      setStatus('Loading the speech model. First time only, then it&rsquo;s cached&hellip;');
+      asr = await pipeline('automatic-speech-recognition', MODEL, {
+        dtype: 'q8',   // request the *_quantized.onnx files we self-host
+        progress_callback: p => {
+          if (p.status === 'progress' && p.file && p.file.endsWith('.onnx'))
+            setStatus('Loading speech model: ' + (p.progress || 0).toFixed(0) + '%');
+        }
+      });
+    }
+    const pcm = await toMono16k(blob);
+    setStatus((pcm.length / 16000 > 75)
+      ? 'Reading back a longer speech. This can take a moment&hellip;'
+      : 'Reading it back&hellip;');
+    const vm = voicedMap(pcm, 16000);
+    // Only stride for genuinely long speeches — on short clips stride_length_s
+    // makes Whisper return text WITHOUT per-word timestamps, which broke the
+    // delivery report. A single 30s window covers most takes.
+    const asrOpts = { return_timestamps: 'word', chunk_length_s: 30 };
+    if (pcm.length / 16000 > 28) asrOpts.stride_length_s = 5;
+    const out = await asr(pcm, asrOpts);
+    pressOff();
+    const fullText = (out.text || '').trim();
+    const words = (out.chunks || []).filter(c => c.timestamp && c.timestamp[0] != null && c.text.trim());
+
+    // Genuinely nothing said.
+    const spokenWords = fullText.split(/\s+/).filter(Boolean).length;
+    if (spokenWords < 3) {
+      $('report').style.display = 'block';
+      $('report').innerHTML = '<div class="nomic">That was too short to read. Give it a full run, a sentence or two at least.</div>';
+      setStatus('Ready when you are.');
+      $('rec').disabled = false;
+      return;
+    }
+
+    // It transcribed, but without usable per-word timing (rare). Still show the
+    // transcript and offer the content verdict — just skip the timing metrics.
+    if (words.length < 3) {
+      lastTranscript = fullText;
+      $('report').style.display = 'block';
+      $('report').innerHTML =
+        '<div class="tscript">' + esc(fullText) + '</div>' +
+        '<p class="ts-key">Heard you, but couldn&rsquo;t time the words on this take, so no pace/pause read this round. Record once more for the full delivery report.</p>';
+      setStatus('Go again for the pacing read.');
+      $('rec').disabled = false;
+      if (EVAL_ENDPOINT) {
+        $('verdictbtn').disabled = false;
+        $('verdictbtn').innerHTML = 'Now get a reading of your argument &rarr;';
+        $('verdictbtnwrap').style.display = '';
+        $('verdict').style.display = 'none';
+      }
+      return;
+    }
+    lastTranscript = (out.text || words.map(w => w.text).join(' ')).trim();
+    renderReport(analyzeWords(words, vm));
+    setStatus('Fix one thing, then go again.');
+    $('rec').disabled = false;
+    if (EVAL_ENDPOINT) {
+      $('verdictbtn').disabled = false;
+      $('verdictbtn').innerHTML = 'Now get a reading of your argument &rarr;';
+      $('verdictbtnwrap').style.display = '';
+      $('verdict').style.display = 'none';
+    }
+  } catch (e) {
+    pressOff();
+    setStatus('Something went wrong reading that back: ' + (e.message || e));
+    $('rec').disabled = false;
+    console.error(e);
+  }
+}
+
+function analyzeWords(words, vm) {
+  const start = words[0].timestamp[0], end = words[words.length-1].timestamp[1];
+  const dur = Math.max(0.5, end - start);
+  const filled = [];   // {atIndex, kind:'gap'|'inword'}
+  const silent = [];   // {dur}
+  for (let i = 0; i < words.length; i++) {
+    const [s, e] = words[i].timestamp;
+    if (i > 0) {
+      const prevE = words[i-1].timestamp[1], gap = s - prevE;
+      if (gap > 0.18) {
+        const vv = voicedIn(vm, prevE, s);
+        if (vv.frac > 0.45 && vv.secs > 0.18) filled.push({ atIndex: i, kind: 'gap' });
+        else if (gap > 0.6) silent.push({ dur: gap });
+      }
+    }
+    const expected = sylls(words[i].text) * 0.20 + 0.12;
+    if ((e - s) - expected > 0.55) {
+      const vv = voicedIn(vm, s, e);
+      if (vv.secs - sylls(words[i].text) * 0.16 > 0.5) filled.push({ atIndex: i, kind: 'inword' });
+    }
+  }
+  // crutch words on the joined transcript
+  const joined = ' ' + words.map(w => clean(w.text)).join(' ') + ' ';
+  const crutch = {};
+  for (const c of CRUTCH) {
+    if (c === 'like') {
+      // context-aware: count filler "like", not "such as" like
+      let n = 0;
+      for (let i = 0; i < words.length; i++) if (likeIsFiller(words, i)) n++;
+      if (n) crutch[c] = n;
+      continue;
+    }
+    const m = joined.match(new RegExp('\\s' + c.replace(/ /g, '\\s+') + '\\s', 'g'));
+    if (m) crutch[c] = m.length;
+  }
+  const crutchTotal = Object.values(crutch).reduce((a,b) => a+b, 0);
+
+  // longest stretch with no filler event (filled pause OR crutch word), in seconds
+  const marks = filled.map(f => words[f.atIndex].timestamp[0]);
+  for (let i = 0; i < words.length; i++)
+    if (isCrutchToken(words, i)) marks.push(words[i].timestamp[0]);
+  marks.push(start, end); marks.sort((a,b) => a-b);
+  let cleanRun = 0;
+  for (let i = 1; i < marks.length; i++) cleanRun = Math.max(cleanRun, marks[i] - marks[i-1]);
+
+  // finish: any filler in the final 1.2s, or a trailing over-long last word
+  const lastFilledT = filled.length ? Math.max(...filled.map(f => words[f.atIndex].timestamp[0])) : -1;
+  const finishClean = !(lastFilledT >= end - 1.2) &&
+                      !isCrutchToken(words, words.length - 1);
+
+  const wpm = Math.round(words.length / (dur / 60));
+  const filledPerMin = filled.length / (dur / 60);
+
+  // optional script coverage
+  let coverage = null;
+  const tgt = clean($('target').value);
+  if (tgt.split(' ').filter(Boolean).length >= 4) {
+    const said = new Set(joined.trim().split(' '));
+    const tw = tgt.split(' ').filter(Boolean);
+    const hit = tw.filter(w => said.has(w)).length;
+    coverage = Math.round(100 * hit / tw.length);
+  }
+  return { words, dur, wpm, filled, silent, crutch, crutchTotal, cleanRun,
+           finishClean, filledPerMin, coverage };
+}
+
+function renderReport(r) {
+  const idxFilled = new Set(r.filled.map(f => f.atIndex));
+  const kindAt = {}; r.filled.forEach(f => { kindAt[f.atIndex] = f.kind; });
+
+  // transcript with markup
+  let html = '';
+  for (let i = 0; i < r.words.length; i++) {
+    if (idxFilled.has(i) && kindAt[i] === 'gap') html += '<span class="filled">[um&hellip;]</span> ';
+    const raw = r.words[i].text.trim();
+    const isCrutch = isCrutchToken(r.words, i);
+    if (idxFilled.has(i) && kindAt[i] === 'inword')
+      html += '<span class="hesit" title="an um/uh was likely absorbed here">' + raw + '</span> ';
+    else if (isCrutch) html += '<span class="crutch">' + raw + '</span> ';
+    else html += raw + ' ';
+  }
+
+  const paceWarn = r.wpm > 170 || r.wpm < 85;
+  const stat = (num, lab, warn) =>
+    '<div class="stat"><div class="num' + (warn ? ' warn' : '') + '">' + num + '</div><div class="lab">' + lab + '</div></div>';
+
+  // headline verdict
+  let verdict;
+  if (r.filled.length === 0 && r.crutchTotal === 0 && r.wpm <= 165 && r.wpm >= 90)
+    verdict = 'Clean delivery, with no filler.';
+  else if (r.wpm > 170) verdict = 'You raced it. Slow down and the words will land.';
+  else if (r.filled.length + r.crutchTotal >= 5) verdict = 'The message is there. Now clear out the filler.';
+  else verdict = 'Solid. A couple of things to tighten.';
+
+  // coaching
+  const coach = [];
+  if (r.wpm < 90) coach.push([false, '<b>' + r.wpm + ' words a minute.</b> A measured pace, and good, as long as the slow spots were chosen pauses and not hunting for the next word.']);
+  else if (r.wpm <= 150) coach.push([true, '<b>' + r.wpm + ' words a minute.</b> A strong speaking pace. Hold it under pressure.']);
+  else if (r.wpm <= 170) coach.push([false, '<b>' + r.wpm + ' words a minute.</b> A hair quick. Take the one line that matters most at half speed.']);
+  else coach.push([false, '<b>' + r.wpm + ' words a minute.</b> You’re racing. Most speakers speed up under pressure, and the room loses the words.']);
+
+  if (r.filled.length === 0) coach.push([true, 'No filled pauses caught. When you needed a beat, you took it in silence.']);
+  else coach.push([false, '<b>' + r.filled.length + ' filled pause' + (r.filled.length>1?'s':'') + '</b> (' + r.filledPerMin.toFixed(1) + ' a minute). Each &ldquo;um&rdquo; is a hesitation you could turn into a silent beat. Pause with your mouth shut instead.']);
+
+  if (r.crutchTotal > 0) {
+    const list = Object.entries(r.crutch).map(([w,n]) => '&ldquo;' + w + '&rdquo;' + (n>1?' ×'+n:'')).join(', ');
+    coach.push([false, '<b>Crutch words:</b> ' + list + '. They leak certainty. Cut them and let the claim stand on its own.']);
+  } else coach.push([true, 'No crutch words. No &ldquo;like,&rdquo; &ldquo;you know,&rdquo; or &ldquo;I think.&rdquo; Your claims stood on their own.']);
+
+  if (r.silent.length > 0)
+    coach.push([true, '<b>' + r.silent.length + ' held pause' + (r.silent.length>1?'s':'') + '.</b> Good. A silence you choose reads as authority, not a stumble.']);
+
+  coach.push([r.finishClean, r.finishClean
+    ? 'You <b>finished the last line clean.</b> No trailing &ldquo;um,&rdquo; no swallowed words.'
+    : 'The <b>final line trailed off</b>. Land the last words and stop. Don’t close on an &ldquo;um.&rdquo;']);
+
+  coach.push([true, '<b>Longest clean run:</b> ' + r.cleanRun.toFixed(1) + ' seconds without a filler. Beat it on your next take.']);
+
+  if (r.coverage != null)
+    coach.push([r.coverage >= 75, '<b>Script check:</b> about ' + r.coverage + '% of your written wording made it into the room' +
+      (r.coverage >= 75 ? '. You stayed on your lines.' : '. Some of it dropped. Keep the words; free your attention for delivery.')]);
+
+  $('report').style.display = 'block';
+  $('report').innerHTML =
+    '<div class="tscript">' + html.trim() + '</div>' +
+    '<p class="ts-key"><span class="filled">[um&hellip;]</span> and dotted underlines mark where a filler was likely hiding. The transcriber deletes the letters, so the Booth reads them from your timing. Highlighted words are crutches.</p>' +
+    '<div class="verdict">' + verdict + '</div>' +
+    '<div class="stats">' +
+      stat(r.wpm, 'words / min', paceWarn) +
+      stat(r.filled.length, 'filled pauses', r.filled.length >= 4) +
+      stat(r.crutchTotal, 'crutch words', r.crutchTotal >= 4) +
+      stat(r.silent.length, 'held pauses', false) +
+      stat(r.cleanRun.toFixed(0) + 's', 'longest clean run', false) +
+    '</div>' +
+    '<ul class="coach">' + coach.map(([ok,t]) => '<li class="' + (ok?'ok':'') + '">' + t + '</li>').join('') + '</ul>';
+}
+
+// ---- Upload an audio or video file instead of recording ----
+$('file').onchange = async (e) => {
+  const f = e.target.files && e.target.files[0];
+  e.target.value = ''; // allow re-selecting the same file
+  if (!f) return;
+  // Guard the full-file decode path: blob.arrayBuffer() + decodeAudioData load
+  // and decode the ENTIRE file, so a big video is a multi-hundred-MB spike.
+  const MAX_MB = 150;
+  if (f.size > MAX_MB * 1024 * 1024) {
+    setStatus('That file is ' + (f.size / 1048576).toFixed(0) + '&nbsp;MB. Please keep uploads under ' + MAX_MB + '&nbsp;MB — trim the clip or export audio only.');
+    return;
+  }
+  $('rec').disabled = true; $('stop').disabled = true;
+  $('report').style.display = 'none';
+  $('verdictbtnwrap').style.display = 'none';
+  $('verdict').style.display = 'none';
+  setStatus('Reading your file&hellip;');
+  try {
+    await analyze(f);
+  } catch (err) {
+    setStatus('Could not read that file. Try an audio or video file with clear speech.');
+    $('rec').disabled = false;
+    console.error(err);
+  }
+};
+
+// ---- The Room's Verdict (content evaluation via the Worker) ----
+async function runVerdict(transcript, target) {
+  $('verdict').style.display = 'block';
+  $('verdict').innerHTML = '<p class="status">Reading your argument&hellip; <span id="vsec">0s</span></p><div class="press on"></div>';
+  let s = 0;
+  const tick = setInterval(() => { s++; const el = document.getElementById('vsec'); if (el) el.textContent = s + 's'; }, 1000);
+  try {
+    const r = await fetch(EVAL_ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ character: $('character').value, transcript, target: target || '' }),
+    });
+    const data = await r.json();
+    if (!r.ok || data.error) {
+      $('verdict').innerHTML = '<div class="nomic">' + esc(data.error || 'The reader could not be reached. Try again.') + '</div>';
+    } else {
+      renderVerdict(data);
+    }
+  } catch (e) {
+    $('verdict').innerHTML = '<div class="nomic">The reader could not be reached. Try again.</div>';
+  } finally {
+    clearInterval(tick);
+  }
+}
+
+if (EVAL_ENDPOINT) {
+  $('verdictbtn').onclick = async () => {
+    if (!lastTranscript) return;
+    $('verdictbtn').disabled = true;
+    $('verdictbtn').textContent = 'Reading your argument…';
+    await runVerdict(lastTranscript, $('target').value);
+    $('verdictbtn').disabled = false;
+    $('verdictbtn').innerHTML = 'Get another reading &rarr;';
+  };
+
+  // Text-only: judge the written speech with no audio at all.
+  $('textbtn').style.display = '';
+  $('textbtn').onclick = async () => {
+    const txt = $('target').value.trim();
+    if (txt.split(/\s+/).filter(Boolean).length < 8) {
+      $('script').open = true;
+      $('target').focus();
+      setStatus('Paste your speech in the box above, then press “Evaluate written text only” again.');
+      return;
+    }
+    lastTranscript = txt;
+    $('report').style.display = 'none';        // no delivery report without audio
+    $('verdictbtnwrap').style.display = 'none';
+    setStatus('No audio needed. Reading your writing.');
+    await runVerdict(txt, '');
+  };
+}
+
+function renderVerdict(v) {
+  const dims = (v.dimensions || []).map(d =>
+    '<div class="vrow"><div class="vname">' + esc(d.name) + '</div>' +
+    '<div><span class="vband ' + (['Missing','Developing','Landed'].includes(d.band) ? d.band : 'Developing') + '">' +
+    esc(d.band) + '</span><div class="vnote">' + esc(d.note) + '</div></div></div>'
+  ).join('');
+  $('verdict').innerHTML =
+    '<div class="section-head">A Reading of Your Argument</div>' +
+    '<div class="verdict-line">' + esc(v.oneLine) + '</div>' +
+    dims +
+    (v.strongest ? '<p class="vextra"><b>Strongest moment:</b> ' + esc(v.strongest) + '</p>' : '') +
+    (v.biggestFix ? '<p class="vextra"><b>Your next rep:</b> ' + esc(v.biggestFix) + '</p>' : '') +
+    '<p class="ts-key">This reads your <b>argument</b>: your standing, your evidence, your answer to the other delegations, and your terms. Only the text of your speech is sent for this reading. It is coaching, and it is not a grade.</p>';
+}
+</script>
+
+</body>
+</html>
