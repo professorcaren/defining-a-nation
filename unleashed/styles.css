@@ -1,0 +1,423 @@
+/* ═══════════════════════════════════════════════════════
+   UNLEASHED: CONGRESS AND THE MASS MOVEMENT
+   Same dark/gold theme as the other games. Single column,
+   natural page scroll, phone-first.
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --bg-deep: #0f0e17;
+  --bg-card: #1a1932;
+  --bg-card-light: #232245;
+
+  --gold: #d4a843;
+  --gold-light: #e8c96a;
+  --saffron: #e87d2f;
+  --ruby: #c0392b;
+  --good: #5fc492;
+  --bad: #e8796a;
+
+  --text-primary: #f0e9d6;
+  --text-secondary: rgba(240, 233, 214, 0.72);
+  --text-muted: rgba(240, 233, 214, 0.45);
+
+  --border-gold: rgba(212, 168, 67, 0.25);
+  --border-subtle: rgba(240, 233, 214, 0.08);
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; }
+.hidden { display: none !important; }
+
+body {
+  font-family: 'Lato', 'Segoe UI', sans-serif;
+  background: var(--bg-deep);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+  color: var(--text-primary);
+  line-height: 1.55;
+  font-size: 0.95rem;
+  min-height: 100vh;
+}
+
+.back-link {
+  display: block;
+  padding: 8px 14px 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  text-decoration: none;
+}
+.back-link:hover { opacity: 1; }
+
+header {
+  border-bottom: 1px solid var(--border-gold);
+  padding: 8px 16px 12px;
+  text-align: center;
+}
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+header .subtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+}
+
+/* ─── Panels (vignette, campaign intro, campaign end, ending) ─── */
+.panel h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  color: var(--gold);
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.panel .kicker {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.prose p { margin: 12px 0 0; color: var(--text-secondary); }
+.prose strong { color: var(--text-primary); }
+.prose em { color: var(--text-primary); }
+
+button {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border-radius: 3px;
+  min-height: 48px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+button:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.cta-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid var(--gold);
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--gold-light);
+}
+.cta-button:hover { background: rgba(212, 168, 67, 0.22); }
+
+/* ─── Status: campaign line and the two carried numbers ─── */
+.status {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-deep);
+  padding: 8px 0 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.campaign-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.campaign-line .years { color: var(--text-muted); }
+.step-dots { display: flex; gap: 4px; margin-left: auto; }
+.step-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  border: 1px solid var(--text-muted);
+}
+.step-dot.done { background: var(--gold); border-color: var(--gold); }
+.step-dot.current { border-color: var(--gold); box-shadow: 0 0 6px var(--gold); }
+
+.meter { margin-top: 8px; }
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+.meter-head b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.meter-track {
+  position: relative;
+  height: 10px;
+  margin-top: 3px;
+  background: rgba(240, 233, 214, 0.07);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.meter-fill, .meter-ghost {
+  position: absolute; top: 0; bottom: 0; left: 0;
+  transition: width 0.5s ease, left 0.5s ease;
+}
+.meter-pressure .meter-fill { background: var(--gold); }
+.meter-pressure .meter-ghost { background: repeating-linear-gradient(135deg, rgba(212, 168, 67, 0.55) 0 4px, rgba(212, 168, 67, 0.2) 4px 8px); }
+.meter-fracture .meter-fill { background: var(--bad); }
+.meter-tick {
+  position: absolute; top: -3px; bottom: -3px; width: 2px;
+  background: var(--text-primary);
+}
+.meter-wrap { position: relative; }
+.meter-note { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ─── Dispatch ─── */
+.held-box {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--good);
+  background: rgba(95, 196, 146, 0.07);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  animation: rise 0.35s ease-out;
+}
+.held-box .held-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--good);
+  margin-bottom: 2px;
+}
+
+.dispatch {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--gold);
+  border-radius: 3px;
+  animation: rise 0.35s ease-out;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.telegraph {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--saffron);
+}
+.dispatch-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.dispatch h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  line-height: 1.25;
+}
+
+/* ─── Risk and the two buttons ─── */
+.risk {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+}
+.risk-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.risk-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+.risk-track {
+  height: 8px;
+  margin-top: 4px;
+  background: rgba(240, 233, 214, 0.07);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.risk-fill { height: 100%; background: var(--ruby); transition: width 0.5s ease; }
+.risk.high .risk-value { color: var(--bad); }
+.risk-note { font-size: 0.7rem; color: var(--good); margin-top: 4px; }
+
+/* Pinned to the bottom of the screen so a long dispatch never hides the decision */
+.choices {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+  position: sticky;
+  bottom: 0;
+  padding: 8px 0;
+  background: var(--bg-deep);
+}
+.choice small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+.choice-escalate {
+  border: 1px solid var(--ruby);
+  background: rgba(192, 57, 43, 0.18);
+  color: var(--text-primary);
+}
+.choice-escalate:hover:not(:disabled) { background: rgba(192, 57, 43, 0.32); }
+.choice-stop {
+  border: 1px solid var(--gold);
+  background: rgba(212, 168, 67, 0.1);
+  color: var(--gold-light);
+}
+.choice-stop:hover:not(:disabled) { background: rgba(212, 168, 67, 0.2); }
+
+@media (min-width: 560px) {
+  .choices { grid-template-columns: 1.4fr 1fr; }
+}
+
+/* ─── Campaign end and final ending ─── */
+.panel.outcome-collapse h2 { color: var(--bad); }
+.tally {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+.tally div { display: flex; justify-content: space-between; gap: 12px; padding: 2px 0; }
+.tally b { color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.aftermath {
+  margin-top: 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--bad);
+}
+.aftermath p:first-child { margin-top: 0; }
+
+.reflection-box {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: rgba(212, 168, 67, 0.05);
+  border: 1px solid var(--border-gold);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+}
+.reflection-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.reflection-box ul { margin: 8px 0 0; padding-left: 1.2em; color: var(--text-secondary); font-size: 0.9rem; }
+.reflection-box li { margin-bottom: 6px; }
+
+/* ─── Glossary ─── */
+.glossary-term {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted rgba(212, 168, 67, 0.5);
+  color: var(--gold);
+  font-weight: inherit;
+}
+.glossary-term::after {
+  content: attr(data-description);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: var(--bg-card-light);
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  border-radius: 4px;
+  width: min(260px, 70vw);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.5;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-gold);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 15;
+}
+.glossary-term:hover::after,
+.glossary-term:focus-visible::after { opacity: 1; }
+
+/* ─── Phones: a whole turn fits one iPhone screen (393 x 659 in Safari) ─── */
+@media (max-width: 559px) {
+  main { padding: 0 14px 24px; }
+  .panel { padding-top: 14px; }
+
+  body.playing .back-link { position: absolute; top: 7px; left: 12px; padding: 0; font-size: 1rem; }
+  body.playing .back-text { display: none; }
+  body.playing header { padding: 6px 16px; }
+  body.playing header h1 { font-size: 0.95rem; }
+  body.playing header .subtitle { display: none; }
+
+  .status { padding: 6px 0 8px; }
+  .meter { margin-top: 5px; }
+  .meter-track { height: 8px; }
+  .meter-note { display: none; }
+
+  .held-box { margin-top: 8px; padding: 7px 10px; font-size: 0.82rem; line-height: 1.4; }
+  .held-box .held-label { font-size: 0.62rem; }
+
+  .dispatch { margin-top: 8px; padding: 10px 12px; }
+  .telegraph { display: none; }
+  .dispatch-date { margin-top: 0; font-size: 0.66rem; }
+  .dispatch h3 { font-size: 1rem; }
+  .dispatch .prose p { margin-top: 6px; font-size: 0.88rem; line-height: 1.45; }
+
+  /* risk on one line: label, bar, value */
+  .risk { margin-top: 8px; padding: 0; border: 0; display: flex; align-items: center; gap: 8px; }
+  .risk-head { display: contents; font-size: 0.72rem; }
+  .risk-label { order: 1; font-size: 0; white-space: nowrap; }   /* long label swapped for a short one */
+  .risk-label::before { content: "Risk"; font-size: 0.72rem; color: var(--text-secondary); }
+  .risk.disciplined .risk-label::before { content: "Risk (disciplined)"; color: var(--good); }
+  .risk-track { order: 2; flex: 1; margin-top: 0; }
+  .risk-value { order: 3; font-size: 1rem; }
+  .risk-note { display: none; }
+
+  .choices { margin-top: 6px; gap: 6px; padding: 6px 0; }
+  .choices button { min-height: 44px; padding: 6px 12px; font-size: 0.84rem; }
+  .choice small { font-size: 0.7rem; margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.held-box p { margin: 0; }
+.held-box strong { color: var(--text-primary); }

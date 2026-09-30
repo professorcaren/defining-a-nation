@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Unleashed: Congress and the Mass Movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<a href="../index.html" class="back-link">&larr; <span class="back-text">All Readings</span></a>
+
+<header>
+  <h1>Unleashed</h1>
+  <div class="subtitle">Congress and the Mass Movement, 1920&ndash;1942</div>
+</header>
+
+<main>
+  <!-- Vignette, campaign intro, campaign end, and final ending all render here -->
+  <section class="panel hidden" id="panel"></section>
+
+  <!-- A campaign in progress -->
+  <section class="hidden" id="play">
+    <div class="status">
+      <div class="campaign-line">
+        <span id="campaignTitle"></span>
+        <span class="years" id="campaignYears"></span>
+        <span class="step-dots" id="stepDots"></span>
+      </div>
+      <div class="meter meter-pressure">
+        <div class="meter-head"><span>Pressure on the Raj</span><span><b id="pressureValue"></b> <span id="momentumValue"></span></span></div>
+        <div class="meter-wrap">
+          <div class="meter-track"><div class="meter-fill" id="pressureFill"></div><div class="meter-ghost" id="momentumFill"></div></div>
+          <div class="meter-tick" id="pressureTick"></div>
+        </div>
+        <div class="meter-note" id="pressureNote"></div>
+      </div>
+      <div class="meter meter-fracture">
+        <div class="meter-head"><span>Fracture: ground lost to rivals</span><b id="fractureValue"></b></div>
+        <div class="meter-wrap">
+          <div class="meter-track"><div class="meter-fill" id="fractureFill"></div></div>
+          <div class="meter-tick" id="fractureTick"></div>
+        </div>
+        <div class="meter-note" id="fractureNote"></div>
+      </div>
+    </div>
+
+    <div class="held-box hidden" id="heldBox"><span class="held-label">It holds</span><span id="heldText"></span></div>
+
+    <article class="dispatch" id="dispatch">
+      <div class="telegraph" id="telegraph"></div>
+      <div class="dispatch-date" id="dispatchDate"></div>
+      <h3 id="dispatchTitle"></h3>
+      <div class="prose" id="dispatchText"></div>
+    </article>
+
+    <div class="risk" id="risk">
+      <div class="risk-head"><span class="risk-label">Chance this step gets out of control</span><span class="risk-value" id="riskValue"></span></div>
+      <div class="risk-track"><div class="risk-fill" id="riskFill"></div></div>
+      <div class="risk-note hidden" id="riskNote">More disciplined after the last collapse</div>
+    </div>
+
+    <div class="choices">
+      <button class="choice choice-escalate" id="escalateBtn" type="button"></button>
+      <button class="choice choice-stop" id="stopBtn" type="button"></button>
+    </div>
+  </section>
+</main>
+
+<script src="rules.js"></script>
+<script src="content.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  const G = window.UNLEASHED, RULES = G.RULES;
+  const VIGNETTE = window.OPENING_VIGNETTE, CAMPAIGNS = window.CAMPAIGNS, ENDINGS = window.ENDINGS;
+  const PRESSURE_SCALE = 150;   // width of the pressure bar
+
+  /* ─── Text formatting and glossary (first mention per block) ─── */
+  const GLOSSARY = window.GLOSSARY || [];
+  const esc = s => (s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const GLOSSARY_PATTERN = GLOSSARY.length
+    ? new RegExp(`\\b(${GLOSSARY.map(e => e.term.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})\\b`, 'g')
+    : null;
+
+  function formatText(text) {
+    if (!text) return '';
+    const seen = new Set();
+    const html = text.trim().split(/\n{2,}/).map(p => `<p>${esc(p)
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(?!\*)([^*\n]+)\*/g, '<em>$1</em>')}</p>`).join('');
+    if (!GLOSSARY_PATTERN) return html;
+    return html.replace(GLOSSARY_PATTERN, m => {
+      const entry = GLOSSARY.find(e => e.term === m);
+      if (!entry || seen.has(m)) return m;
+      seen.add(m);
+      return `<span class="glossary-term" tabindex="0" data-description="${esc(entry.description)}">${m}</span>`;
+    });
+  }
+
+  const $ = id => document.getElementById(id);
+  const panel = $('panel'), play = $('play');
+  const round = n => Math.round(n);
+  const pct = r => Math.round(r * 100) + '%';
+
+  let state = null;
+  let lastHeld = '';
+
+  function showPanel(html, cls) {
+    play.classList.add('hidden');
+    document.body.classList.remove('playing');
+    panel.className = 'panel' + (cls ? ' ' + cls : '');
+    panel.innerHTML = html;
+    window.scrollTo(0, 0);
+    const btn = panel.querySelector('button');
+    if (btn) btn.focus({ preventScroll: true });
+  }
+
+  /* ─── Opening ─── */
+  function showVignette(i) {
+    const p = VIGNETTE.pages[i];
+    showPanel(`<h2>${esc(p.title)}</h2><div class="prose">${formatText(p.text)}</div>
+      <button class="cta-button" type="button">${esc(p.button || 'Continue')}</button>`);
+    panel.querySelector('button').addEventListener('click', () => {
+      if (i < VIGNETTE.pages.length - 1) showVignette(i + 1);
+      else { state = G.newGame(); showCampaignIntro(); }
+    });
+  }
+
+  /* ─── Campaign intro ─── */
+  function showCampaignIntro() {
+    const c = CAMPAIGNS[state.campaign];
+    showPanel(`<div class="kicker">Campaign ${state.campaign + 1} of ${CAMPAIGNS.length} &middot; ${esc(c.years)}</div>
+      <h2>${esc(c.title)}</h2><div class="prose">${formatText(c.intro)}</div>
+      ${tallyHtml()}
+      <button class="cta-button" type="button">Begin</button>`);
+    panel.querySelector('button').addEventListener('click', () => { lastHeld = ''; showStep(); });
+  }
+
+  function tallyHtml() {
+    return `<div class="tally">
+      <div><span>Pressure on the Raj (need ${RULES.pressureThreshold})</span><b>${round(state.pressure)}</b></div>
+      <div><span>Fracture (rivals hold a veto at ${RULES.fractureThreshold})</span><b>${round(state.fracture)}</b></div>
+    </div>`;
+  }
+
+  /* ─── A step ─── */
+  function renderMeters() {
+    const w = v => Math.min(100, 100 * v / PRESSURE_SCALE) + '%';
+    $('pressureValue').textContent = `${round(state.pressure)} / ${RULES.pressureThreshold}`;
+    $('momentumValue').textContent = state.momentum > 0 ? `+ ${round(state.momentum)} unsecured` : '';
+    $('pressureFill').style.width = w(state.pressure);
+    $('momentumFill').style.left = w(state.pressure);
+    $('momentumFill').style.width = `calc(${w(state.pressure + state.momentum)} - ${w(state.pressure)})`;
+    $('pressureTick').style.left = w(RULES.pressureThreshold);
+    $('pressureNote').textContent = `The British leave at ${RULES.pressureThreshold}`;
+    $('fractureValue').textContent = `${round(state.fracture)} / ${RULES.fractureThreshold}`;
+    $('fractureFill').style.width = state.fracture + '%';
+    $('fractureTick').style.left = RULES.fractureThreshold + '%';
+    $('fractureNote').textContent = `Rivals hold a veto at ${RULES.fractureThreshold}`;
+  }
+
+  function showStep() {
+    const c = CAMPAIGNS[state.campaign], rc = RULES.campaigns[state.campaign], step = c.steps[state.step];
+    panel.classList.add('hidden');
+    play.classList.remove('hidden');
+    document.body.classList.add('playing');   // compact header on phones
+
+    $('campaignTitle').textContent = c.title;
+    $('campaignYears').textContent = c.years;
+    $('stepDots').innerHTML = c.steps.map((_, i) =>
+      `<span class="step-dot${i < state.step ? ' done' : i === state.step ? ' current' : ''}"></span>`).join('');
+    renderMeters();
+
+    $('heldBox').classList.toggle('hidden', !lastHeld);
+    $('heldText').innerHTML = formatText(lastHeld);
+
+    $('telegraph').textContent = step.telegraph || '';
+    $('dispatchDate').textContent = step.date;
+    $('dispatchTitle').textContent = step.title;
+    $('dispatchText').innerHTML = formatText(step.text);
+    // restart the entrance animation for the new dispatch
+    const d = $('dispatch'); d.style.animation = 'none'; void d.offsetWidth; d.style.animation = '';
+
+    const r = G.risk(state);
+    $('riskValue').textContent = pct(r);
+    $('riskFill').style.width = pct(r);
+    $('risk').classList.toggle('high', r >= 0.3);
+    $('riskNote').classList.toggle('hidden', !state.disciplined);
+    $('risk').classList.toggle('disciplined', state.disciplined);
+
+    const launch = state.step === 0;
+    $('escalateBtn').innerHTML = `${esc(step.label)}<small>${pct(r)} risk &middot; +${round(G.yieldNow(state))} momentum if it holds</small>`;
+    $('stopBtn').innerHTML = launch
+      ? `Call it off<small>The campaign has not begun</small>`
+      : `Call it off<small>Secure ${round(state.momentum)} pressure &middot; Fracture +${rc.callOffFracture}</small>`;
+    $('stopBtn').disabled = launch;
+    $('escalateBtn').disabled = false;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function act(escalating) {
+    const idx = state.campaign, step = CAMPAIGNS[idx].steps[state.step];
+    const before = { momentum: state.momentum, pressure: state.pressure, fracture: state.fracture };
+    $('escalateBtn').disabled = true;
+    $('stopBtn').disabled = true;
+
+    const result = escalating ? G.escalate(state) : G.callOff(state);
+    if (result === 'held') { lastHeld = step.held; showStep(); return; }
+    if (result === 'complete') before.momentum = state.log[idx].banked;   // include the final step
+    showCampaignEnd(idx, result, before, result === 'complete' ? step.held : '');
+  }
+
+  $('escalateBtn').addEventListener('click', () => act(true));
+  $('stopBtn').addEventListener('click', () => act(false));
+
+  /* ─── End of a campaign ─── */
+  function showCampaignEnd(idx, result, before, finalHeld) {
+    const c = CAMPAIGNS[idx];
+    const t = result === 'collapse' ? c.collapse : result === 'called_off' ? c.callOff : c.complete;
+    const banked = state.pressure - before.pressure;
+    const lost = before.momentum - banked;
+    const last = state.over;
+    showPanel(`<div class="kicker">${esc(c.title)} &middot; ${esc(c.years)}</div>
+      <h2>${esc(t.title)}</h2>
+      <div class="prose">${formatText(finalHeld)}${formatText(t.text)}</div>
+      <div class="tally">
+        <div><span>Momentum built</span><b>${round(before.momentum)}</b></div>
+        <div><span>Secured as pressure${lost > 0.5 ? ` (${round(lost)} lost)` : ''}</span><b>+${round(banked)}</b></div>
+        <div><span>Fracture</span><b>+${round(state.fracture - before.fracture)}</b></div>
+      </div>
+      <div class="prose aftermath">${formatText(c.aftermath)}</div>
+      ${tallyHtml()}
+      <button class="cta-button" type="button">${last ? 'To Simla, 1945' : 'The next campaign'}</button>`,
+      result === 'collapse' ? 'outcome-collapse' : '');
+    panel.querySelector('button').addEventListener('click', () => last ? showEnding() : showCampaignIntro());
+  }
+
+  /* ─── Simla ─── */
+  const OUTCOME_WORDS = { collapse: 'collapsed', called_off: 'called off', complete: 'ran its course' };
+
+  function showEnding() {
+    const e = ENDINGS[G.ending(state)];
+    const rows = state.log.map((l, i) =>
+      `<div><span>${esc(CAMPAIGNS[i].title)}: ${OUTCOME_WORDS[l.outcome]} after ${l.steps} step${l.steps === 1 ? '' : 's'}</span><b>+${round(l.banked)}</b></div>`).join('');
+    showPanel(`<h2>${esc(e.title)}</h2><div class="prose">${formatText(e.text)}</div>
+      <div class="tally">${rows}</div>
+      ${tallyHtml()}
+      <div class="reflection-box"><div class="reflection-label">Reflection</div>
+        <ul>${e.reflection.map(q => `<li>${esc(q)}</li>`).join('')}</ul></div>
+      <button class="cta-button" type="button">Play again</button>`);
+    panel.querySelector('button').addEventListener('click', () => { state = G.newGame(); showCampaignIntro(); });
+  }
+
+  showVignette(0);
+})();
+</script>
+</body>
+</html>
