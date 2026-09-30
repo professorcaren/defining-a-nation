@@ -109,6 +109,20 @@
   let state = null;
   let lastHeld = '';
 
+  /* ─── One variant of each step is drawn per game, avoiding the one seen last time ─── */
+  let picks = null;
+  function startGame() {
+    const previous = picks;
+    picks = CAMPAIGNS.map((c, ci) => c.steps.map((step, si) => {
+      const n = step.variants.length;
+      let i = Math.floor(Math.random() * n);
+      if (previous && n > 1 && i === previous[ci][si]) i = (i + 1) % n;
+      return i;
+    }));
+    state = G.newGame();
+  }
+  const variant = (ci, si) => CAMPAIGNS[ci].steps[si].variants[picks[ci][si]];
+
   function showPanel(html, cls) {
     play.classList.add('hidden');
     document.body.classList.remove('playing');
@@ -126,7 +140,7 @@
       <button class="cta-button" type="button">${esc(p.button || 'Continue')}</button>`);
     panel.querySelector('button').addEventListener('click', () => {
       if (i < VIGNETTE.pages.length - 1) showVignette(i + 1);
-      else { state = G.newGame(); showCampaignIntro(); }
+      else { startGame(); showCampaignIntro(); }
     });
   }
 
@@ -164,7 +178,7 @@
   }
 
   function showStep() {
-    const c = CAMPAIGNS[state.campaign], rc = RULES.campaigns[state.campaign], step = c.steps[state.step];
+    const c = CAMPAIGNS[state.campaign], rc = RULES.campaigns[state.campaign], step = variant(state.campaign, state.step);
     panel.classList.add('hidden');
     play.classList.remove('hidden');
     document.body.classList.add('playing');   // compact header on phones
@@ -204,7 +218,7 @@
   }
 
   function act(escalating) {
-    const idx = state.campaign, step = CAMPAIGNS[idx].steps[state.step];
+    const idx = state.campaign, step = variant(idx, state.step);
     const before = { momentum: state.momentum, pressure: state.pressure, fracture: state.fracture };
     $('escalateBtn').disabled = true;
     $('stopBtn').disabled = true;
@@ -212,14 +226,15 @@
     const result = escalating ? G.escalate(state) : G.callOff(state);
     if (result === 'held') { lastHeld = step.held; showStep(); return; }
     if (result === 'complete') before.momentum = state.log[idx].banked;   // include the final step
-    showCampaignEnd(idx, result, before, result === 'complete' ? step.held : '');
+    // lead-in: what the last step did (if it held) or how it went wrong (if it did not)
+    showCampaignEnd(idx, result, before, result === 'complete' ? step.held : result === 'collapse' ? step.collapse : '');
   }
 
   $('escalateBtn').addEventListener('click', () => act(true));
   $('stopBtn').addEventListener('click', () => act(false));
 
   /* ─── End of a campaign ─── */
-  function showCampaignEnd(idx, result, before, finalHeld) {
+  function showCampaignEnd(idx, result, before, lead) {
     const c = CAMPAIGNS[idx];
     const t = result === 'collapse' ? c.collapse : result === 'called_off' ? c.callOff : c.complete;
     const banked = state.pressure - before.pressure;
@@ -227,7 +242,7 @@
     const last = state.over;
     showPanel(`<div class="kicker">${esc(c.title)} &middot; ${esc(c.years)}</div>
       <h2>${esc(t.title)}</h2>
-      <div class="prose">${formatText(finalHeld)}${formatText(t.text)}</div>
+      <div class="prose">${formatText(lead)}${formatText(t.text)}</div>
       <div class="tally">
         <div><span>Momentum built</span><b>${round(before.momentum)}</b></div>
         <div><span>Secured as pressure${lost > 0.5 ? ` (${round(lost)} lost)` : ''}</span><b>+${round(banked)}</b></div>
@@ -246,14 +261,14 @@
   function showEnding() {
     const e = ENDINGS[G.ending(state)];
     const rows = state.log.map((l, i) =>
-      `<div><span>${esc(CAMPAIGNS[i].title)}: ${OUTCOME_WORDS[l.outcome]} after ${l.steps} step${l.steps === 1 ? '' : 's'}</span><b>+${round(l.banked)}</b></div>`).join('');
+      `<div><span>${esc(CAMPAIGNS[i].title)}: ${l.outcome === 'collapse' ? `collapsed on step ${l.steps + 1}` : `${OUTCOME_WORDS[l.outcome]} after ${l.steps} step${l.steps === 1 ? '' : 's'}`}</span><b>+${round(l.banked)}</b></div>`).join('');
     showPanel(`<h2>${esc(e.title)}</h2><div class="prose">${formatText(e.text)}</div>
       <div class="tally">${rows}</div>
       ${tallyHtml()}
       <div class="reflection-box"><div class="reflection-label">Reflection</div>
         <ul>${e.reflection.map(q => `<li>${esc(q)}</li>`).join('')}</ul></div>
       <button class="cta-button" type="button">Play again</button>`);
-    panel.querySelector('button').addEventListener('click', () => { state = G.newGame(); showCampaignIntro(); });
+    panel.querySelector('button').addEventListener('click', () => { startGame(); showCampaignIntro(); });
   }
 
   showVignette(0);
