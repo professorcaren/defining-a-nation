@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Abdullah Rasul: The Tebhaga Struggle of Bengal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>M. Abdullah Rasul: The Tebhaga Struggle of Bengal</h1>
+<p class="speech-meta">5,225 words, about 23 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><p><span class="pg">[p. 1]</span> THE TEBHAGA MOVEMENT OF 1946-47 WAS THE MOST important and extensive movement of the peasantry of Bengal before independence and the partition of the province. It was fought under the leadership of the Bengal Provincial Kisan Sabha which was the Bengal branch of the All India Kisan Sabha. It was a struggle against the worst form of feudal exploitation in which peasants belonging to various categories had no rights whatsoever, and landlords dictated the terms.</p>
+<h3>Background</h3>
+<p>Before proceeding with an account of the struggle, it is necessary to give an idea of the agrarian system of the province at the time.</p>
+<p>As early as 1793, when Bengal was under the rule of the East India Company, the Permanent Settlement and zamindari systems were introduced in the province. The zamindari system was a system of statutory landlordism directly under the provincial government. The system stipulated that the zamindars (landlords) would pay the government an annual amount of land revenue, fixed permanently for each of them, without fail by the prescribed date. They would collect rent from their respective estates, the rates of which they were free to enhance.</p>
+<p>The zamindari estates gradually underwent a process of sub-infeudation and several strata of landlordism came into existence under them.</p>
+<p>In course of time a class of big landholders was born with <span class="pg">[p. 2]</span> the rights of a tenant (ryot). They were called Jotedars. Their holdings were generally big and they could not cultivate their entire land themselves. So they leased out most of it to small farmers who were their sub-tenants and who cultivated their land usually on a share-cropping basis, called Bhagidars (or Bhag Chasis), Adhiars or Bargadars in different parts of the province, the last term being at present used in law. These cultivators were either landless or land-poor with no rights in the barga land, no written contract for their lease, no security of cultivation, and no permanent and hereditary right to cultivate. They could be evicted at the sweet will of the owners. The bargadars were among the most exploited and harassed peasants. Many of them could not maintain themselves with their miserable incomes from jotedars' land and had to work as wage-earners on others' land in order to supplement their meagre incomes.</p>
+<h3>War Prevents Struggle</h3>
+<p>The plight of the rack-rented bargadars as well as agricultural labourers was noted by the Bengal Provincial Kisan Sabha at the early stage of its existence. Even prior to that, in 1928, when the kisans were being organised sporadically in different districts of Bengal, there was a kisan struggle in Jessore district (now in Bangladesh), in which the slogan of tebhaga, which means two-thirds share of the produce of barga land for the bargadars, was raised.</p>
+<p>The manifesto of the Provincial Kisan Committee, issued in November 1939, formulated certain demands of the kisans, one of which claimed occupancy right for the barga land of a bargadar and at least five-eighths share of the produce.</p>
+<p>The Provincial Kisan Conference of 1940 demanded abolition of the barga system and the right of ownership of barga land being conferred on the bargadar by law.</p>
+<p>The Second World War intervened, and Bengal, being a border province, was on the war front and directly affected by Japanese bombing. Besides, large numbers of kisan leaders and workers were either in jail or in hiding. Mass struggle on this issue was not possible.</p>
+<p>So the next Provincial Kisan Conference which was held in <span class="pg">[p. 3]</span> 1943, decided that one of the tasks of the Provincial Kisan Committee would be to organise bargadars and others for realising Tebhaga demand. Similar demands were raised also at the Conference in 1945. It was only when the war was over that this question could be taken up in serious earnest for starting the movement.</p>
+<h3>Abolition of Zamindari and Bargadari</h3>
+<p>The Krishak Praja Ministry had been installed in 1937. In 1938 it constituted the Bengal Land Revenue Commission. The whole agrarian situation including the Permanent Settlement and the zamindari system were brought within its scope. The Commission submitted its report to the Government of Bengal in 1940. It recommended, among other things, the abolition of the Permanent Settlement and the zamindari system. It also recommended the abolition of the barga system, pending which the bargadar would get two-third share of his produce and make over the other third to the owner. This provided a very important argument in favour of the Tebhaga demand.</p>
+<p>The World War II ended in Europe in May 1945. By that time the Pakistan slogan of the Muslim League had gained wide and increasing popularity among the Muslims of Bengal who were in a majority of the population. The majority was even in the case of the peasant population. A Muslim League Ministry had already replaced the Krishak Praja Ministry of A.K. Fazlul-Haq during the war period.</p>
+<p>The election to the Legislative Assembly was in the offing. It came about in February 1946 when the Muslim League with its Pakistan demand swept the polls, as far the Muslim constituencies were concerned.</p>
+<p>Communal tension was growing among Hindus and Muslims. Riots broke out in Calcutta on August 16, 1946, on a horrendous scale. Mass killings were perpetrated on both sides. The life of the city was totally paralysed for five days, after which the public transport system resumed in the day time only. Restoration of normal condition was possible after quite some time.</p>
+<p>This was followed by large-scale riots in various parts of the country. In October 1946 riots broke-out in Noakhali <span class="pg">[p. 4]</span> district in East Bengal, where the Muslims were in a large majority of the population.</p>
+<p>In its desperate bid to save itself from being swept away by the tempestuous march of events in India in wake of the Second World War, British imperialism was communalising politics and instigating communal riots in different parts of the country. The Tebhaga movement which united the peasants of all communities in their common struggle against their feudal exploiters was at the same time, a powerful rebuff to the divisive policies of imperialism. It represented general post-war mass upsurge of the enslaved peoples against their imperialist masters and their local allies and collaborators.</p>
+<h3>Hasnabad</h3>
+<p>Hasnabad, a village in Comilla district (now in Bangladesh) near the border of the riot-affected Noakhali district, with other villages surrounding it, was traditionally a strong base of the peasant movement.</p>
+<p>Long ago the Comilla District Kisan Sabha announced a “Kisan Day” for intensifying its struggle against the merciless exploitation of the peasants by zamindars and moneylenders. This led to a tense situation and posting of armed police at Hasnabad. As early as in February 1932, a rally of 15,000 kisans was held there on that day. It was fired upon by the police, killing five villagers and injuring many more. The martyrs did not lay down their lives in vain. The village and the area became a bastion of communal amity based upon a powerful sense of class unity.</p>
+<p>About a dozen villages clustering round Hasnabad gave shelter to about 3,000 Hindus—men, women and children fleeing from their homes in riot-torn Noakhali villages. They were rescued by both Hindu and Muslim kisan leaders of the area, who arranged for their shelter in both Hindu and Muslim homes. A strong kisan volunteer force was organised to guard the villages even at night so that the life of the refugees, as of others, was absolutely secure. They could move about freely in these villages. Necessary relief was also secured from the government and systematically distributed by Kisan Sabha <span class="pg">[p. 5]</span> workers.</p>
+<p>As for medical relief, at first the People's Relief Committee of Calcutta sent its medical squads with necessary equipment, and later a hospital was opened temporarily by the government at the instance of the Kisan Sabha.</p>
+<p>This glorious unity of the two communities gave inspiration to kisan workers in the districts which were involved in the Tebhaga struggle a few weeks later, and that too in spite of provocations by jotedars.</p>
+<p>Many well-meaning people questioned the advisability of starting a kisan struggle so soon after the communal riots, but the provincial kisan leaders were convinced that, despite the fact that communal frenzy had made many people go mad, the powerful anti-communal class sense would withstand and overpower the communal virus when the Tebhaga struggle was launched. Events proved that the decision of the Kisan Sabha was correct.</p>
+<h3>Adhiar Movement</h3>
+<p>A few years before the Tebhaga movement, the poor bargadars used to get only the half share of their produce, and they hardly ever had sufficient food to sustain themselves and their families for the whole year. So, generally, they had to take grain loan from the owners of their barga land for the lean months, particularly the sowing season.</p>
+<p>They were charged high rates of interest—at least 50 per cent. The loan was advanced for a few months before harvesting when it was to be repaid in grain, both capital and interest. Discontent against the exorbitant rate of interest among the bargadars was accumulating over the years.</p>
+<p>This was especially seen in the northern districts like Dinajpur. In November 1939, the Dinajpur District Kisan Sabha Committee discussed the issue with the adhiars (bargadars) who too readily agreed to the proposal for an anti-usury struggle. The idea of a struggle spread like wildfire, far and wide in Thakurgaon sub-division of the district and other places.</p>
+<p>The movement gripped the adhiars in such a manner that <span class="pg">[p. 6]</span> thousands enrolled themselves spontaneously as Kisan Sabha volunteers—men and women, old and young. This response came mostly from the Rajbanshi kisans. As usual, the police soon appeared on the scene in favour of the jotedars who resisted the movement stoutly. But the enthusiasm and militancy of the adhiars forced the sub-divisional officer (SDO) to intervene. A tripartite agreement was reached between the jotedars, the Kisan Sabha representing the adhiars and the SDO representing the district administration. The agreement provided that the grain loan taken by adhiars would bear only 25 per cent interest and that the seed advanced would be interest-free.</p>
+<p>As for the location of the khamar (threshing floor) where the harvested crop was stacked and threshed, whether it was to be the jotedars' or the adhiars' place, would be decided by a committee to be formed with representatives of both parties and the SDO in case of a dispute.</p>
+<p>A public meeting of 10,000 people, mostly kisans, carrying lathis, gathered at the call of the Kisan Sabha with its red banner flying aloft. The SDO himself addressed the meeting to explain the terms of the agreement.</p>
+<p>This victory was of great significance for the adhiars, whose morale now ran high, in their future struggle for Tebhaga.</p>
+<h3>Call for Tebhaga Struggle</h3>
+<p>When the kisan leaders found that large sections of bargadars were eagerly awaiting a call for struggle for their Tebhaga demand and that their mass militancy was at a high pitch, the Bengal Provincial Kisan Council decided, in September 1946, to launch the movement in the ensuing harvesting season—November 1946. An announcement was made to that effect.</p>
+<p>The decision was taken in a situation when memories of communal riots in the country had not yet completely erased. The bargadars and agricultural labourers, who were the main force of the struggle, displayed remarkable unity, courage and discipline as soon as the signal for the start was given. The movement began in 13 districts on a large or small scale, particularly in areas where class exploitation and oppression of <span class="pg">[p. 7]</span> bargadars was most pronounced and large scale landowning resulted in sharp polarisation between jotedars and bargadars.</p>
+<p>These characteristics were most notable in three northern districts, Dinajpur, Rangpur and Jalpaiguri, and two western districts, 24-Parganas and Midnapur. Rajbanshis were concentrated in the northern districts and were most militant fighters, both men and women.</p>
+<p>Harvesting began with cutting of the paddy crop and gathering and stacking it at the bargadars' khamars.</p>
+<p>When the Kisan Sabha announced that the Tebhaga movement would be launched in the harvesting season, the jotedars apparently did not take it seriously. They could hardly believe that the illiterate and backward peasants would be able to unify themselves into a cohesive force and start such a mighty struggle. They also banked on the atmosphere so widely surcharged with communal tension. Hence they were not much prepared for a confrontation with their bargadars.</p>
+<p>The first stage of the movement—cutting the crop and stocking it at their khamars instead of at the jotedars' as they had generally done so long—passed off smoothly and peacefully, without any organised opposition from the jotedars as a class. The Muslim League Ministry, headed by H.S. Suhrawardy, felt that the main demands of the movement were not unjustified. It therefore prepared a Bill, called the Bengal Bargadars Temporary Regulation Bill, and published it in the official Calcutta Gazette of 22nd January, 1947.</p>
+<p>The provisions of the Bill stipulated that the bargadar would retain two-thirds of the produce, if he bore all the expenses of cultivation himself, and that eviction of a bargadar would be stopped (of course with loopholes left in the Bill). Thus in principle the two main demands of the bargadar movement were embodied in the Bill.</p>
+<p>After the first stage of the struggle was more or less over, the jotedars as a class began to feel that it was the time they asserted their rights against the interests of the bargadars which were conflicting. They tried to rally their forces, all jotedars big and small. It was not very difficult for the big jotedars to draw most of the small jotedars to their side, since the latter also felt that their interests suffered equally adversely by the movement.</p>
+<p><span class="pg">[p. 8]</span> When the Bargadars Bill was published in the official Gazette, they felt alarmed. They were sure it would soon be adopted by the Assembly and jeopardise their interests.</p>
+<h3>Police and Jotedar Offensive</h3>
+<p>The jotedars put powerful pressure on the government and wanted the Bill to be withdrawn and scrapped.</p>
+<p>The jotedars, especially Muslim jotedars, were the main social base of the Muslim League Ministry. Hence it was not possible for the Ministry to turn down their demand and proceed with the Bill. It did not, however, withdraw the Bill, but, instead, simply kept silent over it, without introducing it in the Assembly.</p>
+<p>When, later, Comrade Jyoti Basu, a Communist MLA, asked Prime Minister Suhrawardy in a private talk as to why the Bill had not been introduced, he replied frankly that before publishing it he had no idea that the jotedars were such a powerful force to reckon with.</p>
+<p>There is no doubt that the Jotedars scored their point and that the government had to yield to them. Within a few days the government issued a secret circular instructing the district administrators to resort to all sorts of repressive measures and violent action to scotch the Tebhaga movement. Jotedars also began their offensive against the bargadars equally ferociously with the help of their goondas and the police.</p>
+<p>Large numbers of police camps were set up in the strongholds of the movement, with armed forces moving about.</p>
+<p>The jotedar offensive was to carry away the crop stacks from the bargadars' khamars to those of the jotedars for which they engaged gangsters and took police help. In many cases policemen themselves did the job for them. Whenever the bargadars resisted, as they did in most places, they were attacked and beaten up without mercy and even fired upon. The government was now bent upon crushing the movement only to protect jotedar interests.</p>
+<p>The peasants, however, put up a determined and heroic defence of their interests in a number of places. The Tebhaga demand was so deeply entrenched in their minds that they were <span class="pg">[p. 9]</span> prepared to pass through any ordeal while pushing back the offensive of the jotedars and the police.</p>
+<p>In one of the villages in Nilphamari sub-division of Rangpur district, armed jotedars went to a bargadar's khamar to carry away the gathered crop. A large number of peasants, led by Bachcha Munshi and Tatnarayan Barman, local kisan leaders, collected to resist the offensive. The jotedars fired upon the gathering, killing Tatnarayan.</p>
+<h3>Protest Against Murder</h3>
+<p>The kisans' anger was inflamed and they were about to take revenge on the guilty jotedars, when some local leaders asked them to desist, lest it lead to a communal riot, the jotedars being Muslim. The jotedars, however, got panicky and fled from their villages.</p>
+<p>A protest demonstration of the Kisan Sabha against the murder followed. Thousands joined it. Led by district kisan leaders like Dinesh Lahiri and Mani Krishna Sen, who had come out of their hide-outs, it ended in a big rally in Nilphamari town. The mood of the kisans was such that the police did not dare to touch the underground leaders who were well known to them. They addressed the meeting and then quietly escaped to safety.</p>
+<p>The Tebhaga struggle was most intensive in Dinajpur district, especially in Thakurgaon sub-division. It was equally extensive and brought within its purview most of the bargadars and agricultural labourers, and large numbers of other kisans who supported them. It threw up many kisans as their leaders. They were mostly Rajbanshis and Muslims, and also some tribals. Among them were Kamparam and Pastaram, and women peasant leaders, Jaimani and Bhandani.</p>
+<p>In a January 1947 night the police raided a village in the Chirirbandar area of Dinajpur and arrested and took away Samiruddin, an agricultural labourer, from his house. His sister protested and asked the police why and where they were taking away her brother. The police answered by assaulting her and one of them hit her with the point of his bayonet, thus injuring her foot.</p>
+<p><span class="pg">[p. 10]</span> The villagers gathered in the field from where Samiruddin was taken. The shouts raised by them brought others from the nearby villages. Among them was a Santhal youth named Shibram who, as usual in such cases, came with his bow and arrow.</p>
+<p>The police killed Samiruddin in cold blood. This sight was intolerable for Shibram, who instantly shot his arrow which plunged into the chest of the killer and he fell dead. Another policeman shot Shibram dead with his rifle.</p>
+<p>The grip of the movement was so strong that it became almost a part of the kisans' being. They were undaunted in the face of the repression let loose against them by the enemy.</p>
+<p>A kisan meeting was held at a village about three miles from Thakurgaon town at a very short notice. It was addressed by a kisan leader from the provincial centre. Nevertheless, the meeting was attended by not less than 10,000 people. It was presided over by a local kisan leader, Niamatullah by name.</p>
+<p>The provincial leader was also to speak at a special (general body) meeting of the Kisan Sabha workers and volunteers to be held after their night meal. At least 400 of them were present. The cooking had to be done yet. So it was only after midnight that the meeting could be arranged. But no hour was unearthly for the militant kisans and activists engaged in a grim battle against the enemy.</p>
+<p>A few days later a kisan demonstration was staged at Thakurgaon town and the police opened fire on it, when five people were killed. One of the wounded persons was Niamatullah who was arrested and taken to hospital. One of his legs had to be amputated in that condition. When he was released from jail, he would not go home straight, without first visiting the Kisan Sabha office at Thakurgaon. This is how they loved their Sabha.</p>
+<p>At Thumnia village in the same district, police firing took a toll of four kisan lives.</p>
+<h3>Khanpur Tragedy</h3>
+<p>The most tragic and atrocious incident of the Tebhaga struggle of 1946-47 occurred at Khanpur village in Dinajpur district. It accounted for 22 kisans lives, who were killed in <span class="pg">[p. 11]</span> police firing at one place and at one time. Of them 14 died on the spot, and eight others in Balurghat hospital where the wounded were removed.</p>
+<p>This happened on 20 February, 1947. Early in the morning three truckloads of armed police were sent to the village to arrest some kisan leaders who had taken shelter in the village. The villagers led by an agricultural worker, Chiarsai Shaikh, prevented them from entering the village. They dug a trench across the road and placed the trunk of a tree lying nearby across the road. While some of them resisted the police with their crude arms, the alarm that was sounded brought in large number of people from the neighbouring villages, and they joined the fray. There were men and women, Hindu, Muslim and Adivasi kisans participating in it.</p>
+<p>Chiarsai continued his fierce fight like a wounded tiger, as the police were reported to have remarked later, even when he was injured in the firing. At last he succumbed. Some of the fighters cut the tyres of the trucks. Altogether 22 were killed, one of them by a jotedar who fired his gun from his house.</p>
+<p>The information came to the Kisan Sabha in Calcutta in a telegraphic message. The same night we started for Khanpur—I representing the Kisan Sabha and Dr. B.K. Basu on behalf of the People's Relief Committee which packed plenty of medical supplies and a good quantity of tinned food and fruits. A reporter of Janayudha, CPI weekly in Bengali, accompanied us.</p>
+<p>Next morning we reached Balurghat town and left for Khanpur in two bullock carts waiting for us there. The distance was about 13 miles and there was no bus service in those days, nor a pucca road. We had hardly reached midway when a police jeep intercepted us and took us back at the District Magistrate's order, they said. Shortly after we had returned to Balurghat, we three were served with order to quit the district for 60 days. The bullock carts, however, proceeded to their destination without us.</p>
+<p>Later the Kisan Sabha workers informed us that in Khanpur the dead bodies had not been delivered to their respective families but put in one big grave in the bed of the creek of the river Atrai, flowing through the town just on the outskirts of <span class="pg">[p. 12]</span> Balurghat. The kisans showed exemplary unity—the unity of kisans, men and women, Hindu, Muslim and Adibasi.</p>
+<p>Some days later, Prime Minister Suhrawardy had to admit in his Assembly statement on the Khanpur tragedy that the police fired 121 rounds, killing 20 kisans, all at one place.</p>
+<p>Following the incident the whole area was turned into a police camp. Police for a pretty long time made indiscriminate arrests, torturing unarmed kisans, forcing the kisans to leave their homes and takes shelter outside the disturbed area.</p>
+<h3>Jalpaiguri Killings</h3>
+<p>But Dinajpur and Rangpur did not cover the whole story. The movement had spread far beyond their borders. The Jalpaiguri bargadars, many of them tribals, joined the movement belatedly. They did not lack in courage and militancy, but they were not well organised. Their leadership was also weak.</p>
+<p>In spite of this position the peasants decided to go into action and carry away the gathered crop from the khamar of a big jotedar in the Mal Area on 1st March. The police were camping in the jotedar's house. When the kisans were carrying the crop, the police fired on them, killing four people.</p>
+<p>Similar action was taken by the bargadars at Mangalbari village in the Meteli area on 4th April. Here too it was a big jotedar's khamar from where the crop was being taken away. The police camping in the jotedar's house killed nine kisans.</p>
+<p>In 24-Parganas district there were many big jotedars who were notorious for fleecing their bargadars and agricultural workers. These landless people were an overwhelming majority of the population.</p>
+<p>The Tebhaga movement was organised there. A police camp was set up at a big jotedar's place in Bermajur village under Sandeshkhali police station where his employees were in charge. The crop was stacked at the jotedar's khamar. When on March 8 the bargadars, after giving notice to the jotedar's men, began threshing the crop, the police fired on them and killed five men on the spot. Alarm was sounded at once. The whole area was set ablaze. Thousands of peasants rushed to the spot of the killings from all directions. The sight frightened the <span class="pg">[p. 13]</span> police and the jotedar's men, who escaped the wrath of the kisans before the people could gather there.</p>
+<h3>Weakness of the Movement</h3>
+<p>The combined offensive of the government and the jotedars, equipped with firearms, made it impossible for the poor and practically unarmed kisans to withstand their attack for a long time despite their unsurpassed militancy, bravery and spirit of self-sacrifice. The political situation with the division of the country becoming a certainty, made it difficult to continue the struggle.</p>
+<p>When the provincial leadership reviewed the struggle, it also spotted its other defects and shortcomings. They realised that a kisan struggle of the dimension of the Tebhaga struggle should have been planned with greater care, circumspection and better preparation before it was launched. An organisation of trained volunteers was most essential for the defence of the fighting peasants against the enemy offensive.</p>
+<p>The most important factor which should have been taken into account was the possible role of the numerous small jotedars who might be drawn into a compromise with some concessions and thus neutralised. For this purpose, of course, their bargadars ought to have been given political education and convinced that this step was vital for the weakening of the big jotedars and their offensive as well as for the success of the struggle.</p>
+<h3>“Tebhaga Chai”</h3>
+<p>The extent of vicious police offensive can be gauged from the fact that 72 of the 73 people were killed by the police; of these 39 in Dinajpur district alone. Thousands more were wounded. Altogether 3,119 people were arrested, 1,200 of them in Dinajpur alone. Innumerable police camps were set up in different districts, Dinajpur alone accounting for 35. The police opened fire 22 times and raped many kisan women in several districts. Prime Minister Suhrawardy admitted in the Legislative Assembly that at Khanpur alone his police fired 121 rounds and <span class="pg">[p. 14]</span> killed 20 people.</p>
+<p>The fighting kisans, both men and women, displayed magnificent courage and heroism. They did not flinch because of firing and killing by the police. Bhandani Barmani, a young Rajbanshi peasant woman, snatched away a rifle from a police official who was then kept confined in a room which was guarded the whole night by Bhandani herself. The official was let out only when an important kisan leader came the next morning and asked her to do so.</p>
+<p>There were cases of policemen patrolling village roads in the struggle areas when kisan women threw chilli powder or even dust into their eyes. Then they had to be dragged away by others.</p>
+<p>The Tebhaga struggle had left an abiding impact upon the life of the bargadars. When one of the peasants, mortally injured at Khanpur while fighting against the police, was about to die in hospital and asked by the attending doctor if he wanted anything, he raised his feeble voice : Tebhaga Chai (I want Tebhaga). A little later, he breathed his last, leaving his words to ring in the ears of his fellow kisans and to inspire them to carry on the struggle against exploitation and for a better life till victory was achieved.</p>
+<h3>Independence and Partition</h3>
+<p>The Tebhaga movement of 1946-47 thus came to a close. Although there was no acceptance of the demands, the sacrifices of the peasants who bravely fought for their cherished demands, many of them even laying down their lives, did not go in vain. The movement had a galvanising effect on raising the consciousness of the peasants. The peasants became conscious of their rights. The atmosphere in rural Bengal was not the same as it was before the struggle was launched. The Tebhaga struggle instilled confidence into the kisans and a sense of better organisation for future struggles.</p>
+<p>Big and important events followed the movement within a few months. On August 15, 1947, India attained national independence and both India and Bengal were partitioned; a substantial part of the Indian territory became Pakistan which <span class="pg">[p. 15]</span> came into existence as a new independent state.</p>
+<p>As a consequence of the partition the whole situation in Bengal also changed. The Muslim League Ministry ceased to exist in West Bengal, which remained in India after the partition of Bengal. In its place was installed a Congress Ministry headed by Dr. Prafulla Ghosh, who was replaced by Dr. B.C. Roy a few months later.</p>
+<p>In 1949, the West Bengal Government had to take into account the Tebhaga struggle and issued the Bargadar Ordinance giving some concessions to the bargadars regarding their share and other demands. There was also provision against eviction; but protection of bargadars against eviction was not guaranteed, it was conditional.</p>
+<p>The ordinance was enacted in 1950. In October 1952, the Bargadar Act was amended by another ordinance. But these did not satisfy many of the legitimate demands of the bargadars, since the Congress Ministry always yielded to jotedar pressure.</p>
+<p>At last, in 1953, the Estates Acquisition Bill was introduced by the government in the Legislature providing abolition of the Permanent Settlement and zamindari system which had come down from 1793. The Bill also provided the take-over by government of all zamindari estates and introduce the ryotwari system. The bargadari system, instead of being abolished, was allowed to continue as before, thus maintaining semi-feudal relations in land while encouraging the capitalist system of farming, if rather half-heartedly.</p>
+<p>But more significant than the immediate gains of the Tebhaga movement was the lasting and far-reaching impact it had on the future struggles of the peasantry in India. It made the peasantry aware of its united strength. Describing the transformation brought about in the peasant masses of the region by the Tebhaga movement, the special correspondent of Statesman wrote, in its March 19, 1947 issue:</p>
+<p>“Dumb through past centuries, he is today transformed by the start of slogans. It is inspiring to see him marching across a field with his fellows, each man shouldering a lathi like a rifle, with a red flag at the head of procession. It is sinister to hear them greet each other in silence of the bamboo groves with clinched left fists raised to foreheads and a whispered Inqilab <span class="pg">[p. 16]</span> comrade.”</p>
+<p>The strong peasant movement in West Bengal today, has its base in the Tebhaga movement and it has truly inherited the militancy of the Tebhaga heroes.</p>
+<p>The Tebhaga movement was the true precursor of the Telengana movement, which added a glowing chapter to the annals of peasant struggles in India.</p>
+<p>The Tebhaga movement taught the peasants in U.P., Bihar, Punjab and other parts of the country to fight for their tenancy rights. Like Telangana, and before it, it was a movement which had a countrywide impact. The Tebhaga movement and its peasant fighters and martyrs will continue to inspire the Indian peasantry in all its struggles against its oppressors and for its rights and for a better future.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>M. Abdullah Rasul, Tebhaga Struggle of Bengal, All India Kisan Sabha Golden Jubilee Series no. 2 (New Delhi: All India Kisan Sabha, March 1986), pp. 1–16. The foreword by Harkishan Singh Surjeet is omitted.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: M. Abdullah Rasul, Tebhaga Struggle of Bengal (New Delhi: All India Kisan Sabha, March 1986), pp. 1-16. Each scan leaf is a two-page spread (leaf 1 = foreword + p. 1, leaf 2 = pp. 2-3 ... leaf 9 = p. 16 + inside back cover), so no single page_offset. The volume text has OCR for leaves 3 and 5 only; the other leaves need OCR before cutting, and the markers are taken from the images, not checked in OCR. Harkishan Singh Surjeet's foreword (leaf 1 left and leaf 9 right, inside covers) is left out.</p></div>
+</div>
+</body>
+</html>

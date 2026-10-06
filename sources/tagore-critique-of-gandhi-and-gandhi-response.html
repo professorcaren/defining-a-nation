@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagore’s Critique of Gandhi, and Gandhi’s Response</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Tagore’s Critique of Gandhi, and Gandhi’s Response</h1>
+<p class="speech-meta">4,605 words, about 20 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>The Challenge of Rabindranath Tagore</h3>
+<p class="ed"><span class="pg">[p. 387]</span> Not all Indians were as appreciative of Gandhi's power as Nehru and Naidu, as the following examples show. As noted in chapter 5, Tagore was awarded the Nobel Prize for Literature in 1913, and remained throughout his life a formidable presence on the Indian scene. In 1921 Gandhi took account of Tagore's criticisms, and replied—as we read below—with all the deference due to India's poet laureate: “I regard the Poet as a <span class="pg">[p. 388]</span> sentinel warning us against the approach of enemies called bigotry, lethargy, intolerance, ignorance, inertia and other members of that brood.”</p>
+<p class="ed">Tagore, however, would not be mollified. “The Poet” chose to challenge the dominant political belief of his age and of modern Indian politics, the gospel of nationalism. Gandhi had extolled the ideal of universal harmony, but he had not singled out Indian nationalism as a threat to that ideal. His criticism was directed at the Western nation-state system. Tagore asserted that in principle there was no distinction: nationalism is in all cases a great menace.</p>
+<p class="ed">Tagore was most distressed not by the prevalence of nationalism in the West, but by its infection of India. The idea was a Western importation, but Tagore realized that his own countrymen had developed it into a peculiar Indian type. The greatest disservice nationalism had rendered India, Tagore argued, was to have directed the country's attention away from its primary needs, which were social, not political. Nationalism could not prompt a social and moral reform of the nature that was needed; rather, it would only whet the popular appetite for increased political warfare. The real task before India was that of building a good society.</p>
+<h3>Non-Cooperation as Political Asceticism</h3>
+<p class="ed">As Gandhi's power grew, so did Tagore's suspicion of it. On March 5, 1921, he wrote from England to Charles Andrews, a Christian missionary who became a close associate of both Gandhi and Tagore.</p>
+<p>Dear friend, lately I have been receiving more and more news and newspaper cuttings from India giving rise in my mind to a painful struggle that presages a period of suffering which is waiting for me. I am striving with all my power to tune my mood of mind to be in accord with the great feeling of excitement sweeping across my country. But deep in my being why is there this spirit of resistance maintaining its place in spite of my strong desire to remove it? ...</p>
+<p>The idea of non-cooperation is political asceticism. Our students are bringing their offering of sacrifices to what? Not to a fuller education but to non-education. It has at its back a fierce joy of annihilation which in its best form is asceticism and in its worst form is that orgy of frightfulness in which human nature, losing faith in the basic reality of normal life, finds a disinterested delight in unmeaning devastation, as has been shown in the late war and on other occasions which came nearer home to us. No in its passive moral form is asceticism and in its active moral form is violence. The desert is as much a form of himsa as is the raging sea in storm, they both are against life.</p>
+<p>I remember the day during the Swadeshi movement in Bengal, when a crowd of young students came to see me in the first floor of our Vichitra <span class="pg">[p. 389]</span> house. They said to me that if I ordered them to leave their schools and colleges they would instantly obey me. I was emphatic in my refusal to do so, and they went away angry, doubting the sincerity of my love for my motherland. Long before this ebullition of excitement, I myself had given a thousand rupees, when I had not five rupees to call my own, to open a swadeshi store and courted banter and bankruptcy. The reason for my refusing to advise those students to leave their schools was because the anarchy of a mere emptiness never tempts me, even when it is resorted to as a temporary shelter. I am frightened of an abstraction which is ready to ignore living reality. These students were no mere phantoms to me; their life was a great fact to them and to the All. I could not lightly take upon myself the tremendous responsibility of a mere negative programme for them which would uproot them from their soil, however thin and poor that soil might be. The great injury and injustice which had been done to those boys who were tempted away from their career before any real provision was made, could never be made good to them. Of course that is nothing from the point of view of an abstraction which can ignore the infinite value even of the smallest fraction of reality. But the throb of life in the heart of the most insignificant of men beats in the unison of love with the heart-throb of the infinite. I wish I were the little creature Jack whose one mission was to kill the giant abstraction which is claiming the sacrifice of individuals all over the world under highly painted masks of delusion.</p>
+<p>I say again and again that I am a poet, that I am not a fighter by nature. I would give everything to be one with my surroundings. I love my fellow beings and I prize their love. Yet I have been chosen by destiny to ply my boat there where the current is against me. What irony of fate is this, that I should be preaching cooperation of cultures between East and West on this side of the sea just at the moment when the doctrine of non-cooperation is preached on the other side? You know that I do not believe in the material civilization of the West, just as I do not believe the physical body to be the highest truth in man. But I still less believe in the destruction of the physical body. What is needed is the establishment of harmony between the physical and the spiritual nature of man, maintaining the balance between the foundation and the superstructure. I believe in the true meeting of the East and the West. Love is the ultimate truth of the soul; we should do all we can not to outrage that truth, to carry its banner against all opposition. The idea of non-cooperation unnecessarily hurts that truth. It is not our hearth fire, but the fire that burns out our hearth....</p>
+<p>With love, Ever yours, Rabindranath Tagore</p>
+<p><em>[Krishna Dutta and Andrew Robinson, eds., Rabindranath Tagore: An Anthology (New York: St. Martin's Press, 1997), 168, 170–173.]</em></p>
+<h3>“The Call of Truth”: Tagore's Critique of Gandhi</h3>
+<p class="ed"><span class="pg">[p. 390]</span> On August 29, 1921, with Gandhi's power at its height, Tagore delivered at a Calcutta public meeting an address entitled “The Call of Truth.” A remarkable commentary, it offered both a trenchant criticism of Gandhi's leadership—including his insistence on universal Congressite use of the spinning wheel (charkha), as a means of dignifying the labor of the poor, and on the burning of foreign-made cloth—and an eloquent defense of individual freedom.</p>
+<p>To make the country our own by means of our creative power is indeed a great call. It cannot be a mere summons to some mechanical exercise. For, man does not limit himself in the manner of the bee building endless replicas of cells, or the spider weaving webs of one pattern. His greatest strength is within him, and it is up to him to draw on that strength and not on blind habit. To tell him, “Do not think but act,” is to help prolong the age-old delusion that has held this country in its deadly grip....</p>
+<p>Then, at the crucial moment, Mahatma Gandhi came and stood at the door of India's destitute millions, clad as one of themselves, speaking to them in their own language. It was a real happening, not a tale of the printed page. That is why he has been so aptly named Mahatma, Great Soul. Who else has so unreservedly accepted the vast masses of the Indian people as his own flesh and blood? At the touch of truth the pent-up forces of the spirit are set free. As soon as love stood at India's door, it flew open. All inward niggardliness was gone. Truth awakened truth.</p>
+<p>Stratagem in politics is a barren policy—that was a lesson of which we were sorely in need. All honour to the Mahatma, who wakened us to the power of truth. But the cowardly and the weak take easily to cheap tactics. Even today our worldly-wise ones have not been rid of the idea of using the Mahatma as a disguised and ingenious move in their political gamble. Minds corrupted by untruth cannot grasp the meaning of the great love kindled in the people's heart by the Mahatma's love.</p>
+<p>This, indeed, is the birth of freedom, nothing less. It is the country's discovery of itself. It has little to do with the alien occupation of India. This love is pure affirmation. It does not involve itself in arguments with the negative attitude....</p>
+<p>So, in the excited expectation of breathing the air of a new-found freedom, I hurried back to my homeland. But what I have seen and felt troubles me. Something seems to be weighing on the people's spirit; a stern pressure is at work; it makes everyone talk in the same voice and make the same gestures.</p>
+<p>When I wanted to ask questions and decide for myself, my well-wishers clapped anxious hands to my mouth: “Pray be silent.” There is a tyranny in the air—even if intangible, it is worse than open violence. Let anyone who doubts <span class="pg">[p. 391]</span> the wisdom of the proclaimed policy speak his mind in a bare whisper, and he will have to face disciplinary action. One of our newspapers dared give a mere hint of disapproval of the burning of foreign cloth, and the readers' agitated protest came menacingly; the flames which had consumed the bales of mill cloth could quickly reduce this paper to ashes!</p>
+<p>I see a section of the people fanatically engaged in their assigned task, and another section struck with alarm and dumbfounded. The idea prevails that all questioning must stop; there should be nothing but blind obedience. Obedience to whom? To some charmed words of incantation, to some reasonless creed! ...</p>
+<p>To make matters worse, the gain which is envisaged has a name but it is not defined. Even as a fear which is vague is all the more terrifying, the haziness of a lure makes it all the more tempting. Left to the imagination, everyone can give it a form according to his preference. An attempt to inquire into the real nature is of no avail, for it can easily camouflage itself. Thus, while the temptation has been magnified by its indefiniteness, the means of attainment and the hour have been precisely indicated. Many people are convinced that self-government will be won on a certain date of a certain month close ahead. Having given up their freedom of mind, they deprive others of that freedom. It is as if we have been seeking an exorcist to drive out a ghost, and then the ghost itself turns up in the guise of the exorcist.</p>
+<p>The Mahatma has captured the heart of India with his love; we all bow down to him on that account. He has revealed to us the full power of truth and for that we are beholden. We read about eternal truth in books, we talk about them, but it is a propitious moment when we encounter truth face to face. Such an opportunity is rare in one's life. It is easy enough to go from province to province making political speeches, and even to make and break National Congresses. But the golden wand of true love that has wakened us out of age-long slumber is not to be easily found. To the possessor of that rare wand, our profound salutation.</p>
+<p>But then, what is the good of it all if, even after we have seen the face of truth, our faith in it is not firm enough? Our minds must accept the truth of the intellect just as the heart accepts the truth of love. Till now, neither the Congress nor any other institution made a strong impression on the heart of India—it needed the touch of love. Now that we have the truth of love, are we to withdraw our trust in the other truth—just where swaraj is concerned? ...</p>
+<p>Let our faith in the Mahatma's capacity for love never diminish; but swaraj is not a matter of a stick and a single string. It is a vast enterprise involving complex processes and needing as much study and clear thinking as impulse and emotion. Economists and educationists and mechanical engineers must contribute their ideas and exertions to the pool of this many sided endeavour. The intellect of the people must be fully awake, so that the spirit of inquiry is untrammelled; minds must not be overawed or made inactive by compulsions, open or secret....</p>
+<p><span class="pg">[p. 392]</span> The true vision of that ancient age lives on; its voice flings echoes. Then, why should not our supreme leader of today ... say, “Let all who hear me come from every direction?” Freedom lies in the complete arousal of the people. God has given the Mahatma the voice that can call. Why should this not be our supreme moment?</p>
+<p>His call has come, but only to a restricted field. To one and all he has simply said, “Spin and weave, spin and weave.” Is this the strident call of the new age for a vast striving? When nature summoned the bee to a narrow hive-life, millions of bees responded and made themselves sexless for the sake of efficiency. But this sacrifice by way of self-atrophy led to the opposite of freedom. People who do not hesitate to neutralize their power in answer to some command carry within them their prison-cell. The call to the easy way is for the bee, not for man. Man reveals himself in all his strength only when his utmost capacity is demanded....</p>
+<p>I hear the voice of protest: “We do not propose to curb the mind for ever, but only for a short while.” Why, even for a short while? Is it because that brief period will be enough for us to gain swaraj? That does not make sense. Swaraj is not a matter of mere self-sufficiency in the production of cloth. Its real place is within us—the mind with its diverse power goes on building swaraj for itself. Nowhere in the world has this work been completed; in some part of the body-politic a lingering greed or delusion keeps up the bondage. And that bondage is always within the mind itself....</p>
+<p>There is the bonfire of heaped mill cloth, before the very eyes of the Mother deep in shame because of her nakedness. I see no urgency for such waste except in the power of a superstition. The question of using or boycotting British-made cloth is one for economists to decide. In discussing it, the language of economists must be employed. If people cannot think scientifically, our very first battle should be against that sad state of mind. Such incapacity is the original sin out of which all other ills flow. That original sin finds support when it is proclaimed that foreign cloth is “impure” and deserves to be destroyed. Economics is tossed aside for the falsehood passing as a moral dictum....</p>
+<p>We have been ordered to burn foreign cloth. I, for one, am unable to obey. First, because I believe it to be my duty to fight the habit of blind obedience. Secondly, I feel that the cloth to be burnt is not mine, it belongs to people who are sorely in need of it. We who seem to be doing an act of sacrifice through this incendiarism have other sources of supply; but those who are really hit cannot stir out of doors because of their nakedness. Forced atonement will not wash off our sins; nor will the gain of some apparent benefits make up for the loss of the reasoned will.</p>
+<p>The Mahatma has declared war against the tyranny of the machine which is oppressing the world. Here we are all under his banner. But we cannot accept as our ally in the fight the slave mentality that is at the root of all the misery and indignity in our national life. That, indeed, is our real enemy and through its defeat alone can swaraj within and without come to us....</p>
+<p><span class="pg">[p. 393]</span> Henceforth, any nation which seeks isolation for itself must come into conflict with the time-spirit and find no peace. From now onward the plane of thinking of every nation will have to be international. It is the striving of the new age to develop in the mind this faculty of universality.</p>
+<p><em>[Rabindranath Tagore, Towards Universal Man (London: Asia Publishing House, 1961), 260–271.]</em></p>
+<h3>“The Great Sentinel”: Gandhi's Response to Tagore</h3>
+<p class="ed">The Gandhi–Tagore controversy thus focused on two aspects of the meaning of swaraj, or freedom, in its fullest sense. Tagore argued, first, that on a domestic level, Indians had placed themselves in bondage through their unthinking acceptance of dogma. They idolized a leader who, however saintly, had harnessed their blind allegiance to a gospel of retardation rather than growth. A second and related problem in Gandhi's teaching involved its implications on an international level. Gandhi's ideas, Tagore argued, had fostered, for the most part, an unhealthy sense of separateness that foolishly spurned the knowledge and advances of the Western world. Each of these attitudes inhibited India's growth, and thus restricted her freedom.</p>
+<p class="ed">To the first of Tagore's charges, Gandhi responded that he did not wish to produce a “deathlike sameness in the nation,” but rather to use the spinning wheel to “realize the essential and living oneness of interest among India’s myriads.” Spinning was not intended to replace all other forms of activity, but rather to symbolize “sacrifice for the whole nation.”</p>
+<p>The Bard of Shantiniketan has contributed to The Modern Review a brilliant essay on the present movement. It is a series of word pictures which he alone can paint. It is an eloquent protest against authority, slave-mentality or whatever description one gives of blind acceptance of a passing mania whether out of fear or hope. It is a welcome and wholesome reminder to all workers that we must not be impatient, we must not impose authority no matter how great. The Poet tells us summarily to reject anything and everything that does not appeal to our reason or heart. If we would gain swaraj, we must stand for truth as we know it at any cost. A reformer who is enraged because his message is not accepted must retire to the forest to learn how to watch, wait and pray. With all this one must heartily agree, and the Poet deserves the thanks of his countrymen for standing up for truth and reason. There is no doubt that our last state will be worse than our first, if we surrender our reason into somebody's keeping. And I would feel extremely sorry to discover, that the country had unthinkingly and blindly followed all I had said or done. I am quite conscious of the fact that blind surrender to love is often more mischievous than a forced surrender to the lash of the tyrant. There is hope for the slave of the brute, none for that of love. Love is <span class="pg">[p. 394]</span> needed to strengthen the weak, love becomes tyrannical when it exacts obedience from an unbeliever. To mutter a mantra without knowing its value is unmanly. It is good, therefore, that the Poet has invited all who are slavishly mimicking the call of the charkha [spinning wheel] boldly to declare their revolt. His essay serves as a warning to us all who in our impatience are betrayed into intolerance or even violence against those who differ from us. I regard the Poet as a sentinel warning us against the approach of enemies called bigotry, lethargy, intolerance, ignorance, inertia and other members of that brood.</p>
+<p>But whilst I agree with all that the Poet has said as to the necessity of watchfulness lest we cease to think, I must not be understood to endorse the proposition that there is any such blind obedience on a large scale in the country today. I have again and again appealed to reason, and let me assure him, that if happily the country has come to believe in the spinning-wheel as the giver of plenty, it has done so after laborious thinking, after great hesitation. I am not sure, that even now educated India has assimilated the truth underlying the charkha. He must not mistake the surface dirt for the substance underneath. Let him go deeper and see for himself whether the charkha has been accepted from blind faith or from reasoned necessity.</p>
+<p>I do indeed ask the Poet and the sage to spin the wheel as a sacrament. When there is war, the poet lays down the lyre, the lawyer his law reports, the schoolboy his books. The Poet will sing the true note after the war is over, the lawyer will have occasion to go to his law books when people have time to fight among themselves. When a house is on fire, all the inmates go out, and each one takes up a bucket to quench the fire. When all about me are dying for want of food, the only occupation permissible to me is to feed the hungry. It is my conviction that India is a house on fire, because its manhood is being daily scorched, it is dying of hunger because it has no work to buy food with. Khulna is starving not because the people cannot work, but because they have no work. The Ceded Districts are passing successively through a fourth famine, Orissa is a land suffering from chronic famines. Our cities are not India. India lives in her seven and a half lakhs of villages, and the cities live upon the villages. They do not bring their wealth from other countries. The city people are brokers and commission agents for the big houses of Europe, America and Japan. The cities have co-operated with the latter in the bleeding process that has gone on for the past two hundred years. It is my belief based on experience, that India is daily growing poorer. The circulation about her feet and legs has almost stopped. And if we do not take care, she will collapse altogether.</p>
+<p>To a people famishing and idle, the only acceptable form in which God can dare appear is work and promise of food as wages. God created man to work for his food, and said that those who ate without work were thieves. Eighty per cent of India are compulsorily thieves half the year. Is it any wonder if India has become one vast prison? Hunger is the argument that is driving India to the spinning-wheel. The call of the spinning-wheel is the noblest of all. Because it is the <span class="pg">[p. 395]</span> call of love. And love is swaraj. The spinning-wheel will “curb the mind” when the time spent on necessary physical labour can be said to do so. We must think of millions who are today less than animals, who are almost in a dying state. The spinning-wheel is the reviving draught for the millions of our dying countrymen and countrywomen. “Why should I, who have no need to work for food, spin?” may be the question asked. Because I am eating what does not belong to me. I am living on the spoliation of my countrymen. Trace the course of every pice that finds its way into your pocket, and you will realize the truth of what I write. Swaraj has no meaning for the millions if they do not know how to employ their enforced idleness. The attainment of this swaraj is possible within a short time, and it is so possible only by the revival of the spinning-wheel.... A plea for the spinning-wheel is a plea for recognizing the dignity of labour....</p>
+<p>It was our love of foreign cloth that ousted the wheel from its position of dignity. Therefore I consider it a sin to wear foreign cloth. I must confess that I do not draw a sharp or any distinction between economics and ethics. Economics that hurt the moral well-being of an individual or a nation are immoral and therefore sinful. Thus the economics that permit one country to prey upon another are immoral. It is sinful to buy and use articles made by sweated labour. It is sinful to eat American wheat and let my neighbour the grain-dealer starve for want of custom. Similarly it is sinful for me to wear the latest finery of Regent Street, when I know that if I had but worn the things woven by the neighbouring spinners and weavers, that would have clothed me, and fed and clothed them. On the knowledge of my sin bursting upon me, I must consign the foreign garments to the flames and thus purify myself, and thenceforth rest content with the rough khadi made by my neighbours. On knowing that my neighbours may not, having given up the occupation, take kindly to the spinning-wheel, I must take it up myself and thus make it popular.</p>
+<p>I venture to suggest to the Poet, that the clothes I ask him to burn must be and are his. If they had to his knowledge belonged to the poor or the ill-clad, he would long ago have restored to the poor what was theirs. In burning my foreign clothes I burn my shame. I must refuse to insult the naked by giving them clothes they do not need, instead of giving them work which they sorely need. I will not commit the sin of becoming their patron, but on learning that I had assisted in impoverishing them, I would give them a privileged position and give them neither crumbs nor cast-off clothing, but the best of my food and clothes and associate myself with them in work....</p>
+<p>True to his poetical instinct the Poet lives for the morrow and would have us do likewise. He presents to our admiring gaze the beautiful picture of the birds early in the morning singing hymns of praise as they soar into the sky. These birds had their day's food and soared with rested wings in whose veins new blood had flown during the previous night. But I have had the pain of watching birds who for want of strength could not be coaxed even into a flutter of their wings. The human bird under the Indian sky gets up weaker than when he <span class="pg">[p. 396]</span> pretended to retire. For millions it is an eternal vigil or an eternal trance. It is an indescribably painful state which has to be experienced to be realized. I have found it impossible to soothe suffering patients with a song from Kabir. The hungry millions ask for one poem—invigorating food. They cannot be given it. They must earn it. And they can earn only by the sweat of their brow....</p>
+<p>In these verses is contained for me the whole truth of the spinning-wheel as an indispensable sacrament for the India of today. If we will take care of today, God will take care of the morrow.</p>
+<p><em>[CWMG 21:287–291.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 387–396.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 387-396; reading PDF covers pp. 387-395. SIT headings and citations kept as printed. Multi-part. PDF ends at p. 395; Gandhi's reply runs onto p. 396. SIT gives no citation for the reply.</p></div>
+</div>
+</body>
+</html>

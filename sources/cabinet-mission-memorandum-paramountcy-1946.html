@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet Mission Memorandum on Paramountcy, 1946</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Cabinet Mission Memorandum on Paramountcy, 1946</h1>
+<p class="speech-meta">917 words, about 4 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><p><em><span class="pg">[p. 1]</span></em></p>
+<h3>Memorandum on States’ Treaties and Paramountcy</h3>
+<p>Presented by the Cabinet Mission to His Highness the Chancellor of the Chamber of Princes on 12 May 1946.</p>
+<p>1. Prior to the recent statement of the British Prime Minister in the House of Common an assurance was given to the Princes that there was no intention on the part of the Crown to initiate any change in their relationship with the Crown or the rights guaranteed by their treaties and engagements without their consent. It was at the same time stated that the Princes’ consent to any changes which might emerge as a result of negotiations would not unreasonably be withheld. The Chamber of Princes has since confirmed that the Indian States fully share the general desire in the country for the immediate attainment by India of her full stature. His Majesty’s Government have now declared that if the Succession Government or Governments in British India desire independence, no obstacle would be placed in their way. The effect of these announcements is that all those concerned with the future of India wish her to attain a position of independence within or without the British Commonwealth. The Delegation have come here to assist in resolving the difficulties which stand in the way of India fulfilling this wish.</p>
+<p>2. During the interim period, which must elapse before the coming into operation of a new Constitutional structure under which British India will be independent or fully self-governing, paramountcy will remain in operation. But the British Government could not and will not in any circumstances transfer paramountcy to an Indian Government.</p>
+<p>3. In the meanwhile, the Indian States are in a position to play an important part in the formulation of the new constitution structure for India, and His Majesty’s Government have been informed by the Indian States that they desire, in their own interests and in the interests of India as a whole, both to make their contribution to the framing of the structure, and to take their due place in it when it is completed. In order to facilitate this they will doubtless strengthen their position by doing everything possible to ensure that their administrations conform to the highest standard. Where adequate standards cannot be achieved within the existing resources of the State they will no doubt arrange in suitable cases to form or join administrative units large enough to enable them to be fitted into the constitutional structure. It will also strengthen the position of States during this formulative period if the various Governments which have not already done so take active steps to place themselves in close and constant touch with public opinion in their State by means of representative institutions.</p>
+<p>4. During the interim period it will be necessary for the States to conduct negotiations with British India in regard to the future regulation of matters of common concern, especially in the economic and financial field. Such negotiations, which will be necessary whether the States desire to participate in the new India Constitutional structure or not, will occupy a considerable period of time, and since some of these negotiations may well be incomplete when the new structure comes into being, it will, in order to avoid administrative difficulties, be necessary to arrive at an understanding between the States and those likely to control the succession Government or <span class="pg">[p. 2]</span> Governments that for a period of time the then existing arrangements as to these matters of common concern should continue until the new agreements are completed. In this matter, the British Government and the Crown Representative will lend such assistance as they can should it be so desired.</p>
+<p>5. When a new fully self-governing or independent Government or Governments come into being in British India, His Majesty’s Government’s influence with these Governments will not such as to enable them to carry out the obligations of paramountcy, Moreover, they cannot contemplate that British troops would be retained in India for this purpose. Thus, as a logical sequence and in view of the desire expressed to them on behalf of the India and State, His Majesty’s Government will cease to exercise the powers of paramounty. This means that the rights of the States which flow from their relationship to the Crown will no longer exist and that all the rights surrendered by the States to the paramount power will return to the States. Political arrangements between the States on the one side and the British crown and British India on the other will thus be brought to an end. The void will have to be filled either by the States entering into a federal relationship with the successor Government or Governments in British India, or falling this, entering into particular political arrangements with it or them.</p>
+<p>NOTE – The following explanatory note was issued by the Cabinet Mission in New Delhi on the date of publication (22nd May 1946):-</p>
+<p>The Cabinet Delegation desire to make it clear that the document issued today entitled ‘Memorandum on States’ Treaties and Paramontcy presented by the Cabinet Delegation to His Highness the Chancellor of Princes’ was drawn up before the Mission began its discussion with party leaders and represented the substance of what they communicated to the representatives of the States at their first interviews with the Mission. This is the explanation of the use of the words ‘Succession Government or Governments of British India’ an expression which would not of course have been used after the issue of the Delegation’s recent statement.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Memorandum on States' Treaties and Paramountcy, presented by the Cabinet Mission to the Chancellor of the Chamber of Princes, 12 May 1946, with the Mission's note of 22 May 1946.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: Born-digital transcription; includes the Cabinet Delegation's note issued on publication (22 May 1946).</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarojini Naidu: For the Evolution of National Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Sarojini Naidu: For the Evolution of National Life</h1>
+<p class="speech-meta">1,822 words, about 8 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Sarojini Naidu: Hindus, Muslims, and Indian Unity</h3>
+<p class="ed"><span class="pg">[p. 466]</span> Details about the life of Naidu, including her championing of Hindu–Muslim cooperation, were given in chapter 4.</p>
+<h3>In Support of the Lucknow Pact</h3>
+<p class="ed">The first of the two speeches excerpted below is in support of the Congress–Muslim League Pact, or Scheme of Reforms; the second was given after a communal riot in Patna in 1917, in order to encourage amity between the communities.</p>
+<p>With regard to communal representation ... I think you will find that the majority of thinking men, Hindus and Muslims, are in agreement that the principle of communal representation is not the ideal one, but in practical politics sometimes we have to go by expediency towards the path of the ideal and that is why till we are able to establish that abiding trust in each other, love and co-operation, there should be communal representation. It is [a] temporary barrier between community and community and directly trust is established.... Nobody will want separate representation but we will establish the true democracy of Indian life by saying the best men shall represent the best interests of India.... My own feeling is this ... that had you not provided generously for the separate representation, it were not possible that within 5 years Mussalman brethren would have stood shoulder to shoulder with you, for, disorganized and so much behind the Hindu community they were ... they began their political education later.... It was necessary for them to consolidate themselves as a unit first before they could come in a body to work side by side with their Hindu brethren.... we must support the Congress-League scheme.... It is an imperfect scheme.... If you are united, if you forget your community and think of the nation, if you forget your city and think of the province, if you forget you are a Hindu and remember the Mussalman, if you forget you are a Brahman and remember the Panchama then and then alone will India progress.</p>
+<p><em>[From Verinder Grover and Ranjana Arora, eds., Great Women of Modern India (New Delhi: Deep and Deep Publications, 1993), 3:47–50.]</em></p>
+<h3>For the Evolution of National Life</h3>
+<p><span class="pg">[p. 467]</span> Centuries ago when the first Islamic army came to India, they pitched their caravans on the banks of the sacred Ganges and tempered and cooled their swords in the sacred waters. It was the baptism of the Ganges that gave the first welcome to the Islamic invaders that became the children of India as generations went by. And today, in speaking of the Hindu–Moslem Unity, we should bear in mind that historic circumstance, that historic culture, that historic evolution for which the Gangetic valley has stood in bringing about the Hindu–Muslim relationship age after age.... I wish to invoke in your hearts ... a sense of responsibility.... It is only because we are ignorant that we are divided and it is the sacred mission of enlightenment to bring not the lesson of quarrel but the lesson of peace. That is the problem with which we have to deal today.... What is the meaning, what is the significance of the Hindu–Moslem Unity? There is so much misconception abroad that if a Muslim shows sympathy towards a Hindu, he becomes a traitor and if a Hindu shows sympathy towards a Mussalman he becomes an outcast. But what is the reason of this mistrust of those who stand as links between the two races? Nothing save our misreading of the entire purpose of national history. The problem of the Hindu–Muslim Unity stands like this: There are in India two communities (I will not say two races), two communities that are separated by that they consider the difference of creeds. But when you come to analyse this difference of creed you begin to find that after all, fundamentally, the teaching that came in the wake of the Muslim conquerors was the same as the teaching that arose in the great hymns in the sacred mountain regions of the Himalayas and on the sacred Ganges five thousand years ago. It means essentially the love of truth, the love of purity, the service of humanity, the search for wisdom, the great lessons of self-sacrifice, the worship of the same Transcendent Spirit, no matter whether in language it was called Allah and in another Parmeswar (applause). After all what is this antagonism between creed and creed? Antagonism is merely the asset of the ignorant. They are not the weapons of the wise, who realise that after all it is only the misunderstanding of the essential truth wherein lies the difficulty in launching across that golden bridge of sympathy that brings together the two great communities whose fundamental teaching is the love of God and the service of men. And then in this great country the Moslems came to make their home not to carry spoils and to go back to their own home but to build permanently here their home and create a new generation for the enrichment of the Motherland. How can they live separate from the people of the soil? Does history say that in the past they have so lived separate? Or rather it says that once having chosen to take up their abode in this land they became the children of the soil, the very flesh of our flesh and blood of our blood.... See what were the chief characteristics of the Mughal Rule. Not that the Hindus were kept at arm's length, but that the Emperor Akbar took his son to Rajputana, so that the blood of the conqueror and the blood of the conquered were mixed to create a new generation <span class="pg">[p. 468]</span> of Indians in India.... Keep your separate entities, keep your separate creed, but bring to the federated India the culture of centuries to enrich with all those contributions that each has to make for the sum total, for the healthful growth of the national progress. Who says that we want in India marriage between the Hindus and the Mussalmans so that each might lose its own special characteristics? India is so complex in the problem of her civilisation, in her races and her creeds that it is impossible, that it is even very undesirable—nay, psychologically false,—were we to say that we desire a unity that means the merging of the separate races to make one kind of common life for the common weal of the country. What we want is this: that for the evolution of national life we want the Mussalmans to bring their special characteristics and so we want the Hindus to contribute theirs and considering the chivalry of the past allow no minority to suffer. We are not limiting ourselves to the contributions of the Hindu–Muslim culture alone, but we want the special contributions which the Zoroastrians and the Christians and other races ... can bring us. Gentlemen, do not for a moment entertain any idea of exclusion, harbour any thought of isolation of one group from another, of one sect from another. But let each bring its own quota of special contributions as free gifts offered lovingly and generously at the feet of the great Motherland for the swelling of the national Commonwealth.... The Hindus have to bring to modern evolution of life the principal qualities of that spiritual civilization that gave to the world not merely the tone of the Upanishads, but created for the intellectual and the illiterate alike such glorious type of virtue, courage, wisdom, truth, as Ram among men and Savitri among women, that mystic genius of the Hindus, that spiritual passion, that fervour of self-abnegation, that great first realisation that the true measure of life is not the material, not the temporal, but the spiritual—that is the special contribution that the Hindu race has to make to the future evolution of India. And what of the Mussalmans? The first of the great world religions that thirteen hundred years ago laid down the first fundamental principles of Democracy was the religion of Islam. In [the] twentieth century we hear that the ideal of the future is Democracy.... The first secret of this great world-wide Democracy was laid in the desert sands of Arabia by a dreamer of the desert and it is the peculiar privilege of his spiritual children to bring to this mystic India of spiritual value that human sense of Democracy that makes the king and the beggar equal.... It implies a certain inviolable sense of justice that gives to every man his equal chance in the evolution of national life and these we want imported into our national life, assimilated into our national life which the Hindu community cannot; with its system of exclusion that have been the misinterpreted characteristic of a system that made it merely a true division of responsibility. I say the Hindu community by itself cannot evolve it because, Hindu as I am, I stand here to confess the limitation of my community. We have not mastered that fundamental equality that is the privilege of Islam. What is mutual cooperation? ... We want that from the very beginning of our childhood there should be an interchange <span class="pg">[p. 469]</span> of culture.... It is by this interchange of knowledge and culture of each community from its babyhood, that we shall be able to build up not merely that kinship that is born of political expediency....</p>
+<p>It becomes a very simple thing to say that all men are neighbours of one another, brothers, blood ties, because they have the same tears and the same laughter ... so why make difference between the tillers of the soil whether he is a Muslim or a Hindu? Does he not suffer from drought, from the failure of harvest, from pestilence, from locusts? The school master, whether he be a Hindu or a Mussalman, has he not the same responsibility of creating within his hands a bond between brother and brother whether he be a Hindu or a Mussalman? Then when floods come, and famines come, and plagues come, do not all of us suffer equally? ... What has the corpse of a Hindu or a Mussalman done not to deserve the same sense of honour from each of us who are equally created by God and who have been equally subject to mortality? ... This is the feeling of a generous love, of brotherly love that we want to establish as a thing flawless, and in the hearts of the Hindus towards Mussalmans ... of manhood that does not consider petty differences of castes and creeds ... the responsible sense of cooperation in the mutual reverence for each other's creed, mutual love for each other's civilisation, mutual trust in your common good intention and cooperation and equal responsibilities in the evolution of your great national life of tomorrow. That is the meaning of the Hindu–Muslim Unity.</p>
+<p><em>[From Grover and Arora, eds., Great Women of Modern India, 3:106–110, 112–114.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 466–469.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 466-469; reading PDF covers pp. 466-469. SIT headings and citations kept as printed. Two parts.</p></div>
+</div>
+</body>
+</html>

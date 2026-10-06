@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankim Chandra Chatterji: Hail to the Mother</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Bankim Chandra Chatterji: Hail to the Mother</h1>
+<p class="speech-meta">4,260 words, about 19 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Bankim Chandra Chatterji: Nationalist Author</h3>
+<p class="ed"><span class="pg">[p. 252]</span> Gokhale's saying, "What Bengal thinks today, all India thinks tomorrow," is nowhere more applicable than in the case of the Bengali writer Bankim Chandra Chatterji (1838–1894). Although he took no part in politics, Bankim first employed the triple <span class="pg">[p. 253]</span> appeal of language, history, and religion that enabled Hindu nationalism to win widespread support in the opening decade of the twentieth century. His historical novels in Bengali persuaded many readers that their glorious past should inspire them to achieve an equally glorious future, and demonstrated the power of the pen as an instrument for stirring up patriotic emotions in times when overt political action was impossible.</p>
+<p class="ed">Born near Calcutta, Bankim was the son of a Brahman landlord who was a local deputy collector of revenue. A brilliant student who studied Sanskrit, Persian, Arabic, Bengali, and English, he passed through the Anglicized educational system with distinction and was in 1858 one of two in Calcutta University's first graduating class. He was immediately offered a position as deputy magistrate in the Bengal administrative service, and for all but one year held this rank until his retirement in 1891—a situation that provides clear evidence of the lack of opportunity for advancement for Indians in government service. Fortunately he found an outlet for his natural talent in another direction. Throughout his career as an official, he used his spare time to write humorous sketches, stories, and novels that captured the imagination of literate Bengal. Bankim employed a new prose style that combined the virtues of Sanskritized Bengali and the vigor of the common speech and that, for the first time since the introduction of English education, made it respectable for Bengalis to write in their own mother tongue. The plots in his twelve novels are interesting and realistic, featuring love triangles; vivacious, articulate women; and examples of the destructive potential of passion. The backdrops to the main action are actual historical contexts designed to arouse Hindu pride in the past. In Bengal Bankim is considered the “father of the novel.”</p>
+<p class="ed">Nationalism in all parts of the world has often been associated with attachment to a common language and its accompanying literary heritage. Bankim could thus be credited with quickening a Bengali, as distinct from an all-Indian, nationalism. But this distinction was rendered largely superfluous after 1905, when the agitation against the partition of Bengal took on a nationwide character and his poem “Bande Mātaram” (“Hail to the Mother”), which first appeared in his novel Ānandamath, became the anthem of the nationalist movement.</p>
+<p class="ed">Ānandamath, or The Abbey of Bliss, his most famous (if not, from a literary point of view, his finest) novel, was serialized in a magazine in 1880 and published in 1882. A recent armed rebellion against the British in a district of Maharashtra in 1879 may have been part of the inspiration for Bankim's idea of a group of self-sacrificing, disciplined sannyāsīs (renouncers) who band together, eschewing family life for a time, to overthrow the reigning order. Bankim chose for his novel, however, a Bengali context, the aftermath of the famine in the early 1770s, and the "king" whom the sannyāsī rebels attempt to remove is the titular ruler, the Muslim nawab, not the British, who by contrast are viewed as necessary catalysts to political and social change. Later scholarship has shown that he toned down his criticism of the British in preparing the final version of the novel, and reframed the villains as Muslims. The renouncers are worshipers of martial Hindu deities—the Krishna of the Mahābhārata (Bankim decried the effeminate eroticism of the lover Krishna) and the Mother Goddess, whose Children (santān) they claim to be. For Bankim, "the Mother" of "Bande Mātaram" <span class="pg">[p. 254]</span> referred at the same time to the land of Bengal and to the Hindu Goddess. From this fusion of the hitherto separate objects of patriotic and religious devotion sprang the central energy of modern Hindu nationalism.</p>
+<p class="ed">In spite of all the strength of dedication and mass appeal it generated, Hindu nationalism acted as a regressive force both in hindering social reform and in exacerbating the latent hostility between Hindus and Muslims. Bankim's novels faithfully reflect these two shortcomings, for with rare exceptions they picture well-meaning reformers as fools and Muslims as knaves. Furthermore, because of its equation of the land with the Hindu Goddess, Ānandamath's "Bande Mātaram" has always provoked suspicious, if not downright hostile, reactions from Muslims. In 1930 the Congress tried to prune the song of any offending "idolatrous" language, but in 1938 Jinnah made as a prerequisite for his agreement to work with Congress the dropping of the song as the slogan of the nationalist movement. Even in 1947 it was not revived, since Nehru chose the less religiously colored "Jana Gana Mana" of Rabindranath Tagore as the national anthem of independent India.</p>
+<p class="ed">Bankim's attitude toward the British is less easy to tease out from a reading of the novel. In his own life he was chained to his clerical job out of fiscal need, but he resented the humiliating treatment he endured at the hands of his employers, as well as the pressure he felt to mould his literary creativity according to British political taste. Even the first published edition of the novel, in 1882, is kinder to the British than the earlier serialized edition. Realizing that there was much to gain from the British presence in India, such as education, public works, and the justice system, he concluded his novel with a resigned acceptance of British rule: India would be free when it experienced a moral regeneration. The stability of English rule, plus a growing pride in the Hindu past, were the twin keys to such a cultural revival, and through his novels he sought above all to contribute to this pride.</p>
+<h3>Hail to the Mother</h3>
+<p class="ed">In the following excerpts from Ānandamath, Bhabananda, one of the sannyāsīs, reveals to a new disciple named Mahendra (who has recently, he thinks, lost his wife and daughter) the group's mission and the mystique that sustains it. After introducing Mahendra to “Bande Mātaram” in chapter 10, in chapter 11 Bhabananda brings him to Satyananda, the leader of the Children, who shows him the three forms of the Motherland: the Mother-as-she-was, Jagaddhātrī; the Mother-as-she-is, the emaciated Kālī; and the Mother-as-she-will-be, Durgā, surrounded by her four children, Lakshmī, Sarasvatī, Kārtikeya, and Ganesha. The only way to replace Kālī with Durgā is for her Children to maintain their vows of self-discipline and to work to vanquish foreign invaders. In the final chapter of Ānandamath (present in the first edition and unchanged thereafter), after the sannyāsīs have routed both the Muslims and the British, a supernatural figure explains to their leader Satyananda that the British have been forced to rule in India so that Hinduism, or what is translated below as the Eternal Code (sanātan dharma), might regain its pristine power.</p>
+<h3>Part I, Chapter 10</h3>
+<p><span class="pg">[p. 255]</span> The two walked silently across the plain in that moonlit night. Mahendra was silent, anguished, unbending, somewhat intrigued. Suddenly Bhabananda seemed to become a different person. No longer was he the grave, calm renouncer, the skilled, valiant figure of the battlefield, the man who had cut off the head of a commanding officer! No longer the man who had just rebuked Mahendra so haughtily. It was as if seeing the radiance of plain and forest, mountain and river of a peaceful, moonlit world had invigorated his mind in a special way, like the ocean gladdened by the rising moon. He was now light-hearted, talkative, friendly, keen to make a conversation. He tried often to get Mahendra to talk, but Mahendra remained silent. Then, with no other recourse, Bhabananda began to sing softly to himself:</p>
+<p>I revere the Mother! The Mother<br />
+Rich in waters, rich in fruit,<br />
+Cooled by the southern airs,<br />
+Verdant with the harvest fair.</p>
+<p>Mahendra was a little astonished when he heard this song, and was at a loss to understand. Who was this mother, “rich in waters, rich in fruit, cooled by the southern airs, verdant with the harvest fair”?</p>
+<p>"Who is this mother?" he asked Bhabananda.</p>
+<p>Without answering Bhabananda began to sing:</p>
+<p>The Mother—with nights that thrill in the light of the moon,<br />
+Radiant with foliage and flowers in bloom,<br />
+Smiling sweetly, speaking gently,<br />
+Giving joy and gifts in plenty.</p>
+<p>Mahendra cried, "But that's our land, not a mother!"</p>
+<p>Bhabananda replied, “We recognize no other mother. ‘One’s mother and birthland are greater than heaven itself.’ But we say that our birthland is our mother. We’ve no mothers, fathers, brothers, friends, no wives, children, houses, or homes. All we have is she who is rich in waters, rich in fruit, cooled with the southern airs, verdant with the harvest fair.”</p>
+<p>“Then sing on,” said Mahendra, understanding at last.</p>
+<p>And Bhabananda sang once more:</p>
+<p>I revere the Mother! The Mother<br />
+Rich in waters, rich in fruit ...<br />
+Giving joy and gifts in plenty.<br />
+Powerless? How so, Mother?<br />
+<span class="pg">[p. 256]</span> With the strength of voices fell,<br />
+Seventy millions in their swell!<br />
+And with sharpened swords<br />
+By twice as many hands upheld!<br />
+To the Mother I bow low,<br />
+To her who wields so great a force,<br />
+To her who saves,<br />
+And drives away the hostile hordes!<br />
+You our wisdom, you our law,<br />
+You our heart, you our core,<br />
+In our bodies the living force is thine!<br />
+Mother, you're our strength of arm,<br />
+And in our hearts the loving balm,<br />
+Yours the form we shape in every shrine!<br />
+For you are Durga, bearer of the tenfold power,<br />
+And wealth's Goddess, dallying on the lotusflower,<br />
+You are Speech, to you I bow,<br />
+To us wisdom you endow.<br />
+I bow to the Goddess Fair<br />
+Rich in waters, rich in fruit,<br />
+To the Mother<br />
+Spotless—and beyond compare!<br />
+I revere the Mother! the Mother<br />
+Darkly green and also true,<br />
+Richly dressed, of joyous face,<br />
+This ever-plenteous land of grace.</p>
+<p>Mahendra saw that the bandit wept as he sang. "Who are you people?" he asked bewildered.</p>
+<p>Bhabananda replied, “We are the Children.”</p>
+<p>"What does that mean? Whose children?" asked Mahendra.</p>
+<p>"The Mother's Children."</p>
+<p>Mahendra said, "Fine, do children honour their mother by robbing and plundering? What kind of mother-love is this?"</p>
+<p>Bhabananda replied, "We don't rob and plunder."</p>
+<p>"But you just plundered those carts!"</p>
+<p>"Was that robbery and plunder? Whose money did we plunder?"</p>
+<p>"The king's, of course!"</p>
+<p>"The king's!" said Bhabananda. "Does he have a right to the money he takes?"</p>
+<p>"It is the king's share."</p>
+<p>“A king who doesn’t look after this kingdom is no king,” said Bhabananda.</p>
+<p>"I can see sepoys blowing you all to bits some day at the cannon's mouth!"</p>
+<p><span class="pg">[p. 257]</span> "Don't worry, I've seen plenty of those scoundrels about, I saw some today too!"</p>
+<p>"You didn't see well enough. One day you'll really see," said Mahendra.</p>
+<p>“Perhaps,” said Bhabananda. “You can only die once.”</p>
+<p>"Yes, but why court death?"</p>
+<p>Bhabananda answered, “Mahendra Simha, I thought you might be a real man, but I see now that you’re like the rest of them—a devourer only of fine things. Look, the snake crawls about flat on the ground, the lowliest creature around, but step on it and even the snake rears its hood! Aren’t you even a little fed up with the way things are? Look at all the other places—Magadha, Mithila, Kashi, Kanci, Delhi, Kashmir—where else is in such a mess? Where else do people have to eat grass for lack of food? Or thorns, or anthills, or creepers from the forest? Where else do they eat dogs and jackals and dead bodies? Where else can’t folk have peace of mind even when they’ve locked away their money, or installed the shalogram at home, or kept their wife and daughter indoors, or when their womenfolk are expecting? Here they cut open the womb and tear out the child! Everywhere else there’s a pact with the king for protection, but does our Muslim king protect us? We’ve lost our religious way of life, our caste status, our self-respect, our family connections—and now we’re about to lose our lives! If we don’t get rid of those bearded degenerates will anything be left of our Hindu identity?”</p>
+<p>Mahendra said, "How will you get rid of them?"</p>
+<p>“By destroying them,” Bhabananda replied.</p>
+<p>"On your own? Just with a slap?"</p>
+<p>The bandit sang:</p>
+<p>Powerless? How so, Mother?<br />
+With the strength of voices fell,<br />
+Seventy millions in their swell!<br />
+And with sharpened swords<br />
+By twice as many hands upheld!</p>
+<p>Mahendra said, "But I see that you're alone!"</p>
+<p>"How can you say that? You've just seen two hundred men!"</p>
+<p>"Are they all Children too?"</p>
+<p>"Every one of them."</p>
+<p>"How many more are there?"</p>
+<p>“Thousands right now, and in time there’ll be more.”</p>
+<p>Mahendra said, “Let’s say there’ll be ten to twenty thousand of you. Will you be able to end Muslim rule with that?”</p>
+<p>“How many men did the English have at Plassey?” rejoined Bhabananda.</p>
+<p>“You’re comparing the Bengalis to the English?”</p>
+<p><span class="pg">[p. 258]</span> "Why not?" answered Bhabananda. "There's a limit to physical strength. Do you think a stronger person can make a bullet fly farther?"</p>
+<p>"Then why is there such a difference between the English and the Muslims?" asked Mahendra.</p>
+<p>“Listen,” said Bhabananda, “an Englishman won’t flee even to save his life, whereas the Muslim will run off when he begins to sweat; he’ll slope off in search of a cool drink! Again, the English hang on, they’ll finish what they’ve begun. But the Muslims play fast and loose. The sepoys risk their lives for money, even then they don’t get paid. And finally, it’s a question of courage.... When they see a single cannonball a whole tribe of Muslims will flee, whereas a tribe of cannonballs can’t make a single Englishman run!”</p>
+<p>"Do your people have all these fine qualities?" asked Mahendra.</p>
+<p>“No,” said Bhabananda. “But qualities don’t fall off trees; you’ve got to practice them.”</p>
+<p>"And are you doing that?"</p>
+<p>"Can't you see we're renouncers?" said Bhabananda. "We've renounced in order to practice. When the job's done, when our practice is completed, we'll go back to running households. We too have wives and daughters."</p>
+<p>Mahendra said, "Have you been able to give all that up? To cut off worldly concerns?"</p>
+<p>Bhabananda answered, “No santan should lie, so I won’t make empty boasts. Who can cut off worldly concerns? Those who say they’ve done so either have never had such concerns or are making an empty boast. We don’t cut off worldly concerns, we keep a vow. Will you be a santan?”</p>
+<p>Mahendra replied, “Unless I hear about my wife and child, I can’t answer that.”</p>
+<p>“Very well, then come and meet your wife and daughter.”</p>
+<p>They continued on their way, and Bhabananda began to sing Bande Mataram again. Mahendra, who had a good voice and some knowledge and love of music, sang with him. As he sang, he noticed that tears came to his eyes.</p>
+<p>Mahendra said, "So long as I don't have to leave my wife and child, you can initiate me into this vow."</p>
+<p>Bhabananda said, “Whoever takes this vow must abandon wife and child. If you take the vow you can’t see your wife and daughter. They’ll be looked after properly, but you’re forbidden to see them till your vow is fulfilled.”</p>
+<p>“Then I won’t take the vow,” said Mahendra.</p>
+<h3>Part I, Chapter 11</h3>
+<p>Night had turned to dawn, and that deserted forest, dark and silent for so long, was now flooded with light and rejoiced in the sound of bird-song. And in that joyful dawn, in the joyous forest, in the monastery of the sacred brotherhood, Satyananda Thakur sat on a deer-skin performing his early morning worship with Jibananda at his side. Just then Bhabananda arrived with Mahendra. The <span class="pg">[p. 259]</span> monk continued his rituals ... and no one dared to speak. When the worship was done, both Bhabananda and Jibananda made their obeisance, and taking the dust from his feet sat down respectfully in his presence.</p>
+<p>Satyananda made a sign to Bhabananda and took him outside. We do not know what they said, but after a while both reentered the shrine, and with a kindly smile the monk said to Mahendra, “My son, I have been greatly distressed by your sorrow. It was only by the mercy of the Friend of the needy that I was able to save your wife and daughter last night.” He explained how he had been able to rescue Kalyani. Then he said, “Come, let me take you to them.”</p>
+<p>The monk led Mahendra into the temple and Mahendra saw that they had entered a hall of vast proportions. Even then, in the crimson flash of a new dawn, when the nearby forest glittered like diamonds in the sunlight, that huge hall was almost dark. At first Mahendra was unable to see what was inside, but as he peered more and more closely, he could gradually make out a massive four-armed statue bearing a conch shell, discus, mace and lotus, respectively, in each hand, with the Kaustubha gem adorning its breast, and the discus Sudarshan seeming to whirl around in front. Two great, headless forms, painted as if bathed in blood, representing the demons Madhu and Kaitabha, stood in the front of the image. On its left stood a terrified-looking Lakshmi, flowing hair disheveled, and adorned with a garland of flowers. On the right stood Sarasvati, surrounded by books, musical instruments, the various musical modes personified, and other objects. On Vishnu's lap sat an enchanting image, more beautiful and glorious than Lakshmi and Sarasvati. Gandharvas, kinnaras, gods, yakshas and sprites paid her homage.</p>
+<p>In a voice most solemn and filled with awe, the monk asked Mahendra, "Can you see everything?"</p>
+<p>"Yes," said Mahendra.</p>
+<p>"Have you seen the figure in Vishnu's lap?"</p>
+<p>"Yes. Who is she?"</p>
+<p>"The Mother."</p>
+<p>"Who is this Mother?" asked Mahendra.</p>
+<p>The monk answered, "She whose Children we are."</p>
+<p>"Who is she?"</p>
+<p>"You will know her in time," was the answer. "Now say Bande Mataram and follow me. There is more to see."</p>
+<p>Then the monk took Mahendra into another chamber. There he saw a beautiful image of the Goddess as Bearer of the earth, perfectly formed and decorated ...</p>
+<p>"Who is she?" asked Mahendra.</p>
+<p>"The Mother-as-she-was," replied the monk.</p>
+<p>"Who is that?" asked Mahendra.</p>
+<p>"She who subdued the wild beasts such as the elephant and lion underfoot and set up her lotus throne in their dwelling place. She was happy and beautiful, <span class="pg">[p. 260]</span> adorned with every ornament, radiant as the risen sun.... Prostrate yourself before her."</p>
+<p>After Mahendra had devoutly prostrated himself before the motherland in the form of the nurturing Goddess, the monk pointed to a dark tunnel and said, "Follow me." He went on ahead, Mahendra following apprehensively close behind. They reached a dark chamber, in the depths of the earth, lit somehow by a faint light. There in the dim light he could see an image of Kali.</p>
+<p>The monk said, "Look, this is the Mother-as-she-is."</p>
+<p>“Kali!” said Mahendra fearfully.</p>
+<p>“Yes, Kali,” said the monk. “Blackened and shrouded in darkness. She has been robbed of everything; that is why she is naked. And because the whole land is a burning-ground, she is garlanded with skulls. And she’s crushing her own gracious Lord underfoot. Alas, dear Mother!”</p>
+<p>The tears streamed down the monk's face. Mahendra asked, "Why has she a club and begging bowl in her hands?"</p>
+<p>"We're her Children, and that's all we could put in her hands as weapons," said the monk. "Now, say Bande Mataram."</p>
+<p>“Bande Mataram,” said Mahendra and prostrated himself before Kali.</p>
+<p>Then saying, “Come this way,” the monk began to ascend a second tunnel. Suddenly the rays of the morning sun dazzled their eyes and they heard the soft bird-song all around them. Mahendra saw a golden ten-armed image of the Goddess in a large marble shrine glistening and smiling in the early morning rays.</p>
+<p>Prostrating himself, the monk said, “And this is the Mother-as-she-will-be. Her ten arms reach out in ten directions, adorned with various powers in the form of the different weapons she holds, the enemy is crushed at her feet, while the mighty lion who has taken refuge there is engaged in destroying the foe. Behold her whose arms are the directions”—here Satyananda’s voice broke down and he began to weep—“whose arms are the directions, who holds various weapons and crushes the enemy and roams on the lordly lion’s back, who has Lakshmi personifying good fortune on her right, and the goddess of speech who bestows wisdom and learning on her left, with Kartikeya signifying strength and Ganesh good success, in attendance! Come, let us prostrate ourselves before the Mother.”</p>
+<p>With folded hands and upturned faces both cried out in unison: "You who are blessed above all good things, the gracious one, who brings all good things to fruition, our refuge—Tryambaka, Gauri, Narayani—salutations to you."</p>
+<p>After they had devoutly prostrated themselves they rose up and Mahendra asked in a choked voice, "When will we be able to see the Mother in this form?"</p>
+<p>The monk replied, "When all Mother's children recognize her as the Mother, she will be gracious to us."</p>
+<p>Mahendra asked abruptly, "Where are my wife and daughter?"</p>
+<p>“Come, it is time to see them,” answered the monk.</p>
+<p><span class="pg">[p. 261]</span> "I'll see them just once and then send them away."</p>
+<p>"Why will you send them away?"</p>
+<p>“Because I want to accept the Maha Mantra.”</p>
+<h3>Part IV, Chapter 8</h3>
+<p>"Let us go," said Satyananda. "I am ready. But, oh! Great One, resolve a doubt for me. Why is it that just when I've won the battle and freed the Eternal Code from all obstacles, I've received this command of dismissal?"</p>
+<p>The other replied, "Your work's been done, and Muslim rule has been destroyed. There's no more for you to do. There's no need for the pointless killing of living beings."</p>
+<p>“Muslim rule has been destroyed,” said Satyananda, “but Hindu rule has not been established. Even now the English remain powerful in Kolkata.”</p>
+<p>The other said, "Hindu rule will not be established at this time. If you remain, people will die needlessly. So, come away."</p>
+<p>When he heard this, a sharp pang of anguish pierced Satyananda. "Master," he said, "if Hindu rule will not be established then who will be king? Will the Muslims rule again?"</p>
+<p>“No,” replied the other. “Now the English will rule.”</p>
+<p>Satyananda's eyes streamed with tears. Turning to the image of his birthland in the form of the Mother mounted on high, he joined his hands together and said in a voice choked with tears, "Oh Mother! I've not been able to set you free. Once more you will fall into the hands of unworthy foreigners. Do not be offended with your Child. Alas, Mother! Why did I not die on the battlefield today?"</p>
+<p>The Healer said, “Satyananda, do not grieve. It was mistakenly, by means of banditry, that you gathered wealth and won your victory. Wrongdoing can never produce holy fruit. So you will not be able to free the land. What will happen will happen for the good. Unless the English rule, it will not be possible for the Eternal Code to be reinstated. Listen carefully, I’ll explain it to you according to the mind of the Great Ones.</p>
+<p>"To worship three hundred and thirty million gods is not the Eternal Code. That's a worldly, inferior code. Through its influence the real Eternal Code—what the foreigners call the Hindu rule of life—has been lost. The true Hindu rule of life is based on knowledge, not on action. And this knowledge is of two kinds—outward and inward. The inward knowledge is the chief part of the Eternal Code, but unless the outward knowledge arises first, the inward cannot arise. Unless one knows the gross, one cannot know the subtle.</p>
+<p>"For a long time now the outward knowledge has been lost in this land, and so the true Eternal Code has been lost too. If one wishes to reinstate this Code, one must make known the outward knowledge first.... The English are very knowledgeable in the outward knowledge, and they're very good at instructing <span class="pg">[p. 262]</span> people. Therefore we'll make them king. And when by this teaching our people are well instructed about external things, they'll be ready to understand the inner. Then no longer will there be any obstacles to spreading the Eternal Code, and the true Code will shine forth by itself again. And till that day comes—so long as the Hindu is not wise and virtuous and strong once more—English rule will remain intact. Their subjects will be happy under the English, and they will be free to follow their religion. Therefore wise one, refrain from fighting the English, and follow me."</p>
+<p>Satyananda said, "O Great One! If English rule was your aim, and if it is good for the land to be under English rule at this time, then why did you engage us in this cruel war?"</p>
+<p>The Great Man replied, “At present the English are traders. They’re intent on amassing wealth and do not wish to take on the burden of ruling a kingdom. But because of the Children’s rebellion, they’ll be forced to take on the burden of ruling, for without this they cannot collect wealth. The rebellion came about to usher in English rule. Now come—as you acquire knowledge you yourself will be able to understand everything.”</p>
+<p><em>[From Chatterji, Ānandamath; or, The Sacred Brotherhood, trans. Julius J. Lipner (New York: Oxford University Press, 2005), 144–151 and 228–230.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 252–262.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 5, pp. 252-262; reading PDF covers pp. 252-258. SIT headings and citations kept as printed. PDF stops at p. 258 in mid-reading; the Anandamath extract and its citation run to p. 262.</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabindranath Tagore: “The Problem of India”</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Rabindranath Tagore: “The Problem of India”</h1>
+<p class="speech-meta">1,527 words, about 7 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>“The Problem of India”</h3>
+<p class="ed"><span class="pg">[p. 310]</span> This statement, in the form of a letter addressed to an American lawyer, Myron H. Phelps, who was sympathetic to India, was written in response to a request for information and help in assisting the cause of nationalist India. It presents Tagore's long view of Indian civilizations, and compares India's dilemmas to those of other nations, stressing its unique solutions and gifts.</p>
+<p>Shantiniketan, West Bengal, 4 January 1909</p>
+<p>My dear Sir,</p>
+<p>... One need not dive deep, it seems to me, to discover the problem of India; it is so plainly evident on the surface. Our country is divided by numberless differences—physical, social, linguistic, religious; and this obvious fact must be taken into account in any course which is destined to lead us into our own place among the nations who are building up the history of man. The trite maxim “History repeats itself” is like most other sayings but half the truth. The conditions which have prevailed in India from a remote antiquity have guided its history along a particular channel, which does not and cannot coincide with the lines of evolution taken <span class="pg">[p. 311]</span> by other countries under different sets of influences. It would be a sad misreading of the lessons of the past to apply our energies to tread too closely in the footsteps of any other nation, however successful in its own career. I feel strongly that our country has been entrusted with a message which is not a mere echo of the living voices that resound from western shores, and to be true to her trust she must realize the divine purpose that has been manifest throughout her history....</p>
+<p>It has ever been India's lot to accept alien races as factors in her civilization. You know very well how the caste that proceeds from colour takes elsewhere a most virulent form. I need not cite modern instances of the animosity which divides white men from negroes in your own country, and excludes Asiatics from European colonies. When, however, the white-skinned Aryans on encountering the dark aboriginal races of India found themselves face to face with the same problem, the solution of which was either extermination, as has happened in America and Australia, or a modification in the social system of the superior race calculated to accommodate the inferior without the possibility of either friction or fusion, they chose the latter. Now the principle underlying this choice obviously involves mechanical arrangement and juxtaposition, not cohesion and amalgamation. By making very careful provision for the differences, it keeps them ever alive. Unfortunately, the principle once accepted inevitably grows deeper and deeper into the constitution of the race even after the stress of the original necessity ceases to exist.</p>
+<p>Thus secure in her rigid system of seclusion, in the very process of inclusion, India in different periods of her history received with open arms the medley of races that poured in on her without any attempt at shutting out indesirable elements. I need not dwell at length on the evils of the resulting caste system. It cannot be denied, and this is a fact which foreign onlookers too often overlook, that it served a very useful purpose in its day and has been even up to a late age of immense protective benefit to India. It has largely contributed to the freedom from narrowness and intolerance which distinguishes the Hindu religion and has enabled races with widely different culture and even antagonistic social and religious usages and ideals to settle down peaceably side by side—a phenomenon which cannot fail to astonish Europeans, who, with comparatively less jarring elements, have struggled for ages to establish peace and harmony among themselves. But this very absence of struggle, developing into a ready acquiescence in any position assigned by the social system, has crushed individual manhood and has accustomed us for centuries not only to submit to every form of domination, but sometimes actually to venerate the power that holds us down. The assignment of the business of government almost entirely to the military class reacted upon the whole social organism by permanently excluding the rest of the people from all political <span class="pg">[p. 312]</span> cooperation, so that now it is hardly surprising to find the almost entire absence of any feeling of common interest, any sense of national responsibility, in the general consciousness of a people of whom as a whole it has seldom been any part of their pride, their honour, their dharma, to take thought or stand up for their country. This completeness of stratification, this utter submergence of the lower by the higher, this immutable and all-pervading system, has no doubt imposed a mechanical uniformity upon the people but has at the same time kept their different sections inflexibly and unalterably separate, with the consequent loss of all power of adaptation and readjustment to new conditions and forces. The regeneration of the Indian people, to my mind, directly and perhaps solely depends upon the removal of this condition. Whenever I realize the hypnotic hold which this gigantic system of cold-blooded repression has taken on the minds of our people whose social body it has so completely entwined in its endless coils that the free expression of manhood even under the direst necessity has become almost an impossibility, the only remedy that suggests itself to me and which even at the risk of uttering a truism I cannot but repeat, is—to educate them out of their trance.</p>
+<p>I know I shall be told that foreign dominion is also one of the things not conducive to the free growth of manhood. But it must be remembered that with us foreign dominion is not an excrescence the forcible extirpation of which will restore a condition of normal health and vigour. It has manifested itself as a political symptom of our social disease, and at present it has become necessary to us for effecting the dispersal of all internal obstructive agencies. For we have now come under the domination not of a dead system, but of a living power, which, while holding us under subjection, cannot fail to impart to us some of its own life. This vivifying warmth from outside is gradually making us conscious of our own vitality and the newly awakened life is making its way slowly, but surely, even through the barriers of caste....</p>
+<p>But here in India are working deep-seated social forces, complex internal reactions, for in no other country under the sun has such a juxtaposition of races, ideas and religions occurred; and the great problem which from time immemorial India has undertaken to solve is what ... may be called the race problem. At the sacrifice of her own political welfare she has through long ages borne this great burden of heterogeneity, patiently working all the time to evolve out of these warring contradictions a great synthesis....</p>
+<p>For us, there can be no question of blind revolution, but of steady and purposeful education.... Must we not have that greater vision of humanity which will impel us to shake off the fetters that shackle our individual life before we begin to dream of national freedom?</p>
+<p><span class="pg">[p. 313]</span> It must be kept in mind, however, that there never has been a time when India completely lost sight of the need of such reformation.... All the illustrious names of our country have been of those who came to bridge over the differences of colours and scriptures and to recognize all that is highest and best as the common heritage of humanity. Such have been our emperors Asoka and Akbar, our philosophers Shankara and Ramanuja, our spiritual masters Kabir, Nanak, Chaitanya and others not less glorious because knit closer to us in time and perspective. They belong to various sects and castes, some of them of the very “lowest,” but still they occupy the ever-sacred seat of the guru, which is the greatest honour that India confers on her children. This shows that even in the darkest of her days the consciousness of her true power and purpose has never forsaken her.</p>
+<p>The present unrest in India of which various accounts must have reached you is to me one of the most hopeful signs of the times. Different causes are assigned and remedies proposed by those whose spheres of activity necessarily lead them to a narrow and one-sided view of the situation.... We have also begun vaguely to realize the failure of England to rise to the great occasion, and to miss more and more the invaluable cooperation which it was so clearly England's mission to offer. And so we are troubled with a trouble which we know not yet how to name. How England can best be made to perceive that the mere establishment of the Pax Britannica cannot either justify or make possible her continued dominion, I have no idea; but ... I am sure that the sooner we come to our senses, and take up the broken thread of our appointed task, the earlier will come the final consummation.</p>
+<p><em>[From Rabindranath Tagore: An Anthology, ed. Krishna Dutta and Andrew Robinson (New York: St. Martin's Press, 1977), 236–242.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 310–313.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 5, pp. 310-313; reading PDF covers pp. 310-313. SIT headings and citations kept as printed. SIT gives no date or translator; year is approximate (c. 1909-1910) and needs checking.</p></div>
+</div>
+</body>
+</html>

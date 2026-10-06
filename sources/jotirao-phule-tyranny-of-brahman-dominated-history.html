@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jotirao Phule: The Tyranny of a Brahman-Dominated History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Jotirao Phule: The Tyranny of a Brahman-Dominated History</h1>
+<p class="speech-meta">2,613 words, about 11 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Jotirao Phule: Radical Reformer</h3>
+<p class="ed"><span class="pg">[p. 160]</span> It is hard to call Jotirao Phule (1827–1890) a reformer and not a revolutionary, since he wanted to overturn the entire Indian caste and economic order. But he also wanted to work within the framework of the British Raj, to which he gave a positive nod; thus it may be appropriate to call him a radical reformer. His powerful energy, courage, and intelligence attracted considerable attention during the second half of the nineteenth century in western India. Born into the low-caste Mali community in Maharashtra, he attended a missionary school, and came into contact with a circle of young men critical of traditional society and religion. Influenced not only by missionary views but also by the more radical ideas of writers like Thomas Paine (particularly “The Age of Reason”), Phule decided to become an educator; with his wife, he opened a school for girls from the lowest groups in society. Finding his program too radical, his own father turned him out. Phule continued to work for the education of women and of the lowest castes—including Untouchables, whom he called “atishudras.” He founded several more schools in the 1850s, including a night school for working people. In the 1860s he established a house for illegitimate children and their mothers, and challenged the caste order by opening the household water tank to Untouchables. In the next decade he helped found the Satyashodhak Samaj (“Truth-Seeking Society”), a radical reform organization; in pursuit of social change, he became a member of the Poona Municipal Council.</p>
+<p class="ed">He also developed a penetrating critique of Brahman dominance over the lower castes as the main theme of Indian history from the time of the Aryan invasions to the present. He drew upon decades of polemics by non-Brahmans and missionaries, as well as the centuries-old bhakti traditions of Maharashtra in formulating his views. <span class="pg">[p. 161]</span> Although he did not present a Marxist dialectic of class struggle, there are affinities. He assimilated all the lower castes—including Untouchables—into one large category of the oppressed, and insisted that they could only flourish if the extended dominance of the Brahmans at the top of the socioreligious order was overturned. As a monotheist of sorts, he rejected the traditional notions of karma, avatars, and the four varnas. He believed in the necessary destruction of the old to make way for the new, and in this process foreign missionaries and rulers were valuable allies. But he thought that the British had been misled by the Brahmans, and had allowed the latter to control the new educational order that was coming into being. Therefore he testified before the Hunter Commission on Education in 1882, pressing for educational institutions for the lower orders without Brahman teachers or Brahman control. His advocacy of more attention to primary education is being echoed more than a century later.</p>
+<p class="ed">Although he did not himself convert to Christianity or Buddhism, as some other radical reformers did, Phule asserted the right of Pandita Ramabai to convert. He was one of her few defenders in Poona society. He was also active in supporting prohibition, widow remarriage, and the whole spectrum of reforms for women. He included all women, even those in the highest castes, as among the shudras and atishudras of Indian society, because of the oppression they had to endure.</p>
+<h3>The Tyranny of a Brahman-Dominated History</h3>
+<p class="ed">The selection below contains part of his critique of Indian society, in the preface to his book Slavery, which he dedicated to “the good people of the United States as a token of admiration for their sublime disinterested and self-sacrificing devotion in the cause of eradicating Negro Slavery; and with an earnest desire, that my countrymen may take their noble example as their guide in the emancipation of their Sudra brethren from the trammels of Brahmin thraldom.”</p>
+<p>Recent researches have demonstrated beyond a shadow of doubt that the Brahmins were not the aborigines of India. At some remote period of antiquity, probably more than 3000 years ago, the Aryan progenitors of the present Brahmin Race descended upon the plains of Hindoo Koosh, and other adjoining tracts. According to Dr. Pritchard, the Ethnologist, they were an off-shoot of the Great Indo-European race, from whom the Persians, Medes, and other Iranian nations in Asia and the principal nations in Europe likewise are descended. The affinity existing between the Zend, the Persian and Sanskrit languages, as also between all the European languages, unmistakably points to a common source of origin. It appears also more than probable that the original cradle of this race being an arid, sandy and mountainous region, and one ill calculated to afford them the sustenance which their growing wants required, they branched off into colonies, East and West. The extreme fertility of the soil in India, its rich productions, the proverbial wealth of its people, and the other innumerable gifts which this favoured land enjoys, and which have more recently tempted the cupidity <span class="pg">[p. 162]</span> of the Western nations, no doubt, attracted the Aryans, who came to India, not as simple emigrants with peaceful intentions of colonization, but as conquerors. They appear to have been a race imbued with very high notions of self, extremely cunning, arrogant and bigoted.... The aborigines whom the Aryans subjugated, or displaced, appear to have been a hardy and brave people from the determined front which they offered to these interlopers.... From many customs ... traditionally handed down to us, as well as from the mythological legends contained in the sacred books of the Brahmins, it is evident that there had been a hard struggle for ascendancy between the two races. The wars of Devas and Daityas, or the Rakshasas, about which so many fictions are found scattered over the sacred books of the Brahmins, have certainly a reference to this primeval struggle....</p>
+<p>This, in short, is the history of Brahmin domination in India. They originally settled on the banks of the Ganges whence they gradually spread over the whole of India. In order, however, to keep a better hold on the people they devised that weird system of mythology, the ordination of caste, and the code of cruel and inhuman laws, to which we can find no parallel amongst other nations. They founded a system of priestcraft so galling in its tendency and operation, the like of which we can hardly find anywhere since the times of the Druids. The institution of Caste, which has been the main object of their laws, had no existence among them originally. That it was an after-creation of their deep cunning is evident from their own writings. The highest rights, the highest privileges and gifts, and everything that would make the life of a Brahmin easy, smooth going and happy—everything that would conserve or flatter their self-pride,—were specially inculcated and enjoined, whereas the Sudras and Atisudras were regarded with supreme hatred and contempt, and the commonest rights of humanity were denied them. Their touch, nay, even their shadow, is deemed a pollution. They are considered as mere chattels, and their life of no more value than that of the meanest reptile ... Happily for our Sudra brethren of the present day our enlightened British Rulers have not recognized these preposterous, inhuman and unjust penal enactments of the Brahmin legislators. They no doubt regard them more as ridiculous fooleries than as equitable laws. Indeed, no man possessing even a grain of common sense would regard them as otherwise....</p>
+<p>In the days of rigid Brahmin dominancy, so lately as that of the time of the Peshwa, my Sudra brethren had even greater hardships and oppression practised upon them than what even the slaves in America had to suffer. To this system of selfish superstition and bigotry, we are to attribute the stagnation and all the evils under which India has been groaning for many centuries past. It will, indeed, be difficult to name a single advantage which accrued to the aborigines from the advent of this intensely selfish and tyrannical sect....</p>
+<p>Under the guise of religion the Brahmin has his finger in every thing, big or small, which the Sudra undertakes. Go to his house, to his field or to the court to which business may invite him, the Brahmin is there under some specious <span class="pg">[p. 163]</span> pretext or other, trying to squeeze out of him as much as his cunning and wily brain can manage....</p>
+<p>The Brahmin of the present time finds to some extent, like Othello, that his occupation is gone. But knowing full well this state of matters, is the Brahmin inclined to make atonement for his past selfishness? Perhaps, it would have been useless to repine over what has been suffered and what has passed away, had the present state been all that is desirable. We know perfectly well that the Brahmin will not descend from his self-raised high pedestal and meet his Coonbee and low caste brethren on an equal footing without a struggle. Even the educated Brahmin who knows his exact position and how he has come by it, will not condescend to acknowledge the errors of his forefathers and willingly forego the long cherished false notions of his own superiority. At present, not one has the moral courage to do what only duty demands, and as long as this continues, one sect distrusting and degrading another sect, the condition of the Sudras will remain unaltered, and India never advance in greatness or prosperity.</p>
+<p>Perhaps a part of the blame in bringing matters to this crisis may be justly laid to the credit of the Government. Whatever may have been their motives in providing ampler funds and greater facilities for higher education and neglecting that of the masses, it will be acknowledged by all that in justice to the latter this is not as it should be. It is an admitted fact that the greater portion of the revenues of the Indian Empire are derived from the Ryot's labour—from the sweat of his brow. The higher and richer classes contribute little or nothing to the state's exchequer....</p>
+<p>Perhaps the most glaring tendency of the Government system of high class education has been the virtual monopoly of all the higher offices under them by the Brahmins. If the welfare of the Ryot is at heart, if it is the duty of Government to check a host of abuses, it behoves them to narrow this monopoly, day by day, so as to allow a sprinkling of the other castes to get into the public service. Perhaps some might be inclined to say that it is not feasible in the present state of education. Our only reply is that if Government look a little less after higher education and more towards the education of the masses, the former being able to take care of itself, there would be no difficulty in training up a body of men every way qualified and perhaps far better in morals and manners.</p>
+<p>My object in writing the present volume is not only to tell my Sudra brethren how they have been duped by the Brahmins, but also to open the eyes of Government to that pernicious system of high class education which has hitherto been so persistently followed and which statesmen like Sir George Campbell, the present Lieutenant Governor of Bengal, with broad and universal sympathies, are finding to be highly mischievous and pernicious to the interests of Government. I sincerely hope that Government will ere long see the error of their ways, trust less to writers or men who look through high class spectacles and take the glory into their own hands of emancipating my Sudra brethren from the trammels of bondage which the Brahmins have woven round them <span class="pg">[p. 164]</span> like the coils of a serpent. It is no less the duty of such of my Sudra brethren as have received any education to place before Government the true state of their fellowmen and endeavour to the best of their power to emancipate themselves from Brahmin thraldom. Let there be schools for the Sudras in every village; but away with all Brahmin school-masters! The Sudras are the life and sinews of the country, and it is to them alone and not to the Brahmins that the Government must ever look to tide them over their difficulties, financial as well as political. If the hearts and minds of the Sudras are made happy and contented the British Government need have no fear for their loyalty in the future.</p>
+<p>1st June, 1873 Joteerao Phooley</p>
+<p><em>[From Phule, Selected Writings of Jotirao Phule, ed G. P. Deshpande (New Delhi: LeftWord, 2002), 27–28, 29, 31, 32, 33, 34–35.]</em></p>
+<h3>Letter to Mahadev Govind Ranade</h3>
+<p class="ed">On June 11, 1885, Phule wrote the following letter to M. G. Ranade, declining an invitation to a Marathi literary conference. He had little patience with meetings and organizations dominated by Brahmans, even one to be conducted by the widely respected Ranade.</p>
+<p>Dear Sir,</p>
+<p>I acknowledge the receipt of your letter regarding the proposed conference of the [Marathi] authors and I was delighted to receive your request that I should participate in the conference. But then esteemed sir, the conferences and the books of those who refuse to think of human rights generally, who do not concede them to others and going by their behaviour are unlikely to concede them in future, cannot make sense to us, they cannot concur with what we are trying to say in our books. The reason is that their ancestors, with a view to taking revenge on us, included in their pseudo-religious texts an account of how they turned us into slaves and thus gave our enslavement religious authority. Their dated and decadent texts are witness to this phenomenon. These upper-caste authors who are forever miles away from reality and who can only make ceremonial and meaningless speeches in big meetings can never understand what we the shudras and atishudras have to suffer and what calamities we have to undergo. All this is not entirely unknown to the high-caste founders of various conferences and organizations. They pretend to be modernists as long as they are in the service of the British government. The moment they retire and claim their pensions, they get into their brahmanical touch-me-not attire, become caste chauvinists, incorrigible idol worshippers and, what is worse, treat the shudras and atishudras as lowly and contemptible. If they happen to be in their touch-me-not ritual dress they would not <span class="pg">[p. 165]</span> even touch paper notes as if that were a blasphemy! How can these Arya brahmans improve the lot of this unfortunate land? Be that as it may. We shudras do not any longer wish to trust these people and their specious and dishonest stories, for they cheat us and eat off our labour. In a word, we shudras have nothing to gain by mixing with such people. We must ourselves think about our situation and how we should relate to these upper-caste people. If these leaders of men are genuinely interested in unifying all people they must address themselves to the discovery of the root of eternal love of all human beings. Let them discover it and may be formulate and publish it as a text. Otherwise to turn a blind eye to the divisions among the human beings at this hour is simply futile. Of course, they are free to do what they like. I would nevertheless be thankful if my short letter is placed before your Conference for consideration. In any case accept the salute of this old man.</p>
+<p>Your friend,</p>
+<p>Jotirao G. Phule</p>
+<p><em>[Letter to the Conference of Marathi Authors, trans. G. P. Deshpande, from Selected Writings of Jotirao Phule, 200–201.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 160–165.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 3, pp. 160-165; reading PDF covers pp. 160-164. SIT headings and citations kept as printed. Includes Phule's letter to M. G. Ranade / the Conference of Marathi Authors. PDF ends at p. 164; the letter and its citation run onto p. 165.</p></div>
+</div>
+</body>
+</html>

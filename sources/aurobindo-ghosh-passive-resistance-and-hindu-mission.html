@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurobindo Ghosh: Passive Resistance and India’s Hindu Mission</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Aurobindo Ghosh: Passive Resistance and India’s Hindu Mission</h1>
+<p class="speech-meta">5,868 words, about 26 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Aurobindo Ghose: Mystic Patriot</h3>
+<p class="ed"><span class="pg">[p. 271]</span> The agitation against the partition of Bengal drew into public life one of the most fascinating figures modern India has produced—a Westernized intellectual who became an ardent nationalist and ended his days an accomplished yogi. Aurobindo Ghose (1872–1950)—or Sri Aurobindo, as he is known to his followers—spent only four years in active politics, but in that brief span his passionate devotion to the national cause won him renown as an Extremist leader second only to Tilak in nationwide popularity.</p>
+<p class="ed">Aurobindo's father, an England-educated Bengali doctor, was so determined to give his son a completely European education that he sent him to a convent school at five, and to England at seven; he studied in England until the age of twenty. Leaving Cambridge University, he returned to India in 1893 to enter the civil service of the progressive princely state of Baroda. Feeling himself “denationalized” by his foreign education, he turned his attention to Indian culture and politics. He was inspired by the example of Ramakrishna, the writings of Vivekananda, and the novels of Bankim <span class="pg">[p. 272]</span> Chandra Chatterji; moreover, after studying Sanskrit, he was able to appreciate in the original the Upanishads and the Gītā, and he began to meditate.</p>
+<p class="ed">His fascination with Hindu culture, when combined with the sense of patriotism he had imbibed along with the rest of his English education, led Aurobindo to sympathize with the Extremist politicians. Despite the fact that he was unusually shy, during the agitation against the partition of Bengal he gave up his post as vice principal of Baroda College and threw himself into the maelstrom of Bengal politics. His articles in the English-language paper Bande Mātaram made him famous, especially after the government tried and failed to prove seditious their deftly phrased innuendos. In 1907 Aurobindo led a large Bengali delegation to the crucial Congress session at Tilak's request, and served as Lokamanya's right-hand man during the stormy days of the split between the Moderates and the Extremists.</p>
+<p class="ed">Shortly afterward Aurobindo consulted a Hindu holy man, who advised him to empty his mind of all thought so as to be able to receive supra-mental inspiration. He followed this advice faithfully; then while in prison as a suspected member of a bombing plot, he heard the voice of Vivekananda guiding him in his practice of yoga, and saw all men as incarnations of God. After his release, Aurobindo gradually withdrew from political life. In 1910 he abandoned Bengal—and his wife—for the French settlement of Pondichéry, where he established an ashram and spent his remaining forty years doing spiritual exercises and writing. Efforts to bring him back to the political arena proved ineffectual, but he may have given advice about politics to visitors over the years. He was joined in 1914 by a French couple, Paul and Mira Richard. When Paul Richard left, Mira Richard, rechristened “The Mother,” stayed and ran the day-to-day affairs of the ashram for more than half a century.</p>
+<p class="ed">Brief as was his political career, Aurobindo nevertheless defined the essence of religious nationalism, and outlined a program for political action. Because of his prolonged absence from India, Aurobindo came to idealize both his native land and its ancestral faith; the fervor of his faith in “India” helped his Hindu countrymen to transcend the many differences of caste, language, and custom that had hindered the development among them of allegiance to one nation.</p>
+<p class="ed">Although free of the region-centered nationalism that limited the effectiveness of a Bengali like Bankim or a Maharashtrian like Tilak, Aurobindo failed (as they had) to perceive that the greater the zeal of the Hindu nationalists became, the more difficult it would be to assuage the fears of Indian Muslims regarding their future in an independent Hindu-dominated India. In his later, postpolitical years, however, Aurobindo envisioned the coming of a global spiritual consciousness, “a spiritual religion of humanity” that would enable all persons to live in freedom and inner unity, regardless of national or religious affiliations.</p>
+<h3>The Doctrine of Passive Resistance</h3>
+<p class="ed">This article first appeared in the daily Bande Mātaram in April 1907, under the general title of “New Thought.” Aurobindo outlined the doctrines of active and passive <span class="pg">[p. 273]</span> resistance, and explained which was applicable when. Although Gandhi rejected his rationale for the use of violence, he drew upon Aurobindo's ideas in his own advocacy of non-violent resistance.</p>
+<h3>One. Introduction</h3>
+<p>In a series of articles, published in this paper soon after the Calcutta session of the Congress, we sought to indicate our view both of the ideal which the Congress had adopted, the ideal of Swaraj or Self-Government as it exists in the United Kingdom or the Colonies, and of the possible lines of policy by which that ideal might be attained. There are, we pointed out, only three possible policies: petitioning, an unprecedented way of attempting a nation's liberty, which cannot possibly succeed except under conditions which have not yet existed among human beings; self-development and self-help; and the old orthodox historical method of organised resistance to the existing form of Government. We acknowledge that the policy of self-development which the New Party had forced to the front, was itself a novel departure under the circumstances of modern India. Self-development of an independent nation is one thing; self-development from a state of servitude under an alien and despotic rule without the forcible or peaceful removal of that rule as an indispensable preliminary, is quite another. No national self-development is possible without the support of rājaśakti, organised political strength, commanding, and whenever necessary compelling general allegiance and obedience....</p>
+<p>The attempt at self-development by self-help is absolutely necessary for our national salvation, whether we can carry it peacefully to the end or not. In no other way can we get rid of the fatal dependence, passivity and helplessness in which a century of all-pervasive British control has confirmed us.... The National Congress ... has admitted the new policy as an essential part of the national programme. Swadeshi and National Education have been recognised, and, in all probability, Arbitration will be given its proper prominence at the next session; Boycott has been admitted as permissible in principle to all parts of India though the recommendation to extend it in practice as an integral part of the national policy was not pressed....</p>
+<h3>Two. Its Object</h3>
+<p>Organised resistance to an existing form of government may be undertaken either for the vindication of national liberty, or in order to substitute one form of government for another, or to remove particular objectionable features in the existing system without any entire or radical alteration of the whole, or simply for the redress of particular grievances. Our political agitation in the nineteenth century was entirely confined to the smaller and narrower objects.</p>
+<p><span class="pg">[p. 274]</span> The redress of particular grievances and the reformation of particular objectionable features in a system of Government are sufficient objects for organised resistance only when the Government is indigenous and all classes have a recognised place in the political scheme of the State.... They are still less a sufficient object when the despotic oligarchy is alien by race and has not even a permanent home in the country, for in that case the Government cannot be relied on to look after the general interest of the country, as in nations ruled by indigenous despotism; on the contrary, they are bound to place the interests of their own country and their own race first and foremost. Organised resistance in subject nations which mean to live and not to die, can have no less an object than an entire and radical change of the system of Government; only by becoming responsible to the people and drawn from the people can the Government be turned into a protector instead of an oppressor. But if the subject nation desires not a provincial existence and a maimed development but the full, vigorous and noble realisation of its national existence, even a change in the system of Government will not be enough; it must aim not only at a national Government responsible to the people but a free national Government unhampered even in the least degree by foreign control.</p>
+<p>It is not surprising that our politicians of the nineteenth century could not realise these elementary truths of modern politics. They had no national experience behind them of politics under modern conditions; they had no teachers except English books and English liberal “sympathisers” and “friends of India.” Schooled by British patrons, trained to the fixed idea of English superiority and Indian inferiority, their imaginations could not embrace the idea of national liberty, and perhaps they did not even desire it at heart, preferring the comfortable ease which at that time still seemed possible in a servitude under British protection, to the struggles and sacrifices of a hard and difficult independence.... They could not even conceive of a truly popular and democratic Government in India except as the slow result of the development of centuries.... They could not then understand that the experience of an independent nation is not valid to guide a subject nation, unless and until the subject nation throws off the yoke and itself becomes independent.... The instructive spectacle of Asiatic nations demanding and receiving constitutional and parliamentary government as the price of a few years’ struggle and civil turmoil, had not then been offered to the world.... Their whole political outlook was bounded by the lessons of English history, and in English history they found only two methods of politics,—the slow method of agitation and the swift decisive method of open struggle and revolt. Unaccustomed to independent political thinking, they did not notice the significant fact that the method of agitation only became effective in England when the people had already gained a powerful voice in the Government.... Dominated by the idea of the overwhelming might of Britain and the abject weakness of India, their want of courage and faith in the nation, their rooted distrust of the national character, disbelief <span class="pg">[p. 275]</span> in Indian patriotism and blindness to the possibility of true political strength and virtue in the people, precluded them from discovering the rough and narrow way to salvation. Herein lies the superiority of the new school that they have an indomitable courage and faith in the nation and the people....</p>
+<p>The new methods were first tried in the great Swadeshi outburst of the last two years,—blindly, crudely, without leading and organisation, but still with amazing results. The moving cause was a particular grievance, the Partition of Bengal; and to the removal of the particular grievance, pettiest and narrowest of all political objects, our old leaders strove hard to confine the use of this new and mighty weapon. But the popular instinct was true to itself and would have none of it. At a bound we passed therefore from mere particular grievances, however serious and intolerable, to the use of passive resistance as a means of cure for the basest and evilest feature of the present system,—the bleeding to death of a country by foreign exploitation. And from that stage we are steadily advancing ... to the one true object of all resistance ... —the creation of a free popular Government and the vindication of Indian liberty.</p>
+<h3>Three. Its Necessity</h3>
+<p>We have defined, so far, the occasion and the ultimate object of the passive resistance we preach. It is the only effective means, except actual armed revolt, by which the organised strength of the nation, gathering to a powerful central authority and guided by the principle of self-development and self-help, can wrest the control of our national life from the grip of an alien bureaucracy.... The mere effort at self-development unaided by some kind of resistance, will not materially help us towards our goal. Merely by developing national schools and colleges we shall not induce or force the bureaucracy to give up to us the control of education. Merely by attempting to expand some of our trades and industries, we shall not drive out the British exploiter or take from the British Government its sovereign power of regulating, checking or killing the growth of Swadeshi industries by the imposition of judicious taxes and duties and other methods always open to the controller of a country's finance and legislation. Still less shall we be able by that harmless means to get for ourselves the control of taxation and expenditure. Nor shall we, merely by establishing our own arbitration courts, oblige the alien control to give up the elaborate and lucrative system of Civil and Criminal Judicature which at once emasculates the nation and makes it pay heavily for its own emasculation. In none of these matters is the bureaucracy likely to budge an inch from its secure position unless it is forcibly persuaded....</p>
+<p>Organised national resistance to existing conditions, whether directed against the system of Government as such or against some particular feature of it, has three courses open to it. It may attempt to make administration under existing conditions impossible by an organised passive resistance. This was the <span class="pg">[p. 276]</span> policy initiated by the genius of Parnell when by the plan of campaign he prevented the payment of rents in Ireland and by persistent obstruction hampered the transaction of any but Irish business in Westminster. It may attempt to make administration under existing conditions impossible by an organised aggressive resistance in the shape of an untiring and implacable campaign of assassination and a confused welter of riots, strikes and agrarian risings all over the country.... The third course open to an oppressed nation is that of armed revolt, which instead of bringing existing conditions to an end by making their continuance impossible sweeps them bodily out of existence. This is the old time-honoured method which the oppressed or enslaved have always adopted by preference in the past, and will adopt in the future if they see any chance of success....</p>
+<p>The choice by a subject nation of the means it will use for vindicating its liberty, is best determined by the circumstances of its servitude. The present circumstances in India seem to point to passive resistance as our most natural and suitable weapon. We would not for a moment be understood to base this conclusion upon any condemnation of other methods as in all circumstances criminal and unjustifiable. It is the common habit of established Governments and especially those which are themselves oppressors, to brand all violent methods in subject peoples and communities as criminal and wicked. When you have disarmed your slaves and legalised the infliction of bonds, stripes and death on any one of them, man, woman or child, who may dare to speak or to act against you, it is natural and convenient to try and lay a moral as well as a legal ban on any attempt to answer violence by violence, the knout [thonged whip] by the revolver, the prison by riot or agrarian rising, the gallows by the dynamite bomb. But no nation yet has listened to the cant of the oppressor when itself put to the test, and the general conscience of humanity approves the refusal. Under certain circumstances a civil struggle becomes in reality a battle and the morality of war is different from the morality of peace. To shrink from bloodshed and violence under such circumstances is a weakness deserving as severe a rebuke as Sri Krishna addressed to Arjuna when he shrank from the colossal civil slaughter on the field of Kurukshetra. Liberty is the life-breath of a nation; and when the life is attacked, when it is sought to suppress all chance of breathing by violent pressure, any and every means of self-preservation becomes right and justifiable,—just as it is lawful for a man who is being strangled to rid himself of the pressure on his throat by any means in his power....</p>
+<p>This peculiar character of passive resistance is one reason why it has found favour with the thinkers of the New Party. There are certain moral qualities necessary to self-government which have become atrophied by long disuse in our people and can only be restored either by the healthy air of a free national life in which alone they can permanently thrive or by their vigorous exercise in the intensity of a national struggle for freedom.... The reason why even a radical opportunist like Mr. Morley refuses us self-government is not that he does not believe in India's fitness for self-government, but that he does not <span class="pg">[p. 277]</span> believe in India's determination to be free; on the contrary, the whole experience of the past shows that we have not been in earnest in our demand for self-government.</p>
+<h3>Four. Its Methods</h3>
+<p>The essential difference between passive or defensive and active or aggressive resistance is this, that while the method of the aggressive resister is to do something by which he can bring about positive harm to the Government, the method of the passive resister is to abstain from doing something by which he would be helping the Government. The object in both cases is the same,—to force the hands of the Government; the line of attack is different. The passive method is especially suitable to countries where the Government depends mainly for the continuance of its administration on the voluntary help and acquiescence of the subject people. The first principle of passive resistance, therefore, which the new school have placed in the forefront of their programme, is to make administration under present conditions impossible by an organised refusal to do anything which shall help either British commerce in the exploitation of the country or British officialdom in the administration of it,—unless and until the conditions are changed in the manner and to the extent demanded by the people. This attitude is summed up in the one word, Boycott. If we consider the various departments of the administration one by one, we can easily see how administration in each can be rendered impossible by successfully organised refusal of assistance. We are dissatisfied with the fiscal and economical conditions of British rule in India, with the foreign exploitation of the country, the continual bleeding of its resources, the chronic famine and rapid impoverishment which result, the refusal of the Government to protect the people and their industries. Accordingly, we refuse to help the process of exploitation and impoverishment in our capacity as consumers, we refuse henceforth to purchase foreign and especially British goods or to condone their purchase by others.... We are dissatisfied also with the conditions under which education is imparted in this country, its calculated poverty and insufficiency, its anti-national character, its subordination to the Government and the use made of that subordination for the discouragement of patriotism and the inculcation of loyalty. Accordingly we refuse to send our boys to Government schools or to schools aided and controlled by the Government; if this educational boycott is general and well-organised, the educational administration of the country will be rendered impossible and the control of its youthful minds pass out of the hands of the foreigner. We are dissatisfied with the administration of justice, the ruinous costliness of the civil side, the brutal rigour of its criminal penalties and procedure, its partiality, its frequent subordination to political objects. We refuse accordingly to have any resort to the alien courts of justice, and by an organised judicial boycott propose to make the bureaucratic administration of <span class="pg">[p. 278]</span> justice impossible while these conditions continue. Finally, we disapprove of the executive administration, its arbitrariness, its meddling and inquisitorial character, its thoroughness of repression, its misuse of the police for the repression instead of the protection of the people. We refuse, accordingly, to go to the executive for help or advice or protection or to tolerate any paternal interference in our public activities, and by an organised boycott of the executive propose to reduce executive control and interference to a mere skeleton of its former self.... If the few refused to help, if Indians no longer consented to teach in Government schools or work in Government offices, or serve the alien as police, the administration could not continue for a day....</p>
+<p>There is a limit however to passive resistance.... To submit to illegal or violent methods of coercion, to accept outrage and hooliganism as part of the legal procedure of the country is to be guilty of cowardice, and, by dwarfing national manhood, to sin against the divinity within ourselves and the divinity in our motherland. The moment coercion of this kind is attempted, passive resistance ceases and active resistance becomes a duty. If the instruments of the executive choose to disperse our meeting by breaking the heads of those present, the right of self-defence entitles us not merely to defend our heads but to retaliate on those of the head-breakers. For the myrmidons of the law have ceased then to be guardians of the peace and become breakers of the peace, rioters and not instruments of authority, and their uniform is no longer a bar to the right of self-defence....</p>
+<p>The new politics is a serious doctrine and not, like the old, a thing of shows and political theatricals; it demands real sufferings from its adherents,—imprisonment, worldly ruin, death itself, before it can allow him to assume the rank of a martyr for his country. Passive resistance cannot build up a strong and great nation unless it is masculine, bold and ardent in its spirit and ready at any moment and at the slightest notice to supplement itself with active resistance. We do not want to develop a nation of women who know only how to suffer and not how to strike....</p>
+<p>We preach defensive resistance mainly passive in its methods at present, but active whenever active resistance is needed; but defensive resistance within the limits imposed by human nature and by the demands of self-respect and the militant spirit of true manhood.... If passive resistance should turn out either not feasible or necessarily ineffectual under the conditions of this country, we should be the first to recognise that everything must be reconsidered and that the time for new men and new methods had arrived. We recognise no political object of worship except the divinity in our Motherland, no present object of political endeavour except liberty, and no method or action as politically good or evil except as it truly helps or hinders our progress towards national emancipation.</p>
+<p><em>[From The Complete Works of Sri Aurobindo Ghose (Pondicherry: Sri Aurobindo Centenary Library, 1970), 1:87–88, 90, 92–99, 101–102, 114, 116–117.]</em></p>
+<h3>The Morality of Boycott</h3>
+<p class="ed"><span class="pg">[p. 279]</span> This article was intended for the Bande Mātaram, but could not be published. It was seized by the police and used as an exhibit in the Alipore conspiracy case (May 1908).</p>
+<p>A certain class of mind shrinks from aggressiveness as if it were a sin. Their temperament forbids them to feel the delight of battle and they look on what they cannot understand as something monstrous and sinful. “Heal hate by love,” “drive out injustice by justice,” “slay sin by righteousness” is their cry. Love is a sacred name, but it is easier to speak of love than to love. The love which drives out hate is a divine quality of which only one man in a thousand is capable. A saint full of love for all mankind possesses it, a philanthropist consumed with a desire to heal the miseries of the race possesses it, but the mass of mankind does not and cannot rise to the height. Politics is concerned with masses of mankind and not with individuals. To ask masses of mankind to act as saints, to rise to the height of divine love and practise it in relation to their adversaries or oppressors is to ignore human nature. It is to set a premium on injustice and violence by paralysing the hand of the deliverer when raised to strike. The Gita is the best answer to those who shrink from battle as a sin, and aggression as a lowering of morality.</p>
+<p>A poet of sweetness and love [Tagore], who has done much to awaken Bengal, has written deprecating the boycott as an act of hate. The saintliness of spirit which he would see brought into politics is the reflex of his own personality colouring the political ideals of a sattwic [pure] race. But in reality the boycott is not an act of hate. It is an act of self-defence, of aggression for the sake of self-preservation. To call it an act of hate is to say that a man who is being slowly murdered, is not justified in striking at his murderer.... Doubtless the self-defender is not precisely actuated by a feeling of holy sweetness towards his assailant; but to expect so much from human nature is impracticable. Certain religions demand it, but they have never been practised to the letter by their followers.</p>
+<p>Hinduism recognises human nature and makes no such impossible demand. It sets one ideal for the saint, another for the man of action, a third for the trader, a fourth for the serf. To prescribe the same ideal for all is to bring about varṇasaṅkara, the confusion of duties, and destroy society and race. If we are content to be serfs, then indeed, boycott is a sin for us, not because it is a violation of love, but because it is a violation of the Sudra's duty of obedience and contentment. Politics is the ideal of the Kshatriya, and the morality of the Kshatriya ought to govern our political actions....</p>
+<p>Love has a place in politics, but it is the love of one's country, for one's countrymen, for the glory, greatness and happiness of the race, the divine ānanda [joy] of self-immolation for one's fellows, the ecstasy of relieving their sufferings, the joy of seeing one's blood flow for country and freedom.... The feeling of almost physical delight in the touch of the mother-soil, of the winds that blow <span class="pg">[p. 280]</span> from Indian seas, of the rivers that stream from Indian hills, in the hearing of Indian speech, music, poetry, in the familiar sights, sounds, habits, dress, manners of our Indian life, this is the physical root of that love. The pride in our past, the pain of our present, the passion for the future are its trunk and branches. Self-sacrifice and self-forgetfulness, great service, high endurance for the country are its fruit. And the sap which keeps it alive is the realisation of the Motherhood of God in the country, the vision of the Mother, the knowledge of the Mother, the perpetual contemplation, adoration and service of the Mother.</p>
+<p>Other love than this is foreign to the motives of political action. Between nation and nation there is justice, partiality, chivalry, duty, but not love. All love is either individual or for the self in the race or for the self in mankind. It may exist between individuals of different races, but the love of one race for another is a thing foreign to Nature. When therefore the boycott, as declared by the Indian race against the British, is stigmatised for want of love, the charge is bad psychology as well as bad morality. It is interest warring against interest, and hatred is directed not really against the race, but against the adverse interest. If the British exploitation were to cease tomorrow, the hatred against the British race would disappear in a moment....</p>
+<p>When tamas, inertia, torpor have benumbed a nation, the strongest forms of rajas are necessary to break the spell; there is no form of rajas so strong as hatred. Through rajas we rise to sattva and for the Indian temperament the transition does not take long. Already the element of hatred is giving place to the clear conception of love for the Mother as the spring of our political actions....</p>
+<p>The sword of the warrior is as necessary to the fulfilment of justice and righteousness as the holiness of the saint. Ramdas is not complete without Shivaji. To maintain justice and prevent the strong from despoiling, and the weak from being oppressed, is the function for which the Kshatriya was created. “Therefore,” says Sri Krishna in the Mahabharata, “God created battle and armour, the sword, the bow and the dagger.”</p>
+<p>Man is of a less terrestrial mould than some would have him to be. He has an element of the divine which the politician ignores. The practical politician looks to the position at the moment and imagines that he has taken everything into consideration. He has, indeed, studied the surface ... but he has missed what lies beyond material vision. He has left out of account the divine, the incalculable in man, that element which upsets the calculations of the schemer and disconcerts the wisdom of the diplomat.</p>
+<p><em>[From The Complete Works of Sri Aurobindo, 1:124–128.]</em></p>
+<h3>Nationalism Is the Work of God</h3>
+<p class="ed">In January 1908, addressing a Bombay audience soon after the Moderate–Extremist split, Aurobindo made his mind a blank and spoke as the spirit moved him. The result <span class="pg">[p. 281]</span> was a declaration of the religious significance of Indian nationalism. His initial remarks are reproduced here.</p>
+<p>There is a creed in India today which calls itself Nationalism, a creed which has come to you from Bengal. This is a creed which many of you have accepted.... Have you realized ... what that means? ... Or is it that you have merely accepted it in the pride of a superior intellectual conviction? You call yourselves Nationalists. What is Nationalism? Nationalism is not a mere political program; Nationalism is a religion that has come from God; Nationalism is a creed which you shall have to live. Let no man dare to call himself a Nationalist if he does so merely with a sort of intellectual pride, thinking that he is more patriotic, thinking that he is something higher than those who do not call themselves by that name. If you are going to be a nationalist, if you are going to assent to this religion of Nationalism, you must do it in the religious spirit. You must remember that you are the instruments of God.... But certain forces which are against that religion are trying to crush its rising strength. It always happens when a new religion is preached, when God is going to be born in the people, that such forces rise with all their weapons in their hands to crush the religion. In Bengal too a new religion, a religion divine and sattwic [pure] has been preached, and this religion they are trying with all the weapons at their command to crush. By what strength are we in Bengal able to survive? Nationalism is not going to be crushed. Nationalism survives in the strength of God and it is not possible to crush it, whatever weapons are brought against it. Nationalism is immortal; Nationalism cannot die; because it is no human thing, it is God who is working in Bengal. God cannot be killed, God cannot be sent to jail. When these things happen among you, I say to you solemnly, what will you do? Will you do as they do in Bengal? (Cries of “Yes.”) Don't lightly say “yes.” It is a solemn thing; and suppose that God puts you this question, how will you answer it? Have you got a real faith? Or is it merely a political aspiration? Is it merely a larger kind of selfishness? Or is it merely that you wish to be free to oppress others, as you are being oppressed? Do you hold your political creed from a higher source? Is it God that is born in you? Have you realized that you are merely the instruments of God, that your bodies are not your own? You are merely instruments of God for the work of the Almighty. Have you realized that? If you have ... you are truly Nationalists; then alone will you be able to restore this great nation.</p>
+<p><em>[From The Complete Works of Sri Aurobindo Ghose, 1:652–653.]</em></p>
+<h3>India's Mission: The Resurrection of Hinduism</h3>
+<p class="ed">In a speech at Uttarpara to the Society for the Protection of Religion after his release from prison in May 1909, Aurobindo relayed to his countrymen the messages that had <span class="pg">[p. 282]</span> mystically come to him during his confinement. First of all he was to dedicate himself to God's work. Second, through her national revival India was to spread the universal truth of Hinduism throughout the world.</p>
+<p>The protection and upraising before the world of the Hindu religion, that is the work before us. But what is the Hindu religion? What is this religion which we call Sanatan, eternal? It is the Hindu religion only because the Hindu nation has kept it, because in this Peninsula it grew up in the seclusion of the sea and the Himalayas, because in this sacred and ancient land it was given as a charge to the Aryan race to preserve through the ages. But it is not circumscribed by the confines of a single country, it does not belong peculiarly and forever to a bounded part of the world. That which we call the Hindu religion is really the eternal religion, because it is the universal religion which embraces all others. If a religion is not universal, it cannot be eternal. A narrow religion, a sectarian religion, an exclusive religion can live only for a limited time and a limited purpose. This is the one religion that can triumph over materialism by including and anticipating the discoveries of science and the speculations of philosophy. It is the one religion which ... embraces in its compass all the possible means by which man can approach God. It is the one religion which insists every moment on the truth which all religions acknowledge that He is in all men and all things and that in Him we move and have our being. It is the one religion which enables us not only to understand and believe this truth but to realize it with every part of our being. It is the one religion which shows the world what the world is, that it is the Lila of Vasudeva. It is the one religion which shows us how we can best play our part in that Lila, its subtlest laws and its noblest rules. It is the one religion which does not separate life in any smallest detail from religion, which knows what immortality is and has utterly removed from us the reality of death....</p>
+<p>This movement is not a political movement and ... nationalism is not politics but a religion, a creed, a faith. I say it again today, but I put it in another way. I say no longer that nationalism is a creed, a religion, a faith; I say that it is the Sanatan Dharma which for us is nationalism. This Hindu nation was born with the Sanatan Dharma, with it it moves and with it it grows. When the Sanatan Dharma declines, then the nation declines, and if the Sanatan Dharma were capable of perishing, with the Sanatan Dharma it would perish.</p>
+<p><em>[From The Complete Works of Sri Aurobindo Ghose, 2:9–10.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 271–282.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 5, pp. 271-282; reading PDF covers pp. 271-281. SIT headings and citations kept as printed. Three parts. OCR reads 'Ghose' as 'Chose' in the heading and citations; markers copy the OCR. PDF ends at p. 281; the last part and its citation run onto p. 282.</p></div>
+</div>
+</body>
+</html>

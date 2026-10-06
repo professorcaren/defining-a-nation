@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rajagopalachari Formula and Gandhi-Jinnah Correspondence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>The Rajagopalachari Formula and Gandhi-Jinnah Correspondence</h1>
+<p class="speech-meta">2,823 words, about 12 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>C. Rajagopalachari's Approach to Congress–League Settlement, and the Gandhi–Jinnah Letters, 1944</h3>
+<p class="ed"><span class="pg">[p. 505]</span> Because of the passage of the August 1942 Congress Resolution (the “Quit India” Resolution), most Congress leaders were imprisoned for the duration of World War II. But this did not prevent the Congress and the Muslim League from making efforts to agree on a path that would pave the way to the rapid attainment of a free India. One go-between in this process in 1944 was the Congress leader C. Rajagopalachari (1878–1972; usually referred to as “Rajaji”), the former Congress chief minister of Madras, from 1937 to 1939. He had disagreed with his colleagues over the Cripps Mission, and resigned from the Congress; thus he was not imprisoned with other Congressmen in 1942. So in 1943 he devised the so-called Rajaji Formula, which he sent to Gandhi for approval. Gaining a positive response from Gandhi, Rajaji wrote to Jinnah seeking his response.</p>
+<h3>Letter to M. A. Jinnah</h3>
+<p class="ed">According to Rajaji's scheme, the Congress and the Muslim League would make an agreement regarding territory and jurisdiction over it, work together for an India independent of the British, and then fully implement the terms of the agreement. It provided that areas (not provinces) with an absolute Muslim majority could opt out of a united India after independence. These Muslim-majority areas would be determined by a careful survey of Punjab, Bengal, and Assam, so that a maximum number of non-Muslims would remain within the united India, and the Muslims choosing not to join this united India would form their own nation-state. Rajaji was calling for a division of India through the partition of Bengal and the Punjab. Jinnah, backed by the Lahore <span class="pg">[p. 506]</span> Resolution of the Muslim League (1940), had called for a Pakistan that would include the entire provinces of Bengal, Assam, and the Punjab. Therefore, large minorities in these provinces (Hindus in Bengal, Hindus and Sikhs in the Punjab), only slightly less than half of the population of each, would be included in the League's new nation of Pakistan, presumably against their will. Some have argued that Rajaji, an acute lawyer like Jinnah (and Gandhi), was calling Jinnah's bluff and showing him what a real Pakistan might consist of.</p>
+<p>8 April 1944</p>
+<p>Here is the basis for a settlement which I discussed with Gandhiji in March, 1943, and of which he expressed full approval. He then authorised me to signify his approval of these terms should I be able to convince you of their being just and fair to all. As the Government have refused to relax any of the restrictions imposed on him to enable him to discuss or negotiate terms of any settlement, I write this to you on his behalf and hope that this will bring about a final settlement of the most unfortunate impasse we are in. You are aware of the intensity of my desire for a settlement. I was very glad when I found it possible to obtain Gandhiji's approval of these terms. I hope that you will bestow your fullest thought to the justice and fairness of these proposals and help to terminate a condition of affairs which is steadily causing all round deterioration....</p>
+<h3>Basis for Settlement</h3>
+<p>Basis for terms of settlement between the Indian National Congress and the All-India Muslim League to which Mahatma Gandhi and Mr. Jinnah agree and which they will endeavour respectively to get the Congress and the League to approve.</p>
+<p>(1) Subject to the terms set out below as regards the constitution for Free India, the Muslim League endorses the Indian demand for independence and will cooperate with the Congress in the formation of a provisional interim Government for the transitional period.</p>
+<p>(2) After the termination of the war, a commission shall be appointed for demarcating contiguous districts in the north-west and east of India, wherein the Muslim population is in absolute majority. In the areas thus demarcated, a plebiscite of all the inhabitants held on the basis of adult suffrage or other practicable franchise shall ultimately decide the issue of separation from Hindustan. If the majority decide in favour of forming a sovereign State separate from Hindustan, such decision shall be given effect to, without prejudice to the right of districts on the border to choose to join either State.</p>
+<p>(3) It will be open to all parties to advocate their points of view before the plebiscite is held.</p>
+<p>(4) In the event of separation, mutual agreements shall be entered into for safe-guarding defence, commerce and communications and for other essential purposes.</p>
+<p><span class="pg">[p. 507]</span> (5) Any transfer of population shall only be on an absolutely voluntary basis.</p>
+<p>(6) These terms shall be binding only in case of transfer by Britain of full power and responsibility for the governance of India.</p>
+<p><em>[Indian Annual Register (1944) 2:129–130, reprinted in C. H. Philips, ed., The Evolution of India and Pakistan, 1858–1947, 355–356.]</em></p>
+<h3>The Gandhi–Jinnah Correspondence on Rajagopalachari's Formula</h3>
+<p class="ed">Upon his release from prison in 1944, Gandhi took up the cudgels and wrote to Jinnah in the same terms as Rajaji, and Jinnah responded at length. There was no meeting of the minds, as these documents make clear. They later met at Jinnah's residence, with the Rajagopalachari formula forming the basis of their talks.</p>
+<h3>(I) Mahatma Gandhi to M. A. Jinnah, 24 September 1944</h3>
+<p>I have your two letters of 23rd September in reply to my letters of 22nd and 23rd.</p>
+<p>With your assistance, I am exploring the possibilities of reaching an agreement so that the claim embodied in the Muslim League resolution of Lahore may be reasonably satisfied. You must therefore have no apprehensions that the August [Quit India] resolution will stand in the way of our reaching an agreement. The resolution dealt with the question of India as against Britain and it cannot stand in the way of our settlement.</p>
+<p>I proceed on the assumption that India is not to be regarded as two or more nations but as one family consisting of many members of whom the Muslims living in the North-West zones, i.e., Baluchistan, Sindh, North West Frontier Province and that part of the Punjab where they are in absolute majority over all the other elements and in parts of Bengal and Assam where they are in absolute majority, desire to live in separation from the rest of India.</p>
+<p>Differing from you on the general basis I can yet recommend to the Congress and the country the acceptance of the claim for separation contained in the Muslim League Resolution of Lahore of 1940 on my basis and on the following terms:—</p>
+<p>The areas should be demarcated by a Commission approved by the Congress and the League. The wishes of the inhabitants of the areas demarcated should be ascertained through the votes of the adult population of the areas or through some equivalent method.</p>
+<p>If the vote is in favour of separation it shall be agreed that these areas shall form a separate state as soon as possible after India is free from foreign domination and can therefore be constituted into two sovereign Independent States. There shall be a treaty of separation which should also provide for the efficient and satisfactory administration of foreign affairs, defence, internal communications, <span class="pg">[p. 508]</span> customs, commerce and the like, which must necessarily continue to be the matters of common interest between the contracting parties.</p>
+<p>The treaty shall also contain terms for safeguarding the rights of minorities in the two states.</p>
+<p>Immediately on the acceptance of this agreement by the Congress and the League the two shall decide upon a common course of action for the attainment of independence of India.</p>
+<p>The League will however be free to remain out of any direct action to which the Congress may resort and in which the League may not be willing to participate.</p>
+<p>If you do not agree to these terms could you let me know in precise terms what you would have me to accept in terms of the Lahore Resolution and bind myself to recommend to the Congress? If you could kindly do this, I shall be able to see apart from the difference in approach what definite terms I can agree to. In your letter of 23rd September you refer to “the basis and fundamental principles embodied in the Lahore Resolution” and ask me to accept them. Surely this is unnecessary when as I feel I have accepted the concrete consequence that should follow from such acceptance.</p>
+<h3>(II) M. A. Jinnah to Mahatma Gandhi, 25 September 1944</h3>
+<p>I am in receipt of your letter of September 24th, and I thank you for it. You have already rejected the basis and fundamental principles of the Lahore Resolution.</p>
+<p>(1) You do not accept that the Mussalmans of India are a nation.</p>
+<p>(2) You do not accept that the Mussalmans have an inherent right of self-determination.</p>
+<p>(3) You do not accept that they alone are entitled to exercise this right of theirs for self-determination.</p>
+<p>(4) You do not accept that Pakistan is composed of two zones, North-West and North-East, comprising six provinces, namely Sindh, Baluchistan, North-West Frontier Province, the Punjab, Bengal and Assam, subject to territorial adjustments that may be agreed upon, as indicated in the Lahore Resolution. The matter of demarcating and defining the territories can be taken up after the fundamentals above mentioned are accepted, and for that purpose machinery may be set up by agreement.</p>
+<p>You do not accept the provisions embodied in the Lahore Resolution for safe-guarding the minorities, and yet in your letter under reply you say: “With your assistance, I am exploring the possibilities of reaching an agreement so that the claim embodied in the Muslim League Resolution of Lahore may be reasonably satisfied,” and proceed to say “you must therefore have no apprehensions that the August Resolution will stand in the way of our reaching an agreement.”</p>
+<p><span class="pg">[p. 509]</span> I have already clearly explained to you that the August resolution, so long as it stands, is a bar, for it is fundamentally opposed to the Lahore Resolution. You then proceed to say “that resolution dealt with the question of India as against Britain and it cannot stand in the way of our settlement.” I am not at present concerned with Britain, but the August Resolution, as I have already stated, is against the ideals and demands of the Muslim League. Further, there is the resolution of Jagat Narayan Lal, passed by the All-India Congress Committee in May 1942 at Allahabad, which, in express terms, lays down as follows:</p>
+<p>“The A.I.C.C. is of opinion that any proposal to disintegrate India by giving liberty to any component state or territorial unit to secede from the Indian Union or Federation will be highly detrimental to the best interests of the people of the different states and provinces and the country as a whole and the Congress, therefore, cannot agree to any such proposal.”</p>
+<p>These two resolutions, so long as they stand, are a complete bar to any settlement on the basis of the division of India as Pakistan and Hindustan. It is open to the Congress to revise and modify them, but you are only speaking in your individual capacity, and even in that capacity you are holding fast to the August Resolution and you have given no indication of your attitude regarding Jagat Narayan Lal's resolution. I have repeatedly made it clear after we had discussed the Gandhi–Rajaji formula, as you maintained that, to use your own language, “Rajaji not only has not put the Lahore Resolution out of shape and mutilated it but has given it substance and form,” and proceeded to say “Indeed in view of your dislike of the Rajaji formula, I have, at any rate for the moment, put it out of my mind and I am now concentrating on the Lahore Resolution in the hope of finding a ground for mutual agreement.” When I asked for further clarification which you furnished me by your letter of September 15th, you started by saying “I have shunted the Rajaji formula and with your assistance I am applying my mind very seriously to the famous Lahore Resolution of the Muslim League,” and thence forward the Gandhi–Rajaji formula was not discussed any further, and the question of your representative character and authority, which I had pointed out from the very commencement, therefore did not arise, as you had given me the task of converting you to the fundamentals of the Lahore Resolution, and ever since we discussed the Lahore Resolution only at great length and examined the pros and cons, and finally you have rejected it. As a result of our correspondence and discussions I find that the question of the division of India as Pakistan and Hindustan is only on your lips and it does not come from your heart, and suddenly at the eleventh hour you put forward a new suggestion, consisting only of two sentences by your letter of September 22nd, saying, “I have therefore suggested a way out. Let it be a partition as between two brothers if a division there must be.” I naturally asked you what this new suggestion of yours meant and wanted you to give me rough outlines of this new idea of yours as to how and when the division is to take place and in what way it is different from the division envisaged in the Lahore Resolution, and now you <span class="pg">[p. 510]</span> have been good enough to give me your amplification, in your letter of September 24th under reply, in which you say: “Differing from you on the general basis I can yet recommend to the Congress and the country the acceptance of the claim for separation contained in the Muslim League Resolution of Lahore 1940 on my basis and on the following terms.” The terms clearly indicate that your basis is in vital conflict with and is opposed to the fundamental basis and principles of the Lahore Resolution. Now let me take your main terms:—</p>
+<p>(a) “I proceed on the assumption that India is not to be regarded as two or more nations but as one family consisting of many members of whom the Muslims living in the North-West zones i.e., Baluchistan, Sindh, North-West Frontier Province and that part of the Punjab where they are in absolute majority over all the other elements and in parts of Bengal and Assam where they are in absolute majority, desire to live in separation from the rest of India.” If this term were accepted and given effect to, the present boundaries of these provinces would be maimed and mutilated beyond redemption and leave us only with the husk, and it is opposed to the Lahore Resolution.</p>
+<p>(b) That even in these mutilated areas so defined, the right of self-determination will not be exercised by the Muslims but by the inhabitants of these areas so demarcated. This again is opposed to the fundamentals of the Lahore Resolution.</p>
+<p>(c) That if the vote is in favour of separation they shall be allowed to form a separate state as soon as possible after India is free from foreign dominations, whereas we propose that we should come to a complete settlement of our own immediately, and by our united front and efforts do everything in our power to secure the freedom and independence of the peoples of India on the basis of Pakistan and Hindustan.</p>
+<p>(d) Next you say “There shall be a treaty of separation which should also provide for the efficient and satisfactory administration of foreign affairs, defence, internal communications, customs, commerce and the like which must necessarily continue to be matters of common interests between the contracting parties.” If these vital matters are to be administered by some central authority, you do not indicate what sort of authority or machinery will be set up to administer these matters and how and to whom again that authority will be responsible. According to the Lahore Resolution, as I have already explained to you, all these matters, which are the lifeblood of any state, cannot be delegated to any central authority or government. The matter of security of the two states and the natural and mutual obligations that may arise out of physical contiguity will be for the constitution-making body of Pakistan and that of Hindustan, or other party concerned, to deal with on the footing of their being two independent states. As regards the safeguarding of the rights of minorities, I have already explained that this question of safeguarding the minorities is fully stated in the Lahore Resolution.</p>
+<p><span class="pg">[p. 511]</span> You will therefore see that the entire basis of your new proposal is fundamentally opposed to the Lahore Resolution.... Why not then accept the fundamentals of the Lahore Resolution and proceed to settle the details?</p>
+<p><em>[Sapru Committee Report, 1945, app. V, xxi–xxv, as reprinted in C. H. Philips, ed., The Evolution of India and Pakistan, 1858–1947, 356–360.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 505–511.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 505-511; reading PDF covers pp. 505-510. SIT headings and citations kept as printed. Multi-part. PDF ends at p. 510; Jinnah's last letter and the citation run onto p. 511.</p></div>
+</div>
+</body>
+</html>

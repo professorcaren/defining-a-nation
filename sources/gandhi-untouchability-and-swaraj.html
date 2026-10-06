@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: Untouchability and Swaraj</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: Untouchability and Swaraj</h1>
+<p class="speech-meta">1,616 words, about 7 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Untouchability and Swaraj</h3>
+<p class="ed"><span class="pg">[p. 362]</span> On June 12, 1924, Gandhi was asked to explain why he felt there to be a necessarily inverse relationship between the evil of Untouchability and the establishment of political independence, or swaraj, and why he was adamant that without the removal of Untouchability there would be no freedom.</p>
+<p>I abhor with my whole soul the system which has reduced a large number of Hindus to a level less than that of beasts. The vexed problem would be solved if the poor Panchama, not to use the word “untouchable,” was allowed to mind his own business. Unfortunately, he has no mind or business he can call his own. Has a beast any mind or business but that of his master’s? Has a Panchama a place he can call his own? He may not walk on the very roads he cleans and pays for by the sweat of his brow. He may not even dress as the others do. The correspondent talks of toleration. It is an abuse of language to say that we Hindus extend any toleration towards our Panchama brothers. We have degraded them and then have the audacity to use their very degradation against their rise.</p>
+<p>Swaraj for me means freedom for the meanest of our countrymen. If the lot of the Panchama is not improved when we are all suffering, it is not likely to be better under the intoxication of swaraj. If it is necessary for us to buy peace with the Mussalmans as a condition of swaraj, it is equally necessary for us to give <span class="pg">[p. 363]</span> peace to the Panchama before we can, with any show of justice or self-respect, talk of swaraj. I am not interested in freeing India merely from the English yoke. I am bent upon freeing India from any yoke whatsoever. I have no desire to exchange King Log for King Stork. Hence for me the movement of swaraj is a movement of self-purification.</p>
+<p><em>[CWMG 24:226–227.]</em></p>
+<h3>The Sin of Untouchability</h3>
+<p class="ed">Three years earlier, on January 19, 1921, Gandhi had spoken on the same theme.</p>
+<p>It is well that the National [A]ssembly passed the resolution stating that the removal of this blot on Hinduism was necessary for the attainment of swaraj. The devil succeeds only by receiving help from his fellows. He always takes advantage of the weakest spots in our natures in order to gain mastery over us. Even so does the Government retain its control over us through our weaknesses or vices. And if we would render ourselves proof against its machinations we must remove our weaknesses. It is for that reason that I have called non-co-operation a process of purification. As soon as that process is completed, this Government must fall to pieces for want of the necessary environment, just as mosquitoes cease to haunt a place whose cesspools are filled up and dried.</p>
+<p>Has not a just Nemesis overtaken us for the crime of untouchability? Have we not reaped as we have sown? Have we not practised Dyerism and O'Dwyerism on our own kith and kin? We have segregated the “pariah” and we are in turn segregated in the British Colonies. We deny him the use of public wells; we throw the leavings of our plates at him. His very shadow pollutes us. Indeed there is no charge that the “pariah” cannot fling in our faces and which we do not fling in the faces of Englishmen.</p>
+<p>How is this blot on Hinduism to be removed? “Do unto others as you would that others should do unto you.” I have often told English officials that, if they are friends and servants of India, they should come down from their pedestal, cease to be patrons, demonstrate by their loving deeds that they are in every respect our friends, and believe us to be equals in the same sense they believe fellow-Englishmen to be their equals. After the experiences of the Punjab and the Khilafat, I have gone a step further and asked them to repent and to change their hearts. Even so it is necessary for us Hindus to repent of the wrong we have done, to alter our behaviour towards those whom we have “suppressed” by a system as devilish as we believe the English system of the Government of India to be. We must not throw a few miserable schools at them: we must not adopt the air of superiority towards them. We must treat them as our blood-brothers as they are in fact. We must return to them the inheritance of which we have robbed them. And this must not be the act of a few English-knowing reformers <span class="pg">[p. 364]</span> merely, but it must be a conscious voluntary effort on the part of the masses. We may not wait till eternity for this much belated reformation. We must aim at bringing it about within this year of grace, probation, preparation and tapasya [discipline]. It is a reform not to follow swaraj but to precede it.</p>
+<p>Untouchability is not a sanction of religion, it is a device of Satan. The devil has always quoted scriptures. But scriptures cannot transcend reason and truth. They are intended to purify reason and illuminate truth. I am not going to burn a spotless horse because the Vedas are reported to have advised, tolerated, or sanctioned the sacrifice. For me the Vedas are divine and unwritten. “The letter killeth.” It is the spirit that giveth the light. And the spirit of the Vedas is purity, truth, innocence, chastity, humility, simplicity, forgiveness, godliness, and all that makes a man or woman noble and brave. There is neither nobility nor bravery in treating the great and uncomplaining scavengers of the nation as worse than dogs to be despised and spat upon. Would that God gave us the strength and the wisdom to become voluntary scavengers of the nation as the “suppressed” classes are forced to be. There are Augean stables enough and to spare for us to clean.</p>
+<p><em>[CWMG 19:242–243.]</em></p>
+<h3>Untouchability, Women, and Swaraj</h3>
+<p class="ed">Gandhi consistently featured the “uplift of women” in his program of social reforms. The political advantages of this emphasis became painfully obvious to the British government when women began to participate actively in civil disobedience campaigns. But the aim of women’s emancipation was part of a broader effort that went beyond politics. Gandhi believed that at every level of national development, the country must draw on the energy and ability of its female population. He had begun his cause in South Africa, arguing as early as 1907 for women’s education. “Indian men,” he declared then, “have deliberately kept their women backward,” and “if this state of affairs continues, India will remain in its present abominable condition even if she were to secure all her rights from the British Government”. Thirty years later, after mobilizing millions of women as non-violent resisters in successive satyagrahas, Gandhi spoke before the All-India Women’s Conference, declaring that swaraj and “the progress of India in all directions [are] impossible” without the advancement of women: “When woman whom we call abala [weak] becomes sabala [strong], all those who are helpless will become powerful.” The first entry that follows, “Untouchability, Women, and Swaraj,” indicates the connections in Gandhi’s thought among essential social reforms and the dependence of swaraj on “inward growth.” The second passage is an excerpt of a speech delivered at the Bhagini Society of Bombay, in February 1918.</p>
+<p>The question of breaking down the feminine prejudice is most difficult. It is in reality a question of female education. And in this it is a question not merely of education of girls but it is one of the education of married women. I have therefore <span class="pg">[p. 365]</span> repeatedly suggested that every patriotic husband should become the wife's own teacher and prepare her for work among her less fortunate sisters. I have also drawn attention to the implications of the suggestion. One of them is for husbands to cease to treat their wives as objects of their enjoyment but to regard them as co-partners in their work of nation-building....</p>
+<p>That freedom which is associated with the term swaraj in the popular mind is no doubt unattainable without not only the removal of untouchability and the promotion of heart unity between the different sections but also without removing many other social evils that can be easily named. That inward growth which must never stop we have come to understand by the comprehensive term swaraj. And that swaraj cannot be had so long as walls of prejudice, passion and superstition continue to stifle the growth of that stately oak.</p>
+<p><em>[CWMG 33:148–149.]</em></p>
+<p>Dear Sisters and Brothers of Bhagini Samaj,</p>
+<p>... The Samaj is dedicated to the noble aim of women's regeneration and, in the same way that another's tapascharya [self-sacrifice] does not help one to ascend to heaven, men cannot bring about the regeneration of women. I don't mean to suggest that men do not desire it, or that women would not want to have it through men's help; I merely wish to place before you the principle that it is only through self-help that an individual or race can rise. This is not a new principle, but we often forget to act upon it....</p>
+<p>I have close associations, as you know, with both men and women, but I find that I can do nothing in the way of service to women without help from women workers. That is why I take every occasion to protest in no uncertain terms that, so long as women in India remain ever so little suppressed or do not have the same rights [as men], India will not make real progress.</p>
+<p><em>[CWMG 14:202–203.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 362–365.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 362-365; reading PDF covers pp. 362-365. SIT headings and citations kept as printed. Three sections: 'Untouchability and Swaraj', 'The Sin of Untouchability', 'Untouchability, Women, and Swaraj'.</p></div>
+</div>
+</body>
+</html>

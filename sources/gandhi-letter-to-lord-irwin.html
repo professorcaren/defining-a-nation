@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: Letter to Lord Irwin (Salt Satyagraha)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: Letter to Lord Irwin (Salt Satyagraha)</h1>
+<p class="speech-meta">1,958 words, about 9 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>The Salt Satyagraha of 1930: The Letter to Lord Irwin</h3>
+<p class="ed"><span class="pg">[p. 365]</span> In 1928 a local tax-resistance campaign in the western Indian district of Bardoli, Gujarat, proved successful. Gandhi found in this small-scale movement the key to his next national campaign, which in 1930 took the long-planned leap into mass civil disobedience. This historic action, easily the largest movement of civil disobedience ever undertaken, became known as the “salt satyagraha” because it was a campaign aimed at the duty, or tax, charged by the government on salt.</p>
+<p class="ed">Gandhi's letter to Lord Irwin, the viceroy of India, dated March 2, 1930, dwells on the economic burden that the salt tax imposed on the poor, but Gandhi knew that the real force of the salt satyagraha came from its symbolic meaning. Once again he had found a way to seize the moral high ground by evoking the image of a heroic struggle <span class="pg">[p. 366]</span> against a cruelly exploitative foreign system that, as he says in his letter to Irwin, "seems to be designed to crush the very life" out of its victims.</p>
+<p class="ed">This letter to Irwin represents Gandhi at his best, informing his adversary in advance of his intentions and reasons, and even the details of his battle plans. Beginning in Gandhi's classic style with "Dear friend," it sets the tone of congeniality and trust that served to create ambivalence in the British and make them hesitate, for them a fatal concession to the campaign. It is noteworthy that Gandhi's letter opens with a humble plea that the viceroy help him "find a way out" so that disobedience would not be necessary. But there is of course power behind this plea—the power of what he calls the "intensely active force" of non-violence. His careful explanation in the bulk of the letter of precisely why he regards "British rule to be a curse" gives eloquent justification for civil disobedience.</p>
+<p class="ed">The salt satyagraha began on March 12, 1930. Gandhi, age sixty, commenced his march with eighty followers from his ashram near Ahmedabad, traveling on foot through his home state of Gujarat. He was bound for the village of Dandi, over two hundred miles away on the western seacoast of India. He reached his destination twenty-four days later, unhindered by the government. At 6:30 a.m. on April 6, he collected a handful of natural sea salt, its use prohibited by law because it was untaxed. Press reports and film crews from the United States, Britain, and Europe, who had realized that the Mahatma was newsworthy, crowded around to record the event. He did not disappoint them, proclaiming to all the world: “With this I am shaking the foundations of the British Empire.... I want world sympathy in this battle of Right against Might.”</p>
+<p class="ed">The response was electric: mass civil disobedience throughout India followed as millions broke the salt laws, filling prisons and paralyzing the government. The viceroy had clearly been mistaken in not arresting Gandhi at once, because the delay permitted the movement to escalate quickly. By the time Gandhi was finally arrested on May 5, the movement was unstoppable; it continued unabated until February–March 1931, when Gandhi was released and concluded talks with Irwin.</p>
+<p>Dear friend,</p>
+<p>Before embarking on civil disobedience and taking the risk I have dreaded to take all these years, I would fain approach you and find a way out.</p>
+<p>My personal faith is absolutely clear. I cannot intentionally hurt anything that lives, much less fellow human beings, even though they may do the greatest wrong to me and mine. Whilst, therefore, I hold the British rule to be a curse, I do not intend harm to a single Englishman or to any legitimate interest he may have in India.</p>
+<p>I must not be misunderstood. Though I hold the British rule in India to be a curse, I do not, therefore, consider Englishmen in general to be worse than any other people on earth. I have the privilege of claiming many Englishmen as dearest friends. Indeed much that I have learnt of the evil of British rule is due to the writings of frank and courageous Englishmen <span class="pg">[p. 367]</span> who have not hesitated to tell the unpalatable truth about that rule.</p>
+<p>And why do I regard the British rule as a curse? It has impoverished the dumb millions by a system of progressive exploitation and by ruinously expensive military and civil administration which the country can never afford.</p>
+<p>It has reduced us politically to serfdom. It has sapped the foundations of our culture. And, by the policy of cruel disarmament, it has degraded us spiritually. Lacking the inward strength, we have been reduced, by all but universal disarmament, to a state bordering on cowardly helplessness....</p>
+<p>It seems as clear as daylight that responsible British statesmen do not contemplate any alteration in British policy that might adversely affect Britain's commerce with India or require an impartial and close scrutiny of Britain's transactions with India. If nothing is done to end the process of exploitation India must be bled with an ever increasing speed. The Finance Member regards as a settled fact the 1/6 ratio which by a stroke of the pen drains India of a few crores. And when a serious attempt is being made through a civil form of direct action, to unsettle this fact, among many others, even you cannot help appealing to the wealthy landed classes to help you to crush that attempt in the name of an order that grinds India to atoms.</p>
+<p>Unless those who work in the name of the nation understand and keep before all concerned the motive that lies behind the craving for independence, there is every danger of independence coming to us so changed as to be of no value to those toiling voiceless millions for whom it is sought and for whom it is worth taking. It is for that reason that I have been recently telling the public what independence should really mean.</p>
+<p>Let me put before you some of the salient points.</p>
+<p>The terrific pressure of land revenue, which furnishes a large part of the total, must undergo considerable modification in an independent India. Even the much vaunted permanent settlement benefits the few rich zamindars [landlords], not the ryots [poor peasants]. The ryot has remained as helpless as ever. He is a mere tenant at will. Not only, then, has the land revenue to be considerably reduced, but the whole revenue system has to be so revised as to make the ryot's good its primary concern. But the British system seems to be designed to crush the very life out of him. Even the salt he must use to live is so taxed as to make the burden fall heaviest on him, if only because of the heartless impartiality of its incidence. The tax shows itself still more burdensome on the poor man when it is remembered that salt is the one thing he must eat more than the rich man both individually and collectively....</p>
+<p>The iniquities sampled above are maintained in order to carry on a foreign administration, demonstrably the most expensive in the world. <span class="pg">[p. 368]</span> Take your own salary. It is over Rs. 21,000 per month, besides many other indirect additions. The British Prime Minister gets £5,000 per year, i.e., over Rs. 5,400 per month at the present rate of exchange. You are getting over Rs. 700 per day against India's average income of less than annas 2 per day. The prime minister gets Rs. 180 per day against Great Britain's average income of nearly Rs. 2 per day. Thus you are getting much over five thousand times India's average income. The British Prime Minister is getting only ninety times Britain's average income. On bended knees I ask you to ponder over this phenomenon....</p>
+<p>A radical cutting down of the revenue, therefore, depends upon an equally radical reduction in the expenses of the administration. This means a transformation of the scheme of government. This transformation is impossible without independence. Hence, in my opinion, the spontaneous demonstration of 26th of January, in which hundreds of thousands of villagers instinctively participated. To them independence means deliverance from the killing weight.</p>
+<p>Not one of the great British political parties, it seems to me, is prepared to give up the Indian spoils to which Great Britain helps herself from day to day, often, in spite of the unanimous opposition of Indian opinion.</p>
+<p>Nevertheless, if India is to live as a nation, if the slow death by starvation of her people is to stop, some remedy must be found for immediate relief. The proposed Conference is certainly not the remedy. It is not a matter of carrying conviction by argument. The matter resolves itself into one of matching forces. Conviction or no conviction, Great Britain would defend her Indian commerce and interests by all the forces at her command. India must consequently evolve force enough to free herself from that embrace of death.</p>
+<p>It is common cause that, however disorganized and, for the time being, insignificant it may be, the party of violence is gaining ground and making itself felt. Its end is the same as mine. But I am convinced that it cannot bring the desired relief to the dumb millions. And the conviction is growing deeper and deeper in me that nothing but unadulterated non-violence can check the organized violence of the British Government. Many think that non-violence is not an active force. My experience, limited though it undoubtedly is, shows that non-violence can be an intensely active force. It is my purpose to set in motion that force as well against the organized violent force of the British rule as [against] the unorganized violent force of the growing party of violence. To sit still would be to give rein to both the forces above mentioned. Having unquestioning and immovable faith in the efficacy of non-violence as I know it, it would be sinful on my part to wait any longer.</p>
+<p><span class="pg">[p. 369]</span> This non-violence will be expressed through civil disobedience, for the moment confined to the inmates of the Satyagraha Ashram, but ultimately designed to cover all those who choose to join the movement with its obvious limitations.</p>
+<p>I know that in embarking on non-violence I shall be running what might fairly be termed a mad risk. But the victories of truth have never been won without risks, often of the gravest character. Conversion of a nation that has consciously or unconsciously preyed upon another, far more numerous, far more ancient and no less cultured than itself, is worth any amount of risk....</p>
+<p>The plan through civil disobedience will be to combat such evils as I have sampled out. If we want to sever the British connection it is because of such evils. When they are removed the path becomes easy. Then the way to friendly negotiation will be open. If the British commerce with India is purified of greed, you will have no difficulty in recognizing our independence. I respectfully invite you then to pave the way for immediate removal of those evils, and thus open a way for a real conference between equals, interested only in promoting the common good of mankind through voluntary fellowship and in arranging terms of mutual help and commerce equally suited to both...</p>
+<p>This letter is not in any way intended as a threat but is a simple and sacred duty peremptory on a civil resister. Therefore I am having it specially delivered by a young English friend who believes in the Indian cause and is a full believer in non-violence and whom Providence seems to have sent to me, as it were, for the very purpose.</p>
+<p>I remain, Your sincere friend, M. K. Gandhi</p>
+<p><em>[CWMG 43:2–3, 4, 5–8.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 365–369.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 365-369; reading PDF covers pp. 365-369. SIT headings and citations kept as printed. End marker copies the garbled OCR of the citation [CWMG 43:3, 4, 5-8.].</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lala Lajpat Rai: The Hindu-Muslim Problem, 1924</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Lala Lajpat Rai: The Hindu-Muslim Problem, 1924</h1>
+<p class="speech-meta">4,470 words, about 19 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Lala Lajpat Rai: A Plan to Divide the Punjab and Bengal</h3>
+<p class="ed"><span class="pg">[p. 473]</span> An introduction to Lajpat Rai's life appears in chapter 5.</p>
+<h3>The Hindu–Muslim Problem, 1924</h3>
+<p class="ed">Coming from a province with almost equal numbers of Muslims and non-Muslims, Lajpat Rai had long been concerned with their relations. He was strongly critical of Muslims, but unhappy as well with some of his fellow-Hindus.</p>
+<p class="ed"><span class="pg">[p. 474]</span> In a series of articles in 1924, later collected and reprinted as “The Hindu–Muslim Problem,” he presented his views on how the main communities might better relate. Though insistent that separate electorates were anti-national, he also presented a plan to divide the Punjab and Bengal that foreshadowed what was to come two decades later.</p>
+<p>I</p>
+<p>The Hindu–Muslim problem is the problem of India. We have heard and read much of Hindu–Muslim unity. It is always a matter of controversy between the Anglo-Indian and the Nationalist. The former asserts and the latter denies the impossibility of Hindus and Muslims uniting together to form one nation.... Yet it is a fact that from 1919 to the end of 1921 Hindus and Muslims of India were fairly united. It was during this period that for the first time in the history of India a Kafir preached from the pulpit of the biggest and historically the most important and the most magnificent mosque of Northern India. It was during the same period that the Malechhas fraternised with the Hindus on the occasion of their religious festivals. It is also a fact that the amount of unity achieved in this short period, has since then melted down and for the last three years Hindus and Mussalmans have been at daggers drawn with each other to an extent never before known under British rule.... At the moment of writing, the relations between the two communities are strained almost to the breaking point. Communal riots and scuffles are of more frequent occurrence than ever before.... Even in Congress circles, in spite of much hugging and cooing, the relations between the leaders of the two communities are not free from distrust and suspicion. Hindu–Muslim unity is always put in the forefront of the Congress programme, but so far the leaders have failed to successfully grapple with the situation and find out a suitable solution.... Either they have lost influence with the masses or they are not sincere.</p>
+<p>II</p>
+<p>In the discussions at the Unity Conference held at Delhi one thing struck me very forcibly. That was the fact that so many of the ablest and most patriotic Muhammadan youngmen as well as a few Hindus were obsessed with the idea of “absolute rights.” Time after time it was said that the Muhammadans had an inherent right to slaughter cows and that that right could only be curtailed by their own voluntary sacrifice.... The idea of absolute rights is a fallacious one and has really no foundation in law....</p>
+<p>I contend that there is no such thing as an absolute right vested in any individual or in any community forming part of a nation; that all rights are relative, that no society can remain intact even for twenty-four hours on the basis of absolute rights, that the idea of absolute rights was exploded long ago, because it was found to be not only wrong in theory but pernicious in practice.... All organic <span class="pg">[p. 475]</span> relations depend upon the mutual obligations of the members composing the organism. No part of the organism has any absolute right. Firstly, all the rights of an individual are subject to the equal rights of others, which fact creates duties and obligations on the part of the different members of a society towards each other. In a well ordered social organism no one has a right to do anything which will unreasonably clash with the legal interests of any one else. Nay, in order to secure goodwill and progress, the more advanced members of a social organism have sometimes to go further and sacrifice their interests for the commonweal, or for the benefit of the other members of the community. The protection of the poor, solicitude for providing for the necessities of those who cannot look after themselves, the widows, the orphans, the blind, the lame, the aged, the minor, etc., all fall under this category.</p>
+<p>An individual may have an absolute right to think what he wishes, but the moment it comes to the expression of the thought in speech and action, his right is hedged round by conditions and limitations. This is the legal and the constitutional aspect of the question.... It is nobler to emphasize duties rather than rights. People who insist on rights rather than duties become selfish, proud and self-centred. Those who emphasise duties, are quite the reverse. The highest development of humanity and of the spirit of service requires greater emphasis being laid on duties than on rights. That is the teaching of almost all the great religions of the world if properly understood and rightly interpreted. That is the teaching of Buddha, Christ and Gandhi. It is also the lesson of actual day to day experience....</p>
+<p>I would advise my young countrymen to think over this question a little more deeply ... and to free themselves from the obsession of this pernicious doctrine of rights. Unless this is done, there is no hope for unity in India. We must always remember that we are a sort of polyglot nation, much less homogeneous than any of those European or Western nations who have had to fight for their freedom. Such a country can never win its freedom, or, having won freedom, can never maintain it unless the various communities composing its people are inspired more by the ideal of duties than of rights....</p>
+<p>III</p>
+<p>All those who aim at creating a United India, should remember that India is a land of many faiths and many religions; that these faiths and religions, again, are divided into sections and sub-sections; that these sections and sub-sections practise numerous religious observances[,] ceremonials and rituals and that some of these rituals and observances, conflict with one another. It is impossible for any Government to guarantee to all these religions, sections and sub-sections, full and complete freedom in the matter of the observance of all their rituals and ceremonials especially when they are in conflict with one another. Some of these ceremonials and observances, moreover, are inhuman, cruel and immoral. To insist upon ... a strict and full observance of all their religious rituals and <span class="pg">[p. 476]</span> ceremonials is, therefore, a clear impossibility, besides being directly opposed to the idea of a United India. The British Government, in spite of its professions of religious neutrality have, from time to time, interfered in the matter of religious practices; for example they stopped by legislation the inhuman practices of Sati and infanticide which Hindu orthodoxy contended was a part of its religion....</p>
+<p>Society cannot interfere with the beliefs of any one, but no progressive society can allow such practices to be carried on with impunity even in the name of religion as are revolting to the sense of humanity and morality of the vast bulk of its members. Even allowing the largest possible liberty in the matter of religious observances, no nation can for all time tolerate such practices.</p>
+<p>... The idea of a United India demands that emphasis should be laid more on the points on which different religions agree than on the differences that divide them. The idea of a United India necessarily demands, therefore, the rationalising of religion and religious practices to the farthest extent possible.... Insistence on the observance of conflicting ceremonials has to be actively discouraged and all such ideas based on false notions of religion as increase hatred, estrange one community from another, and create barriers between different communities....</p>
+<p>Unfortunately for us even religious reform movements in India have in some cases taken a wrong turn. They have brought into prominence the observance of very many rites and ceremonies which do not form an integral part of the religions concerned and have nothing to do with Dharma. Communal consciousness, again, has come to be synonymous with the observance of such petty ceremonials as perpetuate differences and form a solid wall separating one community from another. The Arya Samaj, the Muhammadan reform movement and Sikh reform movement all illustrate this tendency and it cannot be denied that Mahatma Gandhi himself and the Khilafat movement, of which he was the strongest pillar, have also accentuated this feeling.</p>
+<p>VIII</p>
+<p>I am afraid Indian Muslims are more Pan-Islamic and exclusive than the Muslims of any other country on the face of the globe, and that fact alone makes the creation of a united India more difficult than would otherwise be the case. I am inclined to think that in this respect, at least, Sir Syed's policy was sounder than that of the Khilafatists. He did not believe in a religious Khilafat ... and he was opposed to the Muslims of India devoting much attention to the affairs of Turkey or other Muslim countries.</p>
+<p>IX</p>
+<p>What I have said about Pan-Islamism and the excess of communalism among the Mussalmans, should not be understood to imply that Hindus on their side <span class="pg">[p. 477]</span> have been quite inactive and innocent.... In their own way, Hindu revivalists have left nothing undone to create a strictly exclusive and aggressive communal feeling. Early in the eighties of the last century some of the Hindu religious leaders came to the conclusion that Hinduism was doomed unless it adopted the aggressive features of militant Islam and militant Christianity. The Arya Samaj is a kind of militant Hinduism. But the idea was by no means confined to the Arya Samaj. Swami Vivekanand and his gifted disciple Sister Nivedita, among others, were of the same mind. The articles which she wrote on aggressive Hinduism are the clearest evidence of that mentality.</p>
+<p>It must be remembered in this connection that Western knowledge, Western thought and Western mentality took hold of the Hindu mind at a very early period of British rule. The Brahmo Samaj was the first product of it. In the early sixties the Brahmo Samaj was a non-Hindu body, and under its influence Hindu scholars, thinkers and students were becoming cosmopolitans. Some became Christians, others took to atheism and became completely westernised ... The Arya Samaj movement and aggressive Hinduism was a reaction against that un-Hinduism and indifferentism. Most of the early Hindu leaders of the Indian National Congress were in this sense non-Hindus. What did Mr. S. N. Banerjea or [Bengali Congress leaders] Lal Mohan Ghosh or Ananda Mohan Bose care for Hinduism? ... G. K. Gokhale was not a Hindu at all.... Thus the political nationalist movement of India was brought into existence by highminded Englishmen, enlightened and highminded Parsees, enlightened and highminded sons of Hindus (many of whom in their own mentality were either non-Hindus or indifferent Hindus) and a few enlightened and highminded Muslims. Born under these auspices, it was bound to be a movement of pure freedom.... It was, however, more a “safety-valve” than a movement of pure freedom. It was hardly three years old when its God-father, the Marquis of Dufferin [Viceroy 1884–1888] changed his mind and decided to strangle it. The best way to strangle it, he thought, was to rob it of its national character and to raise the religious and denominational bogey. The latter proved to be a Himalayan glacier, under whose weight it was bound either to perish or to be cracked so badly as to remain mangled all its life.</p>
+<p>That Himalayan glacier was the late Sir Syed's opposition to the Congress on denominational grounds. I do not mean to say that Sir Syed's fears about his community were absolutely baseless, but the cry which he raised was practically the death-knell of Indian nationalism at the time. Sir Syed's attitude towards the Indian National Congress was influenced by the following considerations:</p>
+<p>(a) That in India the Hindus were in a majority, and if a form of democratic Government was accepted as the political goal of India, the Muslims were bound to be in a minority.</p>
+<p>(b) That the Hindus were both economically and educationally more advanced than the Muslims, and would monopolise much of Government influence for a long time to come.</p>
+<p><span class="pg">[p. 478]</span> (c) That a Hindu Raj might possibly mean the death of Islam in India, or at least a position of subservience for it.... He, therefore, favoured the idea of perpetual British rule in this country.</p>
+<p>The founders of the Indian National Congress, on the other hand, were absolutely honest and sincere nationalists. They did not entertain any anti-Muslim intentions, but they knew that nationalism could take no notice of denominationalism. Sir Syed's opposition, however, forced them to take some notice of it. It was by no conspiracy against the Muslims that the Hindus of that period came to occupy a large number and proportion of higher Government offices than their Muslim fellow-countrymen, and were more prominent and influential in the public life of the country. They ... refused to accept communal representation in services under the Government for each community. The struggle continued for a long time, until the Congress surrendered....</p>
+<p>The acceptance of the principle of communal representation was a concession to religion and is the negation of nationalism. The supremacy of religion over State has thus been enthroned. Most Muslim leaders openly say that they are Muslims first and Indians afterwards, though in 1915, Mr. Mazhar-ul-Haq said from his place as President of the Muslim League that he was Indian from first to last. No one can be a true Nationalist who is not an Indian from first to last. He may be an Indian Hindu or an Indian Mussalman, but he must be an Indian all the time. A man who says he is prepared to sacrifice the freedom of India for the freedom of “Jazirat-ul-Arab” [“the Arab peninsula”] cannot be an Indian nationalist.</p>
+<p>Leaders on both sides are emphatic that the present tension between the two communities is political and not religious. Muslims contend that the insufficiency and the unfairness of the Lucknow Pact are responsible for it. Hindus maintain that communal representation itself is at the bottom of the present trouble. Both are right in their own way. Whether the Lucknow Pact is unjust or unfair, it is certainly responsible for the Muslim demand for its extension to local bodies, government services and the educational institutions.... Practically all social relations between Hindus and Muhammadans, and Sikhs and non-Sikhs have ceased. All three communities have their separate clubs, separate organizations and separate colleges.... I am certain that religion is being used for political purposes, but I am also certain that there is a certain amount of genuine religious element in it.</p>
+<p>X</p>
+<p>The aggressive Hinduism preached by the Arya Samaj was not political in its conception. That it has been strengthened by political considerations cannot, however, be denied.... The principle of Shuddhi [cleansing, reconversion] has now been accepted by the Hindu Mahasabha, and I am free to confess that the idea at the back of this decision is partly political, partly communal and partly humanitarian, the latter element being more in evidence in the Shuddhi of the untouchables....</p>
+<p><span class="pg">[p. 479]</span> XI</p>
+<p>I will now offer a few observations on how the present situation can be improved....</p>
+<p>It is suggested on behalf of Muslim leaders that—</p>
+<p>(a) Communal representation with separate electorates in all the legislatures, local bodies, Universities and other official or semi-official bodies should be provided. Mr. M. A. Jinnah is the latest recruit to this party, and I really cannot understand how he calls himself a nationalist still. The euphemism that this is only tentative and that a time will come when the Muslims will be ready to give up communal representation, should deceive no one. Once you accept communal representation with separate electorates, there is no chance of its being ever abolished, without a civil war.... Communal representation with separate electorate is the most effective reply to the demand for Swaraj, and the surest way of India never getting it. I have never been able to appreciate the mentality of those who constantly talk of turning out the British and at the same time insist on communal representation with separate electorates. I really don't understand what they mean. The second is the surest way of the first being never realized. The experience of the last three years is the most conclusive proof of it. The Muslim demand strengthens the position of anti-Swarajists both among the Hindus and the Muslims, and supplies an effective reply to the contention that India is ripe for Swaraj. Communal representation by itself is a sufficiently bad principle, destructive of, and antagonistic to, the idea of a common nationhood, but separate electorates make this vicious principle immeasurably worse....</p>
+<p>(b) Representation in provincial legislatures and local bodies should be on the basis of population in provinces and places where the Mussalmans are in a majority. In other provinces and places they should have “effective” minority representation.</p>
+<p>(c) Posts and offices under Government should also be distributed on the principle stated in (b).</p>
+<p>(d) In the provinces where the Muslims are in a minority as well as in the All-India Departments the Muslims ought to have 25 percent. to 33 percent. of the total posts.</p>
+<p>We will take these clauses one by one, in their serial order.</p>
+<p>The principle of clause (a) is both theoretically and practically a negation of the united nationhood. It provides for a complete division of India, as it is, into two sections: a Muslim India and a non-Muslim India. I say deliberately non-Muslim India, because all that the Muslims are anxious for, is a guarantee of their own rights. All the other communities they lump into one as non-Muslims. Let those who demand communal representation with separate electorates in all the representative institutions of the land, honestly confess that they do not believe in nationalism or in a united India. The two things are absolutely irreconcilable.</p>
+<p><span class="pg">[p. 480]</span> (b) The demand for proportionate representation in the Legislatures is perfectly reasonable provided the principle is accepted through and through. The plea for “effective” minority representation is, however, untenable. Mr. Jinnah has placed a special interpretation of his own on this term.... In Bengal and the Punjab, the Mussalmans are in a majority, and if this principle is accepted, they will rule over these Provinces. The Hindus in these Provinces according to the interpretation of Mr. Jinnah are an effective minority already; so they are not entitled to any special representation. But what about the Sikhs? Are they or are they not entitled to special representation? And from whose share are they to get it? From the share of the Hindus or that of the Muslims? Under no principle can they get it from the share of the Hindus. They must get it, if they must, from the Muslims’ share on the same principle on which the Muslims themselves claim it in the U. P., or the other Provinces where they are in a minority. This will interfere with the absolute majority which Muslims demand over the Hindus and Sikhs combined. Some Mussalmans realize this and contend that they will be content with a bare majority of one or two. But it is obvious that they cannot have every thing in their own way.... The Punjab ... is the home of a community who were the rulers of the Province when the British took possession of it.... Under the circumstances I would suggest that a remedy should be sought by which the Muslims might get a decisive majority without trampling on the sensitiveness of the Hindus and the Sikhs. My suggestion is that the Punjab should be partitioned into two provinces, the Western Punjab with a large Muslim majority, to be a Muslim-governed Province; and the Eastern Punjab, with a large Hindu-Sikh majority, to be a non-Muslim governed Province. I do not discuss Bengal. To me it is unimaginable that the rich and highly progressive and alive Hindus of Bengal will ever work out the Pact agreed to by Mr. Das. I will make the same suggestion in their case, but if Bengal is prepared to accept Mr. Das’s Pact, I have nothing to say. It is its own look-out.</p>
+<p>Maulana Hasrat Mohani has recently said that the Muslims will never agree to India's having Dominion status under the British. What they aim at are separate Muslim States in India, united with Hindu States under a National Federal Government. He is also in favour of smaller States containing compact Hindu and Muslim populations. If communal representation with separate electorates is to be the rule, then Maulana Hasrat's scheme as to smaller provinces seems to be the only workable proposition. Under my scheme the Muslims will have four Muslim States: (1) The Pathan Province or the North-West Frontier, (2) Western Punjab, (3) Sindh, and (4) Eastern Bengal. If there are compact Muslim communities in any other part of India, sufficiently large to form a Province, they should be similarly constituted.... This is not a united India. It means a ... partition of India into a Muslim India and a non-Muslim India.</p>
+<p>(c) From a national point of view, I strongly object to any communal distinction being adopted for Government service or in the Universities. Yet it cannot be denied that Muslim dissatisfaction at the present condition of things is well-founded <span class="pg">[p. 481]</span> and genuine. Hindus must make up their mind to concede to the Muslims their fair share of the loaves and fishes obtainable from Government.... What the Muslims of the Punjab (I say Muslims as distinguished from Muslim landlords, Muslim lawyers and Muslim graduates) stand in the greatest need of, is educational and economic openings. There are Muslim districts where illiteracy is more widespread than anywhere else in the Province. There are millions of Muslims who are exclusively at the mercy of their Muslim and Hindu landlords. What have the Muslim leaders done to improve their educational and economic position? Providing posts under the Government for a few educated Muslims is no remedy for the present condition. Safeguarding the interests of the few and neglecting the interests of the many is hardly a laudable thing, but that is exactly what Mian Fazl-i-Husain has achieved and at such tremendous cost! The Muslims all over the world have yet to learn that there are other ways of making money and thriving economically than through and by Muslim rule. Those who are doing nothing to place modern progressive ideals before the Muslims and simply emphasize ingenious dogmas, hair-splitting doctrines and reliance on Government, can hardly be called good friends of the Muslims....</p>
+<p>XII</p>
+<p>In the last article I observed that Mian Fazl-i-Husain embodied, in his person, a real grievance.... If the Hindus occupy a larger number of posts under the Government than they would be entitled to on a purely numerical basis, they are not to be blamed for it. The Muslim community ought to recognise that the fault is principally their own. They did not take sufficient advantage of the educational facilities provided by the Government in the early days of the British rule.... The claim that the number of Government posts allotted to each community should be in proportion to its strength in the population, is equally absurd.... The whole thing is so ridiculous that one wonders how such a claim could be seriously put forward by men of intelligence and common-sense....</p>
+<p>I am free to confess that in the present state of communal feeling no Department should be monopolised by any one community or class.... I think the appointment of a properly representative Public Services Commission will be a sufficient guarantee that no community shall, in future, be improperly deprived of its due share of Government posts. I can think of no other solution which would meet the needs of the situation. When, however, Swarajya is attained, the solution will probably be simple. The Provincial Governments will have full powers to appoint their servants, and the Provinces having Muslim majorities will ... automatically have a majority of Muslim Government servants. In the All-India Services, a Services Commission will continue to make appointments.... No community can economically prosper which relies too much on Government patronage.... The cream is, in any case, reserved for Europeans; then come Anglo-Indians; Indians come last of all.</p>
+<p><span class="pg">[p. 482]</span> As for Universities and other educational institutions, they are the last places where any communal distinction should be allowed. That will be poisoning the whole intellectual life of the nation. I can understand and appreciate special facilities being asked for classes considered backward. Give them special scholarships, open educational centres in areas largely occupied by such classes; even assign larger or special grants from public revenues for their benefit, without dislocating or injuring existing institutions.... The case is, however, different with the Professional Colleges. In their case the allocation of numbers to different communities regardless of merit would lower the standard of education and the subsequent efficiency of the successful units. These are, however, minor matters to which undue importance should not be attached.</p>
+<p>Now to summarise the suggestions, I have made:</p>
+<p>(1) Free your minds from the pernicious doctrine of absolute rights.</p>
+<p>(2) Purge your politics of “religion” (dogmatic religion).</p>
+<p>(3) Rationalise religion as much as possible, and lay emphasis only on essentials.</p>
+<p>(4) Remove social barriers which separate and estrange one community from another.</p>
+<p>(5) Love India above any other country in the world, and be Indians first and last.</p>
+<p>(6) Concentrate all efforts on improving conditions at home. That does not debar you from sympathising with your fellow-religionists abroad and helping them occasionally provided that your duty to your own country-men permits of it. In this respect follow Turkey and Egypt.</p>
+<p>(7) Don't fret at Shuddhi. It has come to stay.</p>
+<p>(8) You can try Sanghathan and Tanzim, if you can purge them of anti-Muslim and anti-Hindu feelings, which, in my opinion, is very difficult.</p>
+<p>(9) Have proportional representation in Legislature if you may, but do not insist on separate electorates.</p>
+<p>(10) Divide the Punjab into two Provinces to make majority rule effective.</p>
+<p>(11) Don't insist on population being the rule of representation in local bodies. But if you must, you may. But there, again, do not insist on separate electorates.</p>
+<p>(12) Have Public Service Commissions to regulate the filling of Government posts on certain general broad principles.</p>
+<p>(13) No communal representation in Universities and educational institutions. But special facilities for backward classes may be provided with special grants from public revenues....</p>
+<p><em>[From Lala Lajpat Rai, Writings and Speeches, vol. 2: 1920–1928, ed. Vijaya Chandra Joshi (Delhi: University Publishers, 1966), 170–171, 175–179, 203–208, 210–218.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 473–482.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 473-482; reading PDF covers pp. 473-482. SIT headings and citations kept as printed.</p></div>
+</div>
+</body>
+</html>

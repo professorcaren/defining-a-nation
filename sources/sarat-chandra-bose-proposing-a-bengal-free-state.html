@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarat Chandra Bose: Proposing a Bengal Free State</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Sarat Chandra Bose: Proposing a Bengal Free State</h1>
+<p class="speech-meta">2,863 words, about 12 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Sarat Chandra Bose Takes the Lead: Efforts for a United Bengal</h3>
+<p class="ed"><span class="pg">[p. 542]</span> A Bengali political leader involved in the Indian nationalist movement in the first half of the twentieth century, Sarat Chandra Bose (1889–1950) was an elder brother of the more charismatic Subhas Chandra Bose (1897–1945). Both attended Presidency College, Calcutta.</p>
+<p class="ed">Sarat Bose was called to the bar from Lincoln's Inn and had a lucrative legal career before the Calcutta High Court. The political activity of Subhas Bose drew his older brother into nationalist politics and Calcutta affairs. Sarat Bose became a stalwart of the nationalized Calcutta Corporation, or city government, and a leader of the Bengal Congress in legislative affairs.</p>
+<p class="ed">Along with other Congress leaders, Sarat Bose was arrested in 1932, and was not freed until 1935. A lover of Shakespeare with a degree in English literature, he read all the major works of the Russian novelists of the nineteenth century while imprisoned. But prison conditions caused his health to deteriorate, and he was finally released in 1935.</p>
+<p class="ed">In 1938 Subhas Bose returned from abroad to become Congress president, and Sarat Bose assumed leadership of the opposition in the Bengal Legislative Assembly. <span class="pg">[p. 543]</span> A conflict with Gandhi led to Subhas Bose's resignation from his Congress leadership post in 1939, and then to his suspension for disobeying Congress strictures about demonstrations. Sarat Bose continued to play an important role in Bengal politics until December 1941, when events in World War II changed everything.</p>
+<p class="ed">Believing that the British would never leave India peacefully, Subhas Bose secretly left the country in January 1941 and made his way to Germany. Because his younger brother was working with the enemy, and he himself was secretly meeting the Japanese consul general in Calcutta, Sarat Bose was imprisoned from 1941 to 1945. When he was arrested, Sarat Bose was in the process of forming a coalition government in Bengal with the Muslim leader Fazlul Huq. His imprisonment was a setback to Hindu–Muslim relations, and also severely damaged his health. He had a fever throughout these long years in prison, and never fully recovered.</p>
+<p class="ed">Upon his release in 1945, he organized the Congress election campaign in 1945–1946, and was briefly a cabinet minister in the interim government in 1946. As the Congress moved toward acceptance of a division of India on the basis of religion, Sarat Bose, to whom this was anathema, worked to prevent such an outcome.</p>
+<p class="ed">With the secretary of the Muslim League, Abul Hashim, Sarat Bose put forward a scheme for a united Bengal. But it failed to gain popular support, as communal riots spread through India. Jinnah approved of it because he hoped it would mean that all Bengal might be ruled by a Muslim-majority government. Gandhi, also against Partition on the basis of religion, said he would back it if it gathered wide popular support. But when it did not, Gandhi went along with his Congress colleagues and reluctantly agreed to Partition.</p>
+<p class="ed">On Partition day, Sarat Bose sat quietly in his garden. After Independence and Partition in August 1947, he resigned from the ruling Congress Party and became a critic of it and a major figure in West Bengal politics. He put forth a stronger socialist program than the ruling party from which he had resigned, and he predicted that the communists would win in China. His positions antagonized Nehru. Never having fully regained his health after his two terms of incarceration, Sarat Bose died at age sixty-one in 1950.</p>
+<h3>Proposing a Bengal Free State</h3>
+<p>I. On 12 May 1947 the Associated Press of India released a report ... that Mr. Sarat Chandra Bose took the initiative in January 1947 in the matter of settling communal differences and bringing about an agreement regarding the formation of a new Cabinet in Bengal and also regarding the future Constitution of Bengal.... It was further stated that discussions that had taken place between Mr. Bose and Congress and Muslim League leaders during the last four months ... were still under consideration.</p>
+<p>II. In the course of a Press statement on 20 May 1947 Mr. Sarat Chandra Bose said:</p>
+<p><span class="pg">[p. 544]</span> During the last few years I have given considerable thought to the question of the future constitution of India and of the provinces.... In January last I took the initiative in the matter of settling communal differences and bringing about an agreement regarding the formation of a new Cabinet in Bengal and also regarding the future Constitution of Bengal and discussed my ideas with Mr. Abul Hashim, Secretary, Bengal Provincial Muslim League ... On the 26th January last ... I said ... “I have always held the view that India must be a Union of autonomous Socialist Republics and I believe that if the different provinces are redistributed on a linguistic basis and what are called provinces are converted into autonomous Socialist Republics, those Socialist Republics will gladly co-operate with one another in forming an Indian Union. It would be an Indian Union of Indian conception and Indian making....”</p>
+<p>Events have happened in Bengal and in other parts of the country which have driven large sections of my countrymen to desperation and have led persons prominent in public life, who until recently had unequivocally declared that they were against Pakistan and partition, to lend their support both to Pakistan and to partition.... Conceding Pakistan and supporting partition would be suicidal to the cause of Indian independence and also to the cause of social progress. It will make the partitioned provinces happy hunting grounds for imperialists, communalists and reactionaries. It will dissolve the existing linguistic bonds and instead of resolving communal differences will accentuate and aggravate them. Instead of thinking and talking of Pakistan and partition and thereby bringing into existence armed communal camps, we have to devise ways and means as to how to live and work together and how to form people's governments which will look not to communal interests but to common political, social and economic interests of the people.... We cannot and must not allow ourselves to be led by the British imperialists or the Indian Communists and reactionaries....</p>
+<p>III. The Associated Press of India reported on 22 May 1947 ... that complete terms had emerged out of the discussions that took place between Mr. Sarat Chandra Bose and certain prominent Congress and Muslim League leaders regarding the future constitution of Bengal and the formation of a new Cabinet. The terms were as follows:</p>
+<p>1. Bengal will be a Free State ... [that] will decide its relations with the rest of India.</p>
+<p>2. The Constitution of the Free State of Bengal will provide for election to the Bengal Legislature on the basis of joint electorate and adult franchise, with reservation of seats proportionate to the population amongst the Hindus and Muslims. The seats as between the Hindus and the Scheduled Caste Hindus will be distributed amongst them in proportion to their respective population, <span class="pg">[p. 545]</span> or in such manner as may be agreed among them. The constituencies and the votes will be distributive and not cumulative. A candidate who gets the majority of the votes of his own community cast during the elections and 25 per cent of the votes of the other communities so cast, will be declared elected. If no candidate satisfies these conditions, that candidate who gets the largest number of votes of his own community will be elected.</p>
+<p>3. On the announcement by His Majesty's Government that the proposal of the Free State of Bengal has been accepted and that Bengal will not be partitioned, the present Bengal Ministry will be dissolved and a new Interim Ministry brought into being, consisting of an equal number of Muslims and Hindus (including Scheduled Caste Hindus) but excluding the Chief Minister. In this Ministry, the Chief Minister will be a Muslim and the Home Minister a Hindu.</p>
+<p>4. Pending the final emergence of a Legislature and a Ministry under the new constitution, the Hindus (including the Scheduled Caste Hindus) and the Muslims will have an equal share in the services, including military and police. The Services will be manned by Bengalees.</p>
+<p>5. A Constituent Assembly composed of 30 persons, 16 Muslims and 14 non-Muslims, will be elected by the Muslim and non-Muslim members of the Legislature respectively, excluding the Europeans....</p>
+<p>V. A special messenger carrying a sealed cover from Mr. Sarat Chandra Bose to Mahatma Gandhi left on 22 May 1947 for Patna where the latter was then staying.... The following letter to Mr. Bose from Mahatma Gandhi ... is of great interest.</p>
+<p>Patna 25/5/47</p>
+<p>My dear Sarat,</p>
+<p>I have your note. There is nothing in the draft stipulating that nothing will be done by mere majority. Every act of Government must carry with it the co-operation of at least two-thirds of the Hindu members in the Executive and the Legislature. There should be an admission that Bengal has common culture and common mother tongue—Bengali. Make sure that the Central Muslim League approved of the proposal.... If your presence is necessary in Delhi I shall telephone or telegraph. I propose to discuss the draft with the Working Committee.</p>
+<p>Yours, Bapu</p>
+<p>VI. The Associated Press of India released the following report ... on 26 May 1947:</p>
+<p>Some changes are understood to be under discussion in the terms relating to the future constitution of Bengal that have emerged from the talks initiated by Mr. Sarat Chandra Bose with certain League and Congress leaders.</p>
+<p><span class="pg">[p. 546]</span> The authors of the terms have been continuing their discussions with a view to improving them and these talks have mostly centred round the provisions relating to (1) the Bengal Free State's relations with the rest of India and (2) elections to the Legislature....</p>
+<p>Amended Paragraph 1: Bengal will be a Free State. The Free State of Bengal will decide its relations with the rest of India. The question of joining any Union will be decided by the Legislature of the Free State of Bengal by a two-thirds majority.</p>
+<p>Amended Paragraph 2: The Constitution of the Free State of Bengal will provide for election to the Bengal Legislature on the basis of joint electorate and adult franchise, with reservation of seats proportionate to the population amongst Hindus and Muslims....</p>
+<p>VII. Mr. Sarat Chandra Bose told the Associated Press of India in New Delhi on 31 May 1947 that he had discussed with Mahatma Gandhi the Bengal situation....</p>
+<p>Mr. Bose expressed the belief if the Congress High Command would accept his plan, then it would be easier to persuade the League High Command to agree to Mr. Suhrawardy's scheme of United Bengal which was virtually the same as his own plan.</p>
+<p>Mr. Bose said:</p>
+<p>I do not say that Bengal should remain outside the Union. What I say is that only a Free Bengal can decide her relations with the rest of India.</p>
+<p>VIII. Mr. Sarat Chandra Bose addressed this letter to Mr. M. A. Jinnah on 9 June 1947:</p>
+<p>1, Woodburn Park, Calcutta 9th June, 1947</p>
+<p>My dear Jinnah,</p>
+<p>... Bengal is passing through the greatest crisis in her history, but she can yet be saved. She can be saved if you will kindly give the following instructions to Muslim members of the Bengal Legislative Assembly:</p>
+<p>(1) At the meeting to be held of all members of the Legislative Assembly (other than Europeans) at which a decision will be taken on the issue as to which Constituent Assembly the province as a whole would join if it were subsequently decided by the two parts to remain united, to vote neither for the Hindusthan Constituent Assembly nor for the Pakistan Constituent Assembly, and to make it clear by a statement in the Assembly or in the press or otherwise, that they are solidly in favour of Bengal having a Constituent Assembly of her own;</p>
+<p><span class="pg">[p. 547]</span> (2) At the meetings of the members of the two parts of the Legislative Assembly sitting separately and empowered to vote whether or not the province should be partitioned, to vote solidly against partition.</p>
+<p>The request I am making to you is in accordance with the views you expressed to me when we met. But it seems to me that if you merely express your views to your members and [do] not give them specific instructions as to how to vote, the situation cannot be saved. I hope you will do all in your power to enable Bengal to remain united and to make her a free and independent State.</p>
+<p>If the Muslim members of the Bengal Legislative Assembly vote solidly as suggested in paragraphs (1) and (2) above, I think Lord Mountbatten will be compelled to convene another meeting of all members of the Assembly (other than Europeans) at which a decision can be taken on the issue as to whether the province ... desires to have a Constituent Assembly of her own....</p>
+<p>Yours sincerely,</p>
+<p>Sarat Chandra Bose</p>
+<p>... Further conversations with him had to be dropped as the Congress High Command turned down Mr.... Bose's scheme for a united and independent Bengal ... Gandhiji said in one of his prayer speeches that he “had been taken to task for supporting Sarat Babu's move.”</p>
+<p>IX. Mahatma Gandhi wrote the following letter to Mr. Sarat Chandra Bose on 21 June 1947 from Hardwar:</p>
+<p>My dear Sarat,</p>
+<p>... The way to work for unity I have pointed out when the geographical (unity) is broken.</p>
+<p>Love, Bapu</p>
+<h3>On the Mountbatten Plan (I), [the agreement on partition by the main parties]</h3>
+<p>Interview to the Free Press Journal, Bombay, released at New Delhi on June 5, 1947:</p>
+<p>H.M.G.'s India Plan has dealt a staggering blow to the cause of Indian unity and independence—a blow from which we may not be able to recover for many years. It is true that the plan has been accepted by the two High Commands, but if we analyse it carefully, we shall find that instead <span class="pg">[p. 548]</span> of accelerating our pace towards the goal of freedom, it makes its attainment more difficult. What has surprised me most is that those who were until recently most vehement in demanding that India should remain one and undivided should have so readily supported division of India and even partition of provinces.</p>
+<p>The plan has given no satisfaction to the Sikhs of the Punjab and I feel sure that ... we shall find that it will give no satisfaction to the people of Bengal also. The demand of the people of the N.W.F.P. both Muslims and Hindus, for the establishment of an independent Pathan State has been ignored and what has been offered them is a choice between Hindusthan and Pakistan.</p>
+<p>The tragic happenings in Bengal, Bihar, the Punjab and the Frontier Province are as fresh in my mind as in that of anybody else; nevertheless, I feel that a different and more satisfactory remedy could have been found for the ills that have overtaken our body politic. If the people of Bengal, the Punjab and the Frontier Province had been allowed to find their own remedy themselves without any interference from the top ... the establishment of free and independent States in Bengal, the Punjab and the N.W.F.P. would have laid the foundations for a real and lasting peace.... It would have eventually led to the establishment of the Indian Union of our dreams....</p>
+<h3>On the Mountbatten Plan (II)</h3>
+<p>Extract from a statement to the Press released at Calcutta on June 8, 1947:</p>
+<p>British Imperialists have won. “Divide and Rule” has been their policy for the last 150 years and it continues to be their policy, even at the moment when they are supposed to be quitting India.... The top-ranking Congress leaders have already begun to talk in the Churchillian strain about “Co-operative Commonwealth.” Some of them have envisaged very close relations with Britain. In that background, British Imperialist manoeuvering will go on, but possibly in a more subtle and insidious way.... But the dream of independent India, free from British Imperialist control and influence, will more and more become a forgotten dream....</p>
+<p>I have no doubt what H. M. G.'s plan would lead to. It is bound to lead to perpetual conflicts between the Hindus and the Muslims in the Hindu majority provinces as well as in the Muslim majority provinces. If peace is what we seek, we cannot get it by accepting H. M. G.'s plan. If independence is what we seek, the Plan sounds its death knell. It is possible even now for Congress and Muslim League leaders to retrace their steps. Will they have the vision and the courage to do so? Let them reform the provinces on [a] linguistic basis and give them independence. Let them introduce <span class="pg">[p. 549]</span> in the reformed provinces adult franchise and joint electorate. If they do that, they will be sowing the seeds out of which will grow an independent and united India, an India not of Hindus against Muslims, or Muslims against Hindus, but an India of Hindus and Muslims, an India which will take her rightful place among the nations of the world.</p>
+<p><em>[From Sarat Chandra Bose, I Warned My Countrymen (Calcutta: Netaji Research Bureau, 1968), 183–187, 190–197, 199.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 542–549.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 542-549; reading PDF covers pp. 542-548. SIT headings and citations kept as printed. Multi-part. PDF ends at p. 548; the last statement and its citation run onto p. 549.</p></div>
+</div>
+</body>
+</html>

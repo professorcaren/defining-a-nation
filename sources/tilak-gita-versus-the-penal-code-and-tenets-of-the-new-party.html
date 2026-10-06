@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bal Gangadhar Tilak: The Gita Versus the Penal Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Bal Gangadhar Tilak: The Gita Versus the Penal Code</h1>
+<p class="speech-meta">3,160 words, about 14 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Bal Gangadhar Tilak: “Father of Indian Unrest”</h3>
+<p class="ed"><span class="pg">[p. 262]</span> Impressed as he was by his grandfather's recollections of the days before British rule reached Maharashtra, and of the Rebellion of 1857, it is not surprising that Bal Gangadhar Tilak (1856–1920) should have grown up questioning the right of the British to govern his land. Like Ranade and Gokhale (with whom he fought a running political duel for many years), Tilak was descended from the Chitpavan Brahman caste, but unlike them he maintained an uncompromising hostility to foreign domination.</p>
+<p class="ed">In addition to the Maratha history he imbibed at his grandfather's knee, Tilak learned Sanskrit and English from his father, a teacher and deputy inspector of schools in a small town on India's western seacoast. When he was ten, the family moved to Poona, but at sixteen Tilak lost his father. A self-reliant but weak-bodied youth, he devoted a year to building up his physique with exercises. After receiving his BA, he took a Bachelor of Laws degree but refused to enter government service, the usual haven of educated Indians in those days. Instead, with a few like-minded friends he started a school and two newspapers, in order to spread Western knowledge among the people of their native region of Maharashtra. Tilak helped to found the Deccan Education Society and Fergusson College; but, since he opposed the reform program of Agarkar and Gokhale, he resigned from the group in 1890.</p>
+<p class="ed">Tilak now purchased from the group the Marathi weekly Kesarī (Lion), which he had named and helped to edit, and its English counterpart, The Mahratta. Henceforth <span class="pg">[p. 263]</span> he poured his energies into educating the people of his province through the columns of these newspapers. His Marathi style was particularly effective and made a direct appeal to villagers, who would gather to have it read to them. Tilak also promoted in his papers the celebration of two new annual festivals—one dedicated to the Hindu god Ganesha, and the other honoring the Maratha hero Shivaji. His purpose in organizing these festivals was to develop in the Maharashtrian people a sense of pride in their common history and religion; however, the Muslim community could not help but notice that one of them often appeared to coincide with their festival of Muharram, and the other extolled the Mughal Empire's fiercest enemy. As eaters of beef, Muslims were further alarmed at the anti-cowkilling agitation which had been started by Dayanand, and which Tilak continued.</p>
+<p class="ed">Tilak's success in arousing popular enthusiasm through these activities began to worry the government. After the assassination in 1897 of two British officials in Poona, Tilak was accused of fanning hatred for the officials with his Kesarī articles, and was sentenced to jail for eighteen months. Imprisonment only whetted his fighting spirit, and the Bengal agitation of 1905 found him in the front lines of the fray. “Militancy—not mendicancy” was the slogan the Extremist faction used to disparage the Moderates, and Tilak's cry of “Freedom is my birthright and I will have it” swept the country. When the Extremists failed to wrest control of the Congress from the Moderates at the 1907 session, Tilak defied the chairman (who had refused to recognize him), whereupon the meeting degenerated into a riot in which shoes and chairs flew through the air.</p>
+<p class="ed">Shortly afterward Tilak was again arrested and tried for encouraging political assassination in his speeches and writings. He was sentenced to six years' rigorous confinement in Mandalay, Upper Burma. Books helped him to pass the time, and he returned to his Sanskrit studies. Earlier he had written two books arguing that the Vedas were over six thousand years old. His magnum opus, written in prison, was his lengthy commentary on the Bhagavad Gītā.</p>
+<p class="ed">Tilak's interpretation of the Gītā, emphasizing as it does the importance of action in this world, gives us the key to his own character and to the influence he has had on political thought in modern India. He argued that Hinduism's most popular sacred poem, the Gītā, preached political as well as religious activity; he hinted that violence in a righteous cause was morally justifiable. His followers cut themselves loose from the known and peaceful political standards to which the Moderates remained attached, and drifted into the uncharted depths of revolutionary violence and terrorism. Tilak himself never used such methods, but when others used them he maintained a silence that implied assent. The “father of Indian unrest,” as the British journalist Valentine Chirol called him, was not the man to reprimand his own offspring.</p>
+<p class="ed">In 1916 Tilak rejoined the Congress and, as their most popular leader, insisted on the compromises that made possible the united demand for self-government agreed to at Lucknow by the Congress and the Muslim League. By the time of his death in 1920 he had tempered his opposition to British rule sufficiently to favor contesting the elections provided for under the Montagu-Chelmsford Reforms of 1919—in contrast to the younger Gandhi, who wished to boycott them. But Tilak's example of <span class="pg">[p. 264]</span> fearless defiance was remembered by those who came after him, and the title of Lokamanya (“Honored by the People”) is still used as a reminder of his efforts to transform the nationalist cause from a limited upper-class one into a truly popular movement.</p>
+<h3>The Gītā versus the Penal Code</h3>
+<p class="ed">In a speech at the 1897 festival honoring the eighteenth-century warrior-king Shivaji, Tilak boldly declared that the Bhagavad Gītā sanctioned the killing of enemies for unselfish and benevolent reasons. (Shivaji had enticed his Muslim opponent Afzal Khan into a private conference, and in a struggle had murdered him with a concealed weapon.) One week after this and other speeches appeared in the Kesarī, a young Brahman killed a British official who had offended public opinion. Tilak himself was soon tried, sentenced, and jailed for encouraging sedition against the government. A half-century later, Gandhi's assassin used at his trial a similar interpretation of the Gītā.</p>
+<p>It is needless to make fresh historical researches in connection with the killing of Afzal Khan. Let us even assume that Shivaji first planned and then executed the murder of Afzal Khan. Was this act of the Maharaja [Shivaji] good or bad? This question which has to be considered should not be viewed from the standpoint of the Penal Code or even the Smritis [law books] of Manu or Yajnavalkya, or even the principles of morality laid down in the Western and Eastern ethical systems. The laws which bind society are for common men like yourselves and myself. No one seeks to trace the genealogy of a Rishi [a legendary sage], nor to fasten guilt upon a king. Great men are above the common principles of morality. These principles fail in their scope to reach the pedestal of great men. Did Shivaji commit a sin in killing Afzal Khan? The answer to this question can be found in the Mahabharata itself. Shrimat Krishna's teaching in the Bhagavad Gita is to kill even our teachers and our kinsmen. No blame attaches to any person if he is doing deeds without being motivated by a desire to reap the fruit of his deeds. Shri Shivaji Maharaja did nothing with a view to fill the small void of his own stomach [from selfish motives]. With benevolent intentions he murdered Afzal Khan for the good of others. If thieves enter our house and we have not sufficient strength in our wrists to drive them out, we should shut them up and burn them alive. God has not conferred upon the Mlecchas [barbarians, foreigners] the grant inscribed on a copperplate of the kingdom of Hindustan. The Maharaja strove to drive them away from the land of his birth; he did not thereby commit the sin of coveting what belonged to others. Do not circumscribe your vision like a frog in a well. Get out of the Penal Code, enter into the extremely high atmosphere of the Bhagavad Gita, and then consider the actions of great men.</p>
+<p><em>[From The Political Awakening in India, ed. John R. McLane (Englewood Cliffs, NJ: Prentice-Hall, 1970), 56.]</em></p>
+<h3>The Tenets of the New Party</h3>
+<p class="ed"><span class="pg">[p. 265]</span> At the end of the Congress session of 1906, it was clear that the gap between the Moderates and the Extremists had been bridged only temporarily by the mediation of Dadabhai Naoroji. At this juncture, on January 2, 1907, in Calcutta, Tilak delivered an address summarizing the aims and methods of the new party of which he was the leader.</p>
+<p>Two new words have recently come into existence with regard to our politics, and they are Moderates and Extremists. These words have a specific relation to time, and they, therefore, will change with time. The Extremists of today will be Moderates tomorrow, just as the Moderates of today were Extremists yesterday. When the National Congress was first started and Mr. Dadabhai's views, which now go for Moderate, were given to the public, he was styled an Extremist, so that you will see that the term Extremist is an expression of progress. We are Extremists today and our sons will call themselves Extremists and us Moderates. Every new party begins as Extremists and ends as Moderates. The sphere of practical politics is not unlimited. We cannot say what will or will not happen 1,000 years hence—perhaps during that long period, the whole of the white race will be swept away in another glacial period. We must, therefore, study the present and work out a program to meet the present condition.</p>
+<p>It is impossible to go into details within the time at my disposal. One thing is granted, namely, that this government does not suit us. As has been said by an eminent statesman—the government of one country by another can never be a successful, and therefore a permanent government. There is no difference of opinion about this fundamental proposition between the old and new schools. One fact is that this alien government has ruined the country. In the beginning, all of us were taken by surprise. We were almost dazed. We thought that everything that the rulers did was for our good and that this English government has descended from the clouds to save us from the invasions of Tamerlane and Chingis Khan, and, as they say, not only from foreign invasions but from internecine warfare, or the internal or external invasions, as they call it. We felt happy for a time, but it soon came to light that the peace which was established in this country did this, as Mr. Dadabhai has said in one place—that we were prevented from going at each other's throats, so that a foreigner might go at the throat of us all. Pax Britannica has been established in this country in order that a foreign government may exploit the country. That this is the effect of this Pax Britannica is being gradually realized in these days. It was an unhappy circumstance that it was not realised sooner. We believed in the benevolent intentions of the government, but in politics there is no benevolence. Benevolence is used to sugar-coat the declarations of self-interest and we were in those days deceived by the apparent benevolent intentions under which rampant self-interest was concealed. That was our state then. But soon a change came over us. English <span class="pg">[p. 266]</span> education, growing poverty, and better familiarity with our rulers, opened our eyes and our leaders; especially, the venerable leader [Dadabhai Naoroji] who presided over the recent Congress was the first to tell us that the drain from the country was ruining it, and if the drain was to continue, there was some great disaster awaiting us. So terribly convinced was he of this that he went over from here to England and spent twenty-five years of his life in trying to convince the English people of the injustice that is being done to us. He worked very hard. He had conversations and interviews with secretaries of state, with members of Parliament—and with what result?</p>
+<p>He has come here at the age of eighty-two to tell us that he is bitterly disappointed. Mr. Gokhale, I know, is not disappointed. He is a friend of mine and I believe that this is his honest conviction. Mr. Gokhale is not disappointed, but is ready to wait another eighty years till he is disappointed like Mr. Dadabhai....</p>
+<p>You can now understand the difference between the old and the new parties. Appeals to the bureaucracy are hopeless. On this point both the new and old parties are agreed. The old party believes in appealing to the British nation and we do not. That being our position, it logically follows we must have some other method. There is another alternative. We are not going to sit down quietly. We shall have some other method by which to achieve what we want. We are not disappointed, we are not pessimists. It is the hope of achieving the goal by our own efforts that has brought into existence this new party.</p>
+<p>There is no empire lost by a free grant of concession by the rulers to the ruled. History does not record any such event. Empires are lost by luxury, by being too much bureaucratic or overconfident or from other reasons. But an empire has never come to an end by the rulers conceding power to the ruled....</p>
+<p>We have come forward with a scheme which if you accept [it], shall better enable you to remedy this state of things than the scheme of the old school. Your industries are ruined utterly, ruined by foreign rule; your wealth is going out of the country and you are reduced to the lowest level which no human being can occupy. In this state of things, is there any other remedy by which you can help yourself? The remedy is not petitioning but boycott. We say prepare your forces, organize your power, and then go to work so that they cannot refuse you what you demand. A story in Mahabharata tells that Sri Krishna was sent to effect a compromise, but the Pandavas and Kauravas were both organizing their forces to meet the contingency of failure of the compromise. This is politics. Are you prepared in this way to fight if your demand is refused? If you are, be sure you will not be refused; but if you are not, nothing can be more certain than that your demand will be refused, and perhaps, forever. We are not armed, and there is no necessity for arms either. We have a stronger weapon, a political weapon, in boycott. We have perceived one fact, that the whole of this administration, which is carried on by a handful of Englishmen, is carried on with our assistance. We are all in subordinate service. This whole government is carried on with our assistance and they try to keep us in ignorance of our power of co-operation <span class="pg">[p. 267]</span> between ourselves by which that which is in our own hands at present can be claimed by us and administered by us. The point is to have the entire control in our hands. I want to have the key of my house, and not merely one stranger turned out of it. Self-government is our goal; we want a control over our administrative machinery. We don't want to become clerks and remain [clerks]. At present, we are clerks and willing instruments of our own oppression in the hands of an alien government, and that government is ruling over us not by its innate strength but by keeping us in ignorance and blindness to the perception of this fact. Professor Seeley shares this view. Every Englishman knows that they are a mere handful in this country and it is the business of every one of them to befool you in believing that you are weak and they are strong. This is politics. We have been deceived by such policy so long. What the new party wants you to do is to realize the fact that your future rests entirely in your own hands. If you mean to be free, you can be free; if you do not mean to be free, you will fall and be for ever fallen. So many of you need not like arms; but if you have not the power of active resistance, have you not the power of self-denial and self-abstinence in such a way as not to assist this foreign government to rule over you? This is boycott and this is what is meant when we say, boycott is a political weapon. We shall not give them assistance to collect revenue and keep peace. We shall not assist them in fighting beyond the frontiers or outside India with Indian blood and money. We shall not assist them in carrying on the administration of justice. We shall have our own courts, and when [the] time comes we shall not pay taxes. Can you do that by your united efforts? If you can, you are free from tomorrow. Some gentlemen who spoke this evening referred to half bread as against the whole bread. I say I want the whole bread and that immediately. But if I can not get the whole, don't think I have no patience.</p>
+<p>I will take the half they give me and then try for the remainder. This is the line of thought and action in which you must train yourself. We have not raised this cry from a mere impulse. It is a reasoned impulse. Try to understand that reason and try to strengthen that impulse by your logical convictions. I do not ask you to blindly follow us. Think over the whole problem for yourselves. If you accept our advice, we feel sure we can achieve our salvation thereby. This is the advice of the new party. Perhaps we have not obtained a full recognition of our principles. Old prejudices die very hard. Neither of us [Moderates or Extremists] wanted to wreck the Congress, so we compromised, and were satisfied that our principles were recognized, and only to a certain extent. That does not mean that we have accepted the whole situation. We may have a step in advance next year, so that within a few years our principles will be recognized, and recognized to such an extent that the generations who come after us may consider us Moderates. This is the way in which a nation progresses, and this is the lesson you have to learn from the struggle now going on. This is a lesson of progress, a lesson of helping yourself as much as possible, and if you really perceive the force of it, if you are convinced by these arguments, then and then <span class="pg">[p. 268]</span> only is it possible for you to effect your salvation from the alien rule under which you labor at this moment.</p>
+<p><em>[From Tilak: His Writings and Speeches, 3rd ed. (Madras: Ganesh, 1922), 55–57, 61, 63–67.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 262–268.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 5, pp. 262-268; reading PDF covers pp. 262-268. SIT headings and citations kept as printed. Two parts.</p></div>
+</div>
+</body>
+</html>

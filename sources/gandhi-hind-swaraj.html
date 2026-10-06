@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: Hind Swaraj</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: Hind Swaraj</h1>
+<p class="speech-meta">2,234 words, about 10 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Hind Swaraj and the Proper Relationship between Means and End, Power, and Freedom</h3>
+<p class="ed"><span class="pg">[p. 345]</span> In 1909, as Gandhi turned forty, he wrote the first cohesive statement of his thought, entitled Hind Swaraj, or Indian Home Rule. It established his status as a highly original political thinker. He drew unprecedented conceptual connections between the theory of means and ends, power (satyagraha), and freedom (swaraj). The following segments from Hind Swaraj show the importance he attached to the issue of religious harmony: even at this time in South Africa, he deemed urgent the problem of tension between religious communities. From the beginning of his political career, therefore, he made religious freedom and mutual respect central principles. Hind Swaraj is written in the form of a Socratic dialogue between a READER, representing the school of Indian terrorism, and an EDITOR, presenting his own ideas.</p>
+<p>READER: But I am impatient to hear your answer to my question. Has the introduction of Mahomedanism not unmade the nation?</p>
+<p>EDITOR: India cannot cease to be one nation because people belonging to different religions live in it. The introduction of foreigners does not necessarily destroy the nation, they merge in it. A country is one nation only when such a condition obtains in it. That country must have a faculty for assimilation. India has ever been such a country. In reality, there are as many religions as there are individuals, but those who are conscious of the spirit of nationality do not interfere with one another's religion. If they do, they are not fit to be considered a nation. If the Hindus believe that India should be peopled only by Hindus, they are living in dreamland. The Hindus, the Mahomedans, the Parsees and the Christians who have made India their country are fellow countrymen and they will have to live in unity if only for their own interest. In no part of the world are one nationality and one religion synonymous terms: nor has it ever been so in India.</p>
+<p><em>[From Hind Swaraj and Other Writings, ed. Anthony J. Parel (Cambridge: Cambridge University Press, 1997), 51–53.]</em></p>
+<p class="ed">Gandhi then argued that achieving a truly emancipated India (swaraj in the fullest sense) depended entirely on adopting the right means (satyagraha) to that end:</p>
+<h3>How Can India Become Free?</h3>
+<p><span class="pg">[p. 346]</span> READER: I appreciate your views about civilization. I will have to think over them. I cannot take in all at once. What, then, holding the views you do, would you suggest for freeing India?</p>
+<p>EDITOR: I do not expect my views to be accepted all of a sudden. My duty is to place them before readers like yourself. Time can be trusted to do the rest. We have already examined the conditions for freeing India, but we have done so indirectly; we will now do so directly. It is a world-known maxim that the removal of the cause of a disease results in the removal of the disease itself. Similarly, if the cause of India's slavery be removed, India can become free.</p>
+<p>READER: If Indian civilization is, as you say, the best of all, how do you account for India's slavery?</p>
+<p>EDITOR: This civilization is unquestionably the best, but it is to be observed that all civilizations have been on their trial. That civilization which is permanent outlives it. Because the sons of India were found wanting, its civilization has been placed in jeopardy. But its strength is to be seen in its ability to survive the shock. Moreover, the whole of India is not touched. Those alone who have been affected by western civilization have become enslaved. We measure the universe by our own miserable foot-rule. When we are slaves, we think that the whole universe is enslaved. Because we are in abject condition, we think that the whole of India is in that condition. As a matter of fact, it is not so, but it is as well to impute our slavery to the whole of India. But if we bear in mind the above fact, we can see that, if we become free, India is free. And in this thought you have a definition of Swaraj. It is Swaraj when we learn to rule ourselves. It is, therefore, in the palm of our hands. Do not consider this Swaraj to be like a dream. Here there is no idea of sitting still. The Swaraj that I wish to picture before you and me is such that, after we have once realized it, we will endeavour to the end of our lifetime to persuade others to do likewise. But such Swaraj has to be experienced by each one for himself. One drowning man will never save another. Slaves ourselves, it would be a mere pretension to think of freeing others. Now you will have seen that it is not necessary for us to have as our goal the expulsion of the English. If the English become Indianised, we can accommodate them. If they wish to remain in India along with their civilization, there is no room for them. It lies with us to bring about such a state of things.</p>
+<p>READER: It is impossible that Englishmen should ever become Indianised.</p>
+<p>EDITOR: To say that is equivalent to saying that the English have no humanity in them. And it is really beside the point whether they become so or not. If we keep our own house in order, only those who are fit to live in it will remain, others will leave of their own accord. Such things occur within the experience of all of us.</p>
+<p>READER: But it has not occurred in history.</p>
+<p><span class="pg">[p. 347]</span> EDITOR: To believe that what has not occurred in history will not occur at all is to argue disbelief in the dignity of man. At any rate, it behooves us to try what appeals to our reason. All countries are not similarly conditioned. The condition of India is unique. Its strength is immeasurable. We need not, therefore, refer to the history of other countries. I have drawn attention to the fact that, when other civilizations have succumbed the Indian has survived many a shock.</p>
+<p>READER: I cannot follow this. There seems little doubt that we shall have to expel the English by force of arms. So long as they are in the country, we cannot rest. One of our poets says that slaves cannot even dream of happiness. We are day by day becoming weakened owing to the presence of the English. Our greatness is gone; our people look like terrified men. The English are in the country like a blight which we must remove by every means.</p>
+<p>EDITOR: In your excitement, you have forgotten all we have been considering. We brought the English, and we keep them. Why do you forget that our adoption of their civilization makes their presence in India at all possible? Your hatred against them ought to be transferred to their civilisation. But let us assume that we have to drive away the English by fighting, how is that to be done?</p>
+<p>READER: In the same way as Italy did it....</p>
+<h3>Italy and India</h3>
+<p>EDITOR: India can fight like Italy only when she has arms. You have not considered this problem at all. The English are splendidly armed; that does not frighten me, but it is clear that, to pit ourselves against them in arms, thousands of Indians must be armed. If such a thing be possible, how many years will it take? Moreover, to arm India on a large scale is to Europeanise it. Then her condition will be just as pitiable as that of Europe. This means, in short, that India must accept European civilization, and, if that is what we want, the best thing is that we have among us those who are so well trained in that civilization. We will then fight for a few rights, will get what we can, and so pass our days. But the fact is that the Indian nation will not adopt arms, and it is well that it does not.</p>
+<p>READER: You are over-assuming facts. All need not be armed. At first, we will assassinate a few Englishmen and strike terror; then, a few men who will have been armed will fight openly. We may have to lose a quarter of a million men, more or less, but we will regain our land. We will undertake guerrilla warfare, and defeat the English.</p>
+<p>EDITOR: That is to say, you want to make the holy land of India unholy. Do you not tremble to think of freeing India by assassination? What we need to do is sacrifice ourselves. It is a cowardly thought, that of killing others. Whom do you suppose to free by assassination? The millions of India do not desire it. Those who are intoxicated by the wretched modern civilization think these <span class="pg">[p. 348]</span> things. Those who will rise to power by murder will certainly not make the nation happy. Those who believe that India has gained by Dhingra's act and such other acts in India make a serious mistake. Dhingra was a patriot, but his love was blind. He gave his body in a wrong way; its ultimate result can only be mischievous.</p>
+<p>READER: But you will admit that the English have been frightened by these murders, and that Lord Morley's reforms are due to fear.</p>
+<p>EDITOR: The English are both a timid and a brave nation. She is, I believe, easily influenced by the use of gunpowder. It is possible that Lord Morley has granted the reforms through fear but what is granted under fear can be retained only so long as the fear lasts.</p>
+<h3>Brute Force</h3>
+<p>READER: This is a new doctrine: that what is gained through fear is retained only while the fear lasts. Surely, what is given will not be withdrawn?</p>
+<p>EDITOR: Not so. The Proclamation of 1857 was given at the end of a revolt, and for the purpose of preserving peace. When peace was secured and people became simple-minded, its full effect was toned down. If I ceased stealing for fear of punishment, I would recommence the operation as soon as the fear is withdrawn from me. This is almost a universal experience. We have assumed that we can get men to do things by force and, therefore, we use force.</p>
+<p>READER: Will you not admit that you are arguing against yourself? You know that what the English obtained in their own country they have obtained by using brute force. I know you have argued that what they have obtained is useless, but that does not affect my argument. They wanted useless things, and they got them. My point is that their desire was fulfilled. What does it matter what means they adopted? Why should we not obtain our goal, which is good, by any means whatsoever, even by using violence? Shall I think of the means when I have to deal with a thief in the house? My duty is to drive him out anyhow. You seem to admit that we have received nothing, and that we shall receive nothing by petitioning. Why, then, may we not do so by using brute force? And, to retain what we may receive, we shall keep up the fear by using the same force to the extent that it may be necessary. You will not find fault with a continuance of force to prevent a child from thrusting its foot into fire? Somehow or other, we have to gain our end.</p>
+<p>EDITOR: Your reasoning is plausible. It has deluded many. I have used similar arguments before now. But I think I know better now, and I shall endeavor to undeceive you. Let us first take the argument that we are justified in gaining our end by using brute force, because the English gained theirs by using similar means. It is perfectly true that they used brute force, and that it is possible for us to do likewise, but, by using similar means, we can get only the same thing that they got. You will admit that we do not want that. Your belief that there is no <span class="pg">[p. 349]</span> connection between the means and the end is a great mistake. Through that mistake even men who have been considered religious have committed grievous crimes. Your reasoning is the same as saying that we can get a rose through planting a noxious weed. If I want to cross the ocean, I can do so only by means of a vessel; if I were to use a cart for that purpose, both the cart and I would soon find the bottom. “As is the God, so is the votary” is a maxim worth considering. Its meaning has been distorted, and men have gone astray. The means may be likened to a seed, the end to a tree; and there is just the same inviolable connection between the means and the end as there is between the seed and the tree. I am not likely to obtain the result flowing from the worship of God by laying myself prostrate before Satan. If, therefore, anyone were to say: “I want to worship God, it does not matter that I do so by means of Satan” it would be set down as ignorant folly. We reap exactly as we sow.</p>
+<p><em>[From Hind Swaraj and Other Writings, 66–81.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 345–349.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 345-349; reading PDF covers pp. 344-349. SIT headings and citations kept as printed.</p></div>
+</div>
+</body>
+</html>

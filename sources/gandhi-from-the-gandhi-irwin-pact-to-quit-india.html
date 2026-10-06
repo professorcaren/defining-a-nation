@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: From the Gandhi-Irwin Pact to Quit India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: From the Gandhi-Irwin Pact to Quit India</h1>
+<p class="speech-meta">843 words, about 4 minutes to read. This reading is the volume’s editors’ own account, quoting the sources.</p>
+<div class="speech-text"><h3>From the Gandhi-Irwin Pact to Quit India</h3>
+<p><span class="pg">[p. 369]</span> Gandhi's negotiations with Lord Irwin led to the Gandhi-Irwin Pact and the suspension of the civil disobedience campaign set off by the Salt March. Many, but not all, political prisoners were released, and Gandhi agreed to attend the Second Round Table Conference in late 1931 in London. At his own insistence, Gandhi was the sole official Congress representative at these talks. Although his stay in London earned him considerable good will among segments of the British public and he made many personal contacts, the talks failed to produce agreement on steps of political advance for India.</p>
+<p>Upon his return to India, Gandhi moved to resume the civil disobedience campaign, and he and hundreds of other congressmen were jailed. This period was marked by Gandhi's fast against the government's Communal Award, which granted separate electorates to the Untouchables. Gandhi's fast pressured Dr. Ambedkar to <span class="pg">[p. 370]</span> agree to an alteration of the Communal Award called “The Poona Pact,” which gave the Untouchables more reserved seats but with joint electorates (see Ambedkar-Gandhi selections).</p>
+<p>After passage of the Government of India Act of 1935, Gandhi agreed to the participation of the Congress in the elections of 1936–37. After the first of these, the Congress formed ministries in seven provinces. Gandhi was against the Congress entering into coalitions and so prevented any Congress-Muslim League alliance in Bengal. Once the Second World War began in 1939, the Congress resigned from all ministries, since it had not been consulted on India's joining the war. Lord Linlithgow, on behalf of the British government, had brought India into the war against Germany.</p>
+<p>Gandhi led the individual satyagraha campaign of 1940 and then inspired the August 1942 movement of non-violent resistance to the Raj, called the “Quit India Movement.” In between these campaigns Gandhi met the Cripps Mission, but the Congress and Gandhi declined its terms. The 1940 individual satyagraha efforts led to a modest number of arrests. But “Quit India” was a mass protest movement which, though it started non-violently, soon resulted in many acts of violence. This violence was led in some areas by members of the Congress Socialist Party (notably Jayaprakash Narayan, Rammanohar Lohia, and Aruna Asaf Ali) who had gone underground when threatened with arrest. They aimed to attack property, not people, in an effort to weaken the Raj. But the movement also involved mass and spontaneous demonstrations by students, peasants, and workers, especially in Bihar, eastern Uttar Pradesh, Midnapore district in Bengal, and quite a few other local areas across northern and central India. It was met with fierce repression by the Raj, and at least 90,000 people were jailed and probably more than a thousand killed. The rebellion was crushed by the end of 1942, but pockets of resistance held out into 1944.</p>
+<p>Gandhi issued many statements following the failure of the Cripps Mission, and wrote in the “Harijan” of April 26, 1942, “Whatever the consequences, therefore, to India, her real safety and of Britain’s too lie in orderly and timely British withdrawal from India. All talk of treaties with the princes and obligations towards minorities are a British creation designed for the preservation of British rule and British interests. It must melt before the stern reality that faces all of us.... The fiction of majority and minority will vanish like the mist before the morning sun of liberty. Truth to tell, there will be neither majority nor minority in the absence of the paralyzing British arms. The millions of India would then be an undefined but one mass of humanity. I have no doubt that at that time the natural leaders will have wisdom enough to evolve an honourable solution to their difficulties.”</p>
+<p>The Congress moved ahead with its plans for civil disobedience on a wide scale with the resolution of August 7, 1942, calling for the British to withdraw immediately from India. Gandhi spoke supportively and at length on the resolution. On August 9 he conveyed his last instructions through his secretary, Pyarelal: “Let every non-violent <span class="pg">[p. 371]</span> soldier of freedom write out the slogan ‘Do or Die’ on a piece of paper or cloth, and stick it on his clothes, so that in case he died in the course of offering satyagraha, he might be distinguished by that sign from other elements who do not subscribe to non-violence.” Gandhi also suggested that each participant in the cause was “free to interpret ahimsa in your own way.” The same day Gandhi was arrested along with all of the top Congress leaders.</p>
+<p>Gandhi was in jail during the war until he was released in 1944 to afford him the opportunity to negotiate with Mr. Jinnah and the Muslim League. These discussions led nowhere, and Gandhi agreed to Congress participation in the postwar elections. Lord Wavell arranged talks after the elections, and then the Cabinet Mission visited India in 1946, offering proposals for the transfer of power into Indian hands. (There is further discussion of these moves and their consequences in the introduction to chapter 7.)</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 369–371.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 369-371; reading PDF covers pp. 369-371. SIT headings and citations kept as printed. Mostly editorial narrative by the SIT editors with short Gandhi quotations; no source citation.</p></div>
+</div>
+</body>
+</html>

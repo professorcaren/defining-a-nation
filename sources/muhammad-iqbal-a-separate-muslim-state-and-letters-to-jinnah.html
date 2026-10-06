@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Iqbal: A Separate Muslim State, and Letters to Jinnah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Muhammad Iqbal: A Separate Muslim State, and Letters to Jinnah</h1>
+<p class="speech-meta">3,311 words, about 14 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Muhammad Iqbal: Political Spokesman for India's Muslims</h3>
+<p class="ed"><span class="pg">[p. 488]</span> The poetic and philosophical Iqbal has been presented in chapter 5. Here, in this second set of readings from Iqbal, his political views are set forth. Iqbal's interest in politics grew out of his concern for the future of his community. He was elected to the Punjab provincial legislature in 1926 and took part in its debates, but made no great mark as a legislator. Temperamentally, he was not suited to politics, and his real contributions in this field were in the realm of ideas. Although his thoughts on a separate state within India for Muslims aroused no immediate response, this was the first time they had been put forward from the platform of a political party.</p>
+<h3>A Separate State for Muslims within India</h3>
+<p class="ed">Iqbal's presidential address before the All-India Muslim League in Allahabad on December 29, 1930, is his most important political statement in relation to the later establishment of a separate state for the Muslims of India in those areas where they were in the majority. His argument is that a polity that makes religion a purely private matter, as in European states, dooms religion to irrelevance. Islam, on the other hand, is organically connected with the social order and in India needs an autonomous area for its full expression and development.</p>
+<p>It cannot be denied that Islam, regarded as an ethical ideal plus a certain kind of polity—by which expression I mean a social structure regulated by a legal system and animated by a specific ethical ideal—has been the chief formative factor in the life-history of the Muslims of India. It has furnished those basic emotions and loyalties which gradually unify scattered individuals and groups and finally transform them into a well-defined people. Indeed it is no exaggeration to say that India is perhaps the only country in the world where Islam, as a people-building force, has worked at its best. In India, as elsewhere, the structure of Islam as a society is almost entirely due to the working of Islam as a culture inspired by a specific ethical ideal. What I mean to say is that Muslim society, with its remarkable homogeneity and inner unity, has grown to be what it is under the pressure of the laws and institutions associated with the culture of Islam. The ideas set free by European thinking, however, are now rapidly changing the outlook of the present generation of Muslims both in India and outside India....</p>
+<p>The conclusion to which Europe is ... driven is that religion is a private affair of the individual and has nothing to do with what is called man's temporal life. Islam does not bifurcate the unity of man into an irreconcilable duality of spirit and matter. In Islam, God and the universe, spirit and matter, church and state, are organic to each other. Man is not the citizen of a profane world to be renounced in the interest of a world of spirit situated elsewhere. To Islam matter <span class="pg">[p. 489]</span> is spirit realising itself in space and time.... In the world of Islam we have a universal polity whose fundamentals are believed to have been revealed, but whose structure, owing to our legists' want of contact with [the] modern world, stands today in need of renewed power by fresh adjustments. I do not know what will be the final fate of the national idea in the world of Islam....</p>
+<p>What, then, is the problem and its implications? Is religion a private affair? Would you like to see Islam, as a moral and political ideal, meeting the same fate in the world of Islam as Christianity has already met in Europe? Is it possible to retain Islam as an ethical ideal and to reject it as a polity in favor of national politics, in which a religious attitude is not permitted to play any part? This question becomes of special importance in India where the Muslims happen to be in a minority. The proposition that religion is a private individual experience is not surprising on the lips of a European. In Europe the conception of Christianity as a monastic order, renouncing the world of matter and fixing its gaze entirely on the world of spirit led, by a logical process of thought, to the view embodied in this proposition. The nature of the Prophet's religious experience, as disclosed in the Qur’ān, however, is wholly different. It is not mere experience in the sense of a purely biological event, happening inside the experient and necessitating no reactions on his social environment. It is individual experience creative of a social order. Its immediate outcome is the fundamentals of a polity with implicit legal concepts whose civic significance cannot be belittled merely because their origin is revelational. The religious ideal of Islam, therefore, is organically related to the social order which it has created. The rejection of the one will eventually involve the rejection of the other. Therefore the construction of a polity on national lines, if it means a displacement of the Islamic principle of solidarity, is simply unthinkable to a Muslim. This is a matter which at the present moment directly concerns the Muslims of India.... The unity of an Indian nation, therefore, must be sought, not in the negation but in the mutual harmony and cooperation of the many....</p>
+<p>Events seem to be tending in the direction of some sort of internal harmony. And as far as I have been able to read the Muslim mind, I have no hesitation in declaring that if the principle that the Indian Muslim is entitled to full and free development on the lines of his own culture and tradition in his own Indian home-lands is recognised as the basis of a permanent communal settlement, he will be ready to stake his all for the freedom of India. The principle that each group is entitled to free development on its own lines is not inspired by any feeling of narrow communalism. There are communalisms and communalisms. A community which is inspired by feelings of ill-will toward other communities is low and ignoble. I entertain the highest respect for the customs, laws, religions, and social institutions of other communities. Nay, it is my duty according to the teaching of the Qur’ān, even to defend their places of worship, if need be. Yet I love the communal group which is the source of my life and behavior and which has formed me [into] what I am by giving me its religion, its literature, its <span class="pg">[p. 490]</span> thought, its culture and thereby recreating its whole past as a living factor in my present consciousness....</p>
+<p>Communalism in its higher aspect, then, is indispensable to the formation of a harmonious whole in a country like India. The units of Indian society are not territorial as in European countries. India is a continent of human groups belonging to different races, speaking different languages and professing different religions. Their behavior is not at all determined by a common race-consciousness. Even the Hindus do not form a homogeneous group. The principle of European democracy cannot be applied to India without recognizing the fact of communal groups. The Muslim demand for the creation of a Muslim India within India is, therefore, perfectly justified. The [1929] resolution of the All-Parties Muslim Conference at Delhi, is, to my mind, wholly inspired by this noble ideal of a harmonious whole which, instead of stifling the respective individualities of its component wholes, affords them chances of fully working out the possibilities that may be latent in them.... I would like to see the Punjab, North-West Frontier Province, Sind and Baluchistan amalgamated into a single State. Self-government within the British empire or without the British empire, the formation of a consolidated North-West Indian Muslim State appears to me to be the final destiny of the Muslims, at least of North-West India....</p>
+<p>The idea need not alarm the Hindus or the British. India is the greatest Muslim country in the world. The life of Islam, as a cultural force, in this country very largely depends on its centralisation in a specified territory. This centralisation of the most living portion of the Muslims of India, whose military and police service has, notwithstanding unfair treatment from the British, made the British rule possible in this country, will eventually solve the problem of India as well as of Asia. It will intensify their sense of responsibility and deepen their patriotic feeling. Thus possessing full opportunity of development within the body politic of India, the North-West India Muslims will prove the best defenders of India against a foreign invasion, be the invasion one of ideas or of bayonets....</p>
+<p>I therefore demand the formation of a consolidated Muslim State in the best interests of India and Islam. For India it means security and peace resulting from an internal balance of power; for Islam an opportunity to rid itself of the stamp that Arabian imperialism was forced to give it, to mobilize its law, its education, its culture, and to bring them into closer contact with its own original spirit and with the spirit of modern times.</p>
+<p>Thus it is clear that in view of India's infinite variety in climates, races, languages, creeds and social systems, the creation of autonomous States based on the unity of language, race, history, religion and identity of economic interests, is the only possible way to secure a stable constitutional structure in India....</p>
+<p>In conclusion I cannot but impress upon you that the present crisis in the history of India demands complete organization and unity of will and purpose in the Muslim community.... Our disorganized condition has already confused political issues vital to the life of the community.... Is it possible for you <span class="pg">[p. 491]</span> to achieve the organic wholeness of a unified will? Yes, it is. Rise above sectional interests and private ambitions, and learn to determine the value of your individual and collective action, however directed on material ends, in the light of the ideal which you are supposed to represent. Pass from matter to spirit. Matter is diversity; spirit is light, life and unity. One lesson I have learnt from the history of Muslims. At critical moments in their history it is Islam that has saved Muslims and not vice versa. If today you focus your vision on Islam and seek inspiration from the ever-vitalizing idea embodied in it, you will be only reassembling your scattered forces, regaining your lost integrity, and thereby saving yourself from total destruction. One of the profoundest verses in the Holy Qur’ān teaches us that the birth and rebirth of the whole of humanity is like the birth of a single individual. Why cannot you who, as a people, can well claim to be the first practical exponents of this superb conception of humanity, live and move and have your being as a single individual? ... In the words of the Qur’ān: “Hold fast to yourself; no one who erreth can hurt you, provided you are well guided” [5:104].</p>
+<p><em>[From Iqbal, “Presidential Address,” in Speeches and Statements, ed. Latif Ahmad Sherwani, 2nd ed. (Lahore: Al-Manar Academy, 1948), 3–6, 8–13, 15, 34–36.]</em></p>
+<h3>Letters to Jinnah</h3>
+<p class="ed">Toward the end of his life Iqbal became convinced that the Muslims in India were threatened with extermination. He called the endless succession of Hindu–Muslim riots a virtual civil war, which he foresaw would develop in magnitude as time progressed. Feeling that the Muslim community was unprepared for a final showdown, ill-organized and without a leader, he singled out Jinnah as the one person capable of uniting the Muslim community. In several letters to Jinnah in the 1937, Iqbal called upon him to bring together all Indian Muslims and look to the interests of the Muslim masses as well as to their elites. He believed that the Muslims needed a separate federation of Muslim provinces and a return to a purer Islam to ensure their survival and their betterment.</p>
+<p>20th March, 1937</p>
+<p>My dear Mr. Jinnah,</p>
+<p>... I believe you are also aware that the new constitution has at least brought a unique opportunity to Indian Muslims for self-organisation in view of the future political developments both in India and Muslim Asia. While we are ready to co-operate with other progressive parties in the country, we must not ignore the fact that the whole future of Islam as a moral and political force in Asia rests very largely on a complete organisation of Indian Muslims.... You should immediately hold an All-India Muslim Convention in Delhi to which you should invite members of the <span class="pg">[p. 492]</span> new Provincial Assemblies as well as other prominent Muslim leaders. To this convention you must restate as clearly and as strongly as possible the political objective of the Indian Muslims as a distinct political unit in the country. It is absolutely necessary to tell the world both inside and outside India that the economic problem is not the only problem in the country. From the Muslim point of view the cultural problem is of much greater consequence to most Indian Muslims. At any rate it is not less important than the economic problem. If you could hold this convention, it would test the credentials of those Muslim legislators who have formed parties contrary to the aims and aspiration of Indian Muslims. It would further make it clear to the Hindus that no political device, however subtle, can make the Indian Muslim lose sight of his cultural entity.</p>
+<p><em>[From G. Allana, ed., Pakistan Movement: Historic Documents (Karachi: Paradise Subscription Agency, 1967), 140–141.]</em></p>
+<p>28th May, 1937</p>
+<p>My dear Mr. Jinnah,</p>
+<p>Thank you so much for your letter.... The League will have to finally decide whether it will remain a body representing the upper classes of Indian Muslims or Muslim masses who have so far, with good reason, taken no interest in it. Personally I believe that a political organisation which gives no promise of improving the lot of the average Muslim cannot attract our masses.</p>
+<p>Under the new constitution the higher posts go to the sons of upper classes; the smaller go to the friends or relatives of the ministers, in other matters too our political institutions have never thought of improving the lot of Muslims generally. The problem of bread is becoming more and more acute. The Muslim has begun to feel that he has been going down and down during the last 200 years. Ordinarily he believes that his poverty is due to Hindu money-lending or capitalism. The perception that equality [is] due to foreign rule has not yet fully come to him ... The question therefore is: how is it possible to solve the problem of Muslim poverty? And the whole future of the League depends on the League's activity to solve this question. If the League can give no such promises I am sure the Muslim masses will remain indifferent to it as before. Happily there is a solution in the enforcement of the Law of Islam and its further development in the light of modern ideas. After a long and careful study of Islamic Law I have come to the conclusion that if this system of law is properly understood and applied, at least the right to subsistence is secured to everybody. But the enforcement and development of the Shariat of Islam is impossible in this country without a free Muslim state or states.... I still believe this to be the only way to solve the problem of bread for Muslims as well as to secure a peaceful India. If such a thing is <span class="pg">[p. 493]</span> impossible in India the only other alternative is a civil war which as a matter of fact has been going on for some time in the shape of Hindu–Muslim riots. I fear that in certain parts of the country, e.g., N.W. India, Palestine may be repeated.... For Islam the acceptance of social democracy in some suitable form and consistent with the legal principles of Islam is not a revolution but a return to the original purity of Islam. The modern problems therefore are far more easy to solve for the Muslims than for the Hindus. But as I have said above in order to make it possible for Muslim India to solve the problems it is necessary to redistribute the country and to provide one or more Muslim states with absolute majorities. Don’t you think that the time for such a demand has already arrived?</p>
+<p><em>[From G. Allana, ed., Pakistan Movement, 143–144.]</em></p>
+<p>June 1st, 1937</p>
+<p>My dear Mr. Jinnah,</p>
+<p>Thank you so much for your letter ... you are the only Muslim in India today to whom the community has a right to look up for safe guidance through the storm which is coming to North-West India and perhaps to the whole of India. I tell you that we are actually living in a state of civil war which, but for the police and military, would become universal in no time. During the last few months there has been a series of Hindu–Muslim riots in India. In North-West India alone there have been at least three riots during the last three months and at least four cases of vilification of the Prophet by Hindus and Sikhs. In each of these four cases, the vilifier has been murdered. There have also been cases of burning of the Qur’ān in Sind. I have carefully studied the whole situation and believe that the real cause of these events is neither religious nor economic. It is purely political, i.e., the desire of the Sikhs and Hindus to intimidate Muslims even in the Muslim majority provinces. And the new constitution is such that even in the Muslim majority provinces, the Muslims are made entirely dependent on non-Muslims. The result is that the Muslim Ministry can take no proper action and are even driven to do injustice to Muslims partly to please those on whom they depend, and partly to show that they are absolutely impartial. Thus it is clear that we have our specific reasons to reject this constitution. It seems to me that the new constitution is devised only to placate the Hindus. In the Hindu majority provinces, the Hindus have of course absolute majorities, and can ignore Muslims altogether. In Muslim majority provinces, the Muslims are made entirely dependent on Hindus. I have no doubt in my mind that this constitution is calculated to do infinite harm to the Indian Muslims. Apart from this it is no solution of the economic problem which is so acute among Muslims.</p>
+<p>The only thing that the communal award grants to Muslims is the recognition of their political existence in India. But such a recognition granted <span class="pg">[p. 494]</span> to a people whom this constitution does not and cannot help in solving their problem of poverty can be of no value to them. The Congress President has denied the political existence of Muslims in no unmistakable terms. The other Hindu political body, i.e., the Mahasabha, whom I regard as the real representative of the masses of the Hindus, has declared more than once that a united Hindu–Muslim nation is impossible in India. In these circumstances it is obvious that the only way to a peaceful India is a redistribution of the country on the lines of racial, religious and linguistic affinities....</p>
+<p>To my mind the new constitution with its idea of a single Indian federation is completely hopeless. A separate federation of Muslim provinces, reformed on the lines I have suggested above, is the only course by which we can secure a peaceful India and save Muslims from the domination of non-Muslims. Why should not the Muslims of North-West India and Bengal be considered as nations entitled to self-determination just as other nations in India and outside India are?</p>
+<p><em>[From G. Allana, ed., Pakistan Movement, 145–146.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 488–494.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 488-494; reading PDF covers pp. 488-493. SIT headings and citations kept as printed. Two parts. PDF ends at p. 493; the last letter and its citation run onto p. 494.</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: The Crime of Chauri Chaura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: The Crime of Chauri Chaura</h1>
+<p class="speech-meta">1,027 words, about 4 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>The Crime of Chauri Chaura</h3>
+<p class="ed"><span class="pg">[p. 355]</span> In February 1922, after a group claiming to be Gandhians burned and hacked to death a group of Indian police officers in a small town named Chauri Chaura in Uttar Pradesh, Gandhi suspended the movement, judging that India was not yet ready to meet the standards of satyagraha he imposed. He immediately explained his reasons to the country.</p>
+<p>God has been abundantly kind to me. He has warned me [again] that there is not as yet in India that truthful and non-violent atmosphere which and which alone can justify mass disobedience which can be at all described as civil, which means gentle, truthful, humble, knowing, wilful yet loving, never criminal and hateful....</p>
+<p>God spoke clearly through Chauri Chaura. I understand that the constables who were so brutally hacked to death had given much provocation. They had even gone back upon the word just given by the Inspector that [protestors] would not be molested, but when the procession had passed the stragglers were interfered with and abused by the constables. The former cried out for help. The mob returned. The constables opened fire. The little ammunition they had was exhausted and they retired to the Thana [police station] for safety. The mob, my informant tells me, therefore set fire to the Thana. The self-imprisoned constables had to come out for dear life and as they did so, they were hacked to pieces and the mangled remains were thrown into the raging flames.</p>
+<p>It is claimed that no non-co-operation volunteer had a hand in the brutality and that the mob had not only the immediate provocation but they had also general knowledge of the high-handed tyranny of the police in that district. <span class="pg">[p. 356]</span> No provocation can possibly justify the brutal murder of men who had been rendered defenseless and who had virtually thrown themselves on the mercy of the mob. And when India claims to be non-violent and hopes to mount the throne of Liberty through non-violent means, mob-violence even in answer to grave provocation is a bad augury.... Non-violent attainment of self-government presupposes a non-violent control over the violent elements in the country. Non-violent non-co-operators can only succeed when they have succeeded in attaining control over the hooligans of India, in other words, when the latter also have learned patriotically or religiously to refrain from their violent activities at least whilst the campaign of non-co-operation is going on. The tragedy of Chauri Chaura, therefore, roused me thoroughly....</p>
+<p>I put my doubts and troubles before the Working Committee and other associates whom I found near me. They did not all agree with me at first. Some of them probably do not even now agree with me. But never has a man been blessed, perhaps, with colleagues and associates so considerate and forgiving as I have. They understood my difficulty and patiently followed my argument. The result is before the public in the shape of the resolutions of the Working Committee. The drastic reversal of practically the whole of the aggressive programme may be politically unsound and unwise, but there is no doubt that it is religiously sound, and I venture to assure the doubters that the country will have gained by my humiliation and confession of error.</p>
+<p>The only virtue I want to claim is Truth and Non-Violence. I lay no claim to superhuman powers. I want none. I wear the same corruptible flesh that the weakest of my fellow beings wears and am therefore as liable to err as any. My services have many limitations, but God has up to now blessed them in spite of the imperfections.</p>
+<p>For, confession of error is like a broom that sweeps away dirt and leaves the surface cleaner than before, I feel stronger for my confession. And the cause must prosper for the retracing. Never has man reached his destination by persistence in deviation from the straight path....</p>
+<p>I am in the unhappy position of a surgeon proved skill-less to deal with an admittedly dangerous case. I must either abdicate or acquire greater skill....</p>
+<p>All fasting and all penance must as far as possible be secret. But my fasting is both a penance and a punishment, and a punishment has to be public. It is penance for me and punishment for those whom I try to serve, for whom I love to live and would equally love to die. They have unintentionally sinned against the laws of the Congress though they were sympathizers if not actually connected with it. Probably they hacked the constables—their countrymen and fellow beings—with my name on their lips. The only way love punishes is by suffering. I cannot even wish them to be arrested. But I would let them know that I would suffer for their breach of the Congress creed. I would advise those who feel guilty and repentant to hand themselves voluntarily to the Government for punishment and make a clean confession. I hope that the workers in the Gorakhpur <span class="pg">[p. 357]</span> district will leave no stone unturned to find out the evil-doers and urge them to deliver themselves into custody. But whether the murderers accept my advice or not, I would like them to know that they have seriously interfered with swaraj operations, that in being the cause of the postponement of the movement in Bardoli, they have injured the very cause they probably intended to serve. I would like them to know, too, that this movement is not a cloak or a preparation for violence. I would, at any rate, suffer every humiliation, every torture, absolute ostracism and death itself to prevent the movement from becoming violent or a precursor of violence. I make my penance public also because I am now denying myself the opportunity of sharing their lot with the prisoners. The immediate issue has again shifted. We can no longer press for the withdrawal of notifications or discharge of prisoners. They and we must suffer for the crime of Chauri Chaura. The incident proves, whether we wish it or no, the unity of life.... By strict discipline and purification we regain the moral confidence required....</p>
+<p><em>[CWMG 22:415, 416–417, 419, 420–421.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 355–357.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 355-357; reading PDF covers pp. 355-357. SIT headings and citations kept as printed.</p></div>
+</div>
+</body>
+</html>

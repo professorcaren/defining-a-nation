@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Victoria: Proclamation of 1858</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Queen Victoria: Proclamation of 1858</h1>
+<p class="speech-meta">962 words, about 4 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Queen Victoria's Proclamation, November 1, 1858</h3>
+<p class="ed"><span class="pg">[p. 110]</span> Although the Rebellion failed, British resumption of power came at a terrific cost to both sides—in life, property, resources, and good will. The brutality of British vengeance, slaughter, and summary executions galled too few Britons at the time, but all <span class="pg">[p. 111]</span> this did alert the British government to the inadvisability of allowing the East India Company to remain in active control of India. Hence on November 1, 1858, Queen Victoria made a historic proclamation, read out in as many Indian villages as possible, in which she declared that thereafter India would be governed by and in the name of the British monarch through a secretary of state. The governor-general was given the title of viceroy, or the monarch's representative; later, in 1877, Queen Victoria herself took the title “Empress of India,” assuming the direct government of more than one hundred million Indians.</p>
+<p class="ed">In a letter to Lord Derby, whom she asked to draft the actual proclamation, she requested that he communicate to her Indian subjects her promise of generosity, benevolence, and equality with all other subjects of the British Crown. In fact, general amnesty was announced as official policy, and the Queen pledged noninterference in matters of custom and religion and universal access to government service. The 24,000-man military force formerly belonging to the Company was incorporated into the British Army. The effect of the proclamation and the policies it promulgated was to favor the princes and landowners and hence to create a class of Indians loyal to the state; this “divide and rule” strategy proved effective in containing political discontent until the 1920s.</p>
+<p>And we, reposing especial trust and confidence in the loyalty, ability, and judgment of our right trusty and well-beloved cousin and councillor, Charles John Viscount Canning, do hereby constitute and appoint him, the said Viscount Canning, to be our first Viceroy and Governor-General in and over our said territories, and to administer the government thereof in our name, and generally to act in our name and on our behalf, subject to such orders and regulations as he shall, from time to time, receive from us through one of our Principal Secretaries of State.</p>
+<p>And we do hereby confirm in their several offices, civil and military, all persons now employed in the service of the Honourable East India Company, subject to our future pleasure, and to such laws and regulations as may hereafter be enacted.</p>
+<p>We hereby announce to the native Princes of India that all treaties and engagements made with them by or under the authority of the Honourable East India Company are by us accepted, and will be scrupulously maintained, and we look for the like observance on their part.</p>
+<p>We desire no extension of our present territorial possessions; and, while we will permit no aggression upon our dominions or our rights to be attempted with impunity, we shall sanction no encroachment on those of others. We shall respect the rights, dignity and honour of native Princes as our own; and we desire that they, as well as our own subjects, should enjoy that prosperity and that social advancement which can only be secured by internal peace and good government.</p>
+<p>We hold ourselves bound to the natives of our Indian territories by the same obligations of duty which bind us to all our other subjects, and those obligations, by the blessing of Almighty God, we shall faithfully and conscientiously fulfil.</p>
+<p><span class="pg">[p. 112]</span> Firmly relying ourselves on the truth of Christianity, and acknowledging with gratitude the solace of religion, we disclaim alike the right and the desire to impose our convictions on any of our subjects. We declare it to be our royal will and pleasure that none be in anywise favoured, none molested or disquieted, by reason of their religious faith or observances, but that all shall alike enjoy the equal and impartial protection of the law; and we do strictly charge and enjoin all those who may be in authority under us that they abstain from all interference with the religious belief or worship of any of our subjects on pain of our highest displeasure.</p>
+<p>And it is our further will that, so far as may be, our subjects, of whatever race or creed, be freely and impartially admitted to offices in our service, the duties of which they may be qualified, by their education, ability, and integrity, duly to discharge.</p>
+<p>We know, and respect, the feelings of attachment with which the natives of India regard the lands inherited by them from their ancestors, and we desire to protect them in all rights connected therewith, subject to the equitable demands of the State; and we will that generally, in framing and administering the law, due regard be paid to the ancient rights, usages, and customs of India....</p>
+<p>Our clemency will be extended to all offenders, save and except those who have been, or shall be, convicted of having directly taken part in the murder of British subjects. With regard to such the demands of justice forbid the exercise of mercy....</p>
+<p>When, by the blessing of Providence, internal tranquillity shall be restored, it is our earnest desire to stimulate the peaceful industry of India, to promote works of public utility and improvement, and to administer its government for the benefit of all our subjects resident therein. In their prosperity will be our strength; in their contentment our security, and in their gratitude our best reward. And may the God of all power grant to us, and to those in authority under us, strength to carry out these our wishes for the good of our people.</p>
+<p><em>[From The Evolution of India and Pakistan, 1858 to 1947: Select Documents, ed. C. H. Philips (London: Oxford University Press, 1962), 10–11.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 110–112.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 2, pp. 110-112; reading PDF covers pp. 110-112. SIT headings and citations kept as printed.</p></div>
+</div>
+</body>
+</html>

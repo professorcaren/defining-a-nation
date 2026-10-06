@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. N. Roy and Rajani Palme Dutt: Communist Responses to Gandhi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>M. N. Roy and Rajani Palme Dutt: Communist Responses to Gandhi</h1>
+<p class="speech-meta">5,917 words, about 26 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Communist Responses to Gandhi</h3>
+<p class="ed"><span class="pg">[p. 396]</span> Karl Marx and his partner, Friedrich Engels, did not write an organized analysis of Indian political economy or give a coherent account of what they referred to as the Asiatic mode of production, but Marx wrote two series of articles on India, the first at the time of the renewal of the India Act in 1853, and the second at the time of the Rebellion in 1857. Marx accepted the idea of the “Oriental despotic state” and described what he understood to be small, self-contained village communities in the Indian past that had depended on agriculture and “manufactures,” i.e., the production of textiles. However, he insisted, since such communities involved caste and slavery, they represented no golden age.</p>
+<p class="ed">The coming of the British, he believed, marked a great shift, a revolutionary change for India. The old system of small communities and a flourishing textile industry were destroyed. Out of that destruction the British bourgeoisie were in the process of creating a monster: an Indian economy and society that they would not be able to control. This would be the case, Marx said, because the Indians were intelligent and hard-working: they would learn all the British had to teach, and then move on beyond them. Crucial in this new age was the system of railways, which the British were building for their own purposes but which would also be used by Indians.</p>
+<p class="ed">Although neither M. N. Roy nor R. Palme Dutt refers directly to Marx's writings on India, both were affiliated with the Third Communist International, which was the successor to the First International founded by Marx in the nineteenth century, and both made use of Marxist concepts. Indeed, the impact of Marxism—as we see throughout this volume, not only here but also in the selections by the Naxalites and the subaltern historians in chapter 8—is an important ingredient in the modern history of India.</p>
+<p class="ed">Manabendra Nath Roy was born in 1887 into a Bengali Brahman family in a village outside of Calcutta. Twenty-eight years later, as a terrorist revolutionary, he left India for an adventurous career in the communist international movement.</p>
+<p class="ed">The year 1915 is a key one in the Gandhi–Roy story. In that year, Roy, as a terrorist schooled under the revolutionary Jatin Mukherjee and inspired by Aurobindo <span class="pg">[p. 397]</span> Ghose, left Calcutta on a revolutionary mission to obtain German arms for the struggle against the Raj. In that same year, Gandhi returned to India after twenty-one years in South Africa. As Gandhi achieved his extraordinary rise to power in the Congress during the 1920s, Roy acquired his reputation of being “undoubtedly the most colorful of all non-Russian communists in the era of Lenin and Stalin.” From 1915 to 1930, Roy moved about on various revolutionary missions, from Mexico to Berlin, and then on to Paris, Zurich, Tashkent, and Moscow. In Mexico, Roy was converted to communism and reputedly helped form the first Communist Party there. In Moscow, he contributed to revolutionary strategy for communist activity in the colonial areas. In Europe, he rose to a position of authority in the Comintern, published a series of books and pamphlets on Marxist theory, and edited a communist newspaper. The achievements of both Gandhi and Roy during this period were spectacular, but in complete contrast.</p>
+<p class="ed">Rajani Palme Dutt (1896–1974) was born in Cambridge, England, the younger son of Upendra Krishna Dutt, a Bengali physician; his mother, Anna Palme, was Swedish. He was educated at Balliol College, Oxford, earning a first in classics. A near-contemporary of M. N. Roy and of Jawaharlal Nehru, he chose to remain in Great Britain through his lengthy political career. While Roy was virtually self-taught, Dutt, like Nehru and Aurobindo Ghose, had a British education.</p>
+<p class="ed">Dutt served the cause of international communism and Indian independence in Britain, where, thanks to his politically active father, his home was a forum for English Labor politics. Early on, he became rooted in British Marxism, and his main focus was on furthering the work of the Comintern and the British Communist Party; his was a faith that never wavered. His biographer, John Callaghan, aptly subtitles his book, “A Study in British Stalinism.”</p>
+<p class="ed">A notable historical anomaly is that even by age twenty, Dutt's anti-imperialist communism was so firm that he went to jail for resistance to conscription in the war, while Gandhi, advocate of non-violence, nonetheless supported the World War enthusiastically, recruiting Indian troops for Britain, in the misguided belief that this action would eventually win concessions for India. Dutt had none of Gandhi's naïve faith in the goodwill of the British Empire. His steady allegiance to Lenin's theory of imperialism guided all his foreign policy, first when he was the international secretary for the British Labor Research Department, and then when he became a founding member of the British Communist Party in 1920. He remained its chief analyst of Indian affairs, but also wrote extensively on international politics.</p>
+<p class="ed">At this point, communism brought Dutt and Roy together. Although their connection lasted for less than a decade, until the latter fled from the USSR and then was expelled from the Comintern in 1929, many of their most systematic and piercing insights into Indian politics found expression in the 1920s. In the forum of the Comintern, they often differed. Dutt wanted the British communists to shape the communist party in India, while Roy criticized this proposal <span class="pg">[p. 398]</span> as imperialism in another guise. Roy's first and best critique, India in Transition (1922, quoted above) came at the same time as Dutt's groundbreaking report on the organization of the Labour Party along Leninist lines. In 1923 he commenced his extremely influential “Notes of the Month” in issues of the Labour Monthly that he continued writing as its editor for fifty years. Equally important were Dutt's books that paralleled Roy's publications: Modern India (1926), appearing the same year as Roy's The Future of Indian Politics; and Socialism and the Living Wage (1927). Roy's expulsion then led him to the Communist International Opposition and later to radical shifts of ideology, but Dutt stayed consistently with the Comintern party line in Fascism and Social Revolution (1935), World Politics (1936), and India Today (1940).</p>
+<h3>M. N. Roy's Analysis of Gandhi's “Reactionary” Movement</h3>
+<p class="ed">The first detailed Marxist critique of Gandhi appeared in Roy's early book, India in Transition, written in Moscow in 1922. The book grew out of discussions that Roy had with Lenin and other communist figures at the Second Congress of the Communist International. At this congress, Roy had argued, contrary to Lenin, that communist policy in the colonial areas must be to support proletarian rather than bourgeois movements. Lenin contended that bourgeois nationalist organizations like the Indian Congress could be considered revolutionary, and since no viable communist parties existed, these organizations deserved support. Roy replied that the Indian Congress and similar agencies could only betray the revolution: an Indian proletariat existed, and must be mobilized behind a communist vanguard. Liberation from imperialism could come only under communist leadership. The Roy–Lenin controversy was clearly over fundamental issues and would have implications for communist strategy in the future.</p>
+<p class="ed">Roy later reflected upon his differences with Lenin and concluded, “The role of Gandhi was the crucial point of difference. Lenin believed that, as the inspirer and leader of a mass movement, he was a revolutionary. I maintained that, [as] a religious and cultural revivalist, he was bound to be a reactionary socially, however revolutionary he might appear politically.” In Roy’s view, “The religious ideology preached by him [Gandhi] also appealed to the medieval mentality of the masses. But the same ideology discouraged any revolutionary mass action. The quintessence of the situation, as I analyzed and understood it, was a potentially revolutionary movement restrained by a reactionary ideology.” Moreover, “I reminded Lenin of the dictum that I had learnt from him: that without a revolutionary ideology, there could be no revolution.”</p>
+<p class="ed">These arguments formed the basis of the position on Gandhi that was developed by Roy in India in Transition.</p>
+<p>The movement for national liberation is a struggle of the native middle-class against the economic and political monopoly of the imperialist bourgeoisie. <span class="pg">[p. 399]</span> But the former cannot succeed in the struggle, nor even threaten its opponent to make substantial concessions, without the support of the masses of the people. Because the Indian middle-class is still weak numerically, economically, and socially, hence the necessity of the nationalism in the name of which the people can be led to fight; the victory gained in this fight, however, will not change very much the condition of those whose blood it will cost.</p>
+<p>The discontent and growing unrest among the masses, brought about by economic exploitation intensified during the war, was seized by the Congress under the leadership of the Extremists, and turned into a popular demonstration demanding national liberation. But in spite of their religious idiosyncrasies and orthodox inclinations, the social affiliation of the Extremists is identical with that of the Moderates. In the spontaneous mass-upheavals, they discovered the force which could be utilized for the triumph of the native bourgeoisie. But they could not develop the potentiality of the mass movement by leading it in accordance with its economic and social tendencies. Their tactics were to strengthen the nationalist movement by the questionable method of exploiting the ignorance of the masses. And the best way of exploiting the ignorance of the masses was to make a religion of nationalism. These tactics led to the appearance of Mohandas Karamchand Gandhi on the political horizon, and the temporary eclipse of all other politico-social tendencies in the shade of Gandhism, which has reached a crisis after having swept the country for two years.</p>
+<p>In Gandhism culminate all the social tendencies that have always differentiated the two principles of Indian nationalism. In fact, Gandhism is the acutest and most desperate manifestation of the forces of reaction, trying to hold their own against the objectively revolutionary tendencies contained in the liberal bourgeois nationalism. The impending wane of Gandhism signifies the collapse of the reactionary forces and their total elimination from the political movement....</p>
+<p>The Indian national movement is not a struggle of the commercial and industrial middle-class against decrepit feudalism. The Indian bourgeoisie is not engaged in a class struggle. The basis of the national movement is the rivalry of a weak and suppressed bourgeoisie against its immensely stronger imperialist prototype controlling the state power....</p>
+<p>The present awakening is a reaction against the age-long resignation, created by religious teachings and the tenets of spiritual culture. Therefore, it cannot be used for a national movement tending towards the revival of the spiritual civilization of India. Here lies the contradiction in the orthodox nationalism as expressed of late in the cult of Gandhism. It endeavours to utilize the mass energy for the perpetuation or revival of that heritage of national culture which has been made untenable by the awakening of this energy. The orthodox Extremists in control of the Congress, freed from all Moderate influence, assumed the leadership of a popular mass movement national in appearance which contains, nevertheless, a challenge to all the fundamental doctrines of orthodox nationalism. Therefore, the intention of the present Congress, which <span class="pg">[p. 400]</span> has acquired the status of a political party, to unite the people of all classes in a struggle for national liberation to be carried on under the banner of Gandhism, is bound to be defeated. The signs of the impending defeat are already perceptible.</p>
+<p>Gandhism will fall victim to its own contradictions. By Gandhism is meant the school of nationalism which has been reigning supreme in the Indian movement during the last three years. It can be put in another way: The Indian national movement, actuated by the spirit of Gandhism, cannot succeed because in that case it would defeat its own end. In spite of the pious desire of its leaders, post-British India cannot and will not become pre-British India. The Indian people will not be able to overthrow foreign domination until and unless all that is cherished by orthodox nationalists have become things of the past, of venerable memory. Sanctimonious antagonism to the “satanic Western civilization,” a tendency which in spite of its pathetic impotency, smacks of reaction, cannot be the life of a movement whose success will be marked by the crowning of the native bourgeoisie, who will prove to be as disruptive as the British ruler in so far as the social and religious ideals of orthodox nationalism are concerned. The victory of Indian nationalism will be the victory of the progressive middle-class, which may build a monument to the memory of the Mahatma for the valuable services he rendered them involuntarily, but which will never share his pious indignation against Western civilization, which is after all only a certain stage of social development through which every human community has to pass. This victory will be won, not through “suffering and soul-force,” but with blood and tears and will be maintained by blood and iron. But it must come. The introduction of “Western civilization” so heartily hated by Gandhi is the reward of the fierce fight for national independence to which he seeks to lead the people. He is working for something which is mortally antagonistic to the reactionary forces operating through him, and whose standard bearer he unconsciously is.</p>
+<p>Before proceeding to review the happenings in the Indian movement since the beginning of the world war from the point of view stated above, it will be worth while to analyse Gandhism, because in it is ample expression of all the ebbing vitality contained in orthodox nationalism. The imminent collapse of Gandhism will close a romantic and exciting chapter of the Indian national movement. It will demonstrate that a socially revolutionary movement cannot be influenced by reactionary forces. It will disclose the incompatibility between the national struggle having for its object the aggrandizement of the bourgeoisie and the revolt of the working masses against class exploitation—a revolt which nevertheless has contributed strength to the Congress in the last years of its activities....</p>
+<p>Gandhism is nothing but petty-bourgeois humanitarianism hopelessly bewildered in the clashes of the staggering forces of human progress. The crocodile tears of this humanitarianism are shed ostensibly for the undeniable sufferings of the majority in capitalist society, but they are really caused by grief over the end of the old order, already destroyed or about to be so. It pines for that ancient golden age when the majority were kept in blissful ignorance in order that a few <span class="pg">[p. 401]</span> could roll in idle luxury, undisturbed by the revolt of the discontented; the spiritual culture of which was based on the barbarism of the people at large; the simplicity of which was the sign of its backwardness. This longing glance backward is due, in some cases, to the consummate intrigues of the forces of reaction, and in others, to involuntary subordination to the influence of the same agency. Its tendency towards a sort of religious or utopian socialism proves that Gandhism, as well as its source, Tolstoyism, belongs to the latter category. Or in other words, the services rendered by it to reaction are involuntary....</p>
+<p>Gandhi's criticism of modern civilization, that is, capitalist society, is correct. But the remedy he prescribes is not only wrong but impossible. One need not be a sentimental humanitarian, nor a religious fanatic in order to denounce the present order of society in the countries where capitalism rules. But the knowledge of material and social sciences makes one see through the Christian piety of Gandhism, not only Indian, but international (there are Gandhis in every country) and discover the sinister forces of reaction busy in its depths. Its true social character no longer remains unknown on finding such tenets in its philosophy:</p>
+<p>“The more we indulge our passions, the more unbridled they become. Our ancestors, therefore, set a limit to our indulgences. They saw that happiness was largely a mental condition. A man is not necessarily happy because he is rich, or unhappy because he is poor. The rich are often seen to be unhappy, the poor to be happy. Millions will always remain poor. Observing all this, our ancestors dissuaded us from luxuries and pleasures.”</p>
+<p>This sanctimonious philosophy of poverty is not unfamiliar. It has been preached by many prophets who have not only been proved false by history, but the questionableness of their humanitarianism has also been revealed. Such philosophy serves but one object—to guarantee the safety of the vested interests whose character may differ in different epochs but which essentially is always the same, being based on the right of exploitation of man by man.</p>
+<p>Capitalist civilization is rotten; but it cannot be avoided. Neither is it permanent. It must pass away in due course of evolution, giving place to a higher order of society, as the ones preceding it were replaced by it. But it will not collapse because sentimental humanitarians find it full of cruelty and injustice. It will break down under the pressure of its own contradictions. Whether we want it or not, it must be lived through somehow. It must be lived through in order that the fetters of moral and material ignorance that kept the human race bound hitherto can be broken, and mankind in all countries may have the facilities to strive for a higher stage of civilization. National freedom will not enable the people of India to go back, but to surge ahead.</p>
+<p>In itself capitalist society has many defects; but it is undoubtedly an improvement on the patriarchal or feudal civilization for which Gandhi and his kind pine. Indian society is inevitably heading toward capitalist civilization, in spite of the premonitions of Gandhi, among many other prophets of similar creed. The desire to see it hark back is as futile as to expect a river to rush back to its <span class="pg">[p. 402]</span> source. Caught in the morass of such hopeless contradictions, Gandhism cannot supply the ideology of Indian nationalism. The revolutionary character of the latter is contrary to it. Nevertheless, it is undeniable that Gandhism, better said, the personality of Gandhi, exercised a considerable influence on the Indian movement in the last three years. Or in other words, just about the time that the National Congress was finding the first response among the ranks of the working masses, it came under the domination of a spirit which is essentially reactionary and non-revolutionary in a very frank way.</p>
+<p><em>[M. N. Roy, India in Transition (Bombay: Nanchiketa, 1971), 202, 203–204, 205–208, 209–210.]</em></p>
+<h3>Rajani Palme Dutt: An Indian Communist's View from Britain</h3>
+<p class="ed">Like Roy, Dutt viewed Gandhi in familiar Marxist terms as a tool of the Indian bourgeoisie, collaborating with the capitalist structure established by British colonialism, and thus restraining the revolutionary will of the Indian masses. More than Roy, Dutt appreciated Gandhi's hold on the people and the Congress; but they both emphasized his predominant role as a reactionary. Their participation in this grand intellectual debate over India's history and future gave Marxism its critical force on the subcontinent.</p>
+<p class="ed">While Roy became a peripheral player in left politics in India, Dutt remained a central ideologue for the Communist Party of India for half a century. Disputes and questions were often referred for resolution to “RPD.” A prominent communist historian of premodern India said in the 1960s that when he wanted to know about the twentieth century in India he turned to the works of Palme Dutt.</p>
+<p class="ed">In 1965 Leonard Gordon interviewed Palme Dutt at the headquarters of the British Communist Party. Dutt asked, “Are you a communist?” Gordon said “No.” “Then,” Dutt replied, “you won't be able to understand anything that I have to say.”</p>
+<p class="ed">The following excerpts from Dutt's India Today contain a trenchant analysis of Gandhi's leadership. Having already surveyed the events of 1919 to 1922 that led up to Gandhi's first non-cooperation movement, Dutt takes issue with the ostensible reasons for which Gandhi called it off after Chauri Chaura, in 1922.</p>
+<p>The dominant leadership of the Congress associated with Gandhi called off the movement because they were afraid of the awakening mass activity; and they were afraid of the mass activity because it was beginning to threaten those propertied class interests with which they themselves were still in fact closely linked.</p>
+<p>Not the question of “violence” or “non-violence,” but the question of class interest in opposition to the mass movement, was the breaking-point of the national struggle in 1922. This was the rock on which the movement broke. This was the real meaning of “Non-Violence.”</p>
+<p>The new factor which developed for the first time in the middle years of the nineteen-twenties, and gave the decisive impetus to the new wave of struggle, <span class="pg">[p. 403]</span> though not yet its leadership, was the emergence of the industrial working class as an independent force, conducting its own struggle with unexampled energy and heroism, and beginning to develop its own leadership. With this advance the new ideology of the working class, or socialism, began to develop for the first time as a political factor in India, and the influence of its ideas began to penetrate the youth and the left sections of Indian Nationalism, bringing new life and energy and wider horizons....</p>
+<p>In this critical balance of forces, with the certainty of big new struggles ahead in a far more advanced situation than a decade previously, the right-wing leadership once again turned to Gandhi, whom they had previously thrust aside, and whose star now once again rose. At the Calcutta session at the end of 1928 Gandhi returned to active leadership of the Congress. Whatever the views of the moderate leaders might be with regard to his personal idiosyncrasies, there was no question that he was the most subtle and experienced politician of the older group, with unrivalled mass prestige which world publicity had now enhanced as the greatest Indian figure; the ascetic defender of property in the name of the most religious and idealist principles of humility and love of poverty; the invincible metaphysical-theological casuist who could justify and reconcile anything and everything in an astounding tangle of explanations and arguments which in a man of common clay might have been called dishonest quibbling, but in the great ones of the earth like MacDonald or Gandhi is recognised as a higher plane of spiritual reasoning; the prophet who by his personal saintliness and selflessness could unlock the door to the hearts of the masses where the moderate bourgeois leaders could not hope for a hearing—and the best guarantee of the shipwreck of any mass movement which had the blessing of his association. This Jonah of revolution, this general of unbroken disasters was the mascot of the bourgeoisie in each wave of the developing Indian struggle. So appeared once again the characteristic feature of modern Indian politics, the unwritten article of every successive Indian constitution—the indispensability of Gandhi (actually the expression of the precarious balance of class forces). All the hopes of the bourgeoisie (the hostile might say, the hopes of imperialism) were fixed on Gandhi as the man to ride the waves, to unleash just enough of the mass movement in order to drive a successful bargain, and at the same time to save India from revolution....</p>
+<p>Thus on the eve of rising mass struggle Gandhi proclaimed the fight on two fronts, not only against British rule, but against the internal enemy in India. This conception of the fight on two fronts corresponds to the role of the Indian bourgeoisie, alarmed as it sees the ground sinking beneath its feet with the growing conflict of imperialism and the mass movement, compelled to undertake leadership of the struggle, despite the “mad risk” (in Gandhi’s phrase in his letter to the Viceroy), in order to hold it within bounds (“to sit still would be to give rein to both the forces above mentioned”), and seeking to conciliate both with the magic wand of “non-violence.” However, “non-violence,” like the notorious “non-intervention” of later days practised by the democratic Powers in <span class="pg">[p. 404]</span> relation to Spain, was “one-way non-violence.” It was “non-violence” for the Indian masses, but not for imperialism, which practised violence to its heart’s content—and won the battle.</p>
+<p>Gandhi's strategy corresponded to this conception of the struggle. Given this understanding, that it was not a strategy intended to lead to the victory of independence, but to find the means in the midst of a formidable revolutionary wave to maintain leadership of the mass movement and yet place the maximum bounds and restraints upon it, it was a skilful and able strategy. This was shown already in his brilliant choice of the first objective of the campaign and the method of conducting it. He decided to lead the fight against the salt monopoly of the Government. This diverted the fight from the possibility of participation by the industrial working class, the one force which Gandhi has made clear in every utterance that he fears in India; it was capable of enlisting the support and popular interest of the peasantry, while diverting them from any struggle against the landlords....</p>
+<p>So followed the march to Dandi, on the seashore, by Gandhi and his seventy-eight hand-picked followers, dragging on through three precious weeks, with the news-reel cameras of the world clicking away, while the masses were called on to wait expectant. The enormous publicity which was given to this Salt March through the Press, the cinema and every other device, was regarded by the Congress leadership as a triumph of strategy for awakening and mobilising the masses; but, while it is undoubtedly true that it did help to perform this function for the more backward elements among the masses, the free encouragement and permission given by the imperialist authorities for this publicity, in striking contrast to their later attitude (and to their very alert arrest of Subhas Bose, the leading left nationalist, even before Independence Day, before the struggle opened), was evidently not simple naivete and failure to understand its significance, but, on the contrary, very sharp understanding of its significance and direct help to ensure the diversion of the mass movement into the channels which were being prepared for it by Gandhi.</p>
+<p>Nevertheless, the moment the three weeks were completed with the ceremonial boiling of salt by Gandhi on the seashore on April 6 (not followed by arrest), the overwhelming mass movement which broke loose throughout the country took the leadership on both sides by surprise. The official instructions given were confined to the most limited and relatively harmless forms of civil disobedience: violation of the Salt Law, boycott of foreign cloth, picketing of the foreign cloth shops and Government liquor shops....</p>
+<p>The mass movement which developed already in April went considerably beyond these simple limits, with rising strikes, powerful mass demonstrations, the Chittagong Armoury Raid in Bengal, the incidents at Peshawar, which was in the hands of the people for ten days, and the beginnings of spontaneous no-rent movements by the peasants in a number of localities, especially in the United Provinces, where the Congress vainly sought to mediate on a basis of 50 per cent payment of rents....</p>
+<p><span class="pg">[p. 405]</span> When it became clear that the power of the mass movement was exceeding the limits set it, and that the authority of Gandhi, who had been left at liberty, was in danger of waning, on May 5 the Government arrested Gandhi. The response to the arrest was shown in the wave of hartals and mass strikes all over India. In the industrial town of Sholapur in the Bombay Presidency, with 140,000 inhabitants, of whom 50,000 were textile operatives, the workers held possession of the town for a week, replacing the police and establishing their own administration, until martial law was proclaimed on May 12....</p>
+<p>Imperialist repression was limitless. Ordinances followed one another in rapid succession, creating a situation comparable to martial law. In June the Congress and all its organisations were declared illegal. Official figures recorded 60,000 civil resisters sentenced in less than a year up to the Irwin–Gandhi Agreement in the spring of 1931....</p>
+<p>Imprisonment was the least of the forms of repression. The jails were filled to overflowing, and it was clear that wholesale imprisonment was powerless to check the movement. Therefore the principal weapon employed was physical terrorism. The records of indiscriminate lathi charges, beating up, firing on unarmed crowds, killing and wounding of men and women, and punitive expeditions made an ugly picture. The strictest measures were employed to cast a veil of censorship over the whole proceedings; but the careful records of the Congress provide volumes of certified and attested facts and incidents which throw some light on the brutality employed.</p>
+<p>Nevertheless, the power of the movement during 1930, exceeding every calculation of the authorities, and growing in spite of repression, began to raise the most serious alarm in the imperialist camp, which already found open expression by the summer of 1930, especially in the British trading community, who were hard hit by the boycott. This was especially noticeable in Bombay, where was the centre of strength of the industrial working class, where repression was most severe, but where the movement was strongest, and again and again held possession of the streets, despite repeated police charges, in mass demonstrations which the Congress leaders vainly begged to disperse, and in which the red flags were conspicuous beside the Congress flags, or even predominated....</p>
+<p>Thus the alarm grew on both sides; and on the basis of this mutual alarm there was the possibility of a settlement—against the Indian people....</p>
+<p>The bait was thus held out in a rotund phrase which in hard practice committed the Government to nothing, as subsequent events were to show. The Round Table Conference was then adjourned to enable the Congress to attend.</p>
+<p>On January 26 Gandhi and the Congress Working Committee were released unconditionally and given freedom to meet. Gandhi declared that he left prison with “an absolutely open mind.” Prolonged negotiations followed. On March 4 the Irwin–Gandhi Agreement was signed, and the struggle was declared provisionally suspended.</p>
+<p><span class="pg">[p. 406]</span> The Irwin–Gandhi Agreement secured not a single aim of the Congress struggle (not even the repeal of the Salt Tax). Civil Disobedience was to be withdrawn. Congress was to participate in the Round Table Conference, which it had sworn to boycott. Not a single concrete step to self-government was granted. The basis of discussion at the Round Table Conference was to be a Federal Constitution with “Indian responsibility”—but there were to be “reservations of safeguards in the interests of India.” The Ordinances were to be withdrawn and political prisoners released—but not prisoners guilty of “violence” or “incitement to violence” or soldiers guilty of disobeying orders. Freedom of boycott of foreign goods was to be allowed—but not “exclusively against British goods,” not “for political ends,” not with any picketing that might be regarded as involving “coercion, intimidation, restraint, hostile demonstration, obstruction to the public.” And so on with the clauses, which gave with one hand and took away with another. The maximum gain was the right of peaceful boycott of foreign cloth—the one positive element which very clearly pointed to the decisive interests on the Indian side behind the agreement....</p>
+<p>Three main tendencies or types of general social outlook exist to-day in the national movement.</p>
+<p>The first is the conservative (in the social sense, not necessarily in the political sense or relation to imperialism) or backward-looking tendency, which seeks to build its programme on the basis of an idealised ancient Indian civilisation, purged of its grosser evils, but retaining the essential tenets and institutions of Hinduism; looks with horror on modern industrialism (equally identified, without distinction, as capitalism or communism); and believes itself, with its hand-spinning and advocacy of a primitive agricultural life as the ideal, to represent the aspirations of the peasantry.</p>
+<p>The second is the powerful tendency of the industrial bourgeoisie, which seeks to build a modernised capitalist India after the Western model, but at the same time fears the inevitable accompanying growth in strength and rising demands of the industrial working class and of peasant discontent, and sometimes consequently attempts to idealise its aims under general phrases of a semi-socialist character, “socialism without class struggle” or “Indian socialism,” used to denote a vague humanitarianism and class-conciliation.</p>
+<p>The third is the rising tendency of socialism, which in its clearest form represents the conscious expression of the aim of the industrial working class and of the basic transformation of Indian society, and with very varying degrees of clearness is winning wide and increasing support within the national movement, especially among the younger generation.</p>
+<p>The still-continuing importance of the first of these tendencies in the present period should by no means be under-estimated, although it has no firm social basis, nor any practical possibility of the realisation of its aims....</p>
+<p>The positive programme put forward by the representatives of this tendency is one of village reconstruction and opposition to industrialism....</p>
+<p><span class="pg">[p. 407]</span> Here the familiar bourgeois essence shows through the idealistic cover.</p>
+<p>The immediate practical expression of this programme is found in the propagation of the Charkha or spinning-wheel, the Takli or distaff, the promotion of the use of Khadi or Indian hand-made cloth as a national symbol, and the development of village craft industries....</p>
+<p>The propaganda of a primitive economy as a solution for India's problems is reactionary, not only because it leads in the opposite direction to that in which the solution must be sought (for the existing evils of poverty and misery are rooted in primitive technique, which is itself rooted in the social system of exploitation under imperialism), but because it serves as a diversion from the basic social tasks confronting the peasantry and the masses of the people. Agricultural development is impossible without tackling the question of the land, of landlordism and the re-division of the land. But here the voice of the agricultural idealists and worshippers of the vanished village community becomes weak and falters, and disappears into a vague and shame-faced defence of landlordism....</p>
+<p>Herein lies the practical significance of this preaching from the standpoint of the big bourgeoisie, who tolerate and even encourage its Utopian yearnings and naive fantasies with a smile, because they know its business value for protecting their class interests and assisting to hold in the masses and maintain class peace. The social significance of Gandhi's historical role as the chosen representative and ablest leader of bourgeois nationalism in the critical transitions of the modern period has in practice coincided with his political role, despite the superficial contradiction between his social philosophy and the bourgeois outlook. The glaring contradictions and inadequacies in his many utterances and teaching, which can be easily picked out and exposed by the most elementary critic, are in fact the key to his unique significance and achievement. No other leader could have bridged the gap, during this transitional period, between the actual bourgeois direction of the national movement and the awakening, but not yet conscious masses. Both for good and for evil Gandhi achieved this, and led the movement, even appearing to create it. This role only comes to an end in proportion as the masses begin to reach clear consciousness of their own interests, and the actual class forces and class relations begin to stand out clear in the Indian scene, without need of mythological concealments.</p>
+<p><em>[From R. Palme Dutt, India Today, 3rd ed. (1940; Lahore: Book Traders, 1979), 353, 357–359, 365–371, 373–374, 622–624, 626, 628–629.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 396–407.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 396-407; reading PDF covers pp. 396-406. SIT headings and citations kept as printed. Two parts. PDF ends at p. 406; Dutt's extract and its citation run onto p. 407.</p></div>
+</div>
+</body>
+</html>

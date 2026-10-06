@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abul Kalam Azad: The Muslims of India and the Future of India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Abul Kalam Azad: The Muslims of India and the Future of India</h1>
+<p class="speech-meta">1,396 words, about 6 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Abul Kalam Azad: Muslim Nationalist</h3>
+<p class="ed"><span class="pg">[p. 560]</span> There were many Muslims who rejected the two-nation theory of Jinnah and the Muslim League. They were convinced that the best hope for the future of the Muslim population of the subcontinent was in a united India, and they supported the Indian <span class="pg">[p. 561]</span> National Congress. Among them was Maulana Abul Kalam Azad (1888–1958), a distinguished scholar and writer who was president of the Congress during the difficult period from 1940 to 1946. Born in Mecca of an Indian father and an Arabian mother, he received a traditional Islamic education in Calcutta, but he was persuaded by the writings of Sayyid Ahmad Khan to study the historical and philosophical heritage of Europe through the medium of English. “The ideas I had acquired from my family and early training could no longer satisfy me,” he wrote. “I felt that I must find the truth for myself. Almost instinctively I began to move out of my family orbit and seek my own path.” He adopted the pen name of Azad (“free”) to indicate this change in outlook, and joined an all-Hindu revolutionary group (partly through the influence of Aurobindo Ghose). In 1912 he founded the Urdu journal al-Hilāl (“the crescent moon,” an Islamic symbol). Like Mohamed Ali, he was kept in detention during World War I and later joined the pro-caliphate non-cooperation movement under Gandhi’s leadership. Unlike Mohamed Ali, Jinnah, and others, however, he remained within the Congress, believing that Muslims and Hindus could share citizenship in an independent India without compromising their religious beliefs. He became the Union of India’s minister of education from its birth until his death. His great work of scholarship was his commentary on the Quran in Urdu, in which he stressed God’s benevolent guidance of mankind.</p>
+<h3>The Muslims of India and the Future of India</h3>
+<p class="ed">The following selection is taken from the speech Maulana Azad gave as Congress president in 1940. He said that when India adopted a new constitution, the rights of the minorities would be guaranteed; furthermore, the minorities, not the majority, would decide what safeguards were necessary.</p>
+<p>We have considered the problem of the minorities of India. But are the Muslims such a minority as to have the least doubt or fear about their future? A small minority may legitimately have fears and apprehensions, but can the Muslims allow themselves to be disturbed by them? ... Nothing is further removed from the truth than to say that Indian Muslims occupy the position of a political minority. It is equally absurd for them to be apprehensive about their rights and interests in a democratic India....</p>
+<p>During the last sixty years, this artificial and untrue picture of India was made.... This was the result of the same policy of divide and rule which took particular shape in the minds of British Officialdom in India after the Congress launched the national movement. The object of this was to prepare the Musalmans for use against the new political awakening. In this plan, prominence was given to two points. First, that India was inhabited by two different communities, the Hindus and the Musalmans, and for this reason no demand could be made in the name of a united nation. Second: that numerically the Musalmans were far less than the Hindus, and because of this, the ... consequence of the establishment <span class="pg">[p. 562]</span> of democratic institutions in India would be to establish the rule of the Hindu majority and to jeopardise the existence of the Muslims. Thus were sown the seeds of disunity by British Imperialism on Indian soil. The plant grew and was nurtured and spread its nettles....</p>
+<p>Politically speaking, the word minority does not mean just a group that is so small in number and so lacking in other qualities that give strength, that it has no confidence in its own capacity to protect itself from the much larger group that surrounds it. It is not enough that the group should be relatively the smaller, but that it should be absolutely so small as to be incapable of protecting its interests. Thus this is not merely a question of numbers; other factors count also.... Let us apply it to the position of the Muslims in India.... They stand erect, and to imagine that they exist helplessly as a “minority” is to delude oneself.</p>
+<p>The Muslims in India number between eighty and ninety millions. The same type of social or racial divisions, which affect other communities, do not divide them. The powerful bonds of Islamic brotherhood and equality have protected them to a large extent from the weakness that flows from social divisions. It is true that they number only one-fourth of the total population; but the question is not one of population ratio, but of the large numbers and the strength behind them. Can such a vast mass of humanity have any legitimate reason for apprehension that in a free and democratic India, it might be unable to protect its rights and interest?</p>
+<p>These numbers are not confined to any particular area but spread out unevenly over different parts of the country.... The position of the Muslims is not that of a minority only. If they are in a minority in seven provinces, they are in a majority in five. This being so, there is absolutely no reason why they should be oppressed by the feeling of being a minority.</p>
+<p>Whatever may be the details of the future constitution of India, we know that it will be an all-India federation which is, in the fullest sense, democratic, and every unit of which will have autonomy in regard to internal affairs. The federal centre will be concerned only with all-India matters of common concern, such as foreign relations, defence, customs, etc. Under these circumstances, can any one who has any conception of the actual working of a democratic constitution, allow himself to be led astray by this false issue of majority and minority? ...</p>
+<p>I am a Musalman and am proud of that.... Islam's splendid traditions of thirteen hundred years are my inheritance. I am unwilling to lose ... the smallest part of [it]. The teaching and history of Islam, its arts and letters and civilisation are ... my fortune. It is my duty to protect them.</p>
+<p>As a Musalman I have a special interest in Islamic religion and culture and I cannot tolerate any interference with them. But in addition to these sentiments, I have others also which the realities and conditions of my life have forced upon me. The spirit of Islam does not come in the way of these sentiments; it guides and helps me forward. I am proud of being an Indian....</p>
+<p><span class="pg">[p. 563]</span> It was India's historic destiny that many human races and cultures and religions should flow to her, finding a home in her hospitable soil, and that many a caravan should find rest here.... One of the last of these caravans ... was that of the followers of Islam. This came here and settled here for good. This led to a meeting of the culture-currents of two different races. Like the Ganga and Jumna, they flowed for a while through separate courses, but nature's immutable law brought them together and joined them in a sangam [union]. This fusion was a notable event in history.... We gave her, what she needed most, the most precious of gifts from Islam's treasury, the message of democracy and human equality....</p>
+<p>Eleven hundred years of common history have enriched India with our common achievement. Our languages, our poetry ... our culture, our art, our dress, our manners and customs ... the ... happenings of our daily life, everything bears the stamp of our joint endeavour.... Our languages were different, but we grew to use a common language; our manners and customs were dissimilar, but they acted and reacted on each other and ... produced a new synthesis....</p>
+<p>This thousand years of our joint life has moulded us into a common nationality. This cannot be done artificially. Nature does her fashioning through her hidden processes in the course of centuries. The cast has now been moulded and destiny has set her seal upon it. Whether we like it or not, we have now become an Indian nation, united and indivisible.</p>
+<p><em>[From Sankar Ghose, ed., Congress Presidential Speeches (Calcutta: West Bengal Pradesh Committee, 1972), 356–363.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 560–563.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 560-563; reading PDF covers pp. 560-567. SIT headings and citations kept as printed. PDF (pp. 560-567) continues into 'The Steps to Partition' (India Wins Freedom, on 1946-47), which runs to p. 574; left out, since the PDF stops in mid-section and the reading's title names only the Ramgarh address. To include it set end to 123 and end_marker to '214-216'.</p></div>
+</div>
+</body>
+</html>

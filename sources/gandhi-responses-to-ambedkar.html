@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi’s Responses to Ambedkar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi’s Responses to Ambedkar</h1>
+<p class="speech-meta">1,355 words, about 6 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Mohandas Gandhi: Responses to Dr. Ambedkar's Indictment</h3>
+<p class="ed"><span class="pg">[p. 426]</span> Gandhi's two-part reply to Ambedkar appears in his publication Harijan, for July 11 and 18, 1936.</p>
+<p>The readers will recall the fact that Dr. Ambedkar was to have presided last May at the annual conference of the Jat-Pat-Todak Mandal of Lahore. But the conference itself was cancelled because Dr. Ambedkar's address was found by the Reception Committee to be unacceptable. How far a Reception Committee is justified in rejecting a President of its choice because of his address that may be objectionable to it is open to question. The Committee knew Dr. Ambedkar's views on caste and the Hindu scriptures. They knew also that he had in unequivocal terms decided to give up Hinduism. Nothing less than the address that Dr. Ambedkar had prepared was to be expected from him. The committee appears to have deprived the public of an opportunity of listening to the original views of a man who has carved out for himself a unique position in society. Whatever <span class="pg">[p. 427]</span> label he wears in future, Dr. Ambedkar is not the man to allow himself to be forgotten.</p>
+<p>Dr. Ambedkar was not going to be beaten by the Reception Committee. He has answered their rejection of him by publishing the address at his own expense. He has priced it at 8 annas. I would suggest a reduction to 2 annas or at least 4 annas.</p>
+<p>No reformer can ignore the address. The orthodox will gain by reading it. This is not to say that the address is not open to objection. It has to be read if only because it is open to serious objection. Dr. Ambedkar is a challenge to Hinduism. Brought up as a Hindu, educated by a Hindu potentate, he has become so disgusted with the so-called savarna Hindus for the treatment that he and his have received at their hands that he proposes to leave not only them but the very religion that is his and their common heritage. He has transferred to that religion his disgust against a part of its professors.</p>
+<p>But this is not to be wondered at. After all one can only judge a system or an institution by the conduct of its representatives. What is more, Dr. Ambedkar found that the vast majority of Savarna Hindus had not only conducted themselves inhumanly against those of their fellow religionists whom they classed as untouchables, but they had based their conduct on the authority of their scriptures, and when he began to search them he had found ample warrant for their belief in untouchability and its implications. The author of the address has quoted chapter and verse in proof of his threefold indictment—inhuman conduct itself, the unabashed justification for it on the part of the perpetrators and the subsequent discovery that the justification was warranted by their scriptures.</p>
+<p>No Hindu who prizes his faith above life itself can afford to underrate the importance of this indictment. Dr. Ambedkar is not alone in his disgust. He is its most uncompromising exponent and one of the ablest among them. He is certainly the most irreconcilable among them. Thank God, in the front rank of the leaders, he is singularly alone and as yet but a representative of a very small minority. But what he says is voiced with more or less vehemence by many leaders belonging to the depressed classes. Only the latter, for instance Rao Bahadur M. C. Rajah and Dewan Bahadur Srinivasan, not only do not threaten to give up Hinduism but find enough warmth in it to compensate for the shameful persecution to which the vast mass of Harijans are exposed.</p>
+<p>But the fact of many leaders remaining in the Hindu fold is no warrant to disregarding what Dr. Ambedkar has to say. The Savarnas have to correct their belief and their conduct. Above all those who are by their learning and influence among the Savarnas have to give an authoritative interpretation of the scriptures. The questions that Dr. Ambedkar's indictment suggests are:</p>
+<p>1. What are the scriptures?</p>
+<p>2. Are all the printed texts to be regarded as an integral part of them or is any part of them to be rejected as unauthorized interpolations?</p>
+<p><span class="pg">[p. 428]</span> 3. What is the answer of such accepted and expurgated scriptures on the question of untouchability, caste, equality of status, interdining and intermarriages?</p>
+<p>(These have been all ably examined by Dr. Ambedkar in his address.)</p>
+<p>I must reserve for the next issue my own answer to these questions and a statement of the (at least some) manifest flaws in Dr. Ambedkar's thesis.</p>
+<p><em>[CWMG 63:134–136.]</em></p>
+<p>Many of the texts that Dr. Ambedkar quotes from the Smritis cannot be accepted as authentic. The scriptures properly so called can only be concerned with eternal verities and must appeal to any conscience, i.e. any heart whose eyes of understanding are opened. Nothing can be accepted as the word of God which cannot be tested by reason or be capable of being spiritually experienced. And even when you have an expurgated edition of the scriptures, you will need their interpretation. Who is the best interpreter? Not learned men surely. Learning there must be. But religion does not live by it. It lives in the experiences of its saints and seers, in their lives and sayings. When all the most learned commentators of scriptures are utterly forgotten, the accumulated experience of the sages and saints will abide and be an inspiration for ages to come.</p>
+<p>Caste has nothing to do with religion. It is a custom whose origin I do not know and do not need to know for the satisfaction of my spiritual hunger. But I do know that it is harmful both to spiritual and national growth. Varna and Ashrama are institutions which have nothing to do with castes. The law of Varna teaches us that we have each one of us to earn our bread by following the ancestral calling. It defines not our rights but our duties. It necessarily has reference to callings that are conducive to the welfare of humanity and to no other. It also follows that there is no calling too low and none too high. All are good, lawful, and absolutely equal in status. The callings of a Brahmin—spiritual teacher—and a scavenger are equal, and their due performance carries equal merit before God and at one time seems to have carried identical reward before man. Both were entitled to their livelihood and no more.... Arrogation of a superior status by any of the varnas over another is a denial of the law. And there is nothing in the law of varna to warrant a belief in untouchability. (The essence of Hinduism is contained in its enunciation of one and only God as Truth and its bold acceptance of ahimsa as the law of the human family.)</p>
+<p>I am aware that my interpretation of Hinduism will be disputed by many besides Dr. Ambedkar. That does not affect my position. It is an interpretation by which I have lived for nearly half a century and according to which I have endeavoured to the best of my ability to regulate my life.</p>
+<p>In my opinion the profound mistake that Dr. Ambedkar has made in his address is to pick out the texts of doubtful authenticity and value and the state of degraded Hindus who are no fit specimens of the faith they so woefully misrepresent. Judged by the standard applied by Dr. Ambedkar, every known living faith will probably fail.</p>
+<p><span class="pg">[p. 429]</span> In his able address, the learned Doctor has over-proved his case. Can a religion that was professed by Chaitanya, Jnanadeva, Tukaram, Tiruvalluvar, Ramakrishna Paramahamsa, Raja Ram Mohan Roy, Maharishi Devendranath Tagore, Vivekanand and a host of others who might be easily mentioned, be so utterly devoid of merit as is made out in Dr. Ambedkar's address? A religion has to be judged not by its worst specimens but by the best it might have produced. For that and that alone can be used as the standard to aspire to, if not to improve upon.</p>
+<p><em>[CWMG 63:153–154.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 426–429.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 426-429; reading PDF covers pp. 426-428. SIT headings and citations kept as printed. OCR order of the heading is 'MOHANDAS GANDHI: RESPONSES / DR. AMBEDKAR's INDICTMENT / TO'. Final citation [CWMG 63:153-154.] is OCR'd '6p53-154'; end marker stops at the last sentence, so the citation line is left out.</p></div>
+</div>
+</body>
+</html>

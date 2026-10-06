@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G. D. Adhikari: National Unity Now!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>G. D. Adhikari: National Unity Now!</h1>
+<p class="speech-meta">3,534 words, about 15 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>G. D. Adhikari and the Views of the Communist Party of India</h3>
+<p class="ed"><span class="pg">[p. 511]</span> The Communist Party of India (CPI) was formed in the early 1920s, but operated mostly underground after it was banned by the government of India. When World War II began in 1939, the CPI declared it an “imperialists’ war” between dueling empires. With the German invasion of the Soviet Union, the CPI declared World War II a “People’s War,” and thereafter acted openly with government approval.</p>
+<p class="ed">During the war, one of its chief ideologues, Dr. G. D. Adhikari, following Stalin's theory on the nationalist question (it appears that Dr. Adhikari was not well informed about actual Soviet treatment of the minorities in the Soviet Union), argued that India was a multinational nation inclusive of many nations. Each of these nations was to be allowed self-determination so that, he thought, they would come to see that it was in their interest to remain parts of one larger nation. In his view, Pakistan was a nation among many in South Asia, and was thus to be allowed self-determination. He maintained that granting self-determination, up to and including the right of secession, would allow the potential Pakistanis to come back within the fold of Indian unity and gain the ends they sought. Communist backing thus was given to the movement for a Pakistan to be formed out of the Muslim community of India. This analysis gave support on the left to the fledgling Pakistan movement, which was growing during the war while Congress leaders sat in prison. In later years, some CPI leaders regretted their adherence to these views and their unqualified support for the war effort, since this alienated them from the mainstream of Indian nationalism. After the war their general secretary, P. C. Joshi, approached Gandhi and the Congress for “reinstatement,” but was brushed off.</p>
+<h3>National Unity Now!</h3>
+<p>... Without national unity, without the broad unity of the masses—both Hindu and Muslim—freedom cannot be won, that was always axiomatic in our independence movement....</p>
+<p>How does it come about that the leadership of a national movement which has to its credit the achievement of the largest measure of unity of the Indian people during the last 20 years or so, now stands helpless before the question of Hindu–Muslim unity? How does it happen that Gandhiji says “India indivisible” <span class="pg">[p. 512]</span> is an article of faith with him and Jinnah says “Pakistan” is an article of faith with him, and there is stalemate and gaping disunity among our people? The Indian National Congress stands and has stood consistently for the complete independence of the country and for the democratic rights and liberties of the people. In the free India of Congress conception there will be religious freedom, the protection of culture for every section of the people. Why should not the Congress programme, which visualises free and democratic India, united and indivisible, attract the Muslims? Or rather, if it was adequate for so many years to unite the Hindus and Muslims in the common struggle for freedom, why does it appear to fail in recent years? In the mass nationalist upsurge which began with 1935 and continued to rise up to 1940, the Muslim masses too were drawn into the common flood. But how did it happen that the awakened Muslim masses, especially, during the period of Congress Ministries rallied to the banner of the Muslim League which now became a powerful Muslim organization? Why did the Hindu–Muslim tension begin to rise during this period? How did it happen that the breach between the Muslim masses and the national movement seemed to widen[,] reaching its climax in the Pakistan Resolution passed by the Muslim League in March 1940? Also during this period, there has been a certain growth of Hindu Sabha influence inside the Congress. Unless we understand the peculiar nature of this accentuation of the communal problem and tension during the recent five years, we will not be able to see why the national leadership has failed to solve it, and why its failure has culminated in the bankruptcy which seeks to reverse the fundamental axiom of our national movement, viz., national unity for national freedom....</p>
+<p>Apart from a general sharpening of Hindu–Muslim relations, there has been also a cropping-up of provincial jealousies and frictions, such as the Bengal–Behar controversy, the question of a separate Andhra province and the question of “Samyukta” [united] Karnatak and so on. The explanation is given that this is due to the competition between the bourgeoisie of these various communities and provinces for jobs and power which was brought to the surface by the new constitution. This is, of course, part of the truth. The cleavage brought about between the bourgeois sections of the various communities and provinces is only one aspect of the question. It is often stated that the masses have no communalism or provincialism. This is true in so far as the interests of the toiling masses all over the world and in the country are identical. But in actual practice, as the general national anti-imperialist upsurge spreads deeper into the masses, it finds an echo in the growing up of sectional, communal, and provincial patriotism, which may not necessarily weaken or conflict with the larger national patriotism, but which is often used by the bourgeois leadership for accentuating national disunity.</p>
+<p>The growing communal tension ... as well as provincial jealousies and frictions which arose during the election period and in the period of the Congress Ministries were therefore a distorted expression of an otherwise healthy growth, <span class="pg">[p. 513]</span> viz., the masses of the individual nationalities awakening to all-India anti-imperialist national consciousness....</p>
+<p>Firstly, in spite of imperialist hindrances, bourgeois economic (industrial) development of our country is proceeding apace horizontally if not vertically. The level of industrialisation is not rising but the same low level of industrialisation is spreading to every nook and corner of India. As a result there is a growing competition between the bourgeoisie of the different individual nationalities. The provincial autonomy under the new constitution tended to accentuate these frictions and we have in this period the Bengali–Behari, Marathi–Karnataki, Andhra–Tamilnad questions, the Hindu–Muslim question in Bengal, in the U. P. and in the Punjab, cropping up. This is one aspect of the question—the bourgeois aspect—the disruptive aspect, which imperialism and its agents use for their policy of divide and rule....</p>
+<p>Secondly, we have the healthier aspect of the question. Side by side with the bourgeois development, the all-India national anti-imperialist movement is spreading to every nook and corner of India and bringing the peasant masses of the most backward nationalities and communities into its vortex.... Here is the progressive aspect of the accentuation of the communal and provincial jealousies, which our growing national democratic movement itself brings to the surface. Herein lies the key to the solution of the communal conflict in its new form which our national movement has to perceive....</p>
+<p>Here it will be asked: what has the Hindu–Muslim problem to do with this cropping up of provincial jealousies on the one hand, and the awakening of individual national consciousness? The Hindu–Muslim conflict arises out of the economic and other competition between the bourgeoisie or the upper class of the two communities while the imperialists are using the same to successfully divide the masses.... During 1936–42 when there was a general anti-imperialist mass upsurge ... the Muslim masses too shared in the general anti-imperialist upsurge; but this expressed itself in the bulk of the Muslim petty-bourgeois masses going under the influence of the League. There was also a rise in the Muslim followers of the Congress but not as sharp and striking as in the case of the Muslim League.... In 1938 the Muslim League accepted the complete independence of India as its goal. The Muslim League leadership can be said to have undergone a transformation during this period. It is no longer feudal-reactionary, no longer just a willing tool of imperialism. It is now an industrial bourgeois leadership, which is no more just an adjunct of imperialism but one which plays an oppositional role vis-à-vis imperialism.</p>
+<p>In fact, the Muslim League is to the Muslim petty-bourgeois mass what the Indian National Congress is to the Indian masses in general. This became quite clear in the imperialist phase of the war. The leadership of the Congress took to passive opposition to war and demanded recognition of complete independence and such present freedom which would give the Indian people effective power in the government of the country immediately. The Muslim League <span class="pg">[p. 514]</span> leadership too adopted the attitude of passive non-co-operation with the war and demanded Pakistan, which is complete independence to such territorial units in which the Muslims predominate. Immediately, they demanded political equality with the Congress in any settlement at the Centre or effective power at the Centre for the League, in case the Congress refused to accept the settlement. To the Muslim masses, therefore, it appears that the Muslim League leadership is fighting not only for the complete independence of India from imperialist rule but also for freedom and equality to territorial units which are predominantly Muslim and for the protection of the rights of Muslim minorities in other provinces in relation to culture, education and language. Thus the rise of the Muslim League influence cannot be regarded as a reactionary phenomenon. On the other hand, it is the expression of the growing anti-imperialist upsurge among the Muslim masses, of the growth of the individual national consciousness of the Sindhis, of Punjabi Muslims ... and so on within the framework of the broader all-India nationalism....</p>
+<p>To see nothing in the problem but religious and cultural differences, to ascribe the deadlock in Congress–Muslim League relations to some irrational, obscurantist and fanatical element in the Muslims, which Mr. Jinnah is in a position to exploit for opportunist ends, because of the presence of the British Power, is not to understand the problem at all.... But as soon as we realise that the leadership of the Muslim League is bourgeois in character and is playing an oppositional role vis-à-vis imperialism in a somewhat analogous way to the leadership of the Indian National Congress itself, as soon as we see the anti-imperialist base of the rise of the Muslim League influence, as soon as we grasp that behind the demand for Pakistan is the justified desire of the people of Muslim nationalities such as Sindhis, Baluchis, Punjabis (Muslims), [and] Pathans to build their free national life within the greater unity of the all-Indian national freedom, we at once see there is a very simple solution to the communal problem in its new phase....</p>
+<p>It is the historic task and responsibility of the Indian National Congress, which has achieved such a large measure of national unity thus far, for achieving national freedom, to take the next forward step towards unity, which the new phase of the communal problem demands, at this most critical turning point of our nation. In uniting the various sections of the people for national freedom, that freedom itself has to be defined in terms of a programme of democratic rights and liberties. The Indian National Congress has to a large extent succeeded in putting such a programme before the nation and has achieved on the basis of that programme a very large measure of national unity.... It certainly says that in a free India there will be freedom of worship for every one and that the religious and cultural rights of minorities would be guaranteed. It pledges itself to abolish all inequalities based on caste, creed and origin (such as untouchability, etc.). But these declarations, essential as they are, for securing unity, are no longer enough.</p>
+<p><span class="pg">[p. 515]</span> The conception of India's unity was never a static one. It is a living and growing reality which is developing within its womb a host of individual nationalities which lived together on the Indian soil through centuries, and are now waking to new consciousness. Unequal economic development leads to friction and conflicts between communities and different national units. The growing sweep of the All-India people's movement tends to unite these communities and national units into one united national front for freedom.... The National Congress ... has to recognise the just claim of the peoples of these individual nationalities to autonomous state existence within the framework of a free Indian union, and their right to secession from the union, if they so desired. The National Congress, of course, dimly sees that the free India of the future would be a family of a number of nationalities, each having a territorial unit to which it is attached by historic tradition as its homeland, each having its own language, culture, common economic life, etc. The division of Congress Provinces linguistically reflects this realisation. In the resolution of the Working Committee on the rejection of the Cripps proposals, this idea was expressed more explicitly. The Congress came very near to recognising the right of self-determination of such national territorial units. But in the Allahabad A.I.C.C. there was a relapse again.... The Congress virtually denied the right of self-determination to any nationality inasmuch as it refused to recognise the right of separation to any territorial unit.... Guaranteeing of autonomous state existence, with the right of political separation, to individual nationalities having their own territorial units to which they are bound by history, having a common language, culture, economic life and psychological make-up, can never lead to the vivisection of the motherland. On the other hand, by dispelling the distrust and suspicions which exist to-day among the people of the various nationalities, the Congress would be laying the foundation of a greater unity of action now and a greater unity of India visualised as a fraternal union of free nationalities, afterwards. Those who say recognition of the right of separation for individual nationalities would lead to the disintegration of the country, really lack faith in their own people. A clear-throated declaration of the type we have printed elsewhere, if made by the Congress will provide a real basis for Congress–League unity just because it clearly grants the rational kernel of the Pakistan demand. For according to it, nationalities such as Sindhis, Baluchis, Pathans and Punjabi Muslims will have the right to secede if they so desire. But it must be borne in mind that the recognition of the right of nationalities to separation, is the recognition of their equality and freedom from oppression in a free India. This would lay the basis not for separation but for [a] joint fight for freedom against the aggressors and for the creation of an Indian Union based on voluntary co-operation of free nationalities.</p>
+<p>By taking such a position, the National Congress would be building unity ... conceding straightaway what is just and right in the Pakistan demand. Wherever people of Muslim faith living together in a territorial unit, form a nationality in <span class="pg">[p. 516]</span> the sense defined above, they certainly have the right to autonomous state existence, just like the other nationalities in India, like the Andhras, Kannadis, Marathis, Bengalis, etc. Wherever there are interspersed Muslim minorities within other autonomous states, their rights regarding culture, education and language would be guaranteed.... If the Congress makes such a declaration, proclaims it as a part of its own programme of freedom, and calls upon the Muslim masses and the League to join with the Congress in a joint effort to win National Government, Jinnah's last argument against unity would have been knocked out. He will have to agree to unite. What would result then would be a period of the most gigantic joint effort of the Indian people for the defence of this country and for their freedom, under the leadership of their National Government. Out of this joint effort of the united people of India, no separate Pakistan and no Hindudom can ever rise but a happy family of free and autonomous states of various nationalities united in an Indian Union....</p>
+<p>To begin with it is quite clear that India was not a nation in the modern sense from times immemorial, from the days of Ashoka and Akbar. Nation building in India begins as in ... all countries, with the advent of capitalism. This takes place in India with the British conquest....</p>
+<p>Our nineteenth and early twentieth century liberal forefathers thought that the British conquest had laid the basis for the unification of India into a single nation and that the process had begun....</p>
+<p>This one nation–one language idea, draped in Hindu imagery, has been carried over from the past into the consciousness of our modern nationalist movement. It persists even today at a time when the reality of our national development has become quite different; at a time when this development is taking the form more and more clearly of a multi-national pattern....</p>
+<p>Each of these areas is now having its own Chamber of Commerce—for instance, Andhra, Karnatak, Maharashtra, Bengal, Punjab, etc. What does this show? It shows that the indigenous bourgeoisie in each area is attempting to consolidate its own market in its own homeland. Besides, in each of these areas there is development of their own language, culture and literature. Not only this; in some of these areas where one nation has been cut up into different provinces, the demand for unification of the nation into a single province has been put forward as a democratic demand. As mentioned above there is the demand for Samyukta Karnatak, for separation of Andhra, for united Maharashtra. The demand for Pakistan ... [in] its progressive essence, is in reality the demand for the self-determination and separation of the areas of Muslim nationalities of the Punjab, Pathans, Sind, Baluchistan and of the eastern provinces of Bengal.....</p>
+<p>Thus the demand for self-determination of the nationalities has to be looked upon as a just demand. The essence of this demand is equality and freedom <span class="pg">[p. 517]</span> from oppression. To refuse this demand means to sanction national inequality and oppression.</p>
+<p>To the Congress patriot ... We have to put before him a picture of a multinational India in which the problem of Indian unity is solved in a higher and more lasting manner. We have to show him concretely that we Communists are not dividers, but unifiers; that our solution leads to a higher unity on a higher plane, a unity the like of which India has not seen in her history....</p>
+<p>Our solution should neither lead to hair-splitting ethnographic discussions on the one hand, nor should it be a mere fig-leaf to trick the Muslim peoples into unity!</p>
+<p>Take Baluchistan. The Baluchis who are Muslims, speaking the Baluchi language, form 98–99% of the population of Baluchistan and the State of Kalat. They form a distinct nationality....</p>
+<p>In the Punjab, the Muslims of Western Punjab (beyond the River Sutlej) bear the distinct impress of a nationality with a contiguous territory, language, culture, economic life and psychological make-up. These Western districts have a Muslim population of over 60% on an average, in many cases this percentage exceeds 70 or 80. But the question is not one of religion or of numerical preponderance. The dominant impress of the particular nationality is there on the life of this whole region.</p>
+<p>This is why we grant the right of self-determination to this Muslim nationality of Western Punjab. The Sikhs and the Hindus in the eastern districts of the Punjab can easily come to a settlement with Muslims of the western districts on the basis of self-determination and guarantee of cultural rights. They can thus form a united autonomous Punjab, with the right to secede....</p>
+<p>Then comes the question of Bengal. Firstly, the Bengalis form a distinct nationality and so should be given the right of self-determination. There is much more in common between the Bengali Hindu and the Bengali Muslim than between the Bengali Muslim and say, the Pathan. But in this case over and above this fact, Eastern Bengal forms a special problem. Here generally speaking there is a Muslim population of more than 60%. Within the framework of a common nationality, the Muslim peasantry of Eastern Bengal has a distinct cultural complex of its own which has made its impress on Eastern Bengal as a separate entity. We have to recognise this. In the case of nationalities too, there are such things as transitional forms, and we have to recognise in Eastern Bengal precisely such a transitional stage of development.... The solution put forward in our Party resolution, on the one hand, enables the peasantry of East Bengal to share and enrich the common national heritage of Bengal; on the other hand, it enables us to unite them and to convince them that they would be better off if they remained within the Bengali State. It satisfies their urge and by this very means, paves the way for their remaining inside the Bengali state.... The Muslims in the other provinces (including Eastern <span class="pg">[p. 518]</span> Punjab) form interspersed minorities ... the guarantee of cultural rights, etc., is sufficient.</p>
+<p><em>[From G. D. Adhikari, Pakistan and Indian National Unity (Bombay: People's Publishing House, 1943), 1–9, 34–36, 38–39, 44–46, compiled from articles published in People's War, Aug. 1942.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 511–518.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 7, pp. 511-518; reading PDF covers pp. 511-518. SIT headings and citations kept as printed. PDF ends at p. 518 and includes the start of the Subhas Bose section, left out.</p></div>
+</div>
+</body>
+</html>

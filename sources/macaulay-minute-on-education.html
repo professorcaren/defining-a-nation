@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Babington Macaulay: The Minute on Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Thomas Babington Macaulay: The Minute on Education</h1>
+<p class="speech-meta">1,597 words, about 7 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>The Minute on Education</h3>
+<p class="ed"><span class="pg">[p. 69]</span> In the following “Minute,” Macaulay argues that the learned languages of India are not up to the task of education in modern subjects and have little to offer even in literature and philosophy. That he knew little of these languages did not stop him from deriding <span class="pg">[p. 70]</span> them and declaring that English was the most important modern language and would be best for higher studies in India. Colleges receiving government funds would use English, if Macaulay's plans were followed. In fact, both government colleges and others started by European missionaries and English-speaking natives also began to use English. His “Minute” also touches on several broader issues, including the relation of Western and Asian cultures and the ways in which a small number of Europeans were to rule in a vast alien land peopled by millions of Asians. His decision for English was accepted—English education was formally institutionalized, with a comprehensive scheme for its implementation, with Wood's Education Despatch of 1854—and Indians have lived with the consequences for generations since.</p>
+<p>We now come to the gist of the matter. We have a fund to be employed as government shall direct for the intellectual improvement of the people of this country. The simple question is, what is the most useful way of employing it?</p>
+<p>All parties seem to be agreed on one point, that the dialects commonly spoken among the natives of this part of India contain neither literary nor scientific information, and are, moreover, so poor and rude that, until they are enriched from some other quarter, it will not be easy to translate any valuable work into them. It seems to be admitted on all sides that the intellectual improvement of those classes of the people who have the means of pursuing higher studies can at present be effected only by means of some language not vernacular amongst them.</p>
+<p>What then shall that language be? One-half of the committee maintain that it should be the English. The other half strongly recommend the Arabic and Sanscrit. The whole question seems to me to be, which language is the best worth knowing?</p>
+<p>I have no knowledge of either Sanscrit or Arabic. But I have done what I could to form a correct estimate of their value. I have read translations of the most celebrated Arabic and Sanscrit works. I have conversed both here and at home with men distinguished by their proficiency in the Eastern tongues. I am quite ready to take the Oriental learning at the valuation of the Orientalists themselves. I have never found one among them who could deny that a single shelf of a good European library was worth the whole native literature of India and Arabia. The intrinsic superiority of the Western literature is, indeed, fully admitted by those members of the committee who support the Oriental plan of education.</p>
+<p>It will hardly be disputed, I suppose, that the department of literature in which the Eastern writers stand highest is poetry. And I certainly never met with any Orientalist who ventured to maintain that the Arabic and Sanscrit poetry could be compared to that of the great European nations. But when we pass from works of imagination to works in which facts are recorded, and general principles investigated, the superiority of the Europeans becomes absolutely immeasurable. It is, I believe, no exaggeration to say, that all the historical information <span class="pg">[p. 71]</span> which has been collected from all the books written in the Sanscrit language is less valuable than what may be found in the most paltry abridgments used at preparatory schools in England. In every branch of physical or moral philosophy, the relative position of the two nations is nearly the same....</p>
+<p>The question now before us is simply whether, when it is in our power to teach this language, we shall teach languages in which, by universal confession, there are no books on any subject which deserve to be compared to our own; whether, when we can teach European science, we shall teach systems which, by universal confession, whenever they differ from those of Europe, differ for the worse; and whether, when we can patronize sound philosophy and true history, we shall countenance, at the public expense, medical doctrines which would disgrace an English farrier, astronomy which would move laughter in girls at an English boarding school, history abounding with kings thirty feet high and reigns thirty thousand years long, and geography, made up of seas of treacle and seas of butter....</p>
+<p>[Answering the claims of the Orientalists, he asserted:] But there is yet another argument which seems even more untenable. It is said that the Sanscrit and Arabic are the languages in which the sacred books of a hundred millions of people are written, and that they are, on that account, entitled to peculiar encouragement. Assuredly it is the duty of the British government in India to be not only tolerant, but neutral on all religious questions. But to encourage the study of a literature admitted to be of small intrinsic value, only because that literature inculcates the most serious errors on the most important subjects, is a course hardly reconcilable with reason, with morality, or even with that very neutrality which ought, as we all agree, to be sacredly preserved. It is confessed that a language is barren of useful knowledge. We are to teach it because it is fruitful of monstrous superstitions. We are to teach false history, false astronomy, false medicine, because we find them in company with a false religion. We abstain, and I trust shall always abstain, from giving any public encouragement to those who are engaged in the work of converting natives to Christianity. And while we act thus, can we reasonably and decently bribe men out of the revenues of the state to waste their youth in learning how they are to purify themselves after touching an ass, or what text of the Vedas they are to repeat to expiate the crime of killing a goat?</p>
+<p>It is taken for granted by the advocates of Oriental learning that no native of this country can possibly attain more than a mere smattering of English. They do not attempt to prove this; but they perpetually insinuate it. They designate the education which their opponents recommend as a mere spelling book education. They assume it as undeniable, that the question is between a profound knowledge of Hindoo and Arabian literature and science on the one side, and a superficial knowledge of the rudiments of English on the other. This is not merely an assumption, but an assumption contrary to all reason and experience. We know that foreigners of all nations do learn our language sufficiently to <span class="pg">[p. 72]</span> have access to all the most abstruse knowledge which it contains, sufficiently to relish even the more delicate graces of our most idiomatic writers. There are in this very town natives who are quite competent to discuss political or scientific questions with fluency and precision in the English language. I have heard the very question on which I am now writing discussed by native gentlemen with a liberality and an intelligence which would do credit to any member of the Committee of Public Instruction. Indeed it is unusual to find, even in the literary circles of the continent, any foreigner who can express himself in English with so much facility and correctness as we find in many Hindoos. Nobody, I suppose, will contend that English is so difficult to a Hindoo as Greek to an Englishman. Yet an intelligent English youth, in a much smaller number of years than our unfortunate pupils pass at the Sanscrit College, becomes able to read, to enjoy, and even to imitate, not unhappily, the compositions of the best Greek authors. Less than half the time which enables an English youth to read Herodotus and Sophocles ought to enable a Hindoo to read Hume and Milton.</p>
+<p>To sum up what I have said, I think it clear that we are not fettered by the Act of Parliament of 1813; that we are not fettered by any pledge expressed or implied; that we are free to employ our funds as we choose; that we ought to employ them in teaching what is best worth knowing; that English is better worth knowing than Sanscrit or Arabic; that the natives are desirous to be taught English, and are not desirous to be taught Sanscrit or Arabic; that neither as the languages of law, nor as the languages of religion, have the Sanscrit and Arabic any peculiar claim to our engagement; that it is possible to make natives of this country thoroughly good English scholars; and that to this end our efforts ought to be directed.</p>
+<p>In one point I fully agree with the gentlemen to whose general views I am opposed. I feel with them, that it is impossible for us, with our limited means, to attempt to educate the body of the people. We must at present do our best to form a class who may be interpreters between us and the millions whom we govern; a class of persons, Indian in blood and color, but English in taste, in opinions, in morals, and in intellect. To that class we may leave it to refine the vernacular dialects of the country, to enrich those dialects with terms of science borrowed from the Western nomenclature, and to render them by degrees fit vehicles for conveying knowledge to the great mass of the population.</p>
+<p><em>[Macaulay, Prose and Poetry, 721–722, 723, 728–729.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 69–72.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 2, pp. 69-72; reading PDF covers pp. 69-71. SIT headings and citations kept as printed. PDF ends at p. 71; the Minute and its citation run onto p. 72.</p></div>
+</div>
+</body>
+</html>

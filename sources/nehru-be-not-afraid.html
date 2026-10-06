@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawaharlal Nehru: “Be Not Afraid”</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Jawaharlal Nehru: “Be Not Afraid”</h1>
+<p class="speech-meta">2,566 words, about 11 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>The Heir Apparent: Jawaharlal Nehru</h3>
+<p class="ed"><span class="pg">[p. 376]</span> Jawaharlal Nehru (1889–1964) was born in Allahabad, the son of Motilal Nehru, a wealthy Brahman lawyer whose family had originally come from Kashmir, and of Swarup Rani Nehru. After private tutoring, Nehru continued his education at the Harrow School and then at Trinity College, Cambridge, where he studied science. After studying law at the Inner Temple in London, he returned to India in 1912 and practiced law for several years without enthusiasm. In 1916 he married Kamala Kaul, and in 1917 they had a daughter, Indira.</p>
+<p class="ed">In 1919 Nehru joined the Congress and became devoted to Gandhi, now its unofficial leader. Gandhi had reorganized the Congress by this time and recruited able lieutenants throughout India; Nehru was among them.</p>
+<p class="ed">Nehru brought his father into active cooperation with Gandhi, and father and son worked together in the nationalist cause during the 1920s. Nehru was also active in the Allahabad municipal government. Guided by Gandhi, he gradually learned about rural India and became an effective speaker to both Western-educated sophisticates and Indian peasants. In time, Nehru's popularity became second only to Gandhi's.</p>
+<p class="ed">During this period Nehru was imprisoned many times for civil disobedience. His longest detentions occurred between 1932 and 1935, and 1942 and 1945. While in prison, he wrote his major books, Toward Freedom (1936), an autobiography; The Discovery of India (1946); and Glimpses of World History (1934), a series of letters to his daughter, Indira. He was a talented and expressive writer in English; both he and India's freedom struggle became more widely known through the circulation of his writings in the West.</p>
+<p class="ed">By the end of World War II, Nehru was recognized as Gandhi's heir apparent in the Congress. When the British formed an interim Indian government in 1946 preliminary to full independence, by Gandhi's choice Nehru became its prime minister. As head of the interim government, Nehru participated in negotiations for a united and federated India that were held in 1946 among the British rulers, the Congress, <span class="pg">[p. 377]</span> and the Muslim League. Nehru opposed the division of India on the basis of religion. His perspective was secular and democratic: he believed that all Indians, regardless of religious affiliation, should be equal citizens of the new nation. The parties were unable to agree on a structure for federation, but the British government through its last viceroy, Lord Louis Mountbatten, worked out a procedure for the transfer of power and the partition of the subcontinent. Nehru reluctantly agreed to the partition.</p>
+<p class="ed">Nehru greatly helped in revising and implementing Mountbatten's plan, and became personally close to Mountbatten and to his wife, Edwina. At Mountbatten's urging, Nehru agreed to maintain India's membership in the British-sponsored Commonwealth of Nations, setting a precedent for other former British colonies. Nehru became independent India's first prime minister on August 15, 1947, and remained its leader until his death in 1964. He also served as India's foreign minister, and dominated the Indian political scene during those seventeen years.</p>
+<h3>“Be Not Afraid”</h3>
+<p class="ed">Devotion to the cause of India's freedom and compassion for the lot of their nation's poor created an indissoluble bond between Gandhi and Nehru. In their attitudes toward other questions, however, Nehru and Gandhi were poles apart. Religion held no meaning for Nehru, but for his guru it was all-important. Gandhi held non-violence and simple living to be ends in themselves, but Nehru considered them merely as practical expedients in the political struggle. Gandhi's ideal India was a decentralized family of self-sufficient villages; Nehru's ideal India was a centralized modern state with a planned industrial economy. Despite their intellectual differences, however, Nehru found in Gandhi India's most effective mass mobilizer. The following passages from Nehru's writings offer an eloquent analysis of the sources of Gandhi's charismatic leadership.</p>
+<p>World War I came. Politics were at a low ebb, chiefly because of the split in the Congress between the two sections, the so-called Extremists and the Moderates, and because of wartime restrictions and regulations. Yet one tendency was marked: the rising middle class among the Moslems was growing more nationally minded and was pushing the Moslem League toward the Congress. They even joined hands.</p>
+<p>Industry developed during the war and produced enormous dividends—100 to 200 per cent—from the jute mills of Bengal and the cotton mills of Bombay, Ahmedabad, and elsewhere. Some of these dividends flowed to the owners of foreign capital in Dundee and London; some went to swell the riches of Indian millionaires. And yet the workers who had created these dividends lived at an incredibly low level of existence—in “filthy, disease-ridden hovels” with no window or chimney, no light or water supply, no sanitary arrangements. This, near that so-called city of palaces, Calcutta, dominated by British capital. In Bombay, where Indian capital was more in evidence, an inquiry commission found in one room, 15 feet by 12, six families, in all thirty adults and children, living <span class="pg">[p. 378]</span> together. Three of these women were expecting a confinement soon, and each family had a separate oven in that one room. These are special cases, but they are not very exceptional. They describe conditions in the twenties and thirties of this century when some improvements had already been made. What these conditions were like previous to these improvements staggers the imagination.</p>
+<p>I remember visiting some of these slums and hovels of industrial workers, gasping for breath there, and coming out dazed and full of horror and anger. I remember also going down a coal mine in Jharia and seeing the conditions in which our womenfolk worked there. I can never forget that picture or the shock that came to me that human beings should labour thus....</p>
+<p>World War I ended at last and the peace, instead of bringing us relief and progress, brought us repressive legislation and martial law in the Punjab. A bitter sense of humiliation and a passionate anger filled our people. All the unending talk of constitutional reform and Indianization of the services was a mockery and an insult when the manhood of our country was being crushed and the inexorable and continuous process of exploitation was deepening our poverty and sapping our vitality. We had become a derelict nation.</p>
+<p>Yet what could we do, how change this vicious process? We seemed to be helpless in the grip of some all-powerful monster; our limbs were paralyzed, our minds deadened. The peasantry were servile and fear-ridden; the industrial workers were no better. The middle class, the intelligentsia who might have been beacon lights in the enveloping darkness, were themselves submerged in this all-pervading gloom. In some ways their condition was even more pitiful than that of the peasantry. Large numbers of the déclassé intellectuals, cut off from the land and incapable of any kind of manual or technical work, joined the swelling army of the unemployed, and helpless, hopeless, sank ever deeper into the morass. A few successful lawyers or doctors or engineers or clerks made little difference to the mass. The peasant starved; yet centuries of an unequal struggle against his environment had taught him to endure, and even in poverty and starvation he had a certain calm dignity, a feeling of submission to an all-powerful fate. Not so the middle classes, more especially the new petty bourgeoisie, who had no such background....</p>
+<p>What could we do? How could we pull India out of this quagmire of poverty and defeatism which sucked her in? ...</p>
+<p>And then Gandhi came. He was like a powerful current of fresh air that made us stretch ourselves and take deep breaths, like a beam of light that pierced the darkness and removed the scales from our eyes, like a whirlwind that upset many things but most of all the working of people's minds. He did not descend from the top; he seemed to emerge from the millions of India, speaking their language and incessantly drawing attention to them and their appalling condition. Get off the backs of these peasants and workers, he told us, all you who live by their exploitation; get rid of the system that produces this poverty and misery.</p>
+<p><span class="pg">[p. 379]</span> Political freedom took new shape then and acquired a new content. Much that he said we only partially accepted or sometimes did not accept at all. But all this was secondary. The essence of his teaching was fearlessness and truth and action allied to these, always keeping the welfare of the masses in view. The greatest gift for an individual or a nation, so we had been told in our ancient books, was abhaya, fearlessness, not merely bodily courage but the absence of fear from the mind. Chanakya and Yagnavalka had said, at the dawn of our history, that it was the function of the leaders of a people to make them fearless. But the dominant impulse in India under British rule was that of fear, pervasive, oppressing, strangling fear; fear of the army, the police, the widespread secret service; fear of the official class; fear of laws meant to suppress, and of prison; fear of the landlord's agent; fear of the moneylender; fear of unemployment and starvation, which were always on the threshold. It was against this all-pervading fear that Gandhi's quiet and determined voice was raised: Be not afraid....</p>
+<p>So, suddenly as it were, that black pall of fear was lifted from the people's shoulders, not wholly, of course, but to an amazing degree. As fear is close companion to falsehood, so truth follows fearlessness. The Indian people did not become much more truthful than they were, nor did they change their essential nature overnight; nevertheless a sea change was visible as the need for falsehood and furtive behavior lessened. It was a psychological change, almost as some expert in the psychoanalytical method had probed deep into the patient's past, found out the origins of his complexes, exposed them to his view, and thus rid him of that burden.</p>
+<p>There was that psychological reaction also, a feeling of shame at our long submission to an alien rule that had degraded and humiliated us, and a desire to submit no longer, whatever the consequences might be. We did not grow much more truthful, perhaps, than we had been previously, but Gandhi was always there as a symbol of uncompromising truth to pull us up and shame us into truth....</p>
+<p>Gandhi for the first time entered the Congress organization and immediately brought about a complete change in its constitution. He made it democratic and a mass organization. Democratic it had been previously also, but it had so far been limited in franchise and restricted to the upper classes. Now the peasants rolled in, and in its new garb it began to assume the look of a vast agrarian organization with a strong sprinkling of the middle classes. This agrarian character was to grow. Industrial workers also came in, but as individuals and not in their separate, organized capacity.</p>
+<p>Action was to be the basis and objective of this organization, action based on peaceful methods. Thus far, the alternatives had been: just talking and passing resolutions, or terroristic activity. Both of these were set aside, and terrorism was especially condemned as opposed to the basic policy of the Congress. A new technique of action was evolved which, though perfectly peaceful, yet involved nonsubmission to what was considered wrong, and as a consequence, a willing acceptance of the pain and suffering involved in this. Gandhi was an odd kind <span class="pg">[p. 380]</span> of pacifist, for he was an activist full of dynamic energy. There was no submission in him to fate or anything that he considered evil; he was full of resistance, though this was peaceful and courteous.</p>
+<p>The call of action was twofold. There was of course the action involved in challenging and resisting foreign rules; there was also the action which led us to fight our own social evils. Apart from the fundamental objective of the Congress—the freedom of India—and the method of peaceful action, the principal planks of the Congress were national unity, which involved the solution of the minority problems, and the raising of the depressed classes and the ending of the curse of untouchability.</p>
+<p>Realizing that the main props of British rule were fear, prestige, the co-operation, willing or unwilling, of the people, and certain classes whose vested interests were centered in British rule, Gandhi attacked these foundations. Titles were to be given up, and though the titleholders responded to this only in small measure, the popular respect for these British-given titles disappeared and they became symbols of degradation. New standards and values were set up, and the pomp and splendor of the viceregal court and the princes, which used to impress so much, suddenly appeared supremely ridiculous and vulgar and rather shameful, surrounded as they were by the poverty and misery of the people. Rich men were not so anxious to flaunt their riches; outwardly at least many of them adopted simpler ways, and in their dress became almost indistinguishable from humbler folk.</p>
+<p>The older leaders of the Congress, nurtured in a different and more quiescent tradition, did not take easily to these new ways and were disturbed by the upsurge of the masses. Yet so powerful was the wave of feeling and sentiment that swept through the country that some of that intoxication filled them also....</p>
+<p>[Gandhi] sent us to the villages, and the countryside hummed with the activity of innumerable messages of the new gospel of action. The peasant was shaken up and he began to emerge from his quiescent shell. The effect on us was different but equally far reaching, for we saw, for the first time as it were, the villager in the intimacy of his mud hut and with the stark shadow of hunger always pursuing him. We learned our Indian economics more from these visits than from books and learned discourses. The emotional experience we had already undergone was emphasized and confirmed, and henceforward there could be no going back for us to our old life or our old standards, howsoever much our views might change subsequently.... In two respects the background of his thoughts had a vague but considerable influence: the fundamental test of everything was how far it benefited the masses, and the means were always important and could not be ignored even though the end in view was right, for the means governed the end and varied it....</p>
+<p>It is not surprising that this astonishingly vital man, full of self-confidence and an unusual kind of power, standing for equality and freedom for each individual, but measuring all this in terms of the poorest, fascinated the masses of India and attracted them like a magnet. He seemed to them to link up the past <span class="pg">[p. 381]</span> with the future and to make the dismal present appear just as a steppingstone to that future of life and hope. And not the masses only, but intellectuals and others also, though their minds were often troubled and confused and the changeover for them from the habits of lifetimes was more difficult. Thus he effected a vast psychological revolution not only among those who followed his lead but also among his opponents and those many neutrals who could not make up their minds what to think and what to do.</p>
+<p><em>[Jawaharlal Nehru, The Discovery of India (New York: John Day, 1946), 358–365, 367.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 376–381.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 376-381; reading PDF covers pp. 376-380. SIT headings and citations kept as printed. Starts at the Nehru headnote 'The Heir Apparent: Jawaharlal Nehru' (the 'Be Not Afraid' heading is OCR'd 'EE NOT AFRAID'). PDF ends at p. 380; the extract and its citation run onto p. 381.</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. Sundarayya: Excerpts from Telangana People’s Struggle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>P. Sundarayya: Excerpts from Telangana People’s Struggle</h1>
+<p class="speech-meta">4,268 words, about 19 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><p><em><span class="pg">[p. 1]</span></em></p>
+<h3>Excerpts from Telangana People’s Struggle and Its Lessons</h3>
+<h3>Chapter II: Some Lessons about this Phase of the Movement</h3>
+<p>One patent fact that emerges from the events of 1945 and 1946 is that our Party had not understood the depth of the revolutionary upsurge of the masses in the immediate postwar situation. Its reformist understanding and functioning during the war period made it difficult for it to foresee these developments and prepare itself and the people’s organisation for them.</p>
+<p>It is true that it was only our Party that came out with the slogan of “people’s raj in Vishalandhra”, advocated dissolution of Hyderabad state and merging it in its neighbouring linguistic areas. It traced out a vision of what people’s raj in Vishalandhra, in an independent India, would be like, in various sectors. It came out with an anti-feudal, democratic agrarian programme in the Andhra State Committee election pamphlet, Prajarajyam in Vishalandhra. This was sold in large numbers, 20,000 copies at that time. But all this was envisaged as a slow process.</p>
+<p>Even when our Party took to developing militant mass struggles during the second half of 1946, organised seizure of waste lands and lands under zamindari and feudal landlords’ illegal possession in the Andhra area, it withdrew them, faced with the Congress Ministry’s repression.</p>
+<p>The Party in the Madras province including the Andhra area was virtually under ban. A large number of leaders were under detention or underground during the first few months of 1947, under the Prakasam ordinance. But on the eve of the transfer of power on August 15, 1947, all of them were released or came out. The line of conducting militant mass struggles went into the background and the Party was involved in a controversy whether to extend all-out support to the Nehru Government of national independence, in the name of defeating the British imperialist conspiracies and the narrow Vallabhbhai clique, who were out to undermine the newly won independence.</p>
+<p>With the advent of independence, whatever militant movements were there in erstwhile British India, slowed down – mostly because the people were expecting big steps from the Congress Government headed by Nehru which obtained independence, and that it would be able to solve their problems as well, and partly because of the inability of our Party to give proper lead to the masses, being weak and isolated from the rest of the democratic parties and groups.</p>
+<p><span class="pg">[p. 2]</span> It was only in the Hyderabad and Travancore states, which refused to join the Indian Union that the people’s discontent and struggles were further developed, to a certain extent encouraged and supported by the Indian National Congress and Indian Government. In many of the other states, which Vallabhbhai Patel brought into the Indian Union, assuring them big privy purses and safeguarding their privileges, the states people’s movements were also toned down and withdrawn. It was Vayalar and Punnapra under the leadership of our Party against the Travancore Maharaja and his Dewan, C.P. Ramaswamy Iyer, it was the Telangana struggle in Hyderabad state, again led by our Party, that gave vent to the postwar discontent, and orientation to an agrarian revolt.</p>
+<p>If we had had a correct revolutionary grasp of the things that were shaping up and had developed our Party on correct Marxist-Leninist principles, taking Telangana itself, we should have trained our cadre and the people for launching vigorous attacks on the whole feudal system, seized the illegally begotten land from the landlords as well as the surplus land from them, as we had to do later groping hesitantly, step by step. We would have trained our cadre and militants not only with lathi defence but even for armed defence. We would not have hesitated for such a long time in allowing our cadre to seize and use even the country guns, which resulted in total dislocation and disruption of the first upsurge.</p>
+<p>But in spite of our hesitation, the Telangana people’s discontent and upsurge was so deep and great, that by their spontaneous activity, of course guided by our Party, with all its limitations, they –</p>
+<p>1) Put an end to vetti (forced labour), illegal exactions, and compulsory grain levies and started to reoccupy the lands seized earlier by the landlords and deshmukhs. The movement become one for abolishing feudal landlordism and even Nizam rule. The mass character and sweep of this movement were evident from the fact that it spread within a few weeks to hundreds of villages.</p>
+<p>2) People who started resisting the landlords’ armed goonda attacks and beat them back, got ready to face later the armed police, and then even the military forces of the Nizam.</p>
+<p>3) People of one village rushing to the help of neighbouring villages under police attack.</p>
+<p>4) The women joining their menfolk, in the actual resistance, in every manner possible.</p>
+<p>5) The Sangham became their guide and leader and helped to solve all their problems, including the disputes between husbands and wives; and a mass militant cultural upsurge of militant songs, folk arts, took place.</p>
+<p>It was this depth of the mass discontent and upsurge that in the special and peculiar favourable conditions in Hyderabad state, that again in August 1947, when the Nizam refused to join the Indian Union, it surged forward even after the bitter blows it had received earlier.</p>
+<p>It was to the credit of our Party, to our Andhra unit, that it guided the Telangana anti-feudal and anti-Nizam struggle from 1940 to 1946 and converted the Andhra Mahasabha into a united mass organisation and front of all anti-Nizam people’s forces. It won the confidence of the people, became the leader of this front and organisation; it popularized the struggle of the Telangana people, the idea of Vishalandhra, mobilised wide-scale support to the fighting Telangana peasantry. It provided shelter and help to the cadre and people under the Nizam’s attacks, in the <span class="pg">[p. 3]</span> coastal areas. It made the coastal districts the rear of this Telangana people’s movement. For this, the Party was under attack from the Congress Government even during the first half of 1947. Later after the short period of legality following independence, it was once again banned and attacked on January 30, 1948. All this period the Party helped to regroup the scattered movement in Telangana and was able to reorientate it on proper lines – first in joining with the State Congress leaders in the struggle for merging the state in the Indian Union and giving it a mass character, then developing it into the anti-feudal and anti-Nizam agrarian revolt and later into the liberation struggle against Nizam’s rule. It shook the very foundations of Nizam’s rule itself. As the anti-feudal agrarian waves of revolt went spreading the big bourgeois-led bourgeois-landlord Government of independent India, under the leadership of the Congress and Nehru, rushed their armed forces, to suppress the Telangana agrarian revolt, stop it from spreading further and buttress their own class rule in Hyderabad state as well as in the rest of India!</p>
+<p>About these aspects, we will try to trace the developments in the succeeding chapters.</p>
+<h3>Chapter III: Distribution of Land, Establishment of People’s Rule – 15th August 1947 to 13th September 1948</h3>
+<p>The Party and the Andhra Mahasabha was busy during the first four months of 1947, regrouping the scattered Party and AMS organisation, under the heavy blows of Nizam’s repression. The Party was also under ban and attack in the Andhra area. Yet, Guntur, Krishna and Godavari had been the protective base for the Telangana fighters.</p>
+<p>On August 15, 1947, power was transferred from British imperialism to the bourgeois-landlord Congress. The Nizam declared that he would not join the Indian Union but would remain independent (Azad Hyderabad). The Indian National Congress was forced to launch a satyagraha struggle in Hyderabad state to bring pressure on the Nizam Nawab to accede to the Indian Union.</p>
+<p>This gave us a very good opportunity and new possibilities of developing the Telangana people’s struggles. We joined hands with the State Congress in its struggle for the merger of the state with the Indian Union. Since our Party and Andhra Mahasabha were the major political force, with great political and mass influence and organisation, especially because of the struggles of 1944-46, we had a decisive voice in this movement.</p>
+<p>The people, all sections, in the Andhra areas, gave massive support to this state people’s movement. We could collect in two or three days in just the one town of Vijayawada Rs. 20,000 for providing arms for fighting the Razakars and the Nizam.</p>
+<p>Joint meetings and demonstrations were held with the national and red flags fluttering together. Whatever programme the Congress chalked out, we made it a huge mass affair, drawing thousands of people to participate in them. If the Congress called for a demonstration or picketing by a limited number of satyagrahis, we used to make it a huge mass demonstration or mass picketing.</p>
+<p>When the Congress gave the call for boycotting colleges and schools and courts, we again made it a mass affair. We recruited a large number of students into our <span class="pg">[p. 4]</span> volunteer squads and the Andhra Mahasabha organisation. It was this influx of students that helped the movement grow by leaps and bounds; many of them, later on, developed themselves as local and area leaders of both the mass organisation and of the guerrilla organisation.</p>
+<p>The Congress gave the slogan of breaking the customs barriers between the Indian Union and Nizam’s territory, resignation of patels and patwaris. Our Party and the Andhra Mahasabha converted it into destroying all the records of these posts.</p>
+<p>The Congress gave a call for cutting toddy-yielding sheaths of palm and date trees and called for boycott of toddy shops to deprive the Nizam state of one of its main sources of revenue, as also because of its own fad of prohibition. We converted it for days into large-scale destruction of date and palmyra trees and also physically preventing the toddy-tappers from making toddy. But soon we realized that the toddy-tappers, a large percentage of the rural poor, were losing by this programme their occupation and livelihood and were turning hostile. The Party corrected this error, changed its slogan and gave a call, “Tap the toddy, give it clean and cheap to the people. But do not pay taxes.” This went to the hearts of the people. Let me add, here itself, that the Party banned drinking toddy by our guerrilla squad members and political organizers of even village level. This was strictly observed.</p>
+<p>The Congress gave the slogan of merger of the state with the Indian Union. We advocated at the same time dissolution of the state, merging its linguistic components into the respective linguistic areas and the formation of united linguistic states in an Indian people’s state, and the abolition of Nizam rule.</p>
+<p>The whole national sentiment was in favour of this movement. The bourgeois-landlord Government of independent India, headed by the big bourgeoisie, also wanted Hyderabad’s merger. All the democratic forces of the whole of India were in favour, because they wanted that the stooge and supporter of British imperialism, the Nizam Nawab, should be thrown out; the whole Hindu population wanted the Muslim feudal Nawab’s rule to go; the three linguistic nationalities wanted liberation because of their desire to merge with their own linguistic areas, and develop their language and culture; the growing bourgeoisie, the capitalist landlord and the rich peasantry also wanted Nizam’s autocracy and its feudal set-up to go and be replaced by a “democratic and responsible government, as part of India” for their own economic and political development; the toiling peasant, the rural poor wanted the wholesale abolition of feudal landlord exploitation, of vetti (begar), of forced labour, illegal exactions, of forced grain levy and wanted land for cultivation. The workers wanted employment and better wages. All currents joined in this all-in anti-Nizam struggle, for a democratic regime, as a component of the Indian Union. A progressive section of the Muslims also joined the movement.</p>
+<h3>Our Agrarian Programme</h3>
+<p>Our Party and the Andhra Mahasabha did not confine itself to transforming the items of the Congress programme into action, into one of large-scale mass participation. We actively turned it into a definite anti-feudal agrarian revolt.</p>
+<p>· We led the people to stop all kinds of forced labour and illegal exactions.</p>
+<p>· To refuse to deliver the forced grain levies.</p>
+<p><span class="pg">[p. 5]</span> · We led the people not only to retain the lands they were cultivating on lease from the landlords, but also to recover all the lands illegally seized by the landlords. Reduction in rent and later total non-payment of rents to the bigger landlords and to the enemies of the people, was also enforced.</p>
+<p>· Occupation and cultivation of waste lands of the Government and of the big landlords.</p>
+<p>· We started seizing the grain stocks of the hated landlords, and started distributing it to the needy rural poor.</p>
+<p>· Along with the records of patels and patwaris, we burnt the records of the landlords, the records of moneylenders, and all promissory notes and bonds executed in their favour.</p>
+<p>· And, finally, within a few months, the seizure of the surplus lands of the landlords and their distribution to the poor peasantry, along with drought cattle and agricultural implements. The ceilings started with 500 acres, then by stages were reduced to 100 acres dry and 10 acres wet as the movement developed, and as the urgency to meet the poor peasant demand for land grew and as experience got enriched.</p>
+<p>The movement became a wide-spread people’s movement. The same enthusiasm, as in the days of Devaruppula, Patasuryapet, Balemula and Mallareddigudem was witnessed. But the sweep was deeper and statewide. People started feeling that once again “Guttapalu Sangham” (i.e., lathi sangham) was on the march, but this time it was not only lathis, but whatever fire-arms that could be obtained; people were arming themselves, all groups, the Congress, the Communist and Andhra Mahasabha squads.</p>
+<p>The Nizam’s rule was shaking at its foundations. He resorted to large-scale terror. He organised the Razakars under the leadership of Kasim Razvi, of the Majlis Ittehad-ul-Muslimeen. He let them loose, with full army backing, on the villagers; looting, arson, torture, murder and rape stalked the land. The people had to defend and fight back, with whatever weapons they could lay hands on, with whatever organisation they could muster.</p>
+<p>Under this heavy terror, a large number of persons, especially from the rich top sections, left for the Union territory for protection. Congress satyagraha camps and squads also left the area and migrated to the Indian Union territory and established their armed camps on the borders, and from there they started counter-raids. It was only the Communist and Andhra Mahasabha squads that could continue to function inside the state and fight back the Razakar and Nizam terror.</p>
+<p>The cooperation that had existed in the initial stages of the merger movement between the Congress and the Andhra Mahasabha cadre evaporated within a few weeks. The sweep of the anti-feudal and anti-landlord movement and the mass character of the anti-Nizam movement that was taking shape, cooled the ardour of the Congress leadership. Further, with their having no stomach for such a radical programme, with no roots among the toiling people, their squads degenerated into raiding and launching attacks against the people, and in support of the exploiting landlords.</p>
+<p>Our squads had to act and disarm many of these Congress squads. Quite a large number of militant and honest members of these Congress squads joined us later and fought together with us.</p>
+<p>It is a matter of historical record that the Indian Government concluded a standstill agreement with the Nizam, went on supplying the Nizam’s forces with arms and ammunition, while the Nizam Government and its police and army personnel went <span class="pg">[p. 6]</span> on with their marauding raids on the people and on the freedom fighters in the state. Once when the Nizam police raided and seized the wounded fighters on their way from the Munagala enclave to Vijayawada, the Government of India for long did not take steps to get them released or prevent such actions being repeated.</p>
+<p>The anti-Razakar, anti-Nizam armed struggle developed in the Telangana area rapidly; village squads with about 10,000 members and regular guerrilla squads with more than 2,000 members were formed; innumerable struggles, heroic deeds, nearly 2,000 militants, fighters and leaders laying down their lives but taking a heavy toll of the Nizam’s armed personnel, police agents, Razakars, landlords and their goondas; driving them away from villages; 3,000 villages administered by village panch committees or gram rajyams; land distribution, education and health, and all rural services organised by these fighting people’s committees.</p>
+<h3>Chapter IX: The Women in the Telangana Movement</h3>
+<p>Women played an important role in the Telangana struggle. They actively participated in the land movement, in agricultural labour wage struggles, in seizure of landlords’ grain, against the “Briggs’ Plan” of evacuating the koya, chenchu and lambadi people from their hamlets in the forest areas, or from their scattered hamlets in the plains. They were with their husbands and brothers, fighting the Razakars and Nizam police and later against the Congress Razakars and Nehru’s armies and the police. They had joined the military and political squads and underwent all the difficulties and joys of life in the forests and hills and in the fields, in rain and in sun. They acted as couriers, as political agitators, and in new centres, as organizers of people’s movements and mass organisations.</p>
+<p>They were the worst victims of the brutal tortures and atrocities committed by the Razakars, Nizam and Nehru’s police and military. They had to face molestation and rape, apart from beatings on a large scale. They had to see their babes and children tortured and killed before their very eyes. They had to see their beloved husbands or brothers hunted, arrested and killed. They had to suffer all this, remaining in their own houses and villages, looking after what was left behind, the very young and the very old, when their menfolk had had to flee the villages to escape the fury of the army and police attacks, or had gone to join the fighters and the guerillas in far-off secret places.</p>
+<p>The story of their heroic and stubborn resistance in defence of their personal dignity, against molestation, torture and rape, is an inspiring one. Their awakening to new social equality, to a new moral and cultural life, their stubborn fighting quality, give us a glimpse of that tremendous revolutionary spirit and energy that is smouldering in our economically and socially oppressed womenfolk. If we only take a little trouble to enable it to emerge out of its old tradition-bound shell, and try to channel it in the proper revolutionary direction, what a mighty upheaval it will lead to!</p>
+<h3>Women Defend Their Land</h3>
+<p><span class="pg">[p. 7]</span> It was Chakali Ailamma, in Palakurti village, Jangaon taluka, who was the first, with the Andhra Mahasabha and the Communist Party, in bitterly fighting to retain her land and crop from being seized by the Visnur Deshmukh. She inspired her whole family, her sons and daughters to be with the Party throughout, through thick and thin. Her house had been the centre of Andhra Mahasabha and Communist Party activities against the landlords. She fought not only for her personal case – this only symbolized and signaled the beginning of the mighty struggle of the Telangana peasant for land.</p>
+<p>In Miryalagudem taluka, in Mukundapuram village, the sahukar had got Kumari Mattayya tortured to death after the Indian “military police action” because he refused to give up the land he had recovered from this sahukar. His wife took up the challenge. She stuck to the land and refused to surrender. She was brutally raped by the police but still she refused. She roused the people to support her and succeeded in retaining the land. “The land is mine”.</p>
+<p>In Vadapalli centre, a lambadi peasant was killed because he, too, refused to surrender the recovered land to the landlord. But his wife took his place and succeeded in cultivating that piece of land in spite of the Congress police terror.</p>
+<p>In Kondrapolu village, another lambadi peasant cultivating a two-acre wet-land plot, that too, a recovered piece, was done to death by the landlord Dattudu. Here again, his wife come forward and succeeded in defending the land and cultivating it.</p>
+<p>In Salaramiagudem, Golla Muttayya was killed for not surrendering the piece of land he was cultivating, but his wife stepped in and continued the cultivation and did not allow the enemy to seize back the land.</p>
+<p>In Moddulukunta, a lambadi took possession of a piece of land from landlord Ramakrishnamma who tried to seize it back with the help of the police after Nehru’s army’s intervention. The lambadi was beaten to pulp and forced to leave his house and the farm. But his wife refused and persisted. She cultivated it and succeeded in getting the harvest to her home.</p>
+<p>Veeraram, a lambadi peasant, and his wife resisted their land being seized by the landlord’s men and the police. The police trampled on the woman who was pregnant, and she died.</p>
+<p>These are a few recorded cases I have found in the old Telangana files. Such cases might have run into scores or hundreds in the whole of fighting Telangana. But irrespective of how many such specially noted cases there may be, it was a fact that tens of thousands of women stood along with their menfolk in this struggle for land.</p>
+<h3>Women Fight for Wage-Increase</h3>
+<p>A great percentage of agricultural labourers are women. They are in very large numbers, perhaps as many as the men themselves, because they, too, have to earn if they are to get even one meal for their children and themselves. They cannot rely only on their men’s earnings. As such, it is not surprising that we had women participating in large numbers in all agricultural labour strikes, or in seizure of grain from landlords’ and deshmukhs’ warehouses and gadis.</p>
+<p>In the Kondrapalli centre, and other neighbouring centres, in a large number of villages, agricultural labourers went on strike for increase of their daily wages to four seers from the then existing 2 or 3 seers. In the demonstrations, women in <span class="pg">[p. 8]</span> large numbers participated, with flags in their hands. Ultimately, to force the landlords to come to a settlement, they had to raid and start seizing grain, with the women participating. The landlords were forced to concede the demands.</p>
+<p>In the Godavari forest belt, in the struggle to increase wages for picking of beedi leaves, in which tens of thousands of women were employed, they were in the forefront.</p>
+<p>Further in the two centres of Pindiprolu and Illendu, women participated in the strike struggles of agricultural labourers that took place in 90 villages. Especially in 20 of these villages, they were in the forefront and strikes were especially concerned with the wage and other rates of women labour. It was women who were in larger numbers and it was they who were in the leading positions in the strikes.</p>
+<h3>Rape and Women’s Fight Against It</h3>
+<p>During the Nizam days, in 1946-47, the Nizam police and levy officials raided the villages of Akunur and Machireddipalli in Janagaon taluka. They brutally raped a dozen or more women. This incident was taken up even by Congress leaders as a major issue, as an insult to the honour of womenfolk, as a disgrace to national honour. Padmaja Naidu was in the forefront of that agitation and a huge wave of anger swept the whole country.</p>
+<p>Similarly, early in 1943, in Madhya Pradesh, the police of the then British Government committed rape in the villages of Ashti and Chimur, in Sirvoncha taluka. There was a countrywide outburst of anger and agitation. Professor Bhansali (?) went on fast till an enquiry was ordered, after suspending the officials concerned.</p>
+<p>But what the Indian army and special armed personnel that were sent to Telangana had done there in this respect, was nothing less than what we read of what a foreign army of occupation does in an occupied country. But the whole Indian press controlled by the Congress Government and all those “great” defenders of women’s honour did not raise even a feeble word against this monstrous crime that had become the pastime of the Congress police and army during all those three years.</p>
+<p>Of the widespread character of rape and atrocities the women in Telangana had to undergo during that time, one can get just a glimpse, from even the few reports that reached our underground headquarters, and from which I give below a brief summary. I am also giving but a glimpse of the heroic resistance and the fight put up by women against this barbarity.</p>
+<h3>Women in Guerrilla Squads and in Secret Offices in Towns</h3>
+<p>We have seen how women, staying in their own villages, in their own houses, fought against the oppressors and the police and suffered immensely, but went on fighting. Many demanded to be taken into the guerrilla squads, to the forest areas, may be partly under the pressure of the enemy attacks as the only method of escape. The Party admitted only a very few women into the forest areas, even fewer in the guerrilla squads. Yet there were quite a number of women comrades in various jobs, both in the political and military fields, in both the forest and plain regions.</p>
+<h3>Notes</h3>
+<p><span class="pg">[p. 9]</span> 1. Published by National Book Agency, Calcutta, 1972</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>P. Sundarayya, excerpts from Telangana People's Struggle and Its Lessons (Calcutta: National Book Agency, 1972), reprinted in The Marxist 28, no. 3 (July–September 2012).</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: Born-digital reprint: The Marxist 28, no. 3 (July-September 2012). Book first published Calcutta: National Book Agency, 1972. Ends with the single note on p. 9.</p></div>
+</div>
+</body>
+</html>

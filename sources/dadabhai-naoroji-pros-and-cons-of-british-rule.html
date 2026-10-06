@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dadabhai Naoroji: The Pros and Cons of British Rule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Dadabhai Naoroji: The Pros and Cons of British Rule</h1>
+<p class="speech-meta">2,303 words, about 10 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Dadabhai Naoroji: Architect of Indian Nationalism</h3>
+<p class="ed"><span class="pg">[p. 187]</span> The rise of Indian nationalism would have been impossible without the strenuous efforts of national leaders like Dadabhai Naoroji, who drew up plans for, and laid the foundations of, India's self-government.</p>
+<p class="ed">This architect of Indian nationalism was neither Hindu nor Muslim, but a descendant of the followers of Zoroaster who had fled Persia after the Muslim conquest of that country in the seventh century and who had arrived in India in the tenth century. Settling as refugees along the western coast of India, the Zoroastrians, or Parsis (Persians), emerged as a group most willing to do business with European traders. They were bound neither by caste rules nor by prejudice against taking interest on loans, and as a minority group they had little to lose and much to gain by dealing with the Europeans. Through their trading contacts, the Parsis became the most Westernized, and the wealthiest, single community in India.</p>
+<p class="ed">Dadabhai Naoroji was born in Bombay in 1825, the son of a Zoroastrian priest. His family name, Dordi, was little used; but the original meaning of the word (a twisted rope made of coconut husk) had a symbolic significance for Dadabhai, who was absolutely inflexible once he had made up his mind. “You may burn a dordi,” he once said, “but you can never take the twist out of it. So it is with me. When once I form a decision, nothing will dislodge me from it.”</p>
+<p class="ed">Tenacity of purpose was indeed his chief characteristic. He so distinguished himself in his studies at Elphinstone (Bombay's leading college) that he became at twenty-seven its professor of mathematics—the first Indian to attain such an academic rank. At thirty he left India to become a partner in an Indian firm doing business in England. His aim in moving to London, the heart of the empire, was not to gain wealth, but to be able to appeal directly to the British public for a better understanding of India's problems. For fifty years Dadabhai delivered papers on Indian subjects to numerous learned societies, submitted memoranda and petitions to British officials concerned with India, and agitated both privately and publicly, all in the service of a single cause: that Indians should be granted the same rights as other British subjects.</p>
+<p class="ed">With his famous theory of “the drain” of India’s wealth to Britain, Dadabhai Naoroji sounded the keynote of Indian economic nationalism. But for all his bitter condemnation of the costliness of foreign government to his country, he never advocated violent action. His loyalty to the parliamentary system of government was rewarded in 1892 with his election to the British House of Commons on the Liberal ticket. The first Indian Member of Parliament, he served both his London constituency and the interests of India for three years, succeeding in his attempt to have a parliamentary commission investigate the financial administration of British India. He was also generous to young Indians who came to study in England in the 1860s, among whom were Surendranath Banerjea, W. C. Bonerjee, Romesh Chunder Dutt, and Badruddin Tyabji.</p>
+<p class="ed"><span class="pg">[p. 188]</span> Dadabhai punctuated his long residence in England from 1856 onward with frequent visits to India. In 1873–1874 he served as chief minister to the Indian state of Baroda to prevent it from being annexed by the British crown (the usual penalty for misgovernment in the princely states). He took a prominent part in the first session of the Indian National Congress in 1885 and was thrice elected its president—in 1886, 1893, and 1906. The younger generation of nationalist leaders all looked up to the patriarchal patriot for advice, and both Gandhi and Jinnah revered him. He returned to India in 1907 for the last decade of his life and died in Bombay in 1917; to this day the affectionate title “the Grand Old Man of India” is associated with his name.</p>
+<h3>The Pros and Cons of British Rule</h3>
+<p class="ed">In the discussion following the presentation of a paper on India to a learned society in London in 1871, Dadabhai drew up an account of the advantages and disadvantages to India of British rule. It showed both his fairness in recognizing the good the British had done, and his persistent criticism of the crushing cost to India of their rule.</p>
+<p>Credit—In the Cause of Humanity: Abolition of suttee and infanticide.</p>
+<p>Destruction of Dacoits, Thugs, Pindarees, and other such pests of Indian society.</p>
+<p>Remarriage of Hindoo widows, and charitable aid in time of famine.</p>
+<p>Glorious work all this, of which any nation may well be proud, and such as has not fallen to the lot of any people in the history of mankind.</p>
+<p>In the Cause of Civilization: Education, both male and female. Though yet only partial, an inestimable blessing as far as it has gone, and leading gradually to the destruction of superstition, and many moral and social evils. Resuscitation of India's own noble literature, modified and refined by the enlightenment of the West.</p>
+<p>The only pity is that as much has not been done as might have been in this noble work; but still India must be, and is, deeply grateful.</p>
+<p>Politically: Peace and order. Freedom of speech and liberty of the press. Higher political knowledge and aspirations. Improvement of government in the native States. Security of life and property. Freedom from oppression caused by the caprice or avarice of despotic rulers, and from devastation by war. Equal justice between man and man (sometimes vitiated by partiality to Europeans). Services of highly educated administrators, who have achieved the above-mentioned good results.</p>
+<p>Materially: Loans for railways and irrigation. (I have been particularly charged with ignoring this, but I consider it one of the greatest benefits you have conferred upon India, inasmuch as it has enabled us to produce more than we could before, though there is not yet enough for all India's ordinary wants, and I have said this <span class="pg">[p. 189]</span> in my paper.) I cannot ascertain the exact amount of investments in irrigation works, but I take them to be about £10,000,000, making the total £110,000,000. The development of a few valuable products, such as indigo, tea, coffee, silk, &amp;c. Increase of exports. Telegraphs.</p>
+<p>Generally: A slowly growing desire of late to treat India equitably, and as a country held in trust. Good intentions.</p>
+<p>No nation on the face of the earth has ever had the opportunity of achieving such a glorious work as this.... I appreciate, and so do my countrymen, what England has done for India, and I know that it is only in British hands that her regeneration can be accomplished. Now for the debit side.</p>
+<p>Debit—In the Cause of Humanity: Nothing. Everything, therefore, is in your favor under this head.</p>
+<p>In the Cause of Civilization: As I have said already, there has been a failure to do as much as might have been done, but I put nothing to the debit. Much has been done, or I should not be standing here this evening.</p>
+<p>Politically: Repeated breach of pledges to give the natives a fair and reasonable share in the higher administration of their own country, which has much shaken confidence in the good faith of the British word. Political aspirations and the legitimate claim to have a reasonable voice in the legislation and the imposition and disbursement of taxes, met to a very slight degree, thus treating the natives of India not as British subjects, to whom representation is a birthright.</p>
+<p>(I stop here ... to say a word to Mr. Hyde Clarke ... supposing that I desired the government of India to be at once transferred to the natives. In my belief a greater calamity could not befall India than for England to go away and leave her to herself.)</p>
+<p>Consequent on the above, an utter disregard of the feelings and views of the natives. The great moral evil of the drain of the wisdom and practical administration and statesmanship, leaving none to guide the rising generation. (Here, again, have I been misunderstood. I complain not of Englishmen returning to their own country, but of the whole administration being kept entirely in English hands, so that none of the natives are brought up to and taught the responsibilities and duties of office, so that we have none amongst ourselves to guide us as our elders and to teach us our duties as citizens and as moral beings....) The indifference to India, even of a large portion of those who have had an Indian career, and who are living on Indian pensions. The culpable indifference of a large portion of the people, the public press, and Parliament of this country to the interests of India; therefore, periodical committees of inquiry are absolutely necessary, for the knowledge that such will take place would be a check on careless administration. With regard to the native states, though their system is improving, it is most unjust that their cases should be decided in secret. The <span class="pg">[p. 190]</span> frequent change of officials is a constant source of disturbance in policy, and though it may be unavoidable, it is none the less hard upon India.</p>
+<p>Financially: All attention is engrossed in devising new modes of taxation, without any adequate effort to increase the means of the people to pay; and the consequent vexation and oppressiveness of the taxes imposed, imperial and local. Inequitable financial relations between England and India, i.e., the political debt of £100,000,000 clapped on India's shoulders, and all home charges also, though the British exchequer contributes nearly £3,000,000 to the expenses of the colonies. The crushing and economically rude and unintelligent policy of making the present generation pay the whole cost of public works for the benefit of the future, instead of making the political like all other machinery, and distributing the weight so as to make a small power lift a large weight by the aid of time. The results of trying to produce something out of nothing, of the want of intelligent adaptation of financial machinery, and of much reckless expenditure; ending in financial embarrassments, and deep discontent of the people.</p>
+<p>Materially: The political drain, up to this time, from India to England, of above £500,000,000, at the lowest computation, in principal alone, which with interest would be some thousands of millions. The further continuation of this drain at the rate, at present, of above £12,000,000, with a tendency to increase....</p>
+<p>The consequent continuous impoverishment and exhaustion of the country, except so far as it has been very partially relieved and replenished by the railway and irrigation loans, and the windfall of the consequences of the American war, since 1850. Even with this relief, the material condition of India is such that the great mass of the poor people have hardly 2d. a day....</p>
+<p>The famines that were in their power to prevent, if they had done their duty, as a good and intelligent government. The policy adopted during the last fifteen years of building railways, irrigation works, etc., is hopeful, has already resulted in much good to your credit, and if persevered in, gratitude and contentment will follow.</p>
+<p>Contra.— Increase of exports [without adequate compensation]; loss of manufacturing industry and skill. Here I end the debit side....</p>
+<p>To sum up the whole, the British rule has been—morally, a great blessing; politically peace and order on one hand, blunders on the other, materially, impoverishment (relieved as far as the railway and other loans go). The natives call the British system “Sakar ki Churi,” the knife of sugar. That is to say there is no oppression, it is all smooth and sweet, but it is the knife, notwithstanding. I mention this that you should know these feelings. Our great misfortune is that you do not know our wants. When you will know our real wishes, I have not the least doubt that you would do justice. The genius and spirit of the British people is fair play and justice. The great problems before the English statesmen are two. 1. To make the foreign rule self-supporting, either by returning to India, in some shape or other, the wealth that has been, and is being, drawn from it, or <span class="pg">[p. 191]</span> by stopping that drain in some way till India is so far improved in its material condition as to be able to produce enough for its own ordinary wants and the extraordinary ones of a costly distant rule. If you cannot feel yourself actuated by the high and noble ambition of the amelioration of 200,000,000 of human beings let your self-interest suggest to you to take care of the bird that gives the golden egg of £12,000,000 a year to your nation, and provisions to thousands of your people of all classes. In the name of humanity, I implore our rulers to make up their minds not to prevent the restoration of the equilibrium, after the continuous exhaustion by drain and by horrible famines. I do not in the least grudge any legitimate benefit England may derive for its rule in India. On the contrary, I am thankful for its invaluable moral benefits; but it is the further duty of England to give us such a government, and all the benefit of its power and credit, as to enable us to pay, without starving or dying by famine, the tribute or price for the rule. 2. How to satisfy reasonably the growing political aspirations and just rights of a people called British subjects to have a fair share in the administration and legislation of their own country. If the Select Committee solve these two problems, before which all other difficulties, financial or others, are as nothing, they will deserve the blessings of 200,000,000 of the human race.</p>
+<p><em>[From Naoroji, Essays, Speeches, Addresses, and Writings, ed. Chunilal Lallubhai Parekh (Bombay: Caxton, 1887), 131–136.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 187–191.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 4, pp. 187-191; reading PDF covers pp. 187-190. SIT headings and citations kept as printed. PDF ends at p. 190; the section and its citation run onto p. 191. The following sections ('The Blessings of British Rule', 'The Moral Impoverishment of India') are left out.</p></div>
+</div>
+</body>
+</html>

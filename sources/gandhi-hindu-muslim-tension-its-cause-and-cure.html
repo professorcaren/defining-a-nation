@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gandhi: Hindu-Muslim Tension, Its Cause and Cure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    
+    .speech-text p.ed { font-size: 0.9em; color: rgba(240, 233, 214, 0.62); font-style: normal;
+                        border-left: 2px solid rgba(212, 168, 67, 0.35); padding-left: 0.9em; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="../faction-readings.html">&larr; Primary Sources</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-text pre { overflow-x: auto; font-size: 0.85rem; line-height: 1.5; padding: 0.8rem 1rem;
+        background: rgba(240, 233, 214, 0.04); border-left: 2px solid var(--gold-dim); }
+    .speech-text table { border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    .speech-text td, .speech-text th { padding: 0.2rem 0.8rem; border-bottom: 1px solid rgba(240, 233, 214, 0.12); }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Gandhi: Hindu-Muslim Tension, Its Cause and Cure</h1>
+<p class="speech-meta">877 words, about 4 minutes to read. Passages in the smaller grey type are by the volume’s editors.</p>
+<div class="speech-text"><h3>Constructive Work in the Mid 1920s</h3>
+<h3>Hindu–Muslim Tension, Its Cause and Cure: Tired of Non-Violence</h3>
+<p class="ed"><span class="pg">[p. 360]</span> Gandhi was in prison from 1922 to 1924. After his release, he concentrated on the program of social reforms that he called “constructive work” and swadeshi. This “constructive work” sought to achieve Hindu–Muslim unity, the abolition of Untouchability, women’s equality, and the uplift of villages, especially through the improvement <span class="pg">[p. 361]</span> of handicraft industries like spinning and weaving of cotton cloth (khadi). These social reforms, he insisted, were prerequisites for swaraj.</p>
+<p>Two years ago, a Mussalman friend said to me in all sincerity, “I do not believe [in] your non-violence. At least, I would not have my Mussalmans to learn it. Violence is the law of life. I would not have swaraj by non-violence as you define the latter. I must hate my enemy.” This friend is an honest man. I entertain great regard for him. Much the same has been reported of another very great Mussalman friend of mine. The report may be untrue, but the reporter himself is not an untrue man....</p>
+<p>Nor is this repugnance to non-violence confined to Mussalmans. Hindu friends have said the same thing, if possible, with greater vehemence. My claim to Hinduism has been rejected by some, because I believe [in] and advance non-violence in its extreme form. They say that I am a Christian in disguise. I have been even seriously told that I am distorting the meaning of the Gita when I ascribe to that great poem the teaching of unadulterated non-violence. Some of my Hindu friends tell me that killing is a duty enjoined by the Gita under certain circumstances. A very learned Shastri only the other day scornfully rejected my interpretation of the Gita and said that there was no warrant for the opinion held by some commentators that the Gita represented the eternal duel between forces of evil and good, and inculcated the duty of eradicating evil within us without hesitation, without tenderness.</p>
+<p>I state these opinions against non-violence in detail, because it is necessary to understand them if we would understand the solution I have to offer. What I see around me today is, therefore, a reaction against the spread of non-violence. I feel the wave of violence coming. The Hindu–Muslim tension is an acute phase of this tiredness....</p>
+<p>My religion is a matter solely between my Maker and myself. If I am a Hindu, I cannot cease to be one even though I may be disowned by the whole of the Hindu population. I do, however, suggest that non-violence is the end of all religions....</p>
+<p>But I have never presented to India that extreme form of non-violence, if only because I do not regard myself fit enough to re-deliver that ancient message. Though my intellect has fully understood and grasped it, it has not as yet become part of my whole being. My strength lies in my asking people to do nothing that I have not tried repeatedly in my own life. I am then asking my countrymen today to adopt non-violence as their final creed, only for the purpose of regulating the relations between the different races, and for purpose of attaining swaraj. Hindus and Mussalmans, Christians, Sikhs and Parsis must not settle their differences by resort to violence, and the means for the attainment of swaraj must be non-violent. This I venture to place before India, not as a weapon of the weak, but of the strong. Hindus and Mussalmans prate about no compulsion in religion. What is it but compulsion if Hindus will kill a <span class="pg">[p. 362]</span> Mussalman for saving a cow? It is like wanting to convert a Mussalman to Hinduism by force. And similarly, what is it but compulsion if Mussalmans seek to prevent by force Hindus from playing music before mosques? Virtue lies in being absorbed in one's prayers in the presence of din and noise. We shall both be voted irreligious savages by posterity if we continue to make a futile attempt to compel one another to respect our religious wishes. Again, a nation of three hundred million people should be ashamed to have to resort to force to bring to book one hundred thousand Englishmen. To convert them or, if you will, even to drive them out of the country, we need, not force of arms, but force of will. If we have not the latter, we shall never get the former. If we develop the force of will, we shall find that we do not need the force of arms....</p>
+<p>It must be common cause between the two communities that neither party shall take the law into its own hands, but that all points in dispute, wherever and whenever they arise, shall be decided by reference either to private arbitration, or to the law courts if they wish. This is the whole meaning of non-violence, so far as communal matters are concerned. To put it another way, just as we do not break one another's heads in respect of civil matters, so may we not do even in respect of religious matters. This is the only pact that is immediately necessary between the parties, and I am sure that everything else will follow.</p>
+<p><em>[CWMG 24:139–141.]</em></p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rachel Fell McDermott, Leonard A. Gordon, Ainslie T. Embree, Frances W. Pritchett and Dennis Dalton, eds., Sources of Indian Traditions, vol. 2: Modern India, Pakistan, and Bangladesh, 3rd ed. (New York: Columbia University Press, 2014), pp. 360–362.</p>
+<p>Online text: &lt;&gt;</p>
+<p>Archive note: SIT 2014 vol. 2, ch. 6, pp. 360-362; reading PDF covers pp. 360-362. SIT headings and citations kept as printed. Starts at the shared heading block 'Constructive Work in the Mid 1920s' / 'Hindu-Muslim Tension, Its Cause and Cure: Tired of Non-violence', which the OCR interleaves with the tail of the previous citation.</p></div>
+</div>
+</body>
+</html>
