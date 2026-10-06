@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohandas K. Gandhi: "For the Princes"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;For the Princes&quot;</h1>
+<p class="speech-meta"><strong>Mohandas K. Gandhi</strong> · 2 August 1942 · Sevagram</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;For the Princes&#x27;, Harijan</div><div><strong>Audience:</strong> Readers of Harijan (an article, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 733 words, about 3 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>In the weeks before the Quit India resolution of August 1942, Gandhi wrote a series of appeals in <em>Harijan</em>, addressed in turn to the British, to the Muslims and others. This one, published on 2 August 1942, is addressed to the rulers of the princely states. Their treaties bound them to the British Crown, and the Congress had long backed the movements for popular government inside their states. Gandhi, who had friends among the princes, warns them that the coming struggle will change their position. It is an article, not a speech.</p>
+<p>Gandhi writes that "A kind of nervousness creeps over me as I think of the Princes of India." He does not call for their removal: "For my part I desire not abolition, but conversion of their autocracy into trusteeship, not in name but in reality." He warns them that their power depends on the British: "If the machine topples they may disappear unless they become part of, and depend upon, the nation." And he offers them a choice: "The Princes can lose nothing by being liberal. And they can lose everything by holding on to their autocracy."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 335]</span> A kind of nervousness creeps over me as I think of the Princes of India, although I have the privilege of knowing many and some even intimately. My nervousness arises from the painful knowledge that they are a creation of the British rulers. Though some of them pre-existed before the British advent, their existence thereafter depended solely on British goodwill, which in its turn depended upon the price the then incumbents paid for that commodity. The present incumbents are sole creation of the Imperial Power. Its simple frown can undo them.</p>
+<p>But they need not feel so helpless if they could consider themselves as an integral part of the nation instead of being, as they are, an integral part of the Imperial machine. If the machine topples they may disappear unless they become part of, and depend upon, the nation.</p>
+<p>The Empire is going either by the will of the British people or by the force of circumstances beyond their control. India shall not always be a slave country. Will the Princes march with <span class="pg">[p. 336]</span> the times or must they remain tied to the Imperial chariot-wheel? If they take their courage in both their hands and make common cause with the nation they can run the risk of dispossession.</p>
+<p>This I admit is a heroic step. They can adopt the middle course. They may earn the goodwill of their people by sharing their powers with them. They will never be able to retain their absolutism for all time. But they may certainly hope to retain much if they can secure the contentment and active co-operation of the people within their jurisdiction, in the administration of their own affairs. I think it is wrong of the Princes to let their critics say of their people that they are too backward to deserve freedom. It is a reflection on them. The people in the States belong to the same stock as those outside their borders. The Princes can lose nothing by being liberal. And they can lose everything by holding on to their autocracy.</p>
+<p>For my part I desire not abolition, but conversion of their autocracy into trusteeship, not in name but in reality. The arbitrary powers they enjoy should go. The liberty of the people should not depend upon the will of an individual however noble and ancient may be his descent. Nor can any person, whether Prince or a Princely zamindar or merchant, be the sole owner and disposer of possessions hereditary or self-acquired. Every individual must have the fullest liberty to use his talents consistently with equal use by his neighbours but no one is entitled to the arbitrary use of the gains from the talents. He is part of the nation or say the social structure surrounding him. Therefore, he can only use his talents not for self only but for the social structure of which he is but a part and on whose sufferance he lives. The present inequalities are surely due to people's ignorance. With a growing knowledge of their natural strength, the inequalities must disappear. If the revolution is brought about by violence the position will be reversed, but not altered for the better. With non-violence, i.e., conversion, the new era which people hope for must be born. My approach and appeal are in terms of non-violence pure and undefiled. The French have a noble motto in Liberty, Equality, Fraternity. It is a heritage not for the French only but for all mankind.</p>
+<p>What the French never realized it is open to us to do. Will the Princes and the Princely landholders and merchants take the lead? It is for them to take the lead, not for the ‘have-nots’, who have nothing to share with anybody except their pauperism and abjectness. I am addressing weekly appeals to <span class="pg">[p. 337]</span> the British Power. They are made exactly in the same friendly spirit as this is. The British may not respond. If the ‘haves’, who are in fact the pillars on which the mighty British Power rests, can realize their obvious duty, the British Power must yield. It was because I had despaired of response from the pillars, that I have thought of moving the masses on whom the pillars rest. I may not leave a single stone unturned to avoid, if I can, what is undoubtedly a great risk. Hence this appeal.</p>
+<p>Sevagram, July 27, 1942</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>The Collected Works of Mahatma Gandhi, vol. 76 (New Delhi: Publications Division, Government of India), no. 375, pp. 335–337, from Harijan, 2 August 1942.</p>
+<p>Online text: <a href="https://archive.org/details/HindSwaraj-CWMG-076/page/n374">https://archive.org/details/HindSwaraj-CWMG-076/page/n374</a></p>
+<p>Archive note: Essay, not a speech. Collected Works of Mahatma Gandhi vol. 76, no. 375, pp. 335-337; written at Sevagram on 27 July 1942, published in Harijan on 2 August 1942. Image offset: images run one ahead of the djvu leaf numbering, so the range is widened by one at the start.</p></div>
+</div>
+</body>
+</html>

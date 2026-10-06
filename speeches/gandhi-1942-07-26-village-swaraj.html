@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohandas K. Gandhi: "Village Swaraj"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;Village Swaraj&quot;</h1>
+<p class="speech-meta"><strong>Mohandas K. Gandhi</strong> · 26 July 1942 · Sevagram</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;Village Swaraj&#x27;, Question Box, Harijan</div><div><strong>Audience:</strong> Readers of Harijan (a question and answer, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 624 words, about 3 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>In the summer of 1942 Gandhi was preparing the Congress for the Quit India campaign, and he expected the British to arrest its leaders. A correspondent asked him to outline how a village should govern itself "in view of the situation that may arise at any moment." Gandhi answered in <em>Harijan</em> on 26 July 1942, in his "Question Box" column, two weeks before the Quit India resolution. The answer is his clearest short statement of <em>gram swaraj</em>, village self-rule, an ideal his constructive workers carried forward. It is a question and answer, not a speech.</p>
+<p>"My idea of village swaraj," Gandhi writes, "is that it is a complete republic, independent of its neighbours for its own vital wants, and yet interdependent for many others in which dependence is a necessity." Each village grows its own food and cloth, runs its own school and theatre, and is governed by a panchayat: "The government of the village will be conducted by a Panchayat of five persons annually elected by the adult villagers, male and female, possessing minimum prescribed qualifications." Non-violence and satyagraha are its only sanctions. "Here there is perfect democracy based upon individual freedom. The individual is the architect of his own government." He admits that he has "not examined here the question of relations with the neighbouring villages and the centre if any."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 308]</span> Q. In view of the situation that may arise at any moment in India, would you give an outline or skeleton of a village swaraj committee, which could function in all village matters in the absence of, and without relying upon, an overhead Government or other organization? In particular, how would you ensure that the Committee should be fully representative and that it would act impartially, efficiently and without favour or fear? What should be the scope of authority and the machinery to enforce its commands? And what should be the manner in which a committee or an individual member of it could be removed for corruption, inefficiency or other unfitness?</p>
+<p>A. My idea of village swaraj is that it is a complete republic, independent of its neighbours for its own vital wants, and yet interdependent for many others in which dependence is a necessity. Thus every village's first concern will be to grow its own food crops and cotton for its cloth. It should have a reserve for its cattle, recreation and playground for adults and children. Then if there is more land available, it will grow useful money crops, thus excluding ganja, tobacco, opium and the like. The village will maintain a village theatre, school and public hall. It will have its own waterworks, ensuring clean water supply. This can be done through controlled wells or tanks. Education will be compulsory up to the final basic course. As far as possible every activity will be conducted on the co-operative basis. There will be no castes such as we have today with their graded untouchability. Non-violence with its technique of satyagraha and non-co-operation will be the sanction of the village community. There will be a compulsory service of village guards who will be selected by rotation from the register maintained by the village. The government of the village will be conducted by a Panchayat of five persons annually elected by the adult villagers, male and female, possessing minimum prescribed qualifications. These will have all the authority and jurisdiction required. Since there will be no system of punishments in the accepted sense, this Panchayat will be the legislature, judiciary and executive combined to operate for its year of office. Any village can become such a republic today without much <span class="pg">[p. 309]</span> interference even from the present Government whose sole effective connection with the villages is the exaction of the village revenue. I have not examined here the question of relations with the neighbouring villages and the centre if any. My purpose is to present an outline of village government. Here there is perfect democracy based upon individual freedom. The individual is the architect of his own government. The law of non-violence rules him and his government. He and his village are able to defy the might of a world. For the law governing every villager is that he will suffer death in the defence of his and his village's honour.</p>
+<p>The reader may well ask me—I am asking myself while penning these lines—as to why I have not been able to model Sevagram after the picture here drawn. My answer is: I am making the attempt. I can see dim traces of success though I can show nothing visible. But there is nothing inherently impossible in the picture drawn here. To model such a village may be the work of a lifetime. Any lover of true democracy and village life can take up a village, treat it as his world and sole work, and he will find good results. He begins by being the village scavenger, spinner, watchman, medicine man and schoolmaster all at once. If nobody comes near him, he will be satisfied with scavenging and spinning.</p>
+<p>Sevagram, July 18, 1942</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>The Collected Works of Mahatma Gandhi, vol. 76 (New Delhi: Publications Division, Government of India), no. 350, pp. 308–309, from Harijan, 26 July 1942, where it appeared in Gandhi's "Question Box".</p>
+<p>Online text: <a href="https://archive.org/details/HindSwaraj-CWMG-076/page/n347">https://archive.org/details/HindSwaraj-CWMG-076/page/n347</a></p>
+<p>Archive note: Essay, not a speech. Collected Works of Mahatma Gandhi vol. 76, no. 350, pp. 308-309; written at Sevagram on 18 July 1942, published in Harijan on 26 July 1942. Includes the correspondent's question. Image offset: images run one ahead of the djvu leaf numbering (checked: image n348 shows p. 309), so the range is widened by one at the start.</p></div>
+</div>
+</body>
+</html>

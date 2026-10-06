@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohandas K. Gandhi: "To Muslim Correspondents"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;To Muslim Correspondents&quot;</h1>
+<p class="speech-meta"><strong>Mohandas K. Gandhi</strong> · 12 July 1942 · Sevagram</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;To Muslim Correspondents&#x27;, Harijan</div><div><strong>Audience:</strong> Readers of Harijan (an article, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 872 words, about 4 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>In July 1942 Gandhi was preparing the Congress to demand that the British "quit India," backed by a mass movement. Many Muslim correspondents wrote to ask how he could launch such a movement without first coming to terms with the Muslim League, which had demanded Pakistan since 1940. Gandhi answered them in <em>Harijan</em> on 12 July 1942, a month before the Quit India resolution. It is an article, not a speech.</p>
+<p>"'Give Pakistan,' say my critics. I answer, 'It is not in my giving.'" Gandhi says he is open to argument: "If I felt convinced of the rightness of the demand, I should certainly work for it side by side with the League. But I do not. I would like to be convinced." He sketches what might follow a British withdrawal, including the possibility that "Muslims may declare Pakistan and nobody may resist them," or a provisional government of the Congress and the League. He asks: "Why should not Muslims who believe in Pakistan but also believe in independent India join such a struggle?" But if a settlement is to come "under British aegis, it is a different story. I have no place in it."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 276]</span> “How can you think of a mass movement for liberation without first closing with Muslims?”, ask Muslim correspondents whose letters fill my file. I used at one time to think like my correspondents. But I see that for the moment I cannot reach the Muslim mind. The Muslim League blocks my way. I try to read the League newspapers. They give me a peep into the League mind in so far as they represent it. In their opinion I am thoroughly untrustworthy. Even my services during the Khilafat days wear for them a sinister meaning. I am quite clear in my mind that this is a passing phase. I am not aware of having done a single disservice to any Muslim cause or a Muslim person. Thank God, even today I claim numerous Muslim friends.</p>
+<p>I do not know how to get rid of the distrust. “Give Pakistan,” say my critics. I answer, “It is not in my giving.” If I felt convinced of the rightness of the demand, I should certainly work for it side by side with the League. But I do not. I would like to be convinced. Nobody has yet told me all its implications. Those that are described in the anti-Pakistan Press are too terrible to contemplate. But I cannot take them from the opposition. Only the protagonists know what they want and mean. I plead for such an exposition. Surely Pakistanis want to convert the opposition, not to force them? Has an attempt been ever made to meet the opposition in a friendly manner and to convert them? I am sure the Congress is willing to be converted, let alone me.</p>
+<p>But what am I to do meanwhile? I feel that now is the time for India to play an effective part in the fortunes of the war, if she becomes free from British servitude. I am convinced too that nothing stands in the way of that freedom except British unwillingness to give up India as the happy hunting-ground for the British that she has been for three centuries. If she gives up India, she might as well give up fighting, says the imperialist. If such is the case, what is all this war for? The original fighters are Great Britain and Germany. Was India the hidden stake between the two? This is all speculation I know. The truth will be known presently. Thinking Indians cannot idle away their time. I think that even a large number, if not all of us, are prepared to undergo any <span class="pg">[p. 277]</span> sacrifice that may fall to our lot, would impress the British rulers that they can no longer hold India as a British possession. I believe too that such a number is available. Needless to say, their action must be non-violent, irrespective of their belief, as even a military man's has often to be, on behalf of his cause. The fight has been conceived in the interest of the whole of India. The fighters will gain no more than the poorest Indian. They will fight, not to seize power but to end the foreign domination, cost what it may.</p>
+<p>What will happen after, if ever we reach that stage, will depend upon how we act when the all-powerful British hand is withdrawn. We may quarrel among ourselves or we may adjust our quarrels and agree to set up ordered rule on behalf of the people. It may be a democratic constitution or unadulterated autocracy or oligarchy. The conception is not that of a settlement with the British Government. That could happen only if there is a settlement between the principal parties, and as a preliminary the Congress and the League. But that so far as I can see is not to be.</p>
+<p>Therefore the only settlement with the British Government can be that their rule should end leaving India to her fate. Thus assuming that the British leave, there is no government and no constitution, British or other. Therefore there is no Central Government. Militarily the most powerful party may set up its rule and impose it on India if the people submit. Muslims may declare Pakistan and nobody may resist them. Hindus may do likewise, Sikhs may set up their rule in territories inhabited by them. There is no end to the possibilities. And to all this idle speculation let me suggest one more addition. The Congress and the League being best organized parties in the country may come to terms and set up a provisional government acceptable to all. And this may be followed by a duly elected Constituent Assembly.</p>
+<p>The movement has only one aim—that is, of displacing the British Power. If that happy event comes about and if it is followed by a stable government, it will most assuredly decide the fate of the war—I shall hope in a non-violent manner. India can show no other strength during this war at any rate. Why should not Muslims who believe in Pakistan but also believe in independent India join such a struggle? If on the other hand they believe in Pakistan through British aid and under British aegis, it is a different story. I have no place in it.</p>
+<p>Sevagram, July 6, 1942</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>The Collected Works of Mahatma Gandhi, vol. 76 (New Delhi: Publications Division, Government of India), no. 323, pp. 276–277, from Harijan, 12 July 1942.</p>
+<p>Online text: <a href="https://archive.org/details/HindSwaraj-CWMG-076/page/n315">https://archive.org/details/HindSwaraj-CWMG-076/page/n315</a></p>
+<p>Archive note: Essay, not a speech. Collected Works of Mahatma Gandhi vol. 76, no. 323, pp. 276-277; written at Sevagram on 6 July 1942, published in Harijan on 12 July 1942. Image offset: images run one ahead of the djvu leaf numbering, so the range is widened by one at the start.</p></div>
+</div>
+</body>
+</html>

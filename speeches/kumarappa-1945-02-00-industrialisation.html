@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J. C. Kumarappa: "Industrialisation"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;Industrialisation&quot;</h1>
+<p class="speech-meta"><strong>J. C. Kumarappa</strong> · February 1945 · Wardha</p>
+<div class="speech-facts"><div><span class="badge">Excerpt</span></div><div><strong>Occasion:</strong> Why the Village Movement?, ch. XI, &#x27;Industrialisation&#x27;</div><div><strong>Audience:</strong> Readers of his book Why the Village Movement? (a book chapter, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 4,087 words, about 18 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>J. C. Kumarappa, an economist trained in Britain and the United States, became Gandhi's leading economic adviser and secretary of the All India Village Industries Association, founded in 1934. His book <em>Why the Village Movement?</em>, first published in 1936, made the case for an economy built on village production rather than large factories. He revised it several times. The text of this fourth edition was ready in 1942, but Kumarappa was jailed for his part in the Quit India movement, and it appeared only in February 1945. By then industrialists had published the Bombay Plan for rapid state-backed industrialization (its introduction is also in this library). This is the chapter "Industrialisation." It is a book chapter, not a speech. Two paragraphs lost from a damaged page of this copy are supplied in square brackets from the 1946 reprint.</p>
+<p>Kumarappa does not reject all machines: "There is no objection to machinery as such." But in India, he argues, "Machinery which only saves labour is a curse in unemployed and underemployed India, whatever it may be in other countries." Large-scale industry needs capital that only exploitation can supply: "There can be no industrialisation without predation, as the needed capital cannot be accumulated out of individual efforts within a life time." He rejects the Soviet alternative too: "Planned economy of the Soviet Pattern, on the other hand, emphasises the material production rather than the development of the individual." He allows state ownership of public utilities such as roads, telegraphs, water supply and mines, but argues that production should otherwise stay decentralized in the villages.</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 84]</span> Agriculture had, as its complement in the past, various kinds of subsidiary handicrafts. In many industries payments were made to artisans in kind from agricultural products. In fact such industries as were in existence were but the workshop of the farmers for supplying their tools, implements and other necessaries.</p>
+<p>With the advance of civilization, daily requirements increased in quality, quantity and variety. To supply these, artisans carried on their trade until recent years in the vicinity of towns in the form in which it had been carried on in the past. The producer required little or no capital apart from what was needed for his simple tools, and even these, he often made himself. The question of marketing had not assumed the dignity of a problem. As there was a very small percentage of profits, the accumulation of capital was slow. Because of the existence of various industries and the rigidity of the division of labour as practised under the caste system the pressure on the land was comparatively little.</p>
+<p>Disruption of India :</p>
+<p>With the industrialisation of Western countries, all this changed. India was turned into a market for goods from the West and utilised as an opportunity for the development of their industries. For instance, while the pressing need of India was canals for irrigation and transport, railways were built to <span class="pg">[p. 85]</span> afford opportunities of development for the then growing steel industry of England as also for strategic considerations. On this account the various complementary and supplementary industries disappeared and those who were practising such industries fell back on the land, thereby increasing the pressure there. If we aim at relieving this pressure, we must detail off a large percentage of the population to other occupations. Further, the glamour of English education as introduced by Macaulay, drew away to towns and cities those who would have, in the ordinary course of events supplied to the village the initiative, the imagination and the technique required in every industry. Thus the village was left mainly with the drudge to carry on his occupation according to age old methods.</p>
+<p>Under the influence of capitalism, people have come to believe that price is all that matters. As the directing power under capitalism is the profit motive all the emphasis in life is placed on money values. In our ancient organisation, however, values were otherwise determined. The richest of men and princes fell at the feet of a saint. The Brahmin was at the head of all castes and not the Bania. The Kshatriya paid his homage to the savant. Even ordinarily, does a woman buy a thing just because it is the cheapest? If a flimsy silk with a beautiful pattern is offered at a higher price along side of a coarse and durable material at a lower price, will she not choose the one with the beautiful pattern? What is the standard of value she uses? Not the price nor durability nor the quality of the material but the aesthetic value. At least in India, who will allow his brother and his family to starve, and with money so saved, buy finery for himself? Does money value guide his decision or do love and duty? We had evolved a sense of values based on human considerations and it is quite within the range of possibility to revive it in our country.</p>
+<p>If village life is to be resuscitated, it will be imperative for men of high calibre, with the requisite initiative and <span class="pg">[p. 86]</span> imagination, to live in villages and solve rural problems with the help also of modern scientific methods. This is a process which requires considerable amount of re-adjustment in our society as organised at present. Mere mechanical re-adjustment may relieve the situation immediately but no proper or lasting solution will be found unless we plan a new order based on evolution in human thought and action. Mere introduction of large scale machinery, for example, as is used in the West will not solve the problem. Such methods have been tried in various industries and have proved an utter failure. For instance, if instead of hand-looms we introduce power-looms for weaving saries, we are at once confronted with a variety of problems which complicate rather than remove our original difficulties. Let us assume that the power-loom is four times as efficient as the hand-loom so far as production goes. Let us assume also that the hand-loom weaver used to make about 150 saries in a year most of which would normally be marketed during the marriage season. The loom itself might cost in the neighbourhood of Rs. 75 and if the saries on an average cost about Rs. 4 each, he could carry on his trade with a small capital of about Rs. 300. The moment we introduce power-looms, his production becomes 600 saries per year. The market does not extend four times as quickly, for we cannot, for the benefit of the weavers, have four marriage seasons in the year. The result is, that with a more or less stationary market, he requires Rs. 2,400 to produce his stuff and the loom itself would cost about Rs. 800. Instead of a capital of Rs. 300, he now requires a capital in the neighbourhood of Rs. 3,000, and even then he would have all his capital locked up until the marriage season. This situation results in competition and forced selling in order to recover his capital and capture as much of the market as he can. Usually the type of man who has been a hand-loom weaver does not possess the requisite capital and he either gets into the hands of the money-lender or has to sell out. A four fold increase of production also requires the qualities in the man to be made <span class="pg">[p. 87]</span> four times keener. Under the Western individualistic type of civilization people combine for purposes of economic activity. In our own forms of culture the combination is only for consolidating our position and safeguarding the interest of the weaker ones. Therefore it is that we often find that the methods of co-operative production as introduced by Westerners do not work in our country, the human element not being suited to them.</p>
+<p>If in the illustration we have assumed, the situation continues as depicted, in time the hand-loom weavers will all be out of business and so will the single unit power-loom weavers and their business will drift into the hands of capitalists. The weavers will then become machine feeders or factory hands and we shall be reproducing in our country all the attendant evils of industrialised factory methods that we find in the West, culminating in war and violence.</p>
+<p>Production and Distribution :</p>
+<p>Besides, under capitalistic methods of production, the introduction of large scale machinery has not solved the question of unemployment. Countries like England and America which have been highly industrialised for several decades suffer actually from unemployment. Large scale machinery was a result of forced circumstances in America, where man was up against natural difficulties such as long distances, vast water courses, lofty mountains and scarcity of labour. To overcome these he had to grow, as it were, extra hands in the form of machinery. Therefore, the function that machinery played was one of labour saving. But in our country and in all well settled countries, labour itself is the best means of distribution of wealth. If a man includes large scale machinery under his system of production, he overweights the scale in his favour to that extent. If we look upon labour as a means of distributing wealth, then, we cannot have much use for the type of machinery that has been <span class="pg">[p. 88]</span> evolved by Western civilization, and which has been invented with the basic idea of exploitation and, therefore, the worker is not taken into consideration. Instead of distributing wealth, such machinery concentrates it in the hands of a few. The type we need is a simple machinery which will be within the means of the average producer in India and which will be such as will minimise drudgery and increase the efficiency of the individual but at the same time will not provide room for exploitation.</p>
+<p>If production itself is a means of distribution of wealth, then the larger the number of producers we have the more evenly will wealth be distributed. It is not conceivable that any nation can become a nation of millionaires; so, if wealth in our country is to be distributed amongst the masses, the means of production should be within the reach of all. In planning such an industrial organisation, we do not aspire to produce men with incomes running into five and six figures, but to supply food and shelter to everybody. There is no objection to machinery as such. If there is any objection, it is to such machinery as has been devised to concentrate the profits into a few hands.</p>
+<p>NON-VIOLENT MACHINERY</p>
+<p>There is nothing good or evil in inanimate things. These attributes come into existence by man's reactions towards these. A thing is good or evil according as we put it to beneficial or harmful use. Whether a contrivance is violent or non-violent depends on the purpose for which it is used. A knife used to stab a person is a violent instrument while when used to cut a fruit it is non-violent. Machines can be masters as well as servants. When used to exploit other people's labour it is the former; and when it increases the efficiency of the producer himself, it is the latter. Ordinarily, we do object to poisons being taken; but in certain cases poisons are administered as medicine. In the same way under certain restrictions and with strict control, machines are required to <span class="pg">[p. 89]</span> aid man to function better. Even the charkha is a machine but it does not exploit other's labour as the spinning mills do. There can be exploitation even without the use of machinery. In Beedi making, no machines are used yet it is an industry in which exploitation figures largely. Machine or no machine is not the fundamental question. The problem is one of finding the best way of not only supplying the material wants but also bringing employment to the people. Machinery which only saves labour is a curse in unemployed and underemployed India, whatever it may be in other countries. Machinery can only be used to make such things as hands cannot make and where it will not displace workers gainfully employed.</p>
+<p>Violence has used machinery to exploit others, to keep people in subjection and slavery, to destroy and murder but non violence can use it to help humanity to progress. We are familiar with the uses to which Western economic organisation based on violence has put explosives large scale murder and destruction of property. Explosives for these purposes are bad, but explosives can be harnessed for constructive work too. Non violent uses of it will be to blast rocks, to make tunnels, to sink wells, to work mines and quarries and even for amusements in the form of fire works. Hence we cannot condemn explosives as a general proposition. Machinery in modern fighting forces is used for destruction. We can yoke the same power to non violence and utilise it in the constructive sphere.</p>
+<p>Recently, the A. I. V. I. A. decided to use machinery for paper pulp making. India has been importing about 2½ crores worth of paper, pulp, pasteboards, etc. All this can be made by hand, but some of it is better made by machinery because the labour involved is too heavy or dangerous for men. Hence we are justified in using tools to increase our efficiency, not for exploitation. This does not put any workers out of employment, on the other hand it will increase employment. As making of pulp from such <span class="pg">[p. 90]</span> materials as rags, bamboo, hemp etc., has never been established as an industry, the introduction of power for making such pulp cannot displace any workers of an existing industry.</p>
+<p>There may well be sections of a village industry which calls for the utilisation of machines as in the case of pulp making or for co-operative work as in the case of glazing and firing pottery; state power, control and aid as in the case of mining, railways, shipping, etc. Our object is, of course, to utilise human labour and provide as wide a field of employment as is possible, but this in itself may entail the use of machinery for its effective execution.</p>
+<p>In the village movement there is a definite place for centralised industries, not for their own sakes, but as adjuncts and subsidiaries to decentralised units, just as in the political sphere a democracy does not eschew Government control and regulation when it is directed towards the better realisation of individual development and expression. The village industries programme properly understood forms an exhaustive economic, social and political plan for the country as a whole.</p>
+<p>Labour as an entity :</p>
+<p>In Western industrial organisation, the interest of the producer himself does not figure as an end, but in any system that we produce, we must keep as our central aim the welfare and the well-being of the producer and his family. In the West even where labour has evolved its own organisation, the emphasis is largely on the material rather than on the human element. As against this, it must be remembered that it is not the multitude of things that we possess that makes us happy. In the “pack type”, whether under capitalism or under communism, it is thought that however soulless one’s work may be, it is possible to supply this lack by devoting some time outside the factory for cultural development. Culture, of the true type, however, cannot <span class="pg">[p. 91]</span> be thus separated from our daily work. Work makes us what we are and develops the dormant qualities within us. Nothing else will enable a man to realise his true self. A man who spends his entire life in an occupation which involves his merely carrying out the orders of others cannot even hope to develop a sense of responsibility. Without initiative, there can be no development of personality, much less of any abiding form of culture. The system of production itself must form part of life and make life worth living. Under the centralised industrial system production has become a nerve-racking process. We should look upon production as a continuation of the schooling of our youth. It should possess character building qualities as well as afford an education to the producer. If this can be carried out, though the material welfare of the people may not be on a par with the plutocrats of the West, yet the general level of happiness will be much greater and it will produce a nation of higher average intelligence and character which in its turn will be a profitable reservoir from which leaders can be drawn.</p>
+<p>Planned economy of the Soviet Pattern, on the other hand, emphasises the material production rather than the development of the individual. To enforce the plan, it is necessary to resort to violence. Such production is not natural and, therefore, cannot be lasting.</p>
+<p>When power gets concentrated in the hands of a few initiative ceases, and man is dwarfed. Such a system must lead ultimately to a form of slavery merely for the purpose of obtaining material goods.</p>
+<p>It is commonly suggested that it is possible to afford opportunities for culture by means of providing leisure under the “pack type” system, if the hours of work are restricted. Is this possible? If the U. S. A. labourers can content themselves with the standard of life prevailing in India by working for two hours a day only, will they devote their leisure to cultural pursuits? In <span class="pg">[p. 92]</span> all probability instead of doing this they will idle away their time and thus be led into demoralisation and decay.</p>
+<p>LOW PRICE OF PRODUCTS</p>
+<p>Many wonder if the ‘cottage method of production can function to cheapen goods to the consumer and cite the meat-packing industry of Chicago as an instance of complete utilisation of bye-products in large scale industries which make low prices possible.</p>
+<p>There are three assumptions in the above question, viz. (1), that complete utilisation of bye-products is possible only in large scale industries, (2) that large scale industries are always economical in the utilisation of resources, (3) that low price is an invariable desideratum. These we shall consider in turn.</p>
+<p><em>[It is true to a certain extent that large scale industries do utilise their bye-products more completely, but to make that an inseparable feature of large scale industry is wrong. A walk through our tannery at Nalwadi or the one run by Shri Satish Chandra Dasgupta at Calcutta will show the visitor that every part of a carcase, the horns, the hide, the hoofs, the fat, the flesh, the bones, the entrails, etc., can all be used even through means within the reach of cottage units. If this is not being commonly done, the reason is the ignorance of our cottage tanners and not that such utilisation is foreign to cottage units. The remedy is not to abandon cottage units but to bring the light of science to cottage workers. This is where we have failed and selfless scientists with the necessary initiative to adapt their knowledge to the simplicity of cottage resources are the desideratum, and not the large scale units.]</em></p>
+<p>[In so far as a large scale unit reduces overhead charge it is economical, but cannot be said to be the most economical utilisation of our resources, especially under a competitive regime, as the economic history of America can testify. Fields of cotton had to be burnt, shiploads of coffee were dumped into the sea or] <span class="pg">[p. 93]</span> used as fuel, and many waste products, like molasses, rich in mineral products, are thrown, out, which would not be the case under cottage units. In many cases the large scale units are the most extravagant when we look at it from the national view point. Take paper-making from bamboos. No large scale unit can function unless it has a forest of bamboos at its disposal. Fresh cut bamboos have to be fed into the mill steadily. On the other hand, when we use a cottage unit, fresh cut bamboos are used for baskets, mats, granaries, roofs, etc., in the first instance; when these get rotten with use, such waste bamboos can be converted into beautiful paper. Which then is the more economic use of our resources?</p>
+<p>Whether low or high prices are good will depend on the cost constituents that make up the price. If the price is made up largely of cost of materials, low prices are good; but if such prices are made up of human labour represented by wages, then high prices will represent a better tendency to distribute wealth. When one rupee worth of mill cloth represents 12 as. worth of material, transport, interest, etc., and 4 as. of wages then it would be desirable to cut the items totalling 12 as. and lower the price. But when in khadi the price is made up of 12 as. for wages and 4 as. for materials, cutting the price will lower the very function the industry serves in bringing happiness to mankind. Therefore under an economy of cottage units where labour enters largely into the composition of price, high prices are good, and under large scale industries where labour forms a low percentage of the cost, low prices are to be aimed at.</p>
+<p>Without a careful analysis of all these factors it would be disastrous to draw conclusions. We have to carefully scrutinise the assumptions in most of the arguments advanced in text-books written for consumption in capitalistic countries, and not accept them at their face value. The danger is often great because we are fed with half truths.</p>
+<p><span class="pg">[p. 94]</span> Capitalism predatory :</p>
+<p>The gilded homes of the capitalists of Britain seem to lead people to imagine that by industrialisation all poverty can be banished. Industrialisation requires much capital if it is to be broad-based. We can get all the needed capital for a few sugar mills or a few steel plants but that does not industrialise the country. The impetus that Britain got was predatory. But for the transfer of hoards of wealth from our land, such industrialisation would have been impossible. There can be no industrialisation without predation, as the needed capital cannot be accumulated out of individual efforts within a life time. Britain is still at the breasts of India. If the infant is hefty, credit is due to the mother's milk. What will happen when the infant has to be weaned and has to forage for himself? The new Russia is still a babe in the life of nations and she has her store of confiscated wealth to feed on for some centuries more. Industrialisation on a national scale has not been achieved anywhere as yet. It seems an impossibility without predation and, therefore, without violence.</p>
+<p>In both capitalism and communism, then, there is room and need for violence and great concentration of power in a few hands. Because of their failure to establish a healthy equilibrium between supply and demand, we are led to advocate individual units of production rather than collective units. This adjustment in itself will reduce the excess of supplies. Markets should be localised and only the surplus, after satisfying local needs, ought to find distant markets.</p>
+<p>The present economic system reminds one of old time steamers which could be sunk by springing one hole in the hull, but modern steamers have watertight compartments which prevent the ship from sinking, even if a part is damaged. Similarly, when overproduction and the market are not centralised, the dangers of the system, as a whole, coming to <span class="pg">[p. 95]</span> grief are few. In such a decentralised system the danger of violence too is greatly minimised.</p>
+<p>Centralisation :</p>
+<p>We must, of course, have a place for centralised production but it must be only for the purposes of public utilities which should be under either collective or co-operative control. Undertakings such as telephones, telegraphs, roads, postal services, supply of water, exploitation of forests and mines will all naturally come within the scope of the state. We cannot allow private exploitation in these undertakings. The main objection to social ownership and management for commodity production is that under such conditions progress will be retarded. But if social control can take care of the size and capacity of the units of production exploitation can be minimised. As long as human nature is what it is it will be impracticable to abolish exploitation altogether. Exploitation and violence in some form or other will be there. Our eating and breathing is full of violence and exploitation. Our purpose, however, should be to minimise these in keeping with human existence and progress. Under the conditions we propose there will be a natural limit to the capacity of an individual to produce. And this in its turn, will limit maldistribution of wealth. So long as individuals differ one from another, the quantity and the quality of production of the individual will also differ. That is the income will differ, but the range of difference will be limited. We can think of differences in annual income ranging in hundreds or thousands but we cannot have incomes running into millions without involving an unhampered exploitation of thousands. Finance, trading, marketing, etc. can also function in a co-operatively managed organisation and therefore there need be no fear of unlimited private wealth.</p>
+<p>Under the form of state control which we advocate, the transition may not be sudden and spectacular, our methods will be slow and will take time to permeate through the nation. We <span class="pg">[p. 96]</span> have to have patience if we are aiming at permanence. While disestablishing private property by a stroke of the pen by legislation may be violent, gradual curtailment of private ownership by limiting productive capacity under state control will not necessarily spell violence. In our own country, in the past as well as in the present, a great many functions were and still are under social control and society decides on the merits or demerits of certain cases. There may be abuses in this system, but it does indicate the possibility of subjecting our people to group discipline by social control.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>J. C. Kumarappa, Why the Village Movement? (A Plea for a Village Centered Economic Order in India), 4th ed. (Wardha: All India Village Industries Association, 1945), ch. XI, pp. 84–96. Two paragraphs lost from a damaged page of this copy (p. 92) are supplied in square brackets from the 1946 reprint.</p>
+<p>Online text: <a href="https://archive.org/details/in.ernet.dli.2015.145081/page/n95">https://archive.org/details/in.ernet.dli.2015.145081/page/n95</a></p>
+<p>Archive note: Book chapter, not a speech. J. C. Kumarappa, Why the Village Movement? (A plea for a village-centred economic order in India), 4th ed. (Wardha: All India Village Industries Association, 1945), ch. XI, pp. 84-96. The preface to the 4th edition (22 Feb 1945) says the text was ready for the press in 1942 and lists the chapters new to this edition; 'Industrialisation' is not among them, so it probably appeared in some form in earlier editions (1936, 1938, 1939), but the text may have been revised. Could not check the 1936 first edition (kmm0993-whythevillagemovement-1936): its archive.org OCR was run as Tamil and is unusable. Starts after the 'Part III / Chapter XI / Industrialisation' headings. Side headings in the margin. Old OCR of leaf 106 (p. 95) is badly garbled.</p></div>
+</div>
+</body>
+</html>
