@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ali Jinnah: Interview with the News Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Interview with the News Chronicle</h1>
+<p class="speech-meta"><strong>Muhammad Ali Jinnah</strong> · 24 January 1945 · Bombay</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> Interview with J. S. Cama of the News Chronicle (London), Bombay</div><div><strong>Audience:</strong> J. S. Cama of the News Chronicle, London (an interview; the questions are not printed)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 1,336 words, about 6 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Jinnah gave this interview in Bombay on 24 January 1945 to J. S. Cama of the London <em>News Chronicle</em>, a Liberal paper with wide influence in Britain. His talks with Gandhi on Pakistan had broken down in September 1944. On 14 December 1944 the Viceroy, Lord Wavell, had cautioned the Associated Chambers of Commerce in Calcutta against dividing India. The interviewer's questions are not printed; the paragraphs are Jinnah's answers. It is an interview, not a speech.</p>
+<p>Jinnah tells British readers that "Congress propaganda, which is so systematic and heavily financed," has misled them, and that 100 million Muslims will not be "transferred from British Imperialism to Hindu Raj." He explains in detail why the League rejected the procedure of the Cripps offer of 1942: a constitution-making body chosen by legislatures in which Muslims were a minority, a 60 per cent vote, and "a mixed and promiscuous plebiscite." Muslims, he insists, "are, by every definition and by every notion which one can think of, a distinct and separate nation." His solution is two states with mutual guarantees: "the Hindus must trust their minorities to the Pakistan Government and we must trust the Hindus with our Muslim minorities." He mocks "This soldier-Viceroy" for his Calcutta speech and warns that if Britain abandons its pledges to the Muslims, "it will be not only the grossest breach of faith, but an act of cowardice."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 1985]</span> "There is a large body of people in England who have not yet understood the real problem of India, and Congress propaganda, which is so systematic and heavily financed, is responsible for misleading not only England but also America."</p>
+<p>"The first and the foremost question, which very few people yet appreciate, is that Hindu society is so caste-ridden, that democracy is completely foreign and opposed to its very basic and fundamental principles and structure, in everything that matters, namely, the life, conduct and the condition of the people. Hindus, Mr. Gandhi and Congress leaders firmly believe in the graded caste system, which consists not only of the four main castes but numbers of sub-castes among four main castes. 60,000,000 people are considered Sudras or untouchables. The remaining body of Hindus belonging to the other three castes are exclusive of one another and the Brahmin-Bania combination constitutes the worst possible Hindu imperialism; they want to substitute Hindu Imperialism and Hindu Raj for <span class="pg">[p. 1986]</span> the British Raj.</p>
+<p>"Very few foreigners can understand that 100,000,000 Muslims can never agree to the demands of the Hindu Congress, which will mean that they will be transferred from British Imperialism to Hindu Raj and Hindu Imperialism of the Brahmin-Bania combination, which will have a perennial Hindu castes majority if all India is united and a so-called parliamentary, democratic constitution is introduced in this country.</p>
+<p>"If such an attempt succeeded, then 100,000,000 Muslims will revolt, at their being sacrificed and let down by the British Government who will be committing the grossest breach of faith with the Muslims, because of the solemn declarations and pledges which they have given them. Muslims will not be coerced in any way, nor could any constitution be forced upon them by the British Government.</p>
+<p>"The Cripps offer, while contemplating two or more dominions, accepted the principle which would give the right to Muslim dominant or Muslim majority provinces, which are Sind, Baluchistan, the N.W.F.P., the Punjab, Bengal and Assam to agree or not to agree to any Union Constitution which the Hindu majority may frame. But the procedure suggested in the Cripps proposals was the most dangerous one for us, because (1) we were to be forced into a constitution-making body of All-India, which was to be set up to frame the Union Constitution.</p>
+<p>"The Union Constitution-making body was to consist of ten per cent of the present Provincial Legislatures, where according to the Communal Award, particularly in Bengal and the Punjab, which are the main units of Pakistan, the Muslims are in a minority in each House of Legislature, although according to population they are in a majority. In such a constitution-making body we would be completely swamped, as the Muslim representation would be about 20 per cent and if the <span class="pg">[p. 1987]</span> Indian Princes sent in their representatives (most of which are Hindu States), then our proportion of even 20 per cent would be considerably reduced."</p>
+<p>(2) The next hurdle was that after the union constitution was framed by this body then the provinces as they are constituted at present in their respective Legislatures, are given what was considered an opportunity to accede to the Union or not, and if 60 per cent of the whole Legislature of a province favoured Union, then the matter terminated. As I have already said, in Bengal and Punjab the Muslims are already in a minority in the whole House, and we are not prepared to submit to the slender and possible chance of our succeeding in the House composed of 250 members in Bengal and 175 in the Punjab, that they should decide the future and the destiny of 100 million Muslims starting in both the Houses with a numerical minority position.</p>
+<p>(3) But if perchance 41 per cent were opposed to accession then the matter did not end there, but we were given another hurdle to go through, and that is a mixed and promiscuous plebiscite of all the inhabitants of the Provinces. The demand is not a territorial demand but a Muslim national demand, and the mixed plebiscite was not only unjustified but owing to the powerful organized position of the Hindus and the financial and the Press backing at their command it was a dangerous position for us to accept, and that is why mainly the Cripps offer was rejected by us, we were told that this proposal could not be discussed or modified, and we were presented with this attitude of the powerful British Government, namely "take it or leave it".</p>
+<p>"The question whether the Muslims should remain separate from the Hindu majority provinces or not, must be left to their determination as the demand comes from them, and they are, by every definition and by every notion which one can think of, a distinct and separate nation living in the subcontinent. The question is a very simple one when you boil it <span class="pg">[p. 1988]</span> down. The Muslims certainly cannot wish to live under the domination of the British for ever and the British have made repeated declarations that they are willing to transfer authority and power of government to the peoples of India. On the assumption that the British domination is to cease in this country we are to have our complete freedom and independence.</p>
+<p>"If that be so, then the Muslims cannot agree to the change of masters from the British to the Hindu-Brahmin Imperialist Raj, because it is sure as death that the position will be three votes against one which will mean that one society, distinct and different in every manner and life, with a perennial majority will rule over the other society, whose history, culture and everything that matters in life is totally different from that of the Hindus. Such a Government if set up can only be by force and coercion and will not last even for a few months, and will lead to disastrous results, because it will constitute a cockpit of feuds and conflict regarding the culture, language and notions of civilisations of the two nations, and will affect their vital and fundamental interests.</p>
+<p>"There is only one solution to this and no other, and that is, that the Hindus must trust their minorities to the Pakistan Government and we must trust the Hindus with our Muslim minorities, with all such safeguards as possible for any civilised Government to provide for. In that case, there will be stable governments in Pakistan and Hindustan.</p>
+<p>"I was amused at the recent pronouncement of the Viceroy at Calcutta at the gathering of the European Chamber of Commerce. This soldier-Viceroy showed signs of shirking his responsibility when he advised us to avoid what he called a major operation of a division of India into Pakistan and Hindustan. I wonder with whose advice or authority he has been creating this confusion. It struck me that he was merely trying to dope the Hindus and thereby was unnecessarily creating hostile feelings and alienating the Muslims.</p>
+<p><span class="pg">[p. 1989]</span> "Besides, unwise pronouncements like these are contrary to the declared policy of the British Government which has accepted the principle of division and constitution of two or more dominions in response to the unequivocal demand backed up by 99 per cent of Muslim India."</p>
+<p>In the end, I must say that if the British Government in any way departs from their solemn declarations and pledges, which they have given from time to time after the outbreak of this war, to the Muslims, and if they make any attempt to sacrifice them or their interests, and let them down in any way whatsoever, in order to appease the Hindu Congress or Hindu leadership, it will be not only the grossest breach of faith, but an act of cowardice on their part. Such a dishonourable move on their part will not succeed, but I am confident that they will force a hundred million Muslims to revolt, as even a worm turns, and for the consequences that may follow the British Government will be responsible.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Khurshid Ahmad Khan Yusufi, ed., Speeches, Statements &amp; Messages of the Quaid-e-Azam, vol. III (Lahore: Bazm-e-Iqbal, 1996), no. 705, pp. 1985–1989.</p>
+<p>Online text: <a href="https://archive.org/details/quaid-i-azam-speeches-statements-messages-vol-iii/page/n629">https://archive.org/details/quaid-i-azam-speeches-statements-messages-vol-iii/page/n629</a></p>
+<p>Archive note: Interview. K. A. K. Yusufi, ed., Speeches, Statements &amp; Messages of the Quaid-e-Azam, vol. III (Lahore: Bazm-e-Iqbal, 1996), item 705, pp. 1985-1989; source given as QAP File 810, pp. 186-189. The next item (706, pp. 1989-1990) is Jinnah's comments on Beverley Nichols' Verdict on India from the same interview, not included.</p></div>
+</div>
+</body>
+</html>
