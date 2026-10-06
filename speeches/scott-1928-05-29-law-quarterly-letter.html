@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Leslie Scott: Letter to the Law Quarterly Review on the Indian States</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Letter to the Law Quarterly Review on the Indian States</h1>
+<p class="speech-meta"><strong>Sir Leslie Scott</strong> · 29 May 1928 · London</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> Letter to the editor of the Law Quarterly Review on the legal relationship between the Crown and the Indian States</div><div><strong>Audience:</strong> Readers of the Law Quarterly Review (a letter, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 1,012 words, about 4 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Sir Leslie Scott, an English barrister and Conservative MP, was counsel for the Standing Committee of the Chamber of Princes before the Indian States Committee, chaired by Sir Harcourt Butler, which the British government set up in 1927 to examine the relationship between the princely states and the Crown. At the same time the Simon Commission was reviewing the constitution of British India, and the Princes feared that their treaty rights might one day be handed to an Indian government responsible to an elected legislature. Scott wrote this letter to the <em>Law Quarterly Review</em> on his return from India in May 1928, as a preview of the case he would argue before the Committee. It is a letter, not a speech. The Butler Committee reported in 1929. It rejected much of his argument and insisted that "paramountcy must remain paramount," but it agreed that the Princes should not be transferred to a new Indian government without their consent.</p>
+<p>Scott argues that the relationship between the Crown and the States falls under neither international nor municipal law. Each Prince "remains the true sovereign of his State" in all matters he has not transferred to the Crown, and "The fundamental tie is consent." The treaties were made "between sovereigns—the Princes and the Crown—not the Company or the Government of British India," and they are personal. The Crown therefore cannot hand its obligations to another government, whether "a Dominion Government such as Canada or Australia; nor even to British India." He also doubts whether the Government of British India can act as the Crown's agent toward the States, since in customs, railways and salt its interests may conflict with theirs.</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 222]</span> Sir,—You ask me on my return from India what opinions I have formed upon the legal and constitutional problems presented by the relationship between the Indian States on the one hand <span class="pg">[p. 223]</span> and the Crown and the Government of British India on the other. This is the first question referred by the Secretary of State to the Indian States Committee, of which Sir Harcourt Butler is Chairman; and as I am, in my capacity of counsel for the Standing Committee of the Chamber of Princes, to address the Committee in July upon that very subject, it is better that I should reserve my considered reply for your October number. But a note of some of the questions raised may be of use.</p>
+<p>The political issues are of first-class importance to the future of India as a whole. Their wise solution will affect directly the successful accomplishment by Sir John Simon and his colleagues of the task imposed by Parliament upon the Statutory Commission for British India. From an Imperial standpoint a statesman-like treatment of the Princes now, may well prove a vital factor in the future attitude of India towards the British Empire. Consequently the more that public attention is focused on the position of the Indian States, and the more the profession thinks out the legal aspects of it the better.</p>
+<p>The relationship between the Crown and the Indian States is unique. There is nothing in the world to-day and there has been nothing in history at all like it. It does not fall within the ambit of international law; for the States are not independent nations and cannot make war and peace. They have entrusted the whole business of their foreign relations and defence to the Crown. As Paramount Power, the Crown of the United Kingdom has undertaken to protect them from all dangers, external and internal—to preserve their frontiers, their constitutions and their rulers—and to keep available all necessary naval and military forces. In some respects the Crown is the guardian; each State is its ward. To such a relationship international law has no application.</p>
+<p>But equally it is outside municipal law. Although sovereignty has been divided as a result of the Princes giving their consent—evidenced by treaty or other form of agreement—to transfer to the Crown some of the functions of their sovereignty, each Prince remains the true sovereign of his State, in respect of all those functions of sovereignty, which he has not consented to transfer to the Crown. And his subjects are not British subjects. He is amenable to no Court outside his State. No legislation of the British Parliament or of the British Indian Legislature binds him or his subjects; nor can British Indian taxation be imposed upon his State.</p>
+<p><span class="pg">[p. 224]</span> To what system of legal principles then are the relations of an Indian State to the Crown referable? There is no legal decision to serve as precedent, no complete analogy to guide. Resort must be had to first principles of law. We must think things out for ourselves. It is almost a virgin field for the lawyer.</p>
+<p>However, certain broad propositions emerge pretty clearly :—</p>
+<p>The fundamental tie is consent, and its recognition by Britain is unequivocal. The British nation is irrevocably committed by the pronouncements of Kings and Viceroys, to the scrupulous observances of all its contractual undertakings to the Indian States—which occupy one-third of India and contain over seventy millions of people.</p>
+<p>One quotation will suffice. King George in 1921 made this proclamation: 'In My former proclamation I repeated the assurance given on many occasions by My Royal predecessors and Myself of My determination ever to maintain unimpaired the privileges, rights, and dignities of the Princes of India. The Princes may rest assured that this pledge remains inviolate and inviolable.'</p>
+<p>(2) Those contracts are between sovereigns—the Princes and the Crown—not the Company or the Government of British India.</p>
+<p>(3) The relationship is wholly legal—a nexus of mutual rights and obligations. It is in no sense arbitrary. Those rights and obligations may not always be easy to define, but they are none the less real and ascertainable because they have not hitherto been scrutinized.</p>
+<p>(4) If one were speaking of contracts between private individuals, one would say that the contracts between the Princes and the Crown were personal—incapable of being performed by anyone else. The Princes in making them gave their confidence to the British Crown and Nation, and the Crown cannot assign the contracts to any third party. The British Government as Paramount Power has undertaken the defence of all the States, and therefore, to remain in India with whatever military and naval forces may be requisite to enable it to discharge that obligation. It cannot hand over those forces to any other Government—to a foreign Power such as France or Japan; to a Dominion Government such as Canada or Australia; nor even to British India.</p>
+<p><span class="pg">[p. 225]</span> (5) How far the Crown can delegate to the Government of British India, as its agent, the discharge of its treaty obligations to the States is also matter for consideration. The Crown can normally choose its agents. But an agent cannot act where his interest may conflict with his duty. In all matters of common concern with the States—customs, railways, posts, the salt monopoly, etc.—there is always the possibility that the interests of British India may not be identical with the interests of a particular State. The Crown's duty is, or may be, to safeguard the interests of the States—particularly in the case of minority administration. Should the interests of the agent be given the chance of conflicting with the duty of the principal?</p>
+<p>In all these matters it is essential to get the legal relationship made clear. When that has been done, suitable constitutional machinery for harmonious working between the two sides of India can be devised, and the States have already made it clear that they are ready and willing to fall in with such a plan on reasonable lines.</p>
+<p>Goldsmith Building, Temple. May 29, 1928.</p>
+<p>Leslie Scott.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>A. N. Sudarisanam, ed., Indian States Register and Directory 1929 (Madras: Indian States Register &amp; Directory Office, 1929), pp. 222–225, reprinting the letter written for the July 1928 issue of the Law Quarterly Review.</p>
+<p>Online text: <a href="https://archive.org/details/in.ernet.dli.2015.85432/page/n234">https://archive.org/details/in.ernet.dli.2015.85432/page/n234</a></p>
+<p>Archive note: Letter. Written for the July 1928 issue of the Law Quarterly Review; dated Goldsmith Building, Temple, 29 May 1928. Scott was counsel for the Standing Committee of the Chamber of Princes before the Indian States (Butler) Committee. Reprinted as "Sir Leslie Scott's Views" in A. N. Sudarisanam (ed.), Indian States Register and Directory 1929 (Madras: Indian States Register &amp; Directory Office, 1929), pp. 222-225.</p></div>
+</div>
+</body>
+</html>

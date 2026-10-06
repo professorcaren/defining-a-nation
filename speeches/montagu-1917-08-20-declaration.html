@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edwin Montagu: The Montagu Declaration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>The Montagu Declaration</h1>
+<p class="speech-meta"><strong>Edwin Montagu</strong> · 20 August 1917 · London</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> Announcement in the House of Commons of the policy of responsible government for India, as quoted and glossed in the Montagu-Chelmsford Report</div><div><strong>Audience:</strong> House of Commons (the announcement, as quoted in the Montagu–Chelmsford Report, with the Report&#x27;s comment)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 538 words, about 2 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Edwin Montagu became Secretary of State for India in July 1917, in the middle of the First World War. India had sent soldiers and money to the war, the Congress and the Muslim League had joined in the Lucknow Pact of 1916 to demand self-government, and Annie Besant's and Tilak's Home Rule Leagues were drawing wide support. On 20 August 1917 Montagu announced the government's new policy in the House of Commons. This page gives the announcement as the Montagu–Chelmsford Report of 1918 quotes it, followed by the Report's own comment on it, written by Montagu and the Viceroy, Lord Chelmsford. The declaration led to the reforms of 1919, and Indian leaders cited it for decades afterward.</p>
+<p>The announcement commits the British government to "the increasing association of Indians in every branch of the administration and the gradual development of self-governing institutions with a view to the progressive realization of responsible government in India as an integral part of the British Empire." It adds a condition that Indian nationalists resented: "The British Government and the Government of India... must be judges of the time and measure of each advance." The Report calls the announcement "the most momentous utterance ever made in India's chequered history," marking "the end of one epoch, and the beginning of a new one."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 1]</span> 6. On August 20, 1917, the Secretary of State for India made the following announcement in the House of Commons:—</p>
+<p>“The policy of His Majesty's Government, with which the Government of India are in complete accord, is that of the increasing association of Indians in every branch of the administration and the gradual development of self-governing institutions with a view to the progressive realization of responsible government in India as an integral part of the British Empire. They have decided that substantial steps in this direction should be taken as soon as possible, and that it is of the highest importance as a preliminary to considering what these steps should be that there should be a free and informal exchange of opinion between those in authority at Home and in India. His Majesty's Government have accordingly decided, with His Majesty's approval, that I should accept the Viceroy's invitation to proceed to India to discuss these matters with the Viceroy and the Government of India, to consider with the Viceroy the views of local Governments, and to receive with him the suggestions of representative bodies and others.</p>
+<p>“I would add that progress in this policy can only be achieved by successive stages. The British Government and the Government of India, on whom the responsibility lies for the welfare and advancement of the Indian peoples, must be judges of the time and measure of each advance, and they must be guided by the co-operation received from those upon whom new opportunities of service will thus be conferred and by the extent to which it is found that confidence can be reposed in their sense of responsibility.</p>
+<p>“Ample opportunity will be afforded for public discussion of the proposals which will be submitted in due course to Parliament.”</p>
+<p>7. We take these words to be the most momentous utterance ever made in India's chequered history. They pledge the British Government in the clearest terms to the adoption of a new policy towards three hundred millions of people. The policy, so far as Western communities are concerned, is an old and tried one. Englishmen believe in responsible government as the best form of government that they know; and now in response to requests from India they have promised to extend it to India also under the conditions set out in the announcement. We need not dwell on the colossal nature of the enterprise, or on the immense issues of welfare or misery which hang upon its success or failure.</p>
+<p>The announcement marks the end of one epoch, and the beginning of a new one. Hitherto, as we shall show, we have ruled India by a system of absolute government, but have given her people an increasing share in the administration of the country and increasing opportunities of influencing and criticizing the Government. With the development of the old system we shall deal hereafter. For the moment, however, let us review the last stage, which began with the reforms of 1909, in order to see how it came about that the old familiar ways would no longer suffice for the well-being <span class="pg">[p. 2]</span> of the country and why the change should take the form set forth in the words of August 20.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Report on Indian Constitutional Reforms (Calcutta: Superintendent Government Printing, India, 1918; Cd. 9109), ch. I, paras. 6–7, pp. 1–2.</p>
+<p>Online text: <a href="https://archive.org/details/cu31924023167491/page/n20">https://archive.org/details/cu31924023167491/page/n20</a></p>
+<p>Archive note: Commons statement, quoted in full in Report on Indian Constitutional Reforms (Calcutta: Superintendent Government Printing, India, 1918; Cd. 9109), ch. I, paras. 6-7, pp. 1-2, with the Report's own comment (para. 7, by Montagu and Chelmsford). The Report's first page carries no printed number.</p></div>
+</div>
+</body>
+</html>
