@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minoo Masani: Socialism Reconsidered: Preface to the Second Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Socialism Reconsidered: Preface to the Second Edition</h1>
+<p class="speech-meta"><strong>Minoo Masani</strong> · 1 October 1944 · Bombay</p>
+<div class="speech-facts"><div><span class="badge">Excerpt</span></div><div><strong>Occasion:</strong> Preface to the second edition of Socialism Reconsidered</div><div><strong>Audience:</strong> Readers of his book (a preface, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 3,700 words, about 16 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Minoo Masani was a founder of the Congress Socialist Party in 1934. By the 1940s he had broken with the Communists and with Soviet Russia. In March 1944 he published <em>Socialism Reconsidered</em>, a short book urging Indian socialists to rethink their methods and goals in light of what had happened in the Soviet Union. The Communist Party of India, which had supported the British war effort since 1941 and opposed the Quit India movement, answered with two pamphlets, and a sympathetic professor reviewed the book harshly. Masani replied in this preface to the second edition, dated 1 October 1944. It is a preface, not a speech.</p>
+<p>Masani dismisses his Communist critics: "the Communists have so got into the habit of mistaking vituperation for argument that they have lost the very capacity to distinguish one from the other." He insists that his case against the Soviet Union rests on socialist sources: "If I have condemned Soviet Russia, it is out of the mouth of socialists and communists themselves." Socialism, he argues, must be separated from the Soviet state, "which in 1939 was expelled by a unanimous vote of the League of Nations Assembly for unprovoked aggression against Finland." Of those who cling to their faith in Moscow he writes: "Many others before him have hugged their old beliefs till they have awakened to find them stiff corpses in their arms."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 7]</span> The First Edition of this little book had a wider and warmer welcome than I had dared, in view of its heresies, to anticipate for it. Judging alike by press reviews and personal letters, by the requests for permission to translate into different Indian languages and by the public demand which has made this edition necessary, Socialism Reconsidered would seem to have met a badly-felt need on the part of those whose thoughts were moving away from orthodox socialism and capitalism alike.</p>
+<p>The book may also claim to have served to a certain extent the purpose with which it was primarily written—to stimulate discussion on issues which are becoming of ever increasing importance. In the course of that discussion, some critics have complained about the inadequacy and incompleteness of the suggestions thrown up in the second part of the booklet. The answer to that is twofold. First, that no one individual can be expected to come forward with a complete alternative theory to that of orthodox socialism, and I certainly had not set out to do so. The second is that Socialism Reconsidered was, after all, only an essay of fifty-five pages, and could not possibly cover all the questions that the critics would have liked answered.</p>
+<p>The discussion on the book has revealed one or two misunderstandings. One of these is that I have accepted Gandhiji's theory of 'trusteeship'. What I had done (on pp. 53 and 54 of the First Edition) was specifically to state that I do not accept trusteeship as an alternative <span class="pg">[p. 8]</span> to the method of nationalisation of property, but that I consider it of value as one of the conceptions to be utilised during the period of transition. The other misunderstanding is that I have accepted Burnham's thesis in favour of The Managerial Revolution. There is here a double misconception. To start with, Burnham himself does not favour the Managerial State. He only warns against the probability of its emergence. I am inclined to share his view as to the probabilities, but it is precisely because I am keen that India at least should escape the Managerial Revolution that I have suggested a study of Gandhiji's contribution in the hope that it may provide an escape from the managerial cul de sac ; it is precisely because I am anti-totalitarian that I refuse to accept present-day Russia as a socialist state.</p>
+<p>The publication of the First Edition was followed by that of Professor M. L. Dantwala's Gandhism Reconsidered, a study which has further fortified and strengthened the line of thought which I have advanced for consideration. Two other publications followed—purporting to be replies to my booklet. Both emanated from Communist quarters, though the usual efforts were made to camouflage this by Communists becoming 'socialists' and comrades becoming "Sriyuts"! With delicious inconsistency, I was supposed by one to have unmasked myself and yet by the other to invite an answer. Both these 'replies' suffered from the fact that the Communists have so got into the habit of mistaking vituperation for argument that they have lost the very capacity to distinguish one from the other. That is perhaps inevitable because they have such a weak case; and so they resort to the time-honoured argument ad hominem. Almost in the same breath I have <span class="pg">[p. 9]</span> been accused of being a Fascist, a Trotskyist and an agent of the capitalists. The late Gabriel D'Annunzio once protested : " Even I cannot be in two places at the same time"! I may with equal modesty be permitted to protest that it is beyond even my capacity to be a Trotskyist, a Capitalist and a Fascist all at the same time !</p>
+<p>It is not necessary to take fuller note of the Communist ‘ replies ’. Their palmiest days lie in their past, and no better epitaph can be prepared for them than Mahadev Desai’s words in the last issue of Harijan which he was to edit, that of August 9, 1942 :</p>
+<p>“The Communists, I am glad, have won their liberty. They deserved it, even if they had not paid for it the price of supporting the war effort. But I wonder if they have won the liberty of India. They have not only forsworn their country’s liberty but their own principles.”</p>
+<p>Even Professor H. J. Laski, who has spent years of fruitless effort in trying to establish understanding with the Communist Party in his own country, is driven in his Marx and Today to write of “the follies committed by the Communist Party here, and elsewhere, its tergiversations, its mania for conspiracy, its lust for personal invective, its economy in the use of truth.”</p>
+<p>Perhaps the only serious attempt at a rejoinder was that by a certain Professor in a weekly journal. Being an extremely erudite and able writer with a brilliant and incisive pen, and not being a Party member but only a ‘fellow traveller’, he wrote with that restraint and that subtlety which the hundred per cent Communist has lost. It is because his line of argument is so typical of the intellectual fellow travellers of the Communist Party in this country that I propose to <span class="pg">[p. 10]</span> deal in a certain amount of detail with his review. And just in case any one should have doubts regarding the angle from which the learned Professor really approaches the subject, I would refer him to the People's War of 9th July, 1944, where, in the course of a congratulatory message to that journal so distinguished for its attempts at disruption of the national cause, he made this amazing statement: “The People's War represents the best nationalist thought of India”!</p>
+<p>This reviewer accused me of selecting my facts and of having gone to the professed opponents of communism for them. Let us see what truth there is in this charge. I have tried, as far as possible, to eschew the testimony of capitalists, fascists and anti-socialists of all kinds. If I have condemned Soviet Russia, it is out of the mouth of socialists and communists themselves. Each of the people whose testimony I have cited, e.g., Max Eastman, Louis Fischer, Eugene Lyons, Andre Gide, Arthur Koestler and Freda Utley, have been consistent socialists, more than one has been a member of the Communist Party, and all of them were at an earlier stage ardent friends and admirers of the Soviet Revolution. If, however, it is desired that the testimony of such a valiant friend of Stalin and of today's Russia as Mr. Winston Churchill should be quoted, I have great pleasure in reproducing the following remarks of the British Prime Minister made in the House of Commons on May 24, 1944 :</p>
+<p>“Profound changes have taken place in Soviet Russia. The Trotskyist form of Communism has been completely wiped out . . . The religious side of Russian life has had a wonderful rebirth. The discipline and military etiquette of the Russian army are insuperable. There is a new National <span class="pg">[p. 11]</span> Anthem, the music of which Marshal Stalin sent to me, which I liked the B.B.C. to play on frequent occasions . . . The Comintern has been abolished . . . These are marked departures from conceptions which were held some years ago (Tory Cheers).”</p>
+<p>The Professor was good enough to go on to suggest that “Lucien Laurat would have been a better guide for our author than Mr. Eastman.” I turned to Laurat’s book Marxism and Democracy with every desire to learn and, if necessary, to stand corrected, because undoubtedly Lucien Laurat is one of the finest commentators of Marx and scholars of Marxism. But lo and behold, what should I find but that Laurat completely endorses the argument of the first part of my book and contradicts all that the reviewer had to say! Here is just one passage from that book describing Russia in language which I had hesitated to use :</p>
+<p>“Although the Russian economic system has often been called ‘State capitalism,’ and although the term ‘State slavery’ employed by Karl Kautsky seems to us a more appropriate designation, in our opinion the present Russian regime is not slavery, or serfdom, or capitalism, but something of all three. It is related to slavery and serfdom by the absolute and total suppression of all freedom for the workers, who are tied by domestic passports to their places of residence, and often to their places of employment, like the feudal serf to the glebe. It is related to capitalism by the preservation of a great number of economic categories and legal forms. However, it is fundamentally different from any of these systems.”</p>
+<p><span class="pg">[p. 12]</span> An attempt was made by the reviewer to correct me on three points of fact which are of considerable importance—the absence of political democracy, the absence of workers' control, and the rise of economic inequalities. It was alleged that it was unfair of me, for instance, to omit references to the hundred thousand primary meetings in field and factory at which the Constitution of 1936 was discussed before its final adoption. To the erudite Professor, this is evidence of democracy. The fact that no political party except the one in power was and is allowed even to exist, that at not a single one of the hundred thousand meetings was the Constitution rejected or amended, and that these meetings were nothing but propaganda meetings to boost Stalin's regime are, according to the learned Professor, irrelevant details. If I may respectfully urge it, what is important is not the number of meetings but the fact that they should be free meetings, where free discussion and even that (to Communists) odious phenomenon—opposition—should be possible.</p>
+<p>The absence of workers' control the Professor sought to controvert by stating that the directors of industrial trusts are "at the mercy of production Committees in the factories." Here, I am afraid the Professor is badly out of date. It is true that factory committees did exist many years ago, but they caused too much 'trouble' and so they were liquidated along with the 'Red' Directors. Today, Russian Trade Unions have become the counterpart of Dr. Ley's Labour Front in Germany—and their only purpose is to act as instruments for speeding up production.</p>
+<p>The third objection was to my emphasis on the restoration of economic inequalities in Russia and the reference to the Stakhanovist movement. <span class="pg">[p. 13]</span> Evading a distasteful development with the plea that his 4,500-word review provided no space for a discussion of Stakhanovism, the reviewer went on to present figures of Russian incomes which he thought refuted my thesis. Actually, he only provided further evidence for my proposition. Quoting Mr. Bergson in the Journal of Economy of April, 1942, he pointed out that in 1934 the spread in wage-earning was practically as wide as that in other countries. That is precisely what I had said.</p>
+<p>In this connection, it would perhaps not be out of place to mention that more than one correspondent has enquired how my statement that State Bonds carried 7 per cent interest was to be reconciled with a reference in Wendell Willkie's One World to non-interest-bearing bonds. I can only guess that Mr. Willkie was referring to special War bonds carrying no interest. Of the fact that at the outbreak of the war normal investment in State Bonds carried 7 per cent there can be no question. Among the many authorities for that fact are none other than those pillars of Soviet Communism, Sidney and Beatrice Webb, who also go on to refer to “twenty-five million depositors” in the State Savings Banks who are “encouraged by interest at the rate of eight per cent and by total exemption of deposits from income tax, inheritance tax, and various stamp duties.”</p>
+<p>In consonance with the falsification of facts and the distortion of Marxist theories which have been proceeding in Russia for many years now, it has been claimed that the maxim : “ To each according to his need,” pertains to communism, while : “ To each according to his work,” is characteristic of socialism, and that judged by this test socialism has been established in Russia. This definition of socialism is of course a vulgarisation of the socialist <span class="pg">[p. 14]</span> ideal and an attempt to bring it in line with the prevailing realities. But even this modest claim can no longer be substantiated in Russia today. That earnings are not according to work is brought out very clearly in the following passages from Eric Strauss's Soviet Russia :</p>
+<p>“ Wages of 800, 1,000, 1,200 and more roubles a month are not unusual for Stakhanovists of repute, and the ‘heroes of labour ’ tell in interviews in the Soviet Press about motor cycles and cars, wireless sets and gramophones, private lessons in dancing or in foreign languages, and many other good things which they are now able to enjoy....</p>
+<p>"This wage system obviously contradicts the principle of Socialism as expressed by the slogan 'to each according to his work.' It may be said that the higher utility of this work justified the extra payment made by the State. But this strange principle of reversed marginal utility not only resembles suspiciously many justifications of interest and profit, it has in any case nothing in common with the Socialist principle of payment according to the amount of actual work done. In view of the fact that piecework on the basis of a differentiated wage scale already takes into account differences in quantity and quality of labour, the premium paid to the group leader is paid without any equivalent—unless the social utility of his work consists in speeding-up the work of his subordinates and lowering the piece rates paid to the average worker. To claim the achievement of Socialism as perfected under the pretext of general piecework under extremely onerous conditions is nothing but adding insult <span class="pg">[p. 15]</span> to Socialism to the injury done to the working class . . .</p>
+<p>“If a minority of skilled workers makes a contribution to the common fund of goods which is 10 or 20 or even 100 per cent greater than would follow from their number, while every member of this minority receives consumption goods to the tune of 300, 500 or even 1,000 per cent more than a common workman, the remaining quantity of consumption goods does not suffice to reward the majority of workers ‘ according to the work done ’ by them . . .”</p>
+<p>“The unskilled strata of the working class receive certainly somewhat less, and the upper strata of Stakhanovists and industrial managers—not to mention the members of the ruling bureaucracy—receive appreciably more than warranted by their work.”</p>
+<p>The result of this process was stated by Leon Trotsky in 1939, on the basis of the collation and analysis of statistics published in the Soviet press, to be that “the upper 11% or 12% of the Soviet population now received approximately 50% of the national income. This differentiation is sharper than in the United States, where the upper 10% of the population receives approximately 35% of the national income.”</p>
+<p>The political reflection of this new social stratification is to be found in the composition of the formal organs, for what little they are worth, of the Russian State. “Among the 2,016 delegates of the last Congress of Soviets (December 1936), 937 (or 47 per cent) were,” according to Eric Strauss, “members of the Central Executive Committee, directors of enterprises and specialists, responsible officials <span class="pg">[p. 16]</span> of the Party and the Trade Unions, and higher army officers ; 589 delegates (or 29 per cent) were presidents of local soviets, of collective and state farms, etc.; 430 delegates (or 21 per cent) were Stakhanovists ; and 60 (or 3 per cent) were simple workers and peasants.”</p>
+<p>I do not think there is need to labour this point any further. Wide and growing economic and social inequalities are there to see for any one who does not choose to blink. The kind of socialism that exists in Russia today can, to quote Lucien Laurat (to whom the Professor so kindly referred me) “attract only those who prefer blind obedience to reason; only slothful minds prepared to believe every lie told to them about the so-called Soviet paradise; only people who are not astonished to hear elections called free in which there are only official candidates and which take place under a regime of bloody terror; only people who display no surprise at hearing a regime called ‘a model democracy’ in which there is only one party in power and all the others are in prison; only people who are not shocked to hear ‘the building up of socialism’ claimed for a country in which socialist thought has been proscribed, persecuted and stifled for twenty years in the ‘polit-isolators,’ and who are, finally, not embarrassed to hear confessions extorted from political prisoners which are manifestly in contradiction to the known and verifiable facts.”</p>
+<p>It is a sad case—that of our Professor and of those many intellectuals (fortunately their number is now shrinking) of whom he is so representative in India today. They had placed their hopes on the October Revolution and its fruits. They have seen that revolution recede in one after another of its manifold aspects. Not finding a ready-made alternative Mecca to which to turn, they <span class="pg">[p. 17]</span> seek ostrich-like to avoid facing developments so that they can cling to their old benefits. “Nothing has aided the persistence of falsehood, and the evils resulting from it,” writes Liddell Hart, “more than the unwillingness of good people to admit the truth when it was disturbing to their comfortable assurance.” Not that the minds of these good people are free from doubt. But they would rather escape the torment of facing those doubts, and of making them ‘a stepping stone to higher things.’ Precisely because they are aware of these doubts and questionings within themselves, they turn with ferocity on any one else who dares to give open expression to their own secretly rebellious thoughts. The Professor was kind enough to attempt a psychological explanation of my turning away from the Russian model and he will not therefore mind if I hazard this explanation and suggest that he comes forth to share with us all the perplexities which I am sure lurk within and which he managed so effectively to smother, but not to conceal, when he wrote his review of this book. Many others before him have hugged their old beliefs till they have awakened to find them stiff corpses in their arms. If he would make any contribution, and he is so well equipped to make it, it is time he too came to that belated recognition. There is no sin in error except in the half-conscious persistence therein.</p>
+<p>Many things have happened since the First Edition of this book was published that have reinforced the conclusions at which it arrived, and references to some of them are incorporated in the text of this edition. The Russian recognition of Badoglio, the butcher of Abyssinia, when even England and America were holding back from such a step ; the extortion from Finland and Rumania of indemnities, which were condemned <span class="pg">[p. 18]</span> as imperialist by Lenin ; the breach of pledges for the independence and integrity of Poland given as late as 1941, and the cynical farce of the Polish ‘ Patriots ’ led by Wanda Wasilevska, the wife of Korneitchuk of the Soviet Foreign Office and Commissar of the “ Autonomous ” Ukrainian Republic ; the reported capture in Normandy by the Anglo-American forces of an entire Russian regiment led by Russian officers fighting on the German side ; the Moscow boost for the British Empire as “ a very useful organisation not only to its members but also to the other United Nations ”; the rejection of equality of big and small nations and the assertion of the right of ‘ Big Three ’ to dominate the world ; the Decree of July 14, 1944, for the placing of motherhood in the forefront of national life and the fostering of bigger families by a graded system of tax and premium ; the attack on Vice-President Wallace by the Daily Worker, the American Communist organ, in June 1944, for daring to criticise Wall Street on the ground that “ Vice-President Wallace unfortunately doesn’t help the struggle against the anti-Tehran elements by his general attack on Wall Street. The widest kind of national unity is necessary to defeat them, including clear-headed business from Wall Street ;”—all these and many other significant pointers have underlined and spread wider the painful lesson which it is the lot of socialists of our generation to learn. It is of the utmost importance, if the ideal of socialism is to continue to move the minds and animate the deeds of men, that a clear dissociation should take place between that ideal and the State which in 1939 was expelled by a unanimous vote of the League of Nations Assembly for unprovoked aggression against Finland ; a State which in 1941, alone among the nations of the world, <span class="pg">[p. 19]</span> refused even formally to adhere to International Red Cross Conventions for the humane treatment of prisoners of war.</p>
+<p>In a thoughtful and constructive review of this book in the Social Service Quarterly for April, 1944, it was suggested that this book is not really a reconsideration of Socialism, nor even of Marxism, but only of Stalinism. In the sense that it is Stalinism that is categorically rejected there is point in the remark. But reconsideration does not necessarily mean rejection. The developments of Stalinism claim their roots in Leninism and, through that, in Marxism itself. One cannot deal with the fruit without an examination of the entire tree and even of the soil. Hence a reconsideration of socialism is what is needed. Such a reconsideration by socialists will lead, for each according to his own light, to the rejection of certain parts of the theory and its manifestations, to the questioning of some others, and to the even firmer belief and re-affirmation in what remains.</p>
+<p>1st October, 1944</p>
+<p>M. R. M.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>M. R. Masani, Socialism Reconsidered, 2nd ed. (Bombay: Padma Publications, October 1944), pp. 7–19. The short preface to the first edition is omitted.</p>
+<p>Online text: <a href="https://archive.org/details/dli.ernet.237581/page/n7">https://archive.org/details/dli.ernet.237581/page/n7</a></p>
+<p>Archive note: Essay, not a speech. M. R. Masani, Socialism Reconsidered (Bombay: Padma Publications, 2nd ed. October 1944), Preface to the Second Edition, pp. 7-19; dated 1 October 1944. A reply to Communist and fellow-traveller critics of the first edition (March 1944). Leaf 18 is ordinary text in both the djvu and the page image, so no skip.</p></div>
+</div>
+</body>
+</html>

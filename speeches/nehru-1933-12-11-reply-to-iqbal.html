@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawaharlal Nehru: "A Reply to Sir Mohammad Iqbal"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;A Reply to Sir Mohammad Iqbal&quot;</h1>
+<p class="speech-meta"><strong>Jawaharlal Nehru</strong> · 11 December 1933 · Allahabad</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;A Reply to Sir Mohammad Iqbal&#x27;, press statement</div><div><strong>Audience:</strong> The press (a statement, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 2,594 words, about 11 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>In late 1933 Jawaharlal Nehru wrote a series of newspaper articles on communalism. He argued that the communal question was a creation of the upper classes and that the Muslim political bodies spoke for no one but themselves. Sir Mohammad Iqbal, the poet-philosopher whose 1930 address to the Muslim League had proposed a Muslim state in the north-west (it is also in this library), answered with a press statement. In it he put a "straight question" to Nehru: would the majority community concede the safeguards Muslims needed, or leave the matter to the British? Nehru replied with this statement, dated 11 December 1933. It is a press statement, not a speech.</p>
+<p>Nehru insists that "not only do I believe that a unitary Indian nation is possible but that, fundamentally and culturally, it exists in spite of numerous superficial differences." He argues that "The present communal problem is entirely a political creation of upper-class groups in the various communities and has no relation to racial or cultural matters or the basic needs of the masses." His answer to Iqbal's question is a constituent assembly: "A Constituent Assembly elected on an adult or near-adult franchise alone can decide the political issue." He offers separate electorates in it for minorities that want them, and promises to accept what its Muslim members demand. But he rejects any religious division of India.</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 60]</span> I have read with care the frank and courteous statement that Sir Mohammad Iqbal has issued to the press and I gladly accept his invitation to answer the question he has formulated. But first I must refer to the incident during the communal negotiations at the second Round Table Conference, which has been mentioned by Sir Mohammad. I am obviously not in a position to say anything about it from my own knowledge, and others, who are in a better position, will no doubt clear up any misapprehensions that may have arisen. But when Sir Mohammad refers to any condition laid down by Gandhiji as an 'inhuman condition', I am quite sure that he is under a serious misapprehension.</p>
+<p>Sir Mohammad says that Gandhiji was prepared to accept, in his personal capacity, the demands of the Muslim delegates to the Round Table Conference, but that he could not guarantee the acceptance of his position by the Congress. It seems to me obvious that Gandhiji, or any one else in his position, could not possibly adopt any other course. No representative of a democratic organization could do so. Even the Working Committee of the Congress could not go behind the Congress resolutions; it could only refer the question to the All-India Congress Committee or the open session of the Congress which is the final authority. Quite apart from the general Congress attitude, it was well known that a considerable section of <span class="pg">[p. 61]</span> Muslim opinion in India, the Muslim Nationalists, were opposed to some of those demands. Gandhiji had repeatedly stated in India, prior to his departure for England, that he would accept the decision of Dr. M. A. Ansari as representing the Muslim Nationalists, on this question. He had further stated that if the two Muslim groups could arrive at an agreement, he would unhesitatingly accept it. In order to facilitate this he had pressed hard for the inclusion of Dr. Ansari's name among the delegates to the Round Table Conference, but this repeated request was apparently strenuously opposed by the Muslim delegates in London. In spite of all this and as a last effort to bring about some agreement, Gandhiji went to the length of committing himself personally. It is obvious that although he could not bind the Congress, his comment and pleadings would have gone a tremendous way in converting the Congress.</p>
+<p>The second condition said to have been laid down by Gandhiji was that Muslim delegates should not support the special claims of the depressed classes. This, according to Sir Mohammad, was “an inhuman condition” as it meant that the depressed classes should continue to be kept down. This is an extraordinary conclusion. If there is one thing more than another that Gandhiji has stood for and stands for to-day, it is that the depressed classes should cease to be depressed or exploited or handicapped in any way, and that they should be on a perfect level with every other group. It was because he felt that if they were placed in a separate compartment by themselves they would have a stigma attached to them and fusion with others would become more difficult, that he opposed their separation. It is well-known that a <span class="pg">[p. 62]</span> certain alliance was formed in London during the second Round Table Conference between the delegates of some minority groups and British Conservatives. Gandhiji evidently wanted the Muslim delegates not to support the demand for the separation of the depressed classes into a distinct group. So far as I know, he has never opposed the grant of special and additional representation to the depressed classes. Indeed, he holds that every facility must be given them to advance and catch up to the more advanced groups and communities. Subsequent events have demonstrated how far he is prepared to go in this direction. Socialist as I am, I fail to see any flaw or any impropriety in this reasoning.</p>
+<p>Sir Mohammad evidently suspects a sinister design on Gandhiji's part. He hints that what Gandhiji is after is not so much the raising of the depressed classes, but the prevention of their fusion with the other communities, especially, I suppose, the Muslims in India. It is difficult to meet a suspicion and a prejudice which has little reason behind it, but any one who knows Gandhiji at all will consider the suggestion that he is working for the Harijan movement with a political motive as absurd. Personally, I am not interested in religious labels and I am sure that they will soon disappear, or, at any rate, cease to have any political significance. Sir Mohammad evidently still attaches political significance to them. Gandhiji, to my knowledge, does not, but he is certainly a man of religion and he believes in the essentials of the Hindu faith. He wants to restore these essentials and to sweep away the accretions. It is because he feels that untouchability is a degrading and a disgusting accretion that he fights against it. It is quite wrong to say that he does not want a fusion <span class="pg">[p. 63]</span> between the depressed classes and caste Hindus. Indeed he wants this as well as a fusion between both of these and the other communities in India. But, like Sir Mohammad, he is enamoured of certain basic essential of culture and he wants to preserve these and at the same time to give perfect freedom to other cultural forms.</p>
+<p>Personally my outlook is different. It is not religious and I find it difficult to think of groups in terms of religion. Sir Mohammad evidently does so to the exclusion of other and more modern ways of thinking, and I am afraid he confuses religion with race and culture. Perhaps it is because of this that he advances a biological argument which I entirely fail to understand. Having condemned Gandhiji for a fancied attempt to prevent the fusion of the depressed classes with other communities he says that in his opinion a fusion of the different communities in India is a chimerical notion and the sooner the idea is given up the better.</p>
+<p>The question whether biological fusion of different groups in India is going to take place or not raises a host of issues and is chiefly interesting from the point of view of eugenics and culture. It is not, directly, a political question and present interest in it can only be academic. I think that it is inevitable that we should go towards such fusion but I cannot say when it is likely to become an accomplished fact.</p>
+<p>But what has this got to do with the communal issue? Are Muslims or Sikhs or Indian Christians, as religious groups, biologically different from the Hindus as a group? Are we different species of animals or of homo sapiens? There are racial and cultural differences in India but these <span class="pg">[p. 64]</span> differences have nothing to do with the religious divisions; they cut athwart the lines of religious cleavage. If a person is converted to another religion he does not change his biological make-up or his racial characteristics or to any great extent his cultural back-ground. Cultural types are national not religious and modern conditions are helping in the development of an international type. Even in past times various cultures influenced each other and produced mixed types but, as a rule, the national type dominated. This has certainly been so in countries with an ancient culture, like India, Persia and China.</p>
+<p>What is Muslim culture? Is it the Semitic Arabian culture or the Aryan Persian culture or is it a mixture of the two? Arabian culture, after a period of glory, receded into the background, but even in the height of its triumph it was powerfully influenced by Persian culture. It had little, if any, influence on India. Persian culture is essentially pre-Islamic and one of the remarkable lessons of history is the persistence, for thousands of years, of this old Iranian culture and tradition. Even today Persia is looking back to the pre-Islamic times for her cultural inspiration. This Persian culture certainly influenced India and was influenced by her. But even so the Indian culture dominated in India and stamped its impress on the outsiders who came to her.</p>
+<p>Today in India there is absolutely no cultural or racial difference between the Muslim and Hindu masses. Even the handful of upper class Muslims in north India, who perhaps think themselves apart from the rest of the country, bear the impress of India on them all over the place and are only superficially Persianized. Would any of them be more at home or more in harmony with their surroundings <span class="pg">[p. 65]</span> in Persia or Arabia or Turkey or any other Islamic country?</p>
+<p>As a matter of fact this question has only a historical and academic interest because modern industrial conditions and rapid transport and frequent intercourse between different peoples are resulting in developing an international type of culture and obliterating to a large extent national cultural boundaries. Does Sir Mohammad Iqbal approve of what is taking place in Central Asia, Turkey, Egypt, and Persia? Or does he think that Indian Muslims will remain immune from the forces that are shaping and reforming Islamic countries? Whether he approves or not, world forces will continue to act breaking up the old and out of date and building up the new. Personally I welcome this process, though I have no desire to see the world standardized and made after a single pattern. I should like to have the different world cultures keep their rich inheritance and at the same time to adapt themselves to changing conditions.</p>
+<p>So far as India is concerned, not only do I believe that a unitary Indian nation is possible but that, fundamentally and culturally, it exists in spite of numerous superficial differences. The present communal problem is entirely a political creation of upper-class groups in the various communities and has no relation to racial or cultural matters or the basic needs of the masses.</p>
+<p>I now come to Sir Mohammad's 'straight question' to me. There is a great difference in his outlook and mine and I am unable to think in terms of religious majorities or minorities. It is possible, therefore, that we may talk round each other and use words and phrases in different <span class="pg">[p. 66]</span> senses. But for the present I shall try to use these words in Sir Mohammad's sense.</p>
+<p>I am not prepared to leave the decision of any vital matter affecting India or the Indian people to any outside authority, and certainly not to the Imperialist power that governs us and exploits our weaknesses and differences. I agree that the majority community should 'concede the minimum safeguards necessary for the protection of a minority.' But what are these minimum safeguards and who is to decide them? The minority itself? As a general rule I am prepared to agree to this also, though there may be exceptions when vital matters affecting the nation are concerned. We may, for the present, rule out these exceptions. How then are we to know what the minority community really desires? Are we to take the opinion of any small group claiming to represent the community? And when there are several such groups, what are we to do? Neither the Muslim League nor the Muslim Conference can claim to be democratic or representative bodies and a considerable number of Muslims are opposed to their demands. The Council of the Muslim League—apparently the Council exists in the air and there is no other body behind it—is a more or less permanent, self-electing or nominating body. The Muslim Conference is dominated by its very constitution by the Muslim members of the official legislatures. How can these bodies claim to represent the Muslims generally in India and, more specially, the Muslim masses? They may occasionally give expression to a prevailing sentiment. Then again are we to consider a group of persons, chosen by the ruling Imperialist power for the Round Table Conference, as representatives <span class="pg">[p. 67]</span> of the Muslim masses? They may be estimable persons, but they certainly have no representative capacity.</p>
+<p>The only way to find out the wishes of the Muslims of India is to consult them and the democratic method is for them to elect representative for the purpose of as wide a franchise as possible, preferably adult franchise. I am perfectly prepared to abide by any decision of theirs so arrived at.</p>
+<p>I should like Sir Mohammad Iqbal to consider his fourteen points which are supposed to provide the minimum safeguards necessary for the protection of the Muslims, and to spot anything in them which benefits or raises up the Muslim masses. As he knows, my chief interest in politics is the raising of the masses and the removal of barriers of class and wealth and the equalization of society. This point of view was apparently never considered by the framers and advocates of the fourteen points. It is natural that I should not feel enthusiastic about them. But if the Muslims declare for them in the democratic way I have suggested, I shall accept these demands and I am quite sure that they would be accepted by the nation as a whole. I imagine, however, that when the Muslim masses are consulted they will lay far more stress on economic demands which affect them as well as the non-Muslim masses intimately rather than on such demands as interest a handful of upper class people.</p>
+<p>The political problem of India can only be decided by the Indian people themselves without the intervention of an outside authority, so also the communal problem. And the only way to proceed in regard to both of these is to go <span class="pg">[p. 68]</span> to the people themselves. A Constituent Assembly elected on an adult or near-adult franchise alone can decide the political issue. I am personally prepared to have elections for this Assembly by separate electorates for those minorities who so desire it. The representatives of these minorities, so elected, will have every right to speak for them and no one can say that the majority community has influenced their election. Let these people consider the communal question and, as I have stated above, I shall accept the demand put forward by the Muslim representatives.</p>
+<p>Sir Muhammad will observe that I am placing before him a democratic and feasible solution of the problem and I am even keeping the Congress out of it. I am sure the Congress will gladly efface itself if this solution is put forward.</p>
+<p>My answer to Sir Mohammad Iqbal's question therefore is this. I do not think that these are the only two alternatives he mentions. There are many other avenues. In any event he ought to know full well, that if any community, majority or minority, seeks an alliance with imperialism, it will have to face the unrelenting and continuous opposition and hostility of Indian nationalism. As a matter of fact, no community or minority, can do so. Only a few leaders and upper class people may do so, for every community as a whole suffers from it. The masses can never compromise with imperialism for their only hope lies in freedom from its shackles.</p>
+<p>Nor do I believe in the religious distribution of India. Such divisions are most undesirable and cannot take place in the modern world. But I am not against redistribution <span class="pg">[p. 69]</span> or reshaping of different provinces which will give different cultural groups the fullest opportunity for self-development.</p>
+<p>Allahabad</p>
+<p>December 11, 1933</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Jawaharlal Nehru, Recent Essays and Writings on the Future of India, Communalism and Other Subjects (Allahabad: Kitabistan, 1934), pp. 60–69.</p>
+<p>Online text: <a href="https://archive.org/details/recentessaysandw032593mbp/page/n73">https://archive.org/details/recentessaysandw032593mbp/page/n73</a></p>
+<p>Archive note: Essay, not a speech. Jawaharlal Nehru, Recent Essays and Writings on the Future of India, Communalism and Other Subjects (Allahabad: Kitabistan, 1934; second impression May 1934), pp. 60-69. Dated Allahabad, 11 Dec 1933.</p></div>
+</div>
+</body>
+</html>

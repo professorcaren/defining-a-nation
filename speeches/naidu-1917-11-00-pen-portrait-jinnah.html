@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarojini Naidu: "A Pen Portrait" of Mohomed Ali Jinnah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;A Pen Portrait&quot; of Mohomed Ali Jinnah</h1>
+<p class="speech-meta"><strong>Sarojini Naidu</strong> · November 1917 · Hyderabad, Deccan</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;A Pen Portrait&#x27; of M. A. Jinnah, biographical sketch</div><div><strong>Audience:</strong> Readers of a collection of Jinnah&#x27;s speeches (an essay, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 3,347 words, about 15 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Sarojini Naidu, the poet and Congress leader, wrote this portrait of Muhammad Ali Jinnah in November 1917. It introduced a collection of his speeches published in Madras early in 1918. Jinnah was then a Bombay lawyer who belonged to both the Congress and the Muslim League. He had helped bring the two together in the Lucknow Pact of 1916, under which the Congress accepted separate electorates and the League joined the demand for self-government, and in 1917 he joined Annie Besant's Home Rule League. Naidu was his friend and admirer. It is an essay, not a speech. The book spells his name "Mohomed."</p>
+<p>The essay opens and closes with Jinnah's confession that "It is my ambition to become the Muslim Gokhale." Naidu quotes Gokhale's praise of him as "an Ambassador of the Hindu-Muslim Unity" and traces his career: his entry into the League in 1913 on the promise that loyalty to it would never mean disloyalty to the national cause, and his part in the sessions that led to Lucknow. She describes a man at his best "not on a public platform, but at a round table conference," and "essentially a solitary man with a large political following but few intimate friendships." Her last sentence imagines that he "may in some glorious and terrible crisis of our national struggle pass into immortality as the Mazzini of the Indian Liberation."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 1]</span> "It is my ambition to become the Muslim Gokhale," confessed Mohomed Ali Jinnah in a priceless moment of self-revelation.</p>
+<p>In the light of this avowal it is interesting to recall Gokhale's own prediction about his gifted comrade in the service of India.</p>
+<p>"He has true stuff in him," he said, "and that freedom from all sectarian prejudice which will make him the best ambassador of the Hindu-Muslim Unity."</p>
+<p>These words, generous as they sound, are no more than a just tribute to a distinguished patriot who has so swiftly and so securely won his acknowledged place in the forefront of the national movement.</p>
+<p>Few figures of the Indian Renaissance are so striking or so significant; to a student of <span class="pg">[p. 2]</span> psychology none more singularly attractive by the paradox of a rare and complex temperament, of strange limitations and subtle possibilities, that hides the secret of its own greatness like a pearl within a shell.</p>
+<p>Never was there a nature whose outer qualities provided so complete an antithesis of its inner worth. Tall and stately, but thin to the point of emaciation, languid and luxurious of habit, Mohomed Ali Jinnah's attenuated form is the deceptive sheathe of a spirit of exceptional vitality and endurance. Somewhat formal and fastidious, and a little aloof and imperious of manner, the calm hauteur of his accustomed reserve but masks for those who know him, a naive and eager humanity, an intuition quick and tender as a woman's, a humour gay and winning as a child's—Pre-eminently rational and practical, discreet and dispassionate in his estimate and acceptance of life, the obvious sanity and serenity of his worldly wisdom effectually disguise a shy and splendid idealism which is of the very essence of the man.</p>
+<p><span class="pg">[p. 3]</span> II</p>
+<p>Hindu by race and Muslim by religion—it may not be wholly idle to fancy something a little symbolic in the Khoja parentage of a child destined to become “an Ambassador of the Hindu-Muslim Unity.”</p>
+<p>Mohomed Ali Jinnah was born on the 25th December 1876—(there is no reliable record of the actual year)—the eldest son of a rich merchant of Karachi. Reared in careless affluence and adored by his family, he might so easily have grown into an indolent and ignorant boyhood. But he fortunately loved his studies and received his early education at the Madrassah and afterwards at the Mission School of his native city. In 1892 he was sent to England—“a tall thin boy in a funny long yellow coat,”—is an amusing description of him. There he joined Lincoln’s Inn, studied law and was in due course called to the bar. It seems a pity that so fine an intelligence should have denied itself the hall-mark of a university training. But he had, instead, what from an Indian standpoint was the golden privilege of close association with the great <span class="pg">[p. 4]</span> Dadabhai Naoroji, then President of the London Indian Society, and the guardian angel of young India in England. Who can exaggerate the value of such a noble inspiration in moulding the soul of a disciple so reverent and responsive?</p>
+<p>On his return to India in 1896 Mohomed Ali Jinnah found his family involved in heavy financial ruin; and this favourite of fortune, suddenly faced with unexpected poverty, set out to conquer the world equipped with nothing but the charmed missiles of his youth, his courage and his ambition.</p>
+<p>After three years of severe hardship, his brave and buoyant patience bore fruit. Through the kind offices of an old friend he was granted permission to read in the Chambers of Mr. Macpherson, then acting Advocate-General of Bombay,—a courteous concession, the first of its kind ever extended to an Indian which its recipient still remembers as a beacon of hope in the dark distress of his early struggles.</p>
+<p>Occasional briefs now began to dribble in, and the obscure young lawyer needing only an <span class="pg">[p. 5]</span> opportunity soon proved his real mettle and started to lay the foundation of his notable legal success.</p>
+<p>In 1906 when I met him in Calcutta at the historic Sessions of the National Congress where Dadabhai Naoroji first enunciated the glorious ideal of Self-Government for India, Mohomed Ali Jinnah, for the moment acting as private secretary to his old master, was already accounted a rising lawyer and a coming politician. For, true to his early teaching, and fired no doubt by the virile patriotism of men like the late Mr. Badruddin Tyabji and the lion-hearted Pherozeshah Mehta he had long since joined the ranks of the National Congress and regularly attended its annual gatherings. Incidentally it is interesting to note that his maiden speech at this National Assembly was made in connection with the Wakf-i-ala-aulad—a measure that was later to bring his name into such prominence. Interesting too, and suggestive in view of succeeding events, is it to find this future leader of the Mussalmans present as a sort of “cross-bencher” <span class="pg">[p. 6]</span> at the Conference of Hindu and Muslim leaders convened at Allahabad in 1910, under Sir William Wedderburn's benign direction to consider a somewhat premature and artificial entente cordiale between the two communities still so sharply divided by a gulf of mutual dislike and distrust.</p>
+<p>In the autumn of 1910 he was elected by the Mussalmans of the Bombay Presidency as their representative to the Supreme Legislative Council, and though the question, naturally arises as to how far it was consistent with the avowed principles of so staunch a nationalist to represent a purely sectarian interest—the fact nevertheless remains that Mohomed Ali Jinnah invariably lent his willing support to every liberal measure involving the larger national issues like Gokhale's Elementary Education Bill, for instance, and Mr. Basu's Special Marriage Bill, to which conservative India as a whole was so violently opposed. His only original work, however, during this period was in connection with the Wakf Validating Bill, to introduce which he was specially nominated for an extra term in <span class="pg">[p. 7]</span> 1913 by Lord Hardinge, then Viceroy. His admirable skill and tact in piloting through such an intricate and controversial measure—the first instance of a Bill passing into legislation on the motion of a private member—won him not only the appreciation of his colleagues but also his first meed of general recognition from his co-religionists all over India, who while still regarding him a little outside the orthodox pale of Islam were so soon to seek his advice and guidance in their political affairs.</p>
+<p>On his return from the Imperial Council in March, he gave his evidence before the Public Services Commission then sitting in Bombay—a refreshing page in a vast mass of weary details.</p>
+<p>* * * * *</p>
+<p>III</p>
+<p>Meanwhile the Time-spirit, so busy altering world-values and world-visions, had been secretly at work, and the heart of Muslim India, always passionately faithful to its own spiritual traditions, became suddenly and vividly <span class="pg">[p. 8]</span> aware also of its own political inheritance and its own responsibility in shaping the national future.</p>
+<p>The All-India Muslim League, started a few years previously at Dacca to voice current Mussalman opinion and aspiration, was found to be too narrow and too nebulous in its scope and aims for this intense and growing national consciousness. And about the middle of 1912 a Conference of Muslim Leaders met at Calcutta to consider the remodelling of its constitution on more progressive and patriotic lines. It was decided to send Mr. Syed Wazir Hassan, the indefatigable Honorary Secretary of the League, on an extensive tour to ascertain the views of Muslims in every province regarding so momentous a change of policy and perspective. And in the following December a special council meeting of the association was called, presided over by His Highness the Agha Khan to discuss the draft of an entirely new constitution, which was ultimately and enthusiastically adopted at the memorable sessions of the All-India Muslim League held at Lucknow <span class="pg">[p. 9]</span> on the 22nd March 1913—a date that inaugurates a new era in the political history of Muslim India.</p>
+<p>Mohomed Ali Jinnah, pledged to the greater national welfare, had with characteristic independence and honesty kept apart from a movement till then so frankly and exclusively sectarian in its purpose. But by an act of courtesy which was in itself a graceful acknowledgment of his merits he was invited to attend the Calcutta Conference, and also the later Council meeting, where being specially requested to speak, he gave his informal and invaluable support to Clause D of the new Constitution which materially embodies the Congress ideal of</p>
+<p>"Attainment under the ægis of the British Crown of a system of Self-Government suitable to India through constitutional means, by bringing about, amongst others, a steady reform of the existing system of administration by promoting national unity, by fostering public spirit among the people of India, and by co-operating with other communities for the said purpose."</p>
+<p>* * * * *</p>
+<p><span class="pg">[p. 10]</span> IV</p>
+<p>The year 1913 stands out as a distinct landmark in my friend's inner life. Not only did a wider measure of public recognition wake in him a deeper sense of personal responsibility, but one or two new and sympathetic influences brought an intimate touch of warmth and colour into his somewhat lonely and impersonal existence.</p>
+<p>About the middle of April, he proceeded to Europe in search of a long idle holiday with Gokhale for fellow traveller, and the Arabian stars and Egyptian waters keep record, doubtless of their mutual hopes and dreams for the country of their devoted service.</p>
+<p>Once in England, however, there was no rest for this tireless worker. He was at once drawn into the tangled web of the Indian student-world whose cause he espoused with such assiduous zeal and understanding. Within a few weeks of his arrival he founded the London Indian Association which forms so excellent a focus for the otherwise scattered energies and activities of young India in a foreign land; and it was mainly at his instance <span class="pg">[p. 11]</span> that a committee was appointed by the India Office to inquire into the legitimate grievances of Indian students suffering so keenly from an unnecessary and unaccountable set of new rules and restrictions hindering their admission into educational centres hitherto so hospitable and so easy of access.</p>
+<p>On the eve of his departure for India in the autumn of 1913 at the express desire of his friends Messrs Mohomed Ali and Syed Wazir Hassan then in England Mohomed Ali Jinnah formally enrolled himself as a member of the All-India Muslim League to whose expanded outlook he had already contributed so signally by his example. Typical of his exquisite if somewhat exigent sense of honour is it to find that even so simple an incident partook of something like a sacrament. His two sponsors were required to make a solemn preliminary covenant that loyalty to the Muslim League and the Muslim interest would in no way and at no time imply even the shadow of disloyalty to the larger national cause to which his life was dedicated.</p>
+<p><span class="pg">[p. 12]</span> In May 1914 he returned to England as a member of the All-India Congress Deputation concerning the proposed reform of the India Council. He had already in this connection moved resolutions both at the Karachi sessions of the Congress a few months earlier and at the Agra sessions of the Muslim League.</p>
+<p>In a country where the personal element forms so integral a part of public success, it was no small compliment to Mohomed Ali Jinnah's social as well as mental qualities that he was chosen to be the spokesman of articulate India before the representatives of the British Parliament and the British public. The leading English journals published numerous interviews and his concise and lucid statement of the Indian case which appeared in the London "Times" attracted widespread attention and comment.</p>
+<p>* * * * *</p>
+<p>V.</p>
+<p>The tragic death of Gopal Krishna Gokhale in February 1915 brought Hindus and Mussalmans close together in a bond of common loss and sorrow. It was keenly felt that the time <span class="pg">[p. 13]</span> was now ripe for a more direct and definite rapprochement between the two great communities that had so recently exchanged such cordial expressions of goodwill and fellowship from afar.</p>
+<p>The Indian National Congress was to hold its sittings that year in Bombay and there could be no better centre of reconciliation than this cosmopolitan capital of India.</p>
+<p>Mohomed Ali Jinnah, supported at that time by all the leading local Mussalmans, sent an invitation to the All-India Muslim League to hold its next annual sessions in Bombay during the national week in December.</p>
+<p>The story of that invitation and its startling sequel is too well-known to be retold in all the details of its shameful and subterranean intrigue so carefully conceived, so cleverly manipulated. Sufficient to say that in an hour of such grave and bitter crisis, calculated to shatter the master-dream of Indian nationalism this dauntless soldier of unity rose to the heights of an invincible patriotism. With a proud and splendid indifference, to all personal suffering and sacrifice heedless alike of official <span class="pg">[p. 14]</span> dissuasion or disfavour, the aggressive malice and machinations of his opponents or even the temporary injustice of distant friends, Mohomed Ali Jinnah strove with an incomparable devotion and courage to create that supreme moment in our national history which witnessed the birth of a new India, redeemed and victorious in the love of her united children.</p>
+<p>Seldom has the pageant of Time unrolled a scene so touching, so thrilling, so magnificent with drama and destiny as was enacted on the afternoon of the 30th December 1915, when amidst the tears and applause of a gathered multitude the veteran heroes of the National Congress entered in a body to greet and bless their comrades of the Muslim League.</p>
+<p>The new year dawned cloudless for this valiant fighter of national battles, bringing him some of the highest awards of his professional and public career. He added much lustre to his forensic reputation by his masterly conduct of two sensational law-suits that aroused deep interest throughout the country, connected respectively with Mr. Horniman, the trusted <span class="pg">[p. 15]</span> friend, and Mr. Tilak, the beloved tribune of the Indian people.</p>
+<p>In the autumn he was once more elected by the Mussalmans of his province to the Viceregal Council where he commands unanimous respect and esteem by his personal dignity of character and his fearless and vigilant championship of Indian rights and demands.</p>
+<p>Towards the close of 1916 Mohomed Ali Jinnah was twice called upon to make a public declaration of his political creed, as President of the Bombay Provincial Conference held at Ahmedabad in October, and two months later, as President of the All-India Muslim League at Lucknow.</p>
+<p>Both his Gujarat address, in which he indicated a tentative system of administrative reforms partly based on Gokhale's scheme, since published, and in his Lucknow pronouncement where he so firmly and clearly defined the place and purpose of Muslim India in the national regeneration he proved the remarkable breadth and boldness of his statesmanship, his <span class="pg">[p. 16]</span> consummate grasp of both the transitional phases and the abiding principles of political evolution, and his incorruptible faith in the vision of a free and federated India claiming her honoured place and making her matchless contribution in the mighty republic of world-nations and civilisations.</p>
+<p>As a speaker Mohomed Ali Jinnah has the triple assets of a magnetic presence, an impressive delivery, and a voice which while lacking volume has an arresting timbre. But though occasionally he has attained a moment of wholly unconscious and stirring eloquence, he has the cogent force of a brilliant advocate rather than the glowing fervour of a brilliant orator. And it is not on a public platform, but at a round table conference that he finds full scope for his unusual powers of persuasion, luminous exposition, searching argument and impeccable judgment. It is an open secret that his was a large and responsible share in the recent discussions regarding the Muslim University as well as the anxious deliberations of the joint Congress League Committee that sat at Lucknow last year to <span class="pg">[p. 17]</span> formulate a scheme of Indian reforms elaborated from the Memorandum of the Nineteen.</p>
+<p>There was, it must be admitted, a growing surprise and reproach in the minds of his followers that so ardent an apostle of Indian Self-Government should hold aloof from the recently organised Home Rule movement which was rousing the country like a clarion call to freedom. It may have been partly due to a lingering sense of allegiance to a school of politics in which he had been trained, but whose timid and stationary doctrines he had long since outgrown or it may have been due to the habitual caution of a nature slow to commit itself to new and far-reaching responsibilities. However, the news of Mrs. Besant's internment last June, which evoked such unparalleled demonstrations throughout India, moved Mohomed Ali Jinnah to a prompt and militant chivalry in defence of the immutable laws of justice and liberty so rashly and so ruthlessly assailed. He immediately joined the Bombay Home Rule League not merely as a member, but undertook, as its president, the delicate task of guiding its fortunes and <span class="pg">[p. 18]</span> guarding its interests through that troubled period of its indignant activities.</p>
+<p>* * * * *</p>
+<p>VI.</p>
+<p>To attempt at this stage more than a brief general survey of Mohomed Ali Jinnah's work were both untimely and unfair to a man in the very prime of life and on the threshold of his public achievement.</p>
+<p>A casual pen might surely find it easier to describe his limitations than to define his virtues. His are none of the versatile talents that make so many of his contemporaries justly famed beyond the accepted circle of their daily labours. Not his the gracious gifts of mellow scholarship, or rich adventure or radiant conversation; not his the burning passion of philanthropy or religious reform. Indeed by his sequestered tastes and temperament Mohomed Ali Jinnah is essentially a solitary man with a large political following but few intimate friendships, and outside the twin spheres of law and politics he has few resources and few accomplishments.</p>
+<p><span class="pg">[p. 19]</span> But the true criterion of his greatness lies not in the range and variety of his knowledge and experience but in the faultless perception and flawless refinement of his subtle mind and spirit; not in a diversity of aims and the challenge of a towering personality but rather in a lofty singleness and sincerity of purpose and the lasting charm of a character animated by a brave conception of duty and an austere and lovely code of private honour and public integrity.</p>
+<p>The tale of his actual contribution is still comparatively slender. But it is not by the substance but by the rare significance of his patriotic service that he holds to-day his unique place in the front rank of our national leaders.</p>
+<p>Like others of our generation, he suffers from a system of education so widely separated from the familiar traditions and culture of our race, and lacking the magic of a common medium, he may never perhaps hope to establish between himself and his people that instinctive and inviolable kinship that makes the interned Mohomed Ali for instance, a <span class="pg">[p. 20]</span> living hero of the Mussalmans and Mahatma Gandhi a living idol of the masses.</p>
+<p>But it is none the less his personal triumph and a testimony to his authentic mission that he stands approved and confirmed by his countrymen not merely as an ambassador, but as an embodied symbol of the Hindu-Muslim Unity.</p>
+<p>Who can foretell the secrets of to-morrow? Who foresee the hidden forces that sometimes work to build our destiny higher than our dream? Perchance it is written in the book of the future that he whose fair ambition it is to become the Muslim Gokhale may in some glorious and terrible crisis of our national struggle pass into immortality as the Mazzini of the Indian Liberation.</p>
+<p>Hyderabad, Deccan,
+November 1917.</p>
+<p>Sarojini Naidu</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Mohomed Ali Jinnah: An Ambassador of Unity: His Speeches &amp; Writings, 1912–1917, with a biographical appreciation by Sarojini Naidu (Madras: Ganesh &amp; Co., [1918]), pp. 1–20.</p>
+<p>Online text: <a href="https://archive.org/details/mohomedalijinnah00saro/page/n14">https://archive.org/details/mohomedalijinnah00saro/page/n14</a></p>
+<p>Archive note: Essay, not a speech. Mohomed Ali Jinnah: An Ambassador of Unity. His Speeches &amp; Writings 1912-1917, with a biographical appreciation by Sarojini Naidu (Madras: Ganesh &amp; Co., [1918]; her note is dated 6 Feb 1918), pp. 1-20. Dated Hyderabad, Deccan, November 1917. Opens with the Gokhale quotation.</p></div>
+</div>
+</body>
+</html>

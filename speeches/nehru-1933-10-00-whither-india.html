@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawaharlal Nehru: "Whither India?"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>&quot;Whither India?&quot;</h1>
+<p class="speech-meta"><strong>Jawaharlal Nehru</strong> · October 1933 · Allahabad</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> &#x27;Whither India?&#x27;, series of newspaper articles</div><div><strong>Audience:</strong> Newspaper readers (a series of articles, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 7,129 words, about 31 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Jawaharlal Nehru was released from prison in late August 1933, after more than a year and a half in jail during the civil disobedience campaign. Gandhi had just suspended mass civil disobedience, and the British were preparing the constitution that became the Government of India Act of 1935. Nehru set out his own answer to the question of where the national movement should go in "Whither India?", a series of newspaper articles in the autumn of 1933, soon reissued as a pamphlet. It is his most famous statement of socialism, and it alarmed many in the Congress and among Indian businessmen. It is an essay, not a speech.</p>
+<p>Writing as "the newcomer from prison," Nehru surveys the world crisis of capitalism, the rise of nationalism in Asia, and India's place in both. "Our politics must either be those of magic or of science," he writes, and he presses the question the national movement had avoided: "for the freedom of which class or classes in India are we especially striving for?" Freedom, he argues, must mean independence and "the severance of the British connection," and also "the ending of all special class privileges and vested interests." His answer to the title: "Surely to the great human goal of social and economic equality, to the ending of all exploitation of nation by nation and class by class, to national freedom within the frame-work of an international co-operative socialist world federation."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 1]</span> The newcomer from prison has long been cut off from the rough and tumble of life and politics, and yet he has a certain advantage on his side. He can take a more detached view; he is not so much wrapped up in the controversies of the moment; he may be able to stress principles when others argue about petty tactics; he may actually see the realities under the surface of ever-changing phenomena.</p>
+<p>Many people ask: What are we to do? The mouths of most of those who could answer, or help in framing the answer are shut either in prison or outside. But free advice, often accompanied by threats, comes to us in an unending stream from those who rule us and their faithful followers in this land. They warn us and threaten us and cajole us and offer us good advice by turns, anxious to influence us and yet uncertain of the right approach to us. Let us leave them and their advice for the moment; such gifts, even when free, are apt to be suspect.</p>
+<p>Right action cannot come out of nothing; it must be preceded by thought. Thought which is not meant to lead to action has been called an abortion; action which is not based on thought is chaos and confusion. It is worthwhile therefore to clear our minds of all the tangled webs that may have grown there, to forget for the moment the immediate problems before us, the difficult knots we have to unravel, the day to day worries, and go back a little to basic facts and principles. What exactly do we want? <span class="pg">[p. 2]</span> And why do we want it?</p>
+<p>I write with diffidence because I have for long been cut off from the nationalist press, but I have a feeling that little attention is paid to these basic facts and principles. The censorship may be partly to blame for this, or the fear of it, but even that, I think, is not a sufficient explanation. Attention seems to be concentrated on the most trivial of issues and vital matters are ignored. Should Gandhiji see the Viceroy or not? Will Stanley Baldwin triumph over Winston Churchill? What has Sir Samuel Hoare said or not said? Are we going to get that wonderful thing called “Central Responsibility” or not? Hardly a reference to what we are driving at, hardly a thought of real issues.</p>
+<p>Never in the long range of history has the world been in such a state of flux as it is to-day. Never has there been so much anxious questioning, so much doubt and bewilderment, so much examining of old institutions, existing ills and suggested remedies. There is a continuous process of change and revolution going on all over the world, and everywhere anxious statesmen are almost at their wits' end and grope about in the dark. It is obvious that we are a part of this great world problem and must be affected by world events. And yet, judging from the attention paid to these events in India, one would not think so. Major events are recorded in the news columns of papers but little attempt is made to see behind and beneath them, to understand the forces that are shaking and reforming the world before our eyes, to comprehend the essential nature of social, economic, and political reality. History, whether past or present, becomes just a magic show with little rhyme or reason, and with no lesson for us which <span class="pg">[p. 3]</span> might guide our future path. On the gaily-decked official stage of India or England phantom figures come and go, posing for a while as great statesmen; Round Tablers flit about like pale shadows of those who created them, engaged in pitiful and interminable talk which interests few and affects an even smaller number. Their main concern is how to save the vested interests of various classes or groups; their main diversion, apart from feasting, is self-praise. Others, blissfully ignorant of all that has happened in the last half century, still talk the jargon of the Victorian Age and are surprised and resentful that nobody listens to them. Even the nasmyth hammer of war and revolution and world change has failed to produce the slightest dent on their remarkably hard heads. Yet others hide vested interests under cover of communalism or even nationalism. And then there is the vague but passionate nationalism of many who find present conditions intolerable and hunger for national freedom without clearly realising what form that freedom will take. And there are also here, as in many other countries, the usual accompaniments of a growing nationalism—an idealism, a mysticism, a feeling of exaltation, a belief in the mission of one's country, and something of the nature of religious revivalism. Essentially all these are middle class phenomena.</p>
+<p>Our politics must either be those of magic or of science. The former of course requires no argument or logic; the latter is in theory at least entirely based on clarity of thought and reasoning and has no room for vague idealistic or religious or sentimental processes which confuse and befog the mind. Personally I have no faith in or use for the ways of magic and religion and I can <span class="pg">[p. 4]</span> only consider the question on scientific grounds.</p>
+<p>What then are we driving at? Freedom? Swaraj? Independence? Dominion Status? Words which may mean much or little or nothing at all. Egypt is “independent” and yet, as everybody knows it is at present little better than an Indian State, an autocracy imposed upon an unwilling people and propped up by the British. Economically, Egypt is a colony of some of the European imperialist Powers, notably the British. Ever since the World War there has been continuous conflict between Egyptian nationalism and the ruling authorities and this continues to-day. So in spite of a so-called “independence” Egypt is very far from even national freedom.</p>
+<p>Again, whose freedom are we particularly striving for, for nationalism covers many sins and includes many conflicting elements? There is the feudal India of the princes, the India of the big zamindars, of small zamindars, of the professional classes, of the agriculturists, of the industrialists, of the bankers, of the lower middle class, of the workers. There are the interests of foreign capital and those of home capital, of foreign services and home services. The nationalist answer is to prefer home interests to foreign interests but beyond that it does not go. It tries to avoid disturbing the class divisions or the social status quo. It imagines that the various interests will somehow be accommodated when the country is free. Being essentially a middle class movement, nationalism works chiefly in the interests of that class. It is obvious that there are serious conflicts between various interests in a country, and every law, every policy which is good for one interest may be harmful for another. What is good for the Indian prince may be thoroughly bad for the people of his State, <span class="pg">[p. 5]</span> what is profitable for the zamindar may ruin many of his tenants, what is demanded by foreign capital may crush the rising industries of the country.</p>
+<p>Nothing is more absurd than to imagine that all the interests in the nation can be fitted in without injury to any. At every step some have to be sacrificed for others. A currency policy may be good for creditors or debtors, not for both at the same time. Inflation, resulting in a reduction or even wiping off of debts, will be welcomed by all debtors and by industry as a rule, but cursed by bankers and those who have fixed incomes. Early in the nineteenth century England deliberately sacrificed her agriculture for her rising industry. A few years ago, in 1925, by insisting on keeping the value of the pound sterling at par she sacrificed, to some extent, her industry to her banking and financial system, and faced industrial troubles and a huge general strike.</p>
+<p>Any number of such instances can be given; they deal with the rival claims of different groups of the possessing classes. A more vital conflict of interests arises between these possessing classes as a whole and the others; between the Haves and Have-Nots. All this is obvious enough, but every effort is made to confuse the real issue by the holders of power, whether political or economic. The British Government is continually declaring before high heaven that they are trustees for our masses and India and England have common interests and can march hand in hand to a common destiny. Few people are taken in by this because nationalism makes us realise the inherent conflict between the two national interests. But nationalism does not make us realise the equally inherent and fundamental conflict between economic interests within the <span class="pg">[p. 6]</span> nation. There is an attempt to cover this up and avoid it on the ground that the national issue must be settled first. Appeals are issued for unity between different classes and groups to face the common national foe, and those who point out the inherent conflict between landlord and tenant, or capitalist and wage labourer are criticised.</p>
+<p>We may take it that the average person does not like conflict and continuous tension; he prefers peace and quiet, and is even prepared to sacrifice much for it. But the ostrich-like policy of refusing to see a conflict and a disorder which not only exist but are eating into society's vitals, to blind oneself to reality, will not end the conflict and the disorder or suddenly change reality into unreality; for a politician or a man of action such a policy can only end in disaster. It is therefore essential that we keep this in mind and fashion our idea of freedom accordingly. We cannot escape having to answer the question, now or later, for the freedom of which class or classes in India are we especially striving for? Do we place the masses, the peasantry and workers, first, or some other small class at the head of our list? Let us give the benefits of freedom to as many groups and classes as possible, but essentially who do we stand for, and when a conflict arises whose side must we take? To say that we shall not answer that question now is itself an answer and taking of sides, for it means that we stand by the existing order, the status quo.</p>
+<p>The form of government is after all a means to an end; even freedom itself is a means, the end being human well-being, human growth, the ending of poverty and disease and suffering and the opportunity for every one to live the “good life”, physically and mentally. What the “good life” is, is a matter we cannot go into here, but <span class="pg">[p. 7]</span> most people will agree that freedom is essential to it—national freedom so far as the nation is concerned, personal freedom so far as the individual is concerned. For every restriction and inhibition stops growth and development and produces, apart from economic disorders, complexes and perversions in the nation and individual. So freedom is necessary. Equally necessary is the will and the capacity for co-operation. Modern life grows so complex, there is so much interdependence, that co-operation is the very breath that keeps it functioning.</p>
+<p>The long course of history shows us a succession of different forms of government and changing economic forms of production and organisation. The two fit in and shape and influence each other. When economic change goes ahead too fast and the forms of government remain more or less static, a hiatus occurs, which is usually bridged over by a sudden change called revolution. The tremendous importance of economic events in shaping history and forms of government is almost universally admitted now.</p>
+<p>We are often told that there is a world of difference between the East and the West. The West is said to be materialistic, the East spiritual, religious, etc. What exactly the East signifies is seldom indicated, for the East includes the Bedouins of the Arabian deserts, the Hindus of India, the nomads of the Siberian Steppes, the pastoral tribes of Mongolia, the typically irreligious Confucians of China, and the Samurai of Japan. There are tremendous national and cultural differences between the different countries of Asia as well as of Europe; but there is no such thing as East and West except in the minds of those who wish to make <span class="pg">[p. 8]</span> this an excuse for imperialist domination, or those who have inherited such myths and fictions from a confused metaphysical past. Differences there are but they are chiefly due to different stages of economic growth.</p>
+<p>We see, in north-western Europe, autocracy and feudalism giving place to the present capitalist order involving competition and large-scale production. The old small holdings disappear; the feudal checks on the serfs and cultivators go, and these agriculturists are also deprived of the little land they had. Large numbers of landless people are thrown out of employment and they have no land to fall back upon. A landless, propertyless proletariat is thus created. At the same time the checks and the controlled prices of the limited markets of feudal times disappear, and the open market appears. Ultimately this leads to the world market, the characteristic feature of capitalism.</p>
+<p>Capitalism builds up on the basis of the landless proletariat, which could be employed as wage labourers in the factories, and the open market, where the machine-made goods could be sold. It grows rapidly and spreads all over the world. In the producing countries it was an active and living capitalism; in the colonial and consuming countries it was just a passive consumption of the goods made by machine industry in the West. North-western Europe, and a little later, North America, exploit the resources of the world; they exploit Asia, Africa, East Europe and South America. They add vastly to the wealth of the world but this wealth is largely concentrated in a few nations and a few hands.</p>
+<p>In this growth of capitalism, dominion over India was of vital importance to England. India's gold, in the early <span class="pg">[p. 9]</span> stages, helped in the further industrialisation of England. And then India became a great producer of raw material to feed the factories of England and a huge market to consume the goods made in these factories. England, in her passionate desire to accumulate wealth, sacrificed her agriculture to her industry. England became almost a kind of vast city and India the rural area attached to her.</p>
+<p>The concentration of wealth in fewer hands went on. But the exploitation of India and other countries brought so much wealth to England that some of it trickled down to the working class and their standards of living rose. Working class agitations were controlled and soothed by concessions from the capitalist owners, which they could well afford from the profits of imperialist exploitation. Wages rose; hours of work went down; there were insurance and other welfare schemes for the workers. A general prosperity in England took the edge off working class discontent.</p>
+<p>In India, passive industrialisation meant an ever growing burden on land. She became just a consumer of foreign machine made goods. Her own cottage industries were partly destroyed forcibly, and partly by economic forces, and nothing took their place. All the ingredients and conditions for industrialisation were present, but England did not encourage this, and indeed tried to prevent it by taxing machinery. And so the burden on the land grew and with it unemployment and poverty, and there was a progressive ruralisation of India.</p>
+<p>But the processes of history and economics cannot be stopped for long. Although general poverty was increasing, small groups accumulated some capital and wanted fields for investment. And so machine industry grew in <span class="pg">[p. 10]</span> India, partly with Indian capital, very much more so with foreign capital. Indian capital was largely dependent on foreign capital and, in particular, could be controlled by the foreign banking system. It is well known that the World War gave a great push to Indian industry and afterwards, for reasons of imperial policy, England changed her policy towards Indian industry and began to encourage it, but mostly with foreign capital. The growth of so-called swadeshi industries in India thus represented to a very great extent the increasing hold of British capital on India.</p>
+<p>The growth of industries and nationalist movements in all the countries of the East checked western exploitation and the profits of western capitalism began to go down. War debts and other consequences of the war were a tremendous burden for all the countries concerned. There was not so much money or profits of industry to be distributed to the working class in the west, and the discontent and pressure of the workers grew. There was also the living incentive and inspiration of the Russian Revolution for the workers.</p>
+<p>Meanwhile two other processes were working silently but with great rapidity. One was the concentration of wealth and industrial power in fewer hands by the formation of huge trusts, cartels, and combines. The other was a continuous improvement in technique in the methods of production, leading to greater mechanisation, far greater production, and more unemployment as workers were replaced by machinery. And this led to a curious result. Just when industry was producing goods on the biggest mass scale in history, there were few people to buy them as the great majority were too poor to be able to afford them. The armies of the unemployed were not earning <span class="pg">[p. 11]</span> anything, so how could they spend; and even the majority of those earning had little to spare. A new truth suddenly dawned on the perplexed minds of the great captains of industry (this dawning process has not yet taken place among the leaders of industry in India), and the truth was this: that mass production necessitates mass consumption. But if the masses have no money how are they to buy or consume? And what of production then? So production is stopped or restricted and the wheels of industry slow down till they barely move. Unemployment grows all the more and this again makes consumption diminish.</p>
+<p>This is the crisis of capitalism which has had the world by the throat for over four years. Essentially it is due to the ill distribution of the world's wealth; to its concentration in a few hands. And the disease seems to be of the essence of capitalism and grows with it till it eats and destroys the very system which created it. There is no lack of money in the world, no lack of food stuffs, or the many other things that man requires. The world is richer to-day than it has ever been and holds promise of untold advance in the near future. And yet the system breaks down and while millions starve and endure privation, huge quantities of food stuffs and other articles are destroyed, insect pests are let loose on the fields to destroy crops, harvests are not gathered, and nations meet together to confer how to restrict future crops of wheat and cotton and tea and coffee and so many other articles. From the beginning of history man has fought with nature to get the barest necessities of life, and now that nature's wealth is poured out before him, enough to remove poverty for ever from the world, his only way of dealing with it is <span class="pg">[p. 12]</span> to burn and destroy it, and become poorer and more destitute in the process.</p>
+<p>History has never offered a more amazing paradox. It seems clear enough that the capitalist system of industry, whatever its services in the past may have been, is no longer suited to the present methods of production. Technical advance has gone far ahead of the existing social structure and, as in the past, this hiatus causes most of our present-day disorders. Till that lag is made up and a new system in keeping with the new technique is adopted, the disorders are likely to continue. The change over to the new system is of course opposed by those who have vested interests in the old system and though this old system is dying before their eyes, they prefer to hold on to their little rather than share a lot with others.</p>
+<p>It is not, fundamentally, a moral issue, as some people imagine, although there is a moral side to it. It is not a question of blaming capitalism or cursing capitalists and the like. Capitalism has been of the greatest service to the world and individual capitalists are but tiny wheels in the big machine. The question now is whether the capitalist system has not outlived its day and must now give place to a better and a saner ordering of human affairs, which is more in keeping with the progress of science and human knowledge.</p>
+<p>In India, during this period, the tremendous burden on land continued and even increased, despite the growth of industry in certain areas. Economic discontent increased. The middle classes grew up, and finding no sufficient scope for self-development, demanded political changes and took to agitation. More or less similar causes worked all over the colonial and dependent East. Especially <span class="pg">[p. 13]</span> after the war, national movements grew rapidly in Egypt and most of the countries of Asia. These movements were essentially due to the distress of the masses and the lower middle classes. There was a strange similarity even in the methods employed by these movements—non-co-operation, boycotts of legislatures, boycotts of goods, hartals, strikes, etc. Occasionally there were violent outbreaks, as in Egypt and Syria, but stress was laid far more on peaceful methods. In India, of course, non-violence was made a basic principle by the Congress at the suggestion of Gandhiji. All these national struggles for freedom have continued till now and they are bound to continue till a solution of the basic problem is found. Fundamentally, this solution is not merely a question of satisfying the natural desire for self-rule but one of filling hungry stomachs.</p>
+<p>The great revolutionary nationalist urge in Asia of the after-war years gradually exhausted itself for the time being and conditions stabilised themselves. In India this took the form of the Swarajist entry into the Assembly and the Councils. In Europe also the middle nineteen-twenties was a period of settling down and adaptation to the new conditions created by the World War. The revolution that had hovered all over Europe in 1919 and 1920 failed to come off and receded into the background. American gold poured into Europe and revived to some extent the war-weary and disillusioned peoples of that continent and created a false appearance of prosperity. But this prosperity had no real basis and the crash came in 1929 when the United States of America stopped lending money to Europe and South America. Many factors, and especially the inherent conflicts of a declining capitalism, contributed <span class="pg">[p. 14]</span> to this crash, and the house of cards of after-war capitalist prosperity began to tumble down. That process of tumbling down has been going on at a tremendous pace for four years and there is no end to it yet. It is called the slump, trade depression, the crisis, etc., but it is really the evening of the capitalist system and the world is being compelled by circumstances to recognise this. International trade is reaching vanishing point, international co-operation has failed, the world-market which was the essential basis of capitalism, is disappearing, and each nation is trying frantically to shift for itself at the cost of others. Whatever the future may bring, one thing is certain: that the old order has gone and all the king's horses and all the king's men will not set it up again.</p>
+<p>As the old capitalist order has tottered, the challenge to it by the growing forces of labour has grown more intense. This challenge, when it has become dangerous, has induced the possessing classes to sink their petty differences and band themselves together to fight the common foe. This has led to fascism and, in its milder forms, to the formation of so-called national governments. Essentially, these are the last ditch efforts of the possessing classes, or the “kept classes” as they have been called by an American economist, to hold on to what they have. The struggle becomes more intense and the forms of nineteenth century democracy are discarded. But fascism or national governments offer no solution of the fundamental economic inconsistencies of the present-day capitalist system and so long as they do not remove the inequalities of wealth and solve the problem of distribution, they are doomed to fail. Of the major capitalist countries the United States of America is the only place where some attempt is being <span class="pg">[p. 15]</span> made today towards lessening to a slight extent inequalities in wealth by State action. Carried to a logical conclusion, President Roosevelt's programme will lead to a form of State Socialism; it is far more likely that the effort will fail and result in fascism. England, as is her habit, is grimly muddling through and waiting for something to happen. Meanwhile she has derived considerable help from India's gold and resources. But all this is temporary relief only and the nations slide downhill and approach the brink.</p>
+<p>Thus, if we survey the world today, we find that capitalism, having solved the problem of production, helplessly faces the allied problem of distribution and is unable to solve it. It was not in the nature of the capitalist system to deal satisfactorily with distribution, and production alone makes the world top-heavy and unbalanced. To find a solution for distributing wealth and purchasing power evenly is to put an end to the basic inequalities of the capitalist system and to replace capitalism itself by a more scientific system.</p>
+<p>Capitalism has led to imperialism and to the conflicts of imperialist powers in search for colonial areas for exploitation, for areas of raw produce and for markets for manufactured goods. It has led to ever-increasing conflicts with the rising nationalism of colonial countries, and to social conflicts with powerful movements of the exploited working class. It has resulted in recurrent crises, political and economic, leading to economic and tariff wars as well as political wars on an enormous scale. Every subsequent crisis is on a bigger scale than the previous one, and now we live in a perpetual state of crisis and slump and the shadow of war darkens the horizon.</p>
+<p>And yet it is well to remember that the world to-day <span class="pg">[p. 16]</span> has a surfeit of food and the other good things of life. Terrible want exists because the present system does not know how to distribute them. Repeated international conferences have failed to find a way out because they represented the interests of vested interests and dared not touch the system itself. They grope blindly in the dark in their stuffy rooms while the foundations of the house they built are being sapped by the advance of science and economic events. Everywhere thinkers have recognised the utter inadequacy of the existing system, though they have differed as to the remedies. Communists and socialists point with confidence to the way of socialism and they are an ever growing power for they have science and logic on their side. In America a great stir was caused recently by the Technocrats, a group of engineers who want to do away with money itself and to substitute for it a unit of energy, an erg. In England the social credit theories of Major Douglas, according to which the whole production of the nation will be evenly distributed to the whole population—a kind of “dividends for all”, find increasing acceptance. Barter takes the place of trade both in the domestic and the international market. The growth of these revolutionary theories even among the well-to-do classes, and especially the intellectuals, is in itself an indication of the tremendous change in mentality that is taking place in the world. How many of us can conceive a world without money and with the invisible erg as its measure of value? And yet this is soberly and earnestly advocated not by wild agitators but by well-known economists and engineers.</p>
+<p>This is the world background.</p>
+<p>The Asiatic background is intimately related to this <span class="pg">[p. 17]</span> and yet it has its peculiar features. Asia is the main field of conflict between nationalism and imperialism. Asia is still undeveloped as compared to Europe and North America. It has a vast population which can consume goods if they had the necessary purchasing power to do so. To the hard-pressed imperialist Powers seeking frantically for areas of economic expansion, Asia still offers a field, though nationalism offers many obstructions. Hence the talk of a “push to Asia” to find an outlet for the surplus goods of the west and thus stabilise western capitalism for another period. Capitalism is a young and growing force in the East; it has not, as in India, wholly overthrown feudalism yet. But even before capitalism had established itself other forces, inimical to it, have risen to challenge it. And it is obvious that if capitalism collapses in Europe and America it cannot survive in Asia.</p>
+<p>Nationalism is still the strongest force in Asia (we can ignore for our present purpose the Soviet territories of Asia). This is natural as a country under alien domination must inevitably think first in terms of nationalism. But the powerful economic forces working for change in the world today have influenced this nationalism to an ever-increasing extent and everywhere it is appearing in socialistic garb. Gradually the nationalist struggle for political freedom is becoming a social struggle also for economic freedom. Independence and the socialist State become the objectives, with varying degrees of stress being laid on the two aspects of the problem. As political freedom is delayed, the other aspect assumes greater importance, and it now seems probable, especially because of world conditions, that political and social emancipation will come together to some at least of the countries of Asia.</p>
+<p><span class="pg">[p. 18]</span> That is the Asiatic background.</p>
+<p>In India, as in other Asiatic colonial countries, we find a struggle to-day between the old nationalist ideology and the new economic ideology. Most of us have grown up under the nationalist tradition and it is hard to give up the mental habits of a lifetime. And yet we realise that this outlook is inadequate; it does not fit in with existing conditions in our country or in the world; there is a hiatus, a lag. We try to bridge this hiatus but the process of crossing over to a new ideology is always a painful one. Many of us are confused and perplexed to-day because of this. But the crossing has to be made, unless we are to remain in a stagnant backwater, overwhelmed from time to time by the wash of the boats that move down the river of progress. We must realise that the nineteenth century cannot solve the problems of the twentieth, much less can the seventh century or earlier ages do so.</p>
+<p>Having glanced at the general background of Asia and the world we can have a clearer view of our own national problem. India's freedom affects each one of us intimately and we are apt to look upon it as a thing apart and unconnected with world events. But the Indian problem is a part of the Asiatic problem and is tied up with the problems of the world. We cannot, even if we will it, separate it from the rest. What happens in India will affect the world and world events will change India's future. Indeed it may be said that the three great world problems to-day are: the fate of capitalism, which means the fate of Europe and America, the future of India, and the future of China, and all these are inter-related.</p>
+<p>India's struggle to-day is part of the great struggle which is going on all over the world for the emancipation <span class="pg">[p. 19]</span> of the oppressed. Essentially, this is an economic struggle, with hunger and want as its driving forces, although it puts on nationalist and other dresses.</p>
+<p>Indian freedom is necessary because the burden on the Indian masses as well as the middle classes is too heavy to be borne and must be lightened or done away with. The measure of freedom is the extent to which this burden is removed. This burden is due to the vested interests of a foreign government as well as those of certain groups and classes in India and abroad. The achievement of freedom thus becomes a question, as Gandhiji said recently, of divesting vested interests. If an indigenous government took the place of the foreign government and kept all the vested interests intact, this would not even be the shadow of freedom.</p>
+<p>We have got into an extraordinary habit of thinking of freedom in terms of paper constitutions. Nothing could be more absurd than this lawyer's mentality which ignores life and the vital economic issues and can only proceed on the basis of the status quo and precedents. Too much reliance on past practice has somehow succeeded in twisting the lawyer's head backwards and he seems to be incapable of looking ahead. Even the halt and the lame go slowly forward; not so the lawyer who is convinced, like the fanatic in religion, that truth can only lie in the past.</p>
+<p>The Round Table scheme is almost as dead as Queen Anne and hardly deserves notice. It was not meant to give an iota of freedom to the Indian people; it sought to win over certain Indian vested interests to the British side and in this it succeeded. It answered, to the satisfaction of its votaries, the question I had formulated at the beginning of this essay: whose freedom are we striving for? It gave <span class="pg">[p. 20]</span> greater protection and assurance and freedom to the British vested interests in India. It was Home Rule for the Viceroy as Mr. Vithalbhai Patel said. It confirmed the interests of British capital and British services and, in some cases, gave them even more than they have now. It tried to perpetuate the alien military occupation of India. Further, it gave greater freedom and importance to the vested interests of the princes and the semi-feudal magnates. In brief, the whole scheme was meant for the protection and perpetuation of the numerous vested interest that exploit the Indian masses. Having done this useful and, to themselves, profitable piece of work, the originators of the scheme told us that autonomy was a costly affair and would mean the expenditure of many extra millions for each province! Thus not only were all the old burdens on the masses to be continued but many new ones were to be added. This was the ingenious solution discovered by the wise and learned men who foregathered at the Round Table Conference. Intent on protecting their class privileges they happened to forget an odd three hundred and fifty million people in India.</p>
+<p>Even a child in politics can point out the folly of this procedure. The whole basis and urge of the national movement came from a desire for economic betterment, to throw off the burdens that crushed the masses and to end the exploitation of the Indian people. If these burdens continue and are actually added to, it does not require a powerful mind to realise that the fight must not only continue but grow more intense. Leaders and individuals may come and go; they may get tired and slacken off; they may compromise or betray; but the exploited and suffering masses must carry on the struggle for their drill-sergeant <span class="pg">[p. 21]</span> is hunger. Swaraj or freedom from exploitation for them is not a fine paper constitution or a problem of the hereafter. It is a question of the here and now, of immediate relief. Roast lamb and mint sauce may be a tasty dish for those who eat it but the poor lamb is not likely to appreciate the force of the best of arguments which point out the beauty of sacrifice for the good of the elect and the joys of close communion, even though dead, with mint sauce.</p>
+<p>India's immediate goal can therefore only be considered in terms of the ending of the exploitation of her people. Politically, it must mean independence and the severance of the British connection, which means imperialist dominion; economically and socially it must mean the ending of all special class privileges and vested interests. The whole world is struggling to this end; India can do no less, and in this way the Indian struggle for freedom lines up with the world struggle. Is our aim human welfare or the preservation of class privileges and the vested interests of pampered groups? The question must be answered clearly and unequivocally by each one of us. There is no room for quibbling when the fate of nations and millions of human beings is at stake. The day for palace intrigues and parlour politics and pacts and compromises passes when the masses enter politics. Their manners are not those of the drawing room; we never took the trouble to teach them any manners. Their school is the school of events and suffering is their teacher. They learn their politics from great movements which bring out the true nature of individuals and classes, and the civil disobedience movement has taught the Indian masses many a lesson which they will never forget.</p>
+<p><span class="pg">[p. 22]</span> Independence is a much abused word and it hardly connotes what we are driving at. And yet there is no other suitable word and, for want of a better, we must use it. National isolation is neither a desirable nor a possible ideal in a world which is daily becoming more of a unit. International and intra-national activities dominate the world and nations are growing more and more inter-dependent. Our ideal and objective cannot go against this historical tendency and we must be prepared to discard a narrow nationalism in favour of world co-operation and real internationalism. Independence therefore cannot mean for us isolation but freedom from all imperialist control, and because Britain to-day represents imperialism, our freedom can only come after the British connection is severed. We have no quarrel with the British people, but between British imperialism and Indian freedom there is no meeting ground and there can be no peace. If imperialism goes from Britain we shall gladly co-operate with her in the wider international field; not otherwise.</p>
+<p>British statesmen of the Liberal and Labour variety often point out to us the ills of a narrow nationalism and dwell on the virtues of what used to be known as the British Empire and is now euphemistically called the British Commonwealth of Nations. Under cover of fine and radical words and phrases they seek to hide the ugly and brutal face of imperialism and try to keep us in its embrace of death. Some Indian public men, who ought to know better, also praise the virtues of internationalism, meaning thereby the British Empire, and tell us in sorrow how narrow-minded we are in demanding independence, in place of that wonderful thing (which nobody offers <span class="pg">[p. 23]</span> us) Dominion Status. The British, it is well known, have a remarkable capacity for combining their moral instincts with their self-interest. That is perhaps not unnatural, but it is remarkable how some of our own countrymen are taken in by this unctuous and hypocritical attitude. Even the light of day is wasted on those who keep their eyes shut. It is worth noting however that the foreign policy of England has been the greatest stumbling block to international co-operation through the League of Nations or otherwise. All the European and American world knows this but most of us, who look at foreign politics through English spectacles, have not grasped this fact yet. Disarmament, air-bombing, the attitude to the Manchurian question, are some of the recent witnesses to England's attitude. Even the Kellogg-Briand Pact of Paris, which was to have outlawed war, was only accepted by England subject to certain qualifications and reservations regarding her empire, which effectively nullified the Pact. The British Empire and real internationalism are as the poles apart and it is not through that empire that we can march to internationalism.</p>
+<p>The real question before us, and before the whole world, is one of fundamental change of regime, politically, economically, socially. Only thus can we put India on the road to progress and stop the progressive deterioration of our country. In a revolutionary period, such as exists in the world to-day, it is foolish waste of energy to think and act in terms of carrying on the existing regime and trying to reform it and improve it. To do so is to waste the opportunity which history offers once in a long while. "The whole world is in revolution" says Mussolini. "Events themselves are a tremendous force pushing us on <span class="pg">[p. 24]</span> like some implacable will." Individuals, however eminent, play but a minor role when the world is on the move. They may divert the main current here and there to some slight extent; they may not and cannot stop the rushing torrent. And therefore the only peace that can endure is with circumstances, not merely with men.</p>
+<p>Whither India? Surely to the great human goal of social and economic equality, to the ending of all exploitation of nation by nation and class by class, to national freedom within the frame-work of an international co-operative socialist world federation. This is not such an empty idealist dream as some people imagine. It is within the range of the practical politics of to-day and the near future. We may not have it within our grasp but those with vision can see it emerging on the horizon. And even if there be delay in the realisation of our goal, what does it matter if our steps march in the right direction and our eyes look steadily in front. For in the pursuit itself of a mighty purpose there is joy and happiness and a measure of achievement. As Bernard Shaw has said: “This is the true joy in life, the being used for a purpose recognised by yourself as a mighty one; the being thoroughly worn out before you are thrown on the scrap heap; the being a force of nature, instead of a feverish, selfish little clod of ailments and grievances, complaining that the world will not devote itself to making you happy.”</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Jawaharlal Nehru, Recent Essays and Writings on the Future of India, Communalism and Other Subjects (Allahabad: Kitabistan, 1934), pp. 1–24.</p>
+<p>Online text: <a href="https://archive.org/details/recentessaysandw032593mbp/page/n14">https://archive.org/details/recentessaysandw032593mbp/page/n14</a></p>
+<p>Archive note: Essay, not a speech. Jawaharlal Nehru, Recent Essays and Writings (Allahabad: Kitabistan, 1934; second impression May 1934), pp. 1-24. Ends with a quotation from Bernard Shaw. 'Some Criticisms Considered' follows on p. 25.</p></div>
+</div>
+</body>
+</html>
