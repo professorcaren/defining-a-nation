@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord Mountbatten: Broadcast on the Partition Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Broadcast on the Partition Plan</h1>
+<p class="speech-meta"><strong>Lord Mountbatten</strong> · 3 June 1947 · All-India Radio, New Delhi</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> All-India Radio broadcast announcing the partition plan</div><div><strong>Audience:</strong> The people of India, by radio</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 1,257 words, about 5 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Lord Mountbatten arrived in India as Viceroy in March 1947, after the British government had announced that it would leave India by June 1948. The Cabinet Mission plan of May 1946 had broken down, and communal violence had spread. After consulting Indian leaders and the government in London, Mountbatten announced the British plan for the transfer of power in this broadcast on All-India Radio on 3 June 1947. Nehru, Jinnah and Baldev Singh spoke after him. The text is the official one printed in The Transfer of Power, the British government's documentary collection.</p>
+<p>Mountbatten presents partition as a choice forced on him. He says he still believed a united India was the best solution and had first urged the Cabinet Mission plan, but neither community would accept rule by the other, and "the only alternative to coercion is partition." The same logic, he says, requires dividing the Punjab and Bengal, with final boundaries left to a boundary commission, and he expresses regret that the Sikhs will be split. Power would pass to one or two governments with Dominion status within months.</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 86]</span> A statement will be read to you tonight giving the final decision of His Majesty's Government as to the method by which power will be transferred from British to Indian hands. But before this happens, I want to give a personal message to the people of India, as well as a short account of the discussions which I have held with the Leaders of the political parties and which have led up to the advice I tendered to His Majesty's Government during my recent visit to London.</p>
+<p>Since my arrival in India at the end of March I have spent almost every day in consultation with as many of the leaders and representatives of as many communities and interests as possible. I wish to say how grateful I am for all the information and helpful advice they have given me.</p>
+<p>Nothing I have seen or heard in the past few weeks has shaken my firm opinion that with a reasonable measure of goodwill between the communities a unified India would be by far the best solution of the problem.</p>
+<p>For more than a hundred years 400 millions of you have lived together and this country has been administered as a single entity. This has resulted in unified communications, defence, postal services and currency; an absence of tariffs and customs barriers; and the basis for an integrated political economy. My great hope was that communal differences would not destroy all this.</p>
+<p>My first course, in all my discussions, was therefore to urge the political leaders to accept unreservedly the Cabinet Mission plan of 16th May 1946. In my opinion, that plan provides the best arrangement that can be devised to meet the interests of all the communities of India. To my great regret it has been impossible to obtain agreement either on the Cabinet Mission plan, or on any other plan that would preserve the unity of India. But there can be no question of coercing any large areas in which one community has a majority, <span class="pg">[p. 87]</span> to live against their will under a Government in which another community has a majority. And the only alternative to coercion is partition.</p>
+<p>But when the Muslim League demanded the partition of India, Congress used the same arguments for demanding in that event the partition of certain Provinces. To my mind this argument is unassailable. In fact neither side proved willing to leave a substantial area in which their community have a majority under the Government of the other. I am, of course, just as much opposed to the partition of Provinces as I am to the partition of India herself and for the same basic reasons.</p>
+<p>For just as I feel there is an Indian consciousness which should transcend communal differences so I feel there is a Punjabi and Bengali consciousness which has evoked a loyalty to their Province.</p>
+<p>And so I felt it was essential that the people of India themselves should decide this question of partition.</p>
+<p>The procedure for enabling them to decide for themselves whether they want the British to hand over power to one or two Governments is set out in the statement which will be read to you. But there are one or two points on which I should like to add a note of explanation.</p>
+<p>It was necessary in order to ascertain the will of the people of the Punjab, Bengal and part of Assam to lay down boundaries between the Muslim majority areas and the remaining areas, but I want to make it clear that the ultimate boundaries will be settled by a Boundary Commission and will almost certainly not be identical with those which have been provisionally adopted.</p>
+<p>We have given careful consideration to the position of the Sikhs. This valiant community forms about an eighth of the population of the Punjab, but they are so distributed that any partition of this Province will inevitably divide them. All of us who have the good of the Sikh community at heart are very sorry to think that the partition of the Punjab, which they themselves desire, cannot avoid splitting them to a greater or lesser extent. The exact degree of the split will be left to the Boundary Commission on which they will of course be represented.</p>
+<p>The whole plan may not be perfect; but like all plans, its success will depend on the spirit of goodwill with which it is carried out. I have always felt that once it was decided in what way to transfer power the transfer should take place at the earliest possible moment, but the dilemma was that if we waited until a constitutional set-up for all India was agreed, we should have to wait a long time, particularly if partition were decided on. Whereas if we handed over power before the Constituent Assemblies had finished their work we should leave the country without a Constitution. The solution to this dilemma, which I put forward, is that His Majesty's Government should transfer power <span class="pg">[p. 88]</span> now to one or two Governments of British India each having Dominion Status as soon as the necessary arrangements can be made. This I hope will be within the next few months. I am glad to announce that His Majesty's Government have accepted this proposal and are already having legislation prepared for introduction in Parliament this session. As a result of these decisions the special function of the India Office will no longer have to be carried out, and some other machinery will be set up to conduct future relations between His Majesty's Government and India.</p>
+<p>I wish to emphasise that this legislation will not impose any restriction on the power of India as a whole, or of the two States if there is partition, to decide in the future their relationship to each other and to other member States of the British Commonwealth.</p>
+<p>Thus the way is now open to an arrangement by which power can be transferred many months earlier than the most optimistic of us thought possible, and at the same time leave it to the people of British India to decide for themselves on their future, which is the declared policy of His Majesty's Government.</p>
+<p>I have made no mention of the Indian States, since the new decisions of His Majesty's Government are concerned with the transfer of power in British India.</p>
+<p>If the transfer of power is to be effected in a peaceful and orderly manner, every single one of us must bend all his efforts to the task. This is no time for bickering, much less for the continuation in any shape or form of the disorders and lawlessness of the past few months. Do not forget what a narrow margin of food we are all working on. We cannot afford any toleration of violence. All of us are agreed on that.</p>
+<p>Whichever way the decision of the Indian people may go, I feel sure any British officials or officers who may be asked to remain for a while will do everything in their power to help implement that decision. His Majesty as well as his Government have asked me to convey to all of you in India their sincere good wishes for your future and the assurance of their continued goodwill.</p>
+<p>I have faith in the future of India and am proud to be with you all at this momentous time. May your decisions be wisely guided and may they be carried out in the peaceful and friendly spirit of the Gandhi-Jinnah appeal.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Nicholas Mansergh, ed., The Transfer of Power 1942–7, vol. XI (London: HMSO), no. 44, pp. 86–88.</p>
+<p>Online text: <a href="https://archive.org/details/constitutionalre06nich/page/n215">https://archive.org/details/constitutionalre06nich/page/n215</a></p>
+<p>Archive note: Text from Mansergh, ed., The Transfer of Power 1942-7, vol. XI, doc. no. 44, pp. 86-88; checked against Time Only to Look Forward (1949). Editorial footnotes still in the OCR. Replaces The Times's abridged text.</p></div>
+</div>
+</body>
+</html>

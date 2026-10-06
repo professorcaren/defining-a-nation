@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabindranath Tagore: Crisis in Civilization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Crisis in Civilization</h1>
+<p class="speech-meta"><strong>Rabindranath Tagore</strong> · 14 April 1941 · Santiniketan</p>
+<div class="speech-facts"><div><span class="badge">Translated</span></div><div><strong>Occasion:</strong> &quot;Crisis in Civilization,&quot; message on his eightieth birthday, Santiniketan</div><div><strong>Audience:</strong> Gathering at Santiniketan for his eightieth birthday, where the address was read on his behalf</div><div><strong>Language:</strong> Bengali (English translation)</div><div><strong>Length:</strong> 2,026 words, about 9 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Rabindranath Tagore wrote this address for his eightieth birthday, 14 April 1941, and it was read on his behalf at Santiniketan, the school and university he had founded. He was gravely ill and died that August. The Second World War was in its second year. Britain had declared India a belligerent without consulting Indian leaders, the Congress ministries had resigned in protest, and many Congress leaders were again in jail. Tagore wrote in Bengali, and this is the English translation printed in <em>Towards Universal Man</em> (1961), a collection of his essays.</p>
+<p>Tagore traces his generation's loss of faith in British civilization. As a young man he had admired English literature and liberal ideals, but he now finds that the British "civilization" India was taught to admire has given way to a rule that leaves the country in poverty and ignorance: "When the stream of their two centuries' rule runs dry at last, what a waste of mud and filth will be revealed." He contrasts it with Japan's progress and with what he saw of Soviet efforts against disease and illiteracy, and he honours individual Englishmen such as C. F. Andrews. "Today, as I am about to quit the world, that faith has gone bankrupt." He ends with hope for "the new dawn" from the East and a Sanskrit verse warning that unrighteousness prospers for a while but "perishes at the root."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 353]</span> Today I complete eighty years of my life. As I turn back to the long stretch of years behind me and view them in clearer perspective, I am struck by the change that has taken place in my attitude and in the psychology of my countrymen, a change that is tragic.</p>
+<p>Our direct contact with the wide world of humanity grew out of our link in history with the British race. They came to us with a great literary tradition in which they were truly revealed. The learning we received in those days was meagre and far from diverse; science was still beyond our reach. We leaned heavily on English literature—its appreciation became a mark of culture. We endlessly echoed Burke's eloquence and Macaulay's rhetorical strains. We eagerly discussed Shakespeare and Byron and the humanistic political philosophy of the time. True, we were already resolved on gaining our national liberation; but, deep in our hearts, there was a great belief in the liberalism of the British—the vanquished were sure to be led to the path of freedom by the victors themselves. Had not England been an asylum, often, for political refugees, for men who had struggled and suffered in the cause of their country? This humanism in the British people had our sincere respect. I may add in this context that, during my first visit to Britain in my early youth, I had the chance to listen to John Bright in the House of Parliament <span class="pg">[p. 354]</span> as well as outside. His large-hearted radicalism which was far above all nationalist bias made so strong an imprint on my mind that something of it lingers still in these days of sad disillusionment.</p>
+<p>Not that the dependence on our rulers' bounty was a matter of pride. This much was commendable, though: we did have the eyes to see intimations of human goodness in an alien race and felt no hesitation in paying it our tribute. The worthiest gifts of human heritage cannot remain the monopoly of a particular land or people; nor do they build a miser's secret hoard that must show no diminution. So it is that English literature, out of which we have gained real sustenance, evokes a response deep within us even today.</p>
+<p>It is hard to find an apt Bengali equivalent for the English word “civilization”. The civilization of our ancient times was called by Manu sadachar, proper conduct. It consisted of a set of conventions which became the social code. Formalism, often unjust, often tyrannical, grew at the expense of freedom of thought. The tenets of conduct which Manu laid down hardened into time-honoured tradition.</p>
+<p>In my boyhood the English-educated section of our people felt stirrings of revolt against the rigid social code—the Bengali literature of the time carries portrayals of that revolt. In place of the set code we began to accept the ideal of “civilization” as represented by the English term and illustrated by the British character.</p>
+<p>In my own home this change, backed by reason, was warmly greeted and its effect was felt both in theory and practice. Born in such an atmosphere, and impelled by my natural bias towards literature, I saw the British occupying a pedestal of glory.</p>
+<p><span class="pg">[p. 355]</span> That early period of my life ended in an agony of disenchantment. I started to discover more and more how those who professed the highest civilized values could cast them aside with the utmost ease, whenever their national interests were at stake.</p>
+<p>The moment came when I had to pull myself away from preoccupation with literature. For, the sight of the terrible poverty of the Indian masses grew inescapable. I realized that perhaps in no other modern state was there such a complete denial of the basic needs of living: food and clothing, education and health services. And yet it was the exploited resources of this country that had been adding, year on year, to the wealth of the British race.</p>
+<p>Lost in the glamorous aspects of British culture, I had never thought that, out of it could come so cruel a distortion of long cherished values; that distortion, I knew at last, was the emblem of a civilized nation's contempt and callousness towards our vast masses.</p>
+<p>This helpless country has been denied mastery over the machine, by means of which the British have strutted as a world power. Meanwhile, through these years, Japan has been using that mastery for a rapid expansion of her economy. I have seen with my own eyes the extent of Japan's prosperity and national uplift. I have witnessed, again, in Moscow the tireless energy with which the Russians have tried to wipe out from their country disease and illiteracy, ignorance, penury and every outward mark of shame. Free from racial prejudice, the Soviets have projected all over their domain the power of human fellowship. The swift and surprising progress they have attained makes me at once happy and jealous!</p>
+<p>One unusual aspect of Soviet life that impressed me in Moscow was that the tie of common interests resulted in <span class="pg">[p. 356]</span> a great joint endeavour and prevented communal differences from developing into political conflict. Today there are in the world two great Powers, the British and the Russians, who dominate a large number of nationalities. The British have trampled on the manhood of the subject races under their rule, keeping them in a moribund state. It is otherwise in Soviet Russia which has political attachments with many Muslim tribes in its territory. The Government have striven hard and unceasingly for the welfare of those peoples, trying to harmonize the interests of all.</p>
+<p>I have also seen Iran, long squeezed between the grindstones of two European Powers, now liberated and working to fulfil her destiny. During my recent visit there I discovered to my delight that the Zoroastrians, once at the mercy of the major community, no longer suffered from repression. Iran's new life started from the time she freed herself from the entanglements of European diplomacy. With all my heart I wish Iran well.</p>
+<p>Turning to a neighbouring state, Afghanistan, I find that, while much remains to be done in the fields of education and social development, there are real prospects of continuous progress; for, no European power has yet succeeded in bringing the land of the Afghans into its suffocating grip.</p>
+<p>India, however, bearing the immense deadweight of British rule, lies effortless and inert. I recall the tragic history of another country with a great and ancient civilization: China. The British doped the people of China with opium and followed up with territorial aggression. The memory of these happenings had barely dimmed when another outrage came. Japan started to swallow up North China, and that act of brigandage was cynically waved <span class="pg">[p. 357]</span> aside by British statesmen as a minor incident. Later, these statesmen lent a crafty hand in wrecking the Republic of Spain.</p>
+<p>On the contrary, I saw also how a group of brave Englishmen laid down their lives fighting for freedom in Spain. True, no such generous impulse had stirred in English hearts when an Asian country, China, faced peril; nevertheless, the heroic self-sacrifice in the cause of a European republic vindicated the true English spirit to which in earlier years I had offered homage. And the contrast struck me with renewed force, so that I have to tell this sad story of my gradual loss of faith in the civilization of the West.</p>
+<p>Here in India the calamity of civilized rule is apparent not only in the grievous lack of the bare necessaries of life—food, clothing, educational and medical facilities—but even more deplorably in the way the nation has been split, divided against itself. To make matters worse, our social conditions alone are held in blame for the wretched state of affairs, even though this evil could not have taken shape without secret support from the topmost level in the administration.</p>
+<p>I do not believe that we Indians are in any way inferior to the Japanese in intellectual calibre. The sharpest contrast in the destinies of the two eastern peoples lies in the fact that, while India has been at the mercy of the British Power, Japan has never suffered from alien domination. We know, indeed, what we have been robbed of. All that the so-called civilized rule has given us is “law and order” and the instruments of a police state. The spirit of liberty has yielded to the display of barefaced might. The withholding of the most precious elements in human relationships has altogether blocked the path of our progress.</p>
+<p><span class="pg">[p. 358]</span> And yet it has been my privilege to come in contact with big-hearted Englishmen of surpassing goodness, and it is on account of them that I have not lost faith in the people to whom they belonged. There was Andrews, for instance; in him I had for a very close friend an Englishman, a real Christian and a gentleman. Today, in death's perspective, his complete selflessness and brave magnanimity is all the more luminous. We in India are indebted to Andrews for many acts of love and devotion. But speaking from a personal angle, I am especially grateful to him for this reason: he helped me to regain in my old age some of that sincere respect for the British people which I had acquired in my youth under the power of their literature. The memory of Andrews perpetuates for me the nobility in the British heart. I have counted men like him as my most intimate friends and they are friends of all humanity. To have known such men was for me an enrichment of my life. It is they who will save British honour from shipwreck. At any rate, if I had not seen them and known them, my disillusionment about the peoples of the West would have gone unchallenged.</p>
+<p>Meanwhile, the spectre of a new barbarity strides over Europe, teeth bare and claws unconcealed in an orgy of terror. From one end of the Continent to the other the fumes of oppression pollute the atmosphere. The spirit of violence dormant perhaps in the psychology of the West has roused itself and is ready to desecrate the spirit of Man.</p>
+<p>The turning of the wheel of fortune will compel the British one day to give up their Indian empire. But what kind of India will they leave behind, what stark misery? When the stream of their two centuries' rule runs dry at last, what a waste of mud and filth will be revealed, bearing a tale of utter futility! There was a time when I used to <span class="pg">[p. 359]</span> believe that the springs of a true civilization would issue out of the heart of Europe. Today, as I am about to quit the world, that faith has gone bankrupt.</p>
+<p>I live today in the hope that the Saviour is coming, that he will be born in our midst in this poverty-shamed hovel which is India. I shall wait to hear the message he brings with him, the supreme word of promise he speaks unto man from this eastern horizon to give faith and strength to all who hear.</p>
+<p>I look back on the stretch of past years and see the crumbling ruins of a proud civilization lying heaped as garbage out of history! And yet I shall not commit the grievous sin of losing faith in Man, accepting his present defeat as final. I shall look forward to a turning in history after the cataclysm is over and the sky is again unburdened and passionless.</p>
+<p>Perhaps the new dawn will come from this horizon, from the East where the sun rises; and then, unvanquished Man will retrace his path of conquest, despite all barriers, to win back his lost heritage.</p>
+<p>The hour is near when it will be revealed that the insolence of might is fraught with great peril; that hour will bear out in full the truth of what the ancient sages have proclaimed:</p>
+<p>Adharmenaidhate tahat tato bhadrani pasyati</p>
+<p>Tatah sapatnan jayati samulastu binasyati</p>
+<p>By unrighteousness man prospers, gains what seems desirable, defeats enemies, but perishes at the root.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>Rabindranath Tagore, Towards Universal Man (Bombay: Asia Publishing House, 1961), pp. 353–359.</p>
+<p>Online text: <a href="https://archive.org/details/towardsuniversal0000rabi">https://archive.org/details/towardsuniversal0000rabi</a></p>
+<p>Archive note: Towards Universal Man (1961) pp. 353-359, revised English translation; replaces the anonymous retyped text (2024 PDF) used before</p></div>
+</div>
+</body>
+</html>

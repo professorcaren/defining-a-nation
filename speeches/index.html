@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="../index.html">&larr; Home</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Speech Library</h1>
+<p>Speeches by the figures of the independence movement and their opponents, from 1905 to 1947, checked against the printed sources. Each comes with a short introduction. Use them as models for your own speeches and as evidence of what each side argued. Page numbers in brackets are those of the printed source, for citation.</p>
+<div class="lib-filters"><button class="on" data-f="all">All</button><button data-f="British government">British government</button><button data-f="Hindu Mahasabha">Hindu Mahasabha</button><button data-f="Indian National Congress">Indian National Congress</button><button data-f="Muslim League">Muslim League</button><button data-f="Other">Other</button><button data-f="Princely States">Princely States</button><button data-f="Scheduled Castes Federation">Scheduled Castes Federation</button><button data-f="Sikh">Sikh</button></div>
+<div class="lib-list">
+<a class="lib-item" href="gokhale-1905-12-00-benares-congress.html" data-f="Indian National Congress"><span class="lib-speaker">G. K. Gokhale</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Benares</span><span class="lib-meta">December 1905 · Benares · 11,949 words, about 52 min</span></a>
+<a class="lib-item" href="aga-khan-1906-10-01-simla-deputation.html" data-f="Muslim League"><span class="lib-speaker">Aga Khan (deputation address) and Lord Minto (reply)</span> · <span class="lib-title">Address of the All-India Muslim Deputation to the Viceroy, Simla, with Lord Minto&#x27;s Reply</span><span class="lib-meta">1 October 1906 · Simla · 4,606 words, about 20 min</span></a>
+<a class="lib-item" href="naoroji-1906-12-00-calcutta-congress.html" data-f="Indian National Congress"><span class="lib-speaker">Dadabhai Naoroji</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Calcutta</span><span class="lib-meta">December 1906 · Calcutta · 9,456 words, about 41 min</span></a>
+<a class="lib-item" href="tilak-1907-01-02-tenets-new-party.html" data-f="Indian National Congress"><span class="lib-speaker">Bal Gangadhar Tilak</span> · <span class="lib-title">Tenets of the New Party</span><span class="lib-meta">2 January 1907 · Calcutta · 3,247 words, about 14 min</span></a>
+<a class="lib-item" href="tagore-1908-02-00-pabna-provincial-conference.html" data-f="Other"><span class="lib-speaker">Rabindranath Tagore</span> · <span class="lib-title">Presidential Address to the Bengal Provincial Conference, Pabna</span><span class="lib-meta">February 1908 · Pabna · 8,787 words, about 38 min · Translated</span></a>
+<a class="lib-item" href="tilak-1908-07-22-after-verdict.html" data-f="Indian National Congress"><span class="lib-speaker">Bal Gangadhar Tilak</span> · <span class="lib-title">Statement after the Verdict</span><span class="lib-meta">22 July 1908 · Bombay · 60 words, about 1 min</span></a>
+<a class="lib-item" href="lajpat-rai-1920-09-00-calcutta-special-congress.html" data-f="Indian National Congress"><span class="lib-speaker">Lala Lajpat Rai</span> · <span class="lib-title">Presidential Address to the Special Session of the Indian National Congress, Calcutta</span><span class="lib-meta">4 September 1920 · Calcutta · 13,966 words, about 61 min · Abridged</span></a>
+<a class="lib-item" href="mohani-1921-12-30-ahmedabad-league.html" data-f="Muslim League"><span class="lib-speaker">Hasrat Mohani</span> · <span class="lib-title">Presidential Address to the All-India Muslim League, Ahmedabad</span><span class="lib-meta">30 December 1921 · Ahmedabad · 3,562 words, about 15 min · Abridged · Translated</span></a>
+<a class="lib-item" href="nehru-1929-12-29-lahore-presidential.html" data-f="Indian National Congress"><span class="lib-speaker">Jawaharlal Nehru</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Lahore</span><span class="lib-meta">29 December 1929 · Lahore · 7,048 words, about 31 min</span></a>
+<a class="lib-item" href="bikaner-1930-11-17-rtc.html" data-f="Princely States"><span class="lib-speaker">Maharaja Ganga Singh of Bikaner</span> · <span class="lib-title">Speech at the First Round Table Conference, London</span><span class="lib-meta">17 November 1930 · London · 3,482 words, about 15 min</span></a>
+<a class="lib-item" href="mohamed-ali-1930-11-19-rtc.html" data-f="Muslim League"><span class="lib-speaker">Mohamed Ali</span> · <span class="lib-title">Speech at the First Round Table Conference, London</span><span class="lib-meta">19 November 1930 · London · 5,948 words, about 26 min</span></a>
+<a class="lib-item" href="ambedkar-1930-11-20-round-table-plenary.html" data-f="Scheduled Castes Federation"><span class="lib-speaker">B. R. Ambedkar</span> · <span class="lib-title">Speech at the Plenary Session of the First Round Table Conference, London</span><span class="lib-meta">20 November 1930 · London · 3,358 words, about 15 min</span></a>
+<a class="lib-item" href="patel-1931-03-00-karachi-presidential.html" data-f="Indian National Congress"><span class="lib-speaker">Vallabhbhai Patel</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Karachi</span><span class="lib-meta">March 1931 · Karachi · 4,276 words, about 19 min</span></a>
+<a class="lib-item" href="prasad-1934-10-26-bombay-presidential.html" data-f="Indian National Congress"><span class="lib-speaker">Rajendra Prasad</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Bombay</span><span class="lib-meta">26 October 1934 · Bombay · 9,579 words, about 42 min</span></a>
+<a class="lib-item" href="jinnah-1935-02-07-assembly-jpc-report.html" data-f="Muslim League"><span class="lib-speaker">Muhammad Ali Jinnah</span> · <span class="lib-title">Speech on the Report of the Joint Parliamentary Committee, Legislative Assembly</span><span class="lib-meta">7 February 1935 · New Delhi · 5,973 words, about 26 min</span></a>
+<a class="lib-item" href="nehru-1936-04-00-lucknow-congress.html" data-f="Indian National Congress"><span class="lib-speaker">Jawaharlal Nehru</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Lucknow</span><span class="lib-meta">April 1936 · Lucknow · 12,238 words, about 53 min</span></a>
+<a class="lib-item" href="nehru-1936-12-00-faizpur-congress.html" data-f="Indian National Congress"><span class="lib-speaker">Jawaharlal Nehru</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Faizpur</span><span class="lib-meta">December 1936 · Faizpur · 7,102 words, about 31 min</span></a>
+<a class="lib-item" href="savarkar-1937-12-30-ahmedabad-mahasabha.html" data-f="Hindu Mahasabha"><span class="lib-speaker">V. D. Savarkar</span> · <span class="lib-title">Presidential Address to the Hindu Mahasabha, Ahmedabad</span><span class="lib-meta">30 December 1937 · Ahmedabad (Karnavati) · 8,747 words, about 38 min</span></a>
+<a class="lib-item" href="bose-1938-02-19-haripura-congress.html" data-f="Indian National Congress"><span class="lib-speaker">Subhas Chandra Bose</span> · <span class="lib-title">Presidential Address to the Indian National Congress, Haripura</span><span class="lib-meta">19 February 1938 · Haripura · 10,361 words, about 45 min</span></a>
+<a class="lib-item" href="tagore-1941-04-14-crisis-in-civilization.html" data-f="Other"><span class="lib-speaker">Rabindranath Tagore</span> · <span class="lib-title">Crisis in Civilization</span><span class="lib-meta">14 April 1941 · Santiniketan · 2,026 words, about 9 min · Translated</span></a>
+<a class="lib-item" href="ambedkar-1942-07-18-democracy-dies-our-doom.html" data-f="Scheduled Castes Federation"><span class="lib-speaker">B. R. Ambedkar</span> · <span class="lib-title">&quot;If Democracy Dies It Will Be Our Doom&quot;: Address to the All-India Depressed Classes Conference, Nagpur</span><span class="lib-meta">18 July 1942 · Nagpur · 5,025 words, about 22 min</span></a>
+<a class="lib-item" href="mookerjee-1943-02-12-resignation-statement.html" data-f="Hindu Mahasabha"><span class="lib-speaker">Shyama Prasad Mookerjee</span> · <span class="lib-title">Statement on His Resignation from the Bengal Cabinet</span><span class="lib-meta">12 February 1943 · Bengal Legislative Assembly, Calcutta · 1,899 words, about 8 min</span></a>
+<a class="lib-item" href="baldev-singh-1944-05-01-jinnah-khizr-statement.html" data-f="Sikh"><span class="lib-speaker">Sardar Baldev Singh</span> · <span class="lib-title">Statement on Jinnah and the Punjab Ministry</span><span class="lib-meta">1 May 1944 · Punjab · 1,070 words, about 5 min</span></a>
+<a class="lib-item" href="ambedkar-1945-05-06-communal-deadlock.html" data-f="Scheduled Castes Federation"><span class="lib-speaker">B. R. Ambedkar</span> · <span class="lib-title">Communal Deadlock and a Way to Solve It</span><span class="lib-meta">6 May 1945 · Bombay · 9,373 words, about 41 min</span></a>
+<a class="lib-item" href="wavell-1945-06-14-broadcast.html" data-f="British government"><span class="lib-speaker">Archibald Wavell, 1st Viscount Wavell</span> · <span class="lib-title">Broadcast Announcing the Simla Conference</span><span class="lib-meta">14 June 1945 · New Delhi · 1,295 words, about 6 min</span></a>
+<a class="lib-item" href="azad-1945-06-25-simla-opening.html" data-f="Indian National Congress"><span class="lib-speaker">Maulana Abul Kalam Azad</span> · <span class="lib-title">Statement at the Opening of the Simla Conference (summary)</span><span class="lib-meta">25 June 1945 · Simla · 482 words, about 2 min · Summary</span></a>
+<a class="lib-item" href="wavell-1945-06-25-simla-opening.html" data-f="British government"><span class="lib-speaker">Archibald Wavell, 1st Viscount Wavell</span> · <span class="lib-title">Opening Remarks and Second Address to the Simla Conference</span><span class="lib-meta">25 June 1945 · Viceregal Lodge, Simla · 1,048 words, about 5 min</span></a>
+<a class="lib-item" href="azad-1945-07-14-simla-press-conference.html" data-f="Indian National Congress"><span class="lib-speaker">Maulana Abul Kalam Azad</span> · <span class="lib-title">Press Conference at the Close of the Simla Conference (report)</span><span class="lib-meta">14 July 1945 · Simla · 1,400 words, about 6 min · Summary</span></a>
+<a class="lib-item" href="jinnah-1945-07-14-simla-press-conference.html" data-f="Muslim League"><span class="lib-speaker">Muhammad Ali Jinnah</span> · <span class="lib-title">Press Conference after the Simla Conference</span><span class="lib-meta">14 July 1945 · Simla · 958 words, about 4 min</span></a>
+<a class="lib-item" href="wavell-1945-07-14-simla-closing.html" data-f="British government"><span class="lib-speaker">Archibald Wavell, 1st Viscount Wavell</span> · <span class="lib-title">Statement to the Simla Conference on Its Failure</span><span class="lib-meta">14 July 1945 · Viceregal Lodge, Simla · 758 words, about 3 min</span></a>
+<a class="lib-item" href="mountbatten-1947-06-03-partition-broadcast.html" data-f="British government"><span class="lib-speaker">Lord Mountbatten</span> · <span class="lib-title">Broadcast on the Partition Plan</span><span class="lib-meta">3 June 1947 · All-India Radio, New Delhi · 1,257 words, about 5 min</span></a>
+</div>
+<script>
+document.querySelectorAll('.lib-filters button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.lib-filters button').forEach(x => x.classList.toggle('on', x === b));
+  document.querySelectorAll('.lib-item').forEach(i => {
+    i.hidden = b.dataset.f !== 'all' && i.dataset.f !== b.dataset.f; });
+}));
+</script>
+</div>
+</body>
+</html>
