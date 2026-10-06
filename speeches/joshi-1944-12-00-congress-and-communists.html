@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. C. Joshi: Congress and Communists</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Congress and Communists</h1>
+<p class="speech-meta"><strong>P. C. Joshi</strong> · December 1944 · Bombay</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> Congress and Communists (pamphlet)</div><div><strong>Audience:</strong> Readers of People&#x27;s War and members of the Congress (a pamphlet, not a speech)</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 10,476 words, about 46 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>P. C. Joshi, general secretary of the Communist Party of India, wrote this pamphlet in late 1944. It is an essay, not a speech, first published in the party weekly <em>People's War</em>. After Germany invaded the Soviet Union in 1941, the Communists had called the conflict a "people's war" and opposed the Quit India movement of August 1942. The government legalized the party, while the Congress leaders spent the war in jail. Gandhi was released in May 1944 and held talks with Jinnah that September, which failed. Congress committees then began moving to expel Communists who held Congress membership. The pamphlet's two appendices are omitted.</p>
+<p>Joshi answers the expulsion drive and claims the Communists as Congress's own: "To us the Congress is our parent organisation, its leaders our political fathers, its followers our brothers-in-arms." He insists that "There is only one duty that Communism teaches us, to liberate our country before we can establish socialism," and that the party's task is "a United National Front for Indian freedom." He sets the Congress's wartime policy of "we cannot" against the Communists' "we can," and defends the party's 1942 call for Congress–League agreement on the basis of self-determination, which Gandhi, he says, accepted two years later. He attacks the Congress Socialists who led the underground struggle of 1942 and asks his critics whether the Communists are "aliens inside the Congress" or "bold and virile children of the Congress."</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 1]</span> After Gandhiji's release when he wrote to the Viceroy repudiating the sabotage campaign and seeking honourable settlement and again when he wrote to Mr. Jinnah accepting the principle of self-determination and seeking Congress-League agreement for national freedom, the common talk among patriotic circles was that Gandhiji was saying what the Communists had been preaching in his absence.</p>
+<p>After the failure of the Gandhi-Jinnah meeting when Congressmen of some provinces passed resolutions excluding the Communists there was the inevitable confusion but not much surprise. Ever since August 9, after the arrest of the Congress leaders, the Congress Socialists and their allies who spoke in the name of the Congress, had done so much foul propaganda against the Communists that the Congress-minded people are not half as much surprised by the recent moves to exclude Communists as they were over Gandhiji's lead earlier.</p>
+<p>It would be obvious nonsense to suggest that Gandhiji had been bagged by the Communists or that he was too old and unwell to think clearly and boldly as the Congress Socialists were suggesting for a while in those days.</p>
+<p>But it is obvious enough that the national mind is in a state of great confusion and the national movement has never passed through such a chaotic stage as after August 9.</p>
+<p>Gandhiji is out, but the other Working Committee leaders are yet in; the people are in great distress, but the patriots feel helpless; the fate of the world for generations to come is being decided by this war, but India's destiny is not in the hands of her own leaders. There is today the obvious need to hang together, to think our hardest and do our best.</p>
+<p>I.</p>
+<p>BACKGROUND</p>
+<p>When in such circumstances we Communists find our fellow Congressmen disowning us it is no light matter for these Congressmen nor us Communists nor for that matter for the people, the common parents of both. It is a decision of vital importance not only for the Congress, but for our country itself.</p>
+<p>Any honest person who knows both the Congress and the Communist Party will admit :</p>
+<p>(1) The Congress is the greatest national organisation of the country which has grown to its present greatness by uniting within its ranks the various patriotic <span class="pg">[p. 2]</span> elements in the country and by serving the people.</p>
+<p>(2) The Communist Party is the best organised and most disciplined Party in India. Outside the Congress Socialists nobody is more anti-Communist than Sjt. S. K. Patil, the Secretary of the Bombay Provincial Congress Committee. In moving the resolution for our expulsion he openly said that our sense of discipline and selflessness was something he envied.</p>
+<p>(3) The cream of our youth from the patriotic intelligentsia, both Hindu and Muslim, is being drawn to our Party. If Sjt. S. K. Patil envies our organisational skill, Sjt. K. M. Munshi envies our brains too :</p>
+<p>“....The Communist Party in India is very compact, led by brilliant and determined experts in Communist propaganda and technique..... Its discipline is superb....” (Sjt. K. M. Munshi in The Social Welfare dated 10th November, 1944.)</p>
+<p>(4) It is through our Party that the best sons of the workers and the peasants and the student youth not only learn to become the organisers of their Trade Unions, Kisan Sabhas and Student Unions respectively, but rise to positions of political leadership as well.</p>
+<p>(5) No Party in India has a larger number of women organisers of all ages from Grandmas to young girls.</p>
+<p>(6) All the other Left organisations thrown up in the thirties have collapsed in the forties; only our Party has grown and on its own right become the third political force in the country, after the Congress and the League.</p>
+<p>When such is the Congress and such our Party, who will gain if Congressmen and the Communists fall apart—none but the enemies of both. India needs us both. If we start fighting each other, how are we fighting for India's freedom? The one who fires the first shot is guilty of shooting his own brothers in the army of Indian liberation and splitting the front of Indian freedom. There is nothing easier in a slave country than to fight each other; we have been doing that and that is why we remain enslaved. It is much more difficult to fight for freedom, build a broad-based army of freedom's fighters inside an all-in front.</p>
+<p>It is the Congress that planted the banner of Indian freedom; it is from Congress leaders that we got our early lessons in patriotism and it is today Congressmen who want to deny us the privilege of fighting shoulder to shoulder with them for the cause they taught us to accept as our main aim in life. To us the Congress is our parent organisation, its leaders our political fathers, its followers our brothers-in-arms.</p>
+<p>In common tradition, age is supposed to be mellow and youth impatient, younger organisations sectarian and the older tolerant. Today, when our elders in the Congress suddenly want to decide to cut us off without even asking us to explain ourselves, we deem it our privilege to beseech:</p>
+<p>Think again, over and over again, about what you are doing. Ask us anything and we will try our best to set your doubts at rest. If we differ, we must discuss over and over again for the simple reason that we cannot afford to fall apart.</p>
+<p>We have patience because we have faith not only in our own patriotism but also of our fellow Congressmen, because we know we have to fight only prejudice in <span class="pg">[p. 3]</span> their minds and establish the bond of patriotism. We are patient even though we are the youngest party in the country, because we have fought prejudice all our young lives. We had to fight the prejudices of others against Communism in making our Party what it is today. We know from our own experience that the battle against prejudice and for patriotism can never be lost and also that winning it is a hard and long task.</p>
+<p>What is it then that the Congressmen bring up against us and because of which they want to part company?</p>
+<p>II.</p>
+<p>OUR CRITICS</p>
+<p>Our critics can be catalogued under two heads :</p>
+<p>First, there are those who take their stand on ‘fundamental differences’. They seem to think that there is nothing in common between Indian nationalism and Communism and that their unity is impossible; for them the very fact that we consider the present war as people’s war is conclusive enough.</p>
+<p>The second lot of critics are far more specific. They charge us of 'stabbing the Congress in the back' (S. K. Patil) by not carrying out the August resolution.</p>
+<p>Furious thinking is going on among Congress workers. After coming out of jail they are all trying to review the period that followed August 9, to be able to evaluate the role of various groups in the Congress and determine the future tasks of the Congress. In this sense it is a very healthy sign, a desire to think, discuss, understand and act. It is in this spirit that I am also writing this article, with a view to explain our viewpoint, learn theirs so that we may all come to correct conclusions.</p>
+<p>Let me take up the ‘fundamental differences first’. We Communists are not ashamed but very proud of our Communism which inspires us to fight for the greatest cause of mankind—a world socialist brotherhood of free and equal peoples. There is only one thing that makes us blush, that our ancient people are slaves today. There is only one duty that Communism teaches us, to liberate our country before we can establish socialism. There is only one task which our Party teaches us, to build in alliance with our own fellow-patriots a United National Front for Indian freedom. There is only one claim we Communists make, that our policy is patriotic and we endeavour our very best to carry it out. There is only one request we make to our countrymen, judge us by what we say and do, and not by what you ‘think’ Communism means.</p>
+<p><span class="pg">[p. 4]</span> III.</p>
+<p>INDIAN NATIONALISM AND COMMUNISM</p>
+<p>Those who say that there is nothing in common between Indian nationalism and Communism are either ignorant or are falsifying the recent history of the Indian national movement itself.</p>
+<p>Indian Communism is born out of the Indian national movement itself. The founders of our Party were the workers of the 1919-20 movement, either in the Congress or the Khilafat or from earlier terrorist groups.</p>
+<p>The very first issue that our Party took up was that the aim of our national movement must be declared to be complete independence. In the twenties, the argument of the national leadership was that Swaraj was undefinable; the reality was a lurking hope that Dominion Status within the British Empire was more easily attainable and better.</p>
+<p>When we pressed that elementary demands of the workers and peasants must be accepted by the Congress as its own, we used to be told that this would weaken the Congress because the Capitalists and the landlords would get scared and line up behind the Government, which would accordingly get strengthened. We used to be assured that the interests of the toilers were safe in Congress hands and that they would get all that we asked for and more after Swaraj had been won.</p>
+<p>When we used to argue that accepting workers' and peasants' demands was necessary to strengthen the Congress itself and that Swaraj could not be won without the active and conscious participation of workers and peasants, we were asked not to be cheeky but to have faith in Gandhiji and not to repeat parrot-like what we had read in foreign books.</p>
+<p>We did our best to practise what we preached. We dug ourselves in the working-class and organised the mightiest strike struggles that had yet been known in our country and founded the militant mass Trade Union movement. We organised study-circles and made the radically inclined youth pro-Socialist. We killed the prejudice that Communism could not take root in India and silenced those of our elders who used to chide us with being tall talkers.</p>
+<p>In the thirties we had the great satisfaction of seeing the Congress accept step by step what we had been preaching for all we were worth in the twenties.</p>
+<p>On the first day of the year 1930, after the Congress ultimatum of one year for Dominion Status expired, the Congress made Complete Independence its own creed at the Lahore Congress.</p>
+<p>After the failure of the 1930 movement, the Congress passed the resolution on Fundamental Rights, accepting all the basic demands of the toiling masses.</p>
+<p>After the failure of the Second Round Table Conference and the second Civil Disobedience movement of 1932-34, under the leadership of Pandit Jawaharlal Nehru, the Congress took a path and reorientated its policy in a manner to which we Communists gave our whole-hearted and unqualified support. Nehru wanted all anti-imperialists to accept the Congress as the main national organisation of the country and help to build it up as the United National Front <span class="pg">[p. 5]</span> of the Indian people. We demanded that to make this aim real, the Congress should agree to the collective affiliation to itself of mass organisations like the Trade Unions and the Kisan Sabhas. Nehru himself agreed but the rest of the national leadership did not.</p>
+<p>However, under his inspiration the Congress and the Trade Union and Kisan workers began working together and Congress Committees began taking greater interest in the movement of the toilers and in supporting their daily struggles. This unity strengthened both; there was an unprecedented growth of Trade Unions and Kisan Sabhas and Congress membership reached records which made earlier figures look really small. The national movement as a whole became stronger. Our Party did all that it was capable of to build up the Congress organisation and strengthen its alliance with other mass organisations.</p>
+<p>Because we discharged our patriotic duty towards the Congress and our people, our Party which used to be considered a working-class sect began to develop more and more as a really vital and fast-rising political force. Before the war began, we had already become the leading Party of the Left; when Bose tried to disrupt the Congress, we fought him out even within Bengal itself; when Jai Prakash Narain tried to fight us, he lost his entire party to us.</p>
+<p>After the war broke out, the problem of the safety and liberation of our Motherland became an urgent issue. Power was in the hands of the bureaucrats and the dire need of the hour was that the patriotic leaders of our people should be the government of the land. But the unfortunate situation was that the two main political organisations stood divided. In recent years, the Congress had grown phenomenally, but so had the League. The mass of Congressmen were yet hugging on to the old picture of the League when only sections of the Muslim upper classes were in it.</p>
+<p>We were the first to see and admit a change in its character when the League accepted complete independence as its aim and began to rally the Muslim masses behind its banner. We held a series of discussions within our Party and came to the conclusion in 1941-42 that it had become an anti-imperialist organisation expressing the freedom urge of the Muslim peoples, that its demand for Pakistan was a demand of self-determination and that for the freedom of India an immediate joint front between the Congress and the League must be forged as the first step to break imperialist deadlock.</p>
+<p>When we first began to agitate for Congress-League unity, the cheap gibe hurled at us was that we were advancing an impossible slogan only to escape joining the coming ‘national struggle’ ourselves. Two years later, after the failure of struggle, serious patriots began seeing that Congress-League unity was the only practical way out. When Gandhiji and Jinnah Saheb did meet in September '44 to come to an agreement, there was as much popular interest in and enthusiasm for it as there was for starting the ‘struggle’ two years earlier, in the August 1942 meeting of the A.I.C.C.</p>
+<p>I am not citing the above facts to suggest that the Communists gave the lead and the Congress followed it. I know that Congressmen changed through their own experience, acquired during the various nation-wide mass movements. All that I suggest is that our acceptance of Marxism gave us Communists the understanding to see earlier what Congressmen themselves <span class="pg">[p. 6]</span> saw later on. In fact, we very often discuss among ourselves and inside our Party that if our Marxian knowledge was better and if our Party was stronger, i.e., if we were better Communists than we are, how many trials and tribulations we could not have saved our nation and how much faster could we not have made our national movement grow.</p>
+<p>I am referring to the above facts only to answer our critics who are shouting, that we Communists are an alien force inside the Indian national movement. What does the course of our national movement, which I have briefly sketched out above, show? That far from being aliens inside it, we are an integral part of it; that far from pulling it back, we have been trying to push it forward; that rather than divide it, we have been trying our hardest to unite it more and more.</p>
+<p>Today the main items of the platform of the national movement—independence, democracy and self-determination—have become household words. Twenty years of programmatic controversies lie behind and all who care for truth will admit that the Communists have always been among the first to preach what the whole Congress subsequently accepted as best for the country.</p>
+<p>Does it all prove that we are aliens inside the Congress as our critics suggest or that we are bold and virile children of the Congress as we claim to be?</p>
+<p>IV.</p>
+<p>WE CANNOT VERSUS WE CAN</p>
+<p>Most Congressmen concede the above after they have given some thought to recent history, but then they come up with the question: the real trouble began when you started calling the war people's war. They are right. The only problem is how to discuss the issue so as to lead to mutual understanding.</p>
+<p>I have not the place in this article for a fundamental treatment of the issue. When we say it is people's war, we are characterising a world historic event and if I briefly begin explaining how the entire course of the Indian national movement must be changed with the change in the world situation, the Congressman will tell me that I seem to care more for the world and less for my own country. When he says that it cannot be the people's war as long as India remains slave and I go to the root of his nineteenth century world; Britain's difficulty is India's opportunity, and call him a narrow-minded nationalist with an outmoded outlook, he thinks I am being abusive.</p>
+<p>When fellow fighters for freedom differ about a world-shaking event, the best way out is to put their mutual understanding to the simple test of practice and see how we both have been defining our duty to our country from our understanding of the world.</p>
+<p>When Hitler attacked the U.S.S.R., the Congressmen said we cannot help the Soviet, we can only offer moral sympathy. More than three years are gone by and is it not apparent now that it was not a question of helping the Soviet, <span class="pg">[p. 7]</span> that the Soviet was able to help itself and much more? How much of what Congressmen thought about the U.S.S.R. is gone with the wind?</p>
+<p>When the Japanese stood at our doors, the Congressmen said we cannot defend our country if there is no National Government. Even Nehru's anti-Jap utterances during 1942 ceased being popular. The leadership of the Congress ultimately did evolve a lead to liberate the country? Where does our country stand today?</p>
+<p>When the food crisis began, most of the Congressmen said we cannot co-operate with the Government. Is it not clear as daylight that it has meant in practice leaving the people to their fate, at the mercy of the bureaucrats and the profiteers?</p>
+<p>When Hitler attacked the U.S.S.R. we saw the issue as World Fascism versus World Freedom, we said it was not a question of our helping the U.S.S.R., but of getting the help of the freedom-loving peoples of the world for our own freedom. Our voice was too weak to persuade our fellow-patriots to wage the battle of Indian freedom within the framework of the rising world front against Fascism and for freedom. We live to see our own freedom movement going to pieces while in every other country of the world it is going forward by leaps and bounds.</p>
+<p>When the Jap armies stood at our door, we said that the great menace to our country was also the great opportunity before our patriotic parties to forget the differences of the past and unite for a National Government of National defence. However, the sense of danger did not make the leadership of our major patriotic parties advance towards each other, but look towards the British rulers for unilateral settlement. The imperialist rulers naturally cancelled the claims of one with the claims of the other.</p>
+<p>When the economic crisis led to high prices, starvation and epidemics, we said it was time to sink political differences and unite for the single purpose of serving the people. We argued that if our patriotic parties roused public conscience against the hoarders and profiteers, they would stop the rot in our own social life, which was at the mercy of a small section of Indian traders and industrialists who were literally minting millions out of the misery of the entire Indian people.</p>
+<p>We also argued that starvation and suffering is not inevitable if our patriots rouse the people for self-help. We showed by our own example that where the patriots can mobilise the people, the local bureaucrats can be made to listen.</p>
+<p>The war is the all-embracing issue. Whether we like it or not, everybody's fate is being decided through it and all that is happening is because of it.</p>
+<p>We think that because the Congress leadership took up a negative attitude towards the war, so they were inevitably driven towards a negative political policy as well; good words but no action, and giving a "We cannot" to every issue that mattered: We cannot join the battle for world freedom until we are declared to be free; we cannot defend our country until the British quit; we cannot stop our own countrymen from hoarding and profiteering unless we become the Government. In short, expect others to create conditions for us—just what ne[ver] happens in real life and just h[ow] history is not made.</p>
+<p>We think our understanding of the war was correct and therefore, we could suggest a positive <span class="pg">[p. 8]</span> policy for our own country. Our faith in our policy has grown because we find the rest of our fellow patriots themselves groping their way towards it.</p>
+<p>India had to pass through two years of hell and Gandhiji and Jinnah Saheb had separately to suffer the insolent sermons of Linlithgow and Wavell before they thought of meeting each other. They did not succeed, but who does not want them to meet again to succeed the second time. Thirty-five lakhs had to die in Bengal before the patriotic leaders of Bengal agreed to work together for relief through the Bengal Medical Relief Co-ordination Committee under Dr. B. C. Roy, and before Sjt. Kiron Shankar Roy circularised to all the district Congressmen to join the Government-sponsored Food Committees.</p>
+<p>By adopting a negative attitude towards the war the other Congressmen came to 'We cannot'. By adopting a positive attitude towards the war, we came to 'we can.' Without wishing to be rude I ask: Which attitude is based on greater faith in our people, which attitude is more in keeping with the Congress tradition itself?</p>
+<p>It is as youngsters in the Congress that we learnt to love our people and to have unbounded faith in our national movement. But when we find the elderly leaders of the Congress arguing that because we consider it the people's war, we are going against our people, and because the war effort is in the hands of a foreign government, since we say support the war, we seem to have gone over to it, we have to tell them that politics is not as simple as [the] school-master's logic.</p>
+<p>Let them stop using phrases like the people's war, which they do not understand, let them point out a single thing we want the people to do which is against the people; let them point out a single thing we want the national movement to do which is unpatriotic by the standards of people's welfare and political morality that the Congress itself has set up and we will answer them to their satisfaction.</p>
+<p>Communism is a world-historic outlook; we accept it because we think that such an outlook helps us to understand the course of events in our own country better. People's war is our way of understanding the significance of the present world war. We do not expect non-Communists to agree with us in our characterisation of the war. We know that the British enslavement of our country clouds the issue.</p>
+<p>Let any patriot judge us on the basis of the national policy we advocate and above all, on the basis of the practical work we do among the people. He may differ from us, but he will not call us unpatriotic and will marvel at how we can continue serving the people despite all the difficulties of the situation.</p>
+<p>A very familiar charge against us is that we opposed the 8th August Resolution. We whole-heartedly agreed with the main part of the resolution; its flaming anti-Fascism, its declaration of sympathy with the cause of the United Nations, the unqualified pledge to organise both armed and non-violent resistance to the Jap aggressors and the demand for National Government.</p>
+<p>Very few active Congressmen except those that came to the A.I.C.C. Session know of the actual amendments we moved, because immediately afterwards they were arrested. We are printing them at the end of this article with relevant passages from the Official resolution to help Congressmen make up their minds.</p>
+<p><span class="pg">[p. 9]</span> The first amendment is about the constitution of a free India. Maulana Azad called Sajjad Zaheer, one of the Communist A.I.C.C. Members, and assured him that Gandhiji wanted to see Jinnah Saheb immediately after the A.I.C.C. meeting and we should not bind Gandhiji's hands by our amendments. We took the stand that good wishes could not get national unity. Self-determination was either a just and democratic demand or it was not, and if it was, as we thought it to be, then there was no question of bargaining with Mr. Jinnah. Gandhiji should go to him with the offer of self-determination, including the right of secession, and then alone would there be good chances of Congress-League agreement.</p>
+<p>We pressed our amendment with the same faith with which we used to our amendments about the working-class and peasant demands, for we knew the cause of the oppressed is just and the Congress that stands for justice to our country could not indefinitely go on denying justice to the Muslims.</p>
+<p>Our amendment was defeated, but we explained our point of view with the conviction that the more persistent we were in explaining the Muslim demand to our fellow Congressmen, the sooner would Congressmen accept it.</p>
+<p>Gandhiji could not meet Jinnah Saheb then. Linlithgow did not let him, but when he did go to meet him after his release, he went after accepting the principle of self-determination to serve as the basis of discussion as we had wanted him to do two years earlier.</p>
+<p>Let Congressmen carefully read our amendment and see that it contained nothing more than what Gandhiji himself conceded to Jinnah Saheb during the negotiations, except that we gave a scientific definition of nationality as the unit that could claim and exercise the right of self-determination.</p>
+<p>Our second amendment was about the operative clause; we wanted the 'threat of struggle' to be given up and replaced by a decision to forge Congress-League joint front to rouse our 400 millions together.</p>
+<p>We are reprinting the clause of the original resolution and also our amendment. (See page 12.)</p>
+<p>A fellow Congressman may differ from us, we know it was not popular then, but neither Pandit Jawaharlal, who moved the official resolution nor Sardarji who seconded, nor any other A.I.C.C. Member, the Congress Socialists included, called it anti-national or against the spirit or tradition of the Congress.</p>
+<p>Gandhiji spoke before the conclusion of the Session and complimented the Communist A.I.C.C. Members on the courage of their convictions.</p>
+<p>Gandhiji himself never got the chance to implement the resolution, but when he did get the chance to lead the nation again, after his release, he did two years later what we wanted the Congress to work for in August 1942, to achieve Congress-League United Front. Does this show that we are anti-Congress, or that we are really good sons of the Congress who can think for the country as a whole, keep our heads cool even when passions are running high, face unpopularity by relying on the patriotism that burns inside the Congress and the people?</p>
+<p>Let us recall where the operative clause led the country. [It]'s no use saying now that the Government launched a sudden offensive; it is not a test of political leadership, but real naivete to <span class="pg">[p. 10]</span> have expected anything else. It is no use saying now that the Congress Socialists and others went beyond Congress principles; what they were likely to do was common knowledge and should have been foreseen. The popular phrase then was 'short and swift struggle,' and the reality turned out to be a grim and demoralising tragedy. Only we, Communist Congressmen, forewarned against the consequences.</p>
+<p>Should we expect from our fellow Congressmen recognition of our political foresight or damnation for non-participation in a 'struggle' which every Congress leader worth the name, from Gandhiji downwards, declares was not the Congress struggle?</p>
+<p>V.</p>
+<p>AFTER NINTH AUGUST</p>
+<p>Most Congressmen become familiar with what happened after their arrest when they get released, but they only hear prejudiced reports about what we said and did in their absence. For their benefit, I am reprinting extracts from Gandhiji's letters, Maulana Azad's published letter to the Viceroy and my own statements, writings and from the editorials of the People's War, the official organ of our Party, on the most vital political issues such as responsibility for the crisis, character of the 'struggle', deadlock and the way-out. (See Appendix.)</p>
+<p>After the arrest of the national leaders, there was no official lead from the Congress; we, with the rest of Congressmen, had to do the thinking and acting on our own. When we wrote what we are quoting now, neither we nor the country knew what Gandhiji was writing to the Viceroy, nor Maulana Azad on behalf of the Working Committee. Any dispassionate person reading the extracts together today will see a clear family resemblance; not only the arguments used, the sentiments expressed, but very often the words used are the same. This was so because we are good sons of the Congress and our Party has taught us to be able to do our political thinking on our own.</p>
+<p>We fixed the responsibility on the Government for provocation that set the country aflame through the arrests of the leaders.</p>
+<p>We did our very best to prevent the campaign of violence and sabotage from spreading and rescued as many youngmen as we could from the clutches of its organisers.</p>
+<p>We unmasked those who were misusing the Congress name and seeking popular support by calling it Congress struggle. It was the toughest job we had to tackle before Gandhiji's letters to Linlithgow became common knowledge.</p>
+<p>We struggled to see that patriotic anti-British feeling did not become defeatist pro-Jap feeling after the struggle failed.</p>
+<p>We fought the Government slanders against the Congress of being pro-Jap by popularising its anti-Fascist declarations as widely as we could.</p>
+<p>We answered back the Government charge that sabotage was Congress-organised.</p>
+<p>The British official propaganda <span class="pg">[p. 11]</span> outside India was so strong and the confusion among freedom-loving peoples so great, that after 9th August India was left with very few friends. Through our brother Communist parties the world over, we sent messages and news to clear the name of the Congress and popularise the national demand. India's cause was widely popularised through the Press and platform of every Communist Party and the demand for a National Government supported as one that was in the interests of all freedom-loving nations. In fact, if anybody abroad campaigned among their own people for full support to India's demand, it was the Communist Parties of those countries.</p>
+<p>Within India we kept up a ceaseless agitation for the release of the Congress leaders and for a National Government.</p>
+<p>Among the Leaguers we popularised the slogan, no Pakistan possible except through agreement with the Congress, and among Congressmen, no National Government without Congress-League unity on the basis of self-determination and thus made them face up to each other's demands. This is how we tried to make them both think in terms of national unity.</p>
+<p>We have a right to ask released Congressmen: What would you have done if you were out? And we expect the answer: Just what you did!</p>
+<p>Our conscience is so clear because we have done our patriotic duty aright. Just because it is so that the Congress Socialists who up to the publication of Gandhiji's letters used the Congress name and authority against our policy and activity miserably failed. We not only stood our ground, but grew in influence and strength.</p>
+<p>We have explained our policy about the 8th August Resolution and its sequel. We expect every Congressman to concede that on every single issue of importance ours has been a patriotic stand whether he himself agrees with it or not.</p>
+<p>Now let us have a look at the policy of the Congress Socialists and their allies who have done their utmost to slander us among fellow Congressmen and who as every one knows have taken the lead in seeing that the Communists are excluded from the Congress.</p>
+<p>VI.</p>
+<p>LEADERS OF THE ANTI-COMMUNIST CRUSADE</p>
+<p>We have an immense mass of their illegal pamphlets, hand-bills and other literature, but I will quote only a few of the prize gems of their foremost leaders.</p>
+<p>"It would be mean and cowardly to attempt to show that the national struggle that started on 9th August 1942 had not the authority of the Congress." This is not from Tottenham's pamphlet but Jai Prakash Narain in his Second Letter to All Fighters f[or] Freedom, as late as October 194[3]. This is six months after the publication of the Gandhi-Linlithg[ow] correspondence, in which Gandhi put the responsibility for what happened on Government repression and repudiated Congress connection <span class="pg">[p. 12]</span> with the campaign of sabotage and violence.</p>
+<p>The Ninth August edited by Achyut Patwardhan and Ram Manohar Lohia and called by them the ‘fortnightly organ of the Indian National Congress’ wrote on January 26, 1944: “For our primary self-interest as well as for Swaraj our path leads to a relentless war against Britain’s war-efforts.” This paper glorified every act of sabotage and violence within the country and of Bose’s Army across the border.</p>
+<p>The Congress in its 8th August Resolution stood for the victory of the United Nations against the Axis and wanted National Government for India so that India might play her rightful role in fighting for a free world. Jai Prakash Narain on the other hand put his faith on Russia yielding to Hitler, China collapsing before Tojo and Bose coming to India. Listen to his own words:</p>
+<p>"I believe and I do not mind saying so publicly that unless there is a shift in the international situation—a Russo-German Pact, a Sino-Japanese Peace, a major reverse of British arms, war on Indian soil—we cannot do anything big."</p>
+<p>Also :</p>
+<p>"No outside help "by itself" can free us. We must be ready in the event of an Axis-Allied clash in India to seize power ourselves. Only if we are ready to make this attempt can outside help, such as Subhas's National Army, be of value to us and Tojo be prevented from annexing India."</p>
+<p>The simple line was: Let us keep the sabotage campaign going and get ready to make revolution the moment Bose gives the orders, his Army will finish the job. Bose's master, Tojo, was neatly kept out of the picture.</p>
+<p>Congressmen knew Bose as an unprincipled opportunist who had to be thrown out of the Congress. Jai Prakash prepares the ground to welcome him back by dressing him up as a patriot with these words:</p>
+<p>"It is easy to denounce Subhas as a Quisling.... But Nationalist India knows him as a fervent patriot and as one who has always been in the forefront of his country's fight for freedom. It is inconceivable that he should ever be ready to sell his country."</p>
+<p>Let us now see what Pandit Jawaharlal Nehru has to say on the subject :</p>
+<p>"We parted company with Bose many years ago. We have drifted further apart and today we are very apart. It is not good enough for me to realise that the way he has chosen is utterly wrong, a way which I not only can't accept but must oppose if it takes shape. Because any force that may come from outside, really comes as a dummy force under Japanese control.</p>
+<p>"Fighting will be done by the armed forces. We will have to take up guerilla warfare." (April 12, 1942.)</p>
+<p>Let us also take up Gandhiji's views on the same subject:</p>
+<p>"I have never attached the slightest importance or weight to the friendly professions of the Axis Powers. If they come to India, they will come not as deliverers but as sharers in the spoil. There can, therefore, be no question of my approval of Subhas Babu's policy." (June 21, 1942.)</p>
+<p>After Gandhiji's letters to Linlithgow were published our agitation for the release of the leaders and for ending the deadlock found ready response among the Congress-minded <span class="pg">[p. 13]</span> public. Here is Jai Prakash's answer, which says that the best place for the Congress leaders was inside jail and that deadlock was the best guarantee of future freedom :</p>
+<p>"As soon as Mahatma Gandhi, President Azad, Pandit Nehru and others are out of prison the world would forget India. The pressure that deadlock exercises over those who guide the destinies of the world would go peacefully to sleep—rightly thinking that the Indian question was settled for the time being and would not become pressing again till the mad Gandhi took it into his head to march his flock once more to prison. Pandit Nehru released from jail might make statements which American correspondents might lap up with avidity, but there would be no strength behind those statements, despite the beauty and grace of their expression. Nehru imprisoned is a greater problem for the Roosevelts and Churchills than Nehru proliferating nobly-worded statements and casting his spell over the envoys of great nations.... The deadlock is the best guarantee of our success in future." (Jai Prakash in his Second Letter to all Fighters for Freedom, Oct. 1943).</p>
+<p>Congressmen who were out of jail know that when the food-crisis first began the Congress Socialists wanted food-riots as part of their “freedom-revolution” plan. When Bengal famine came they at first made fun of the idea of organising a relief campaign.</p>
+<p>When Gandhiji came out they called his Gelder interview surrender to Imperialism but lacked the guts to say so openly. They left it to their student boys to see if their slogan could be popularised among the youth.</p>
+<p>When Gandhiji went to meet Mr. Jinnah they were the most annoyed and took the defeatist and disruptive line that the meeting would never succeed and Mr. Jinnah would be exposed.</p>
+<p>When Congressmen began being released they contacted as many as they could, from the highest to the lowest, and poured slanders into their ears; the Communists were paid by the Government, they opposed and sabotaged the national struggle, they exploited the absence of the Congress to become strong themselves, they must be thrown out of the Congress, etc. etc.</p>
+<p>It only takes a little time for Congressmen to see that the stories about Government subsidy and acting as police agents are just lies and to brush them aside with the easy argument that all this is part of the mud-slinging between two Left groups. But quite a large number of Congressmen are taken in by their political arguments about the failure of struggle and of plans for the future. It is just because Congressmen are in a thinking stage, reviewing the past and making plans for the future that we ask them to consider the matter from all angles.</p>
+<p>Let them read the extracts from the writings of Jai Prakash etc. together with what Gandhiji and Maulana Azad have said and let them say if there is anything in common between Congress policy and the Congress Socialists.</p>
+<p>Let them read what they wrote side by side with what we wrote on responsibility for the national crisis, on ending the deadlock and in fact on all the major issues that cropped up after 9th August and let them decide who expounded the Congress policy more correctly, who defended the Congress honour better, who acted the good Congressmen and who the bad.</p>
+<p><span class="pg">[p. 14]</span> Let them remember that the Congress Socialists have deliberately charged us with the foulest crimes a patriot can be guilty of without having cared to prove it. The Congress Socialists knew they were lying when they lied.</p>
+<p>They organised the sabotage campaign, we opposed it.</p>
+<p>They used the name of the Congress, we used only the name of our Party.</p>
+<p>They want the Congress leaders to remain in jail, we agitate for their release.</p>
+<p>They want deadlock to continue, we want it ended.</p>
+<p>They oppose National Government as surrender to Imperialism, we campaign for it.</p>
+<p>They oppose Congress-League Unity, we work for it.</p>
+<p>They call our policy pro-British, in order to cover up their policy which has been pro-Jap.</p>
+<p>We have no doubt that the more Congressmen think the more readily they will agree with us, and the more they work among the people the sooner they will see our worth and also theirs.</p>
+<p>In the meanwhile let them remember that the persons who are the loudest in demanding the exclusion of the Communists are the same persons who misused the name of the Congress, who cannot stand on their own before the people and who slander fellow Congressmen. This coincidence is not accidental.</p>
+<p>VII.</p>
+<p>CONGRESS TODAY WITHOUT A POLICY</p>
+<p>It was first an enigma to us how released Congressmen could be so blind to the good work we did in their absence and which according to us has been in the best anti-Fascist and patriotic traditions of the Congress, and therefore why they should be so manifestly unjust to us as to want us to quit the Congress.</p>
+<p>Deeper thought has led us to the conclusion that the demand for our exclusion is only one of the symptoms of the deep crisis that has overtaken our national movement. Congressmen openly admit that they feel frustrated and cannot see their way. What they do not see is that the whole national movement is in a blind alley and the Congress is without a real policy except the traditional one which no more fits with the new international and national situation and therefore leads nowhere.</p>
+<p>The official Congress policy for the present phase of the national movement is contained in the 8th August resolution. It contained a basic contradiction between its declared aim and the course of action suggested.</p>
+<p>The aim was an effective defence of India and its freedom, viz., "Free India will become an ally of the United Nations sharing with them the trials and tribulations of the joint enterprise of the struggle for freedom."</p>
+<p>The course of action suggested was “a mass struggle on non-violent lines on the widest possible scale.”</p>
+<p>When India herself was in peril <span class="pg">[p. 15]</span> and the United Nations were engaged in a life and death struggle, a mass struggle within India could not but become a mass campaign of economic and political sabotage, going both against the defence of India and the war-efforts of the United Nations. That this was so was proved in reality. Gandhiji, not explicitly but implicitly, sees this contradiction when he comes to the conclusion now that there can be no mass Civil Disobedience during war-time.</p>
+<p>It was because of this contradiction that the British Imperialists could hide their own unwillingness to part with power and to slander the Congress as being pro-Jap and insincere.</p>
+<p>It was because of this contradiction that a handful of Congress Socialists could run away with the Congress machinery after the arrest of the Congress leaders and could successfully palm off their sabotage-campaign as the national struggle sanctioned and authorised by the Bombay A.I.C.C.</p>
+<p>This contradiction has cost the country dear, as the events of the last two years bear out. We have not so far discussed this aspect of the problem. When our fellow Congressmen were in jail and Government repression was rampant, to do so would have been to play into the Government's hands. We rigidly observe the good Congress tradition not to discuss our internal differences unless there is a pressing practical need to do it and never at a time when they are likely to strengthen the hands of the foreign Government. It was enough for us these two years to protest against Government repression and demand Congressmen's release, rouse the people against deadlock and popularise Congress-League unity, ourselves go into the people and serve them through food and relief work.</p>
+<p>When Congressmen are being released, it is inevitable that they should review the past two year period and discuss the policy that the Congress should adopt to end the deadlock and serve the people. These discussions are following the beaten track and nothing that corresponds to the needs of the situation, nothing that will make the Congress play a decisive role in ending deadlock is coming out of these discussions. The greatest weakness is that the Working Committee which led the Congress for 20 years is yet behind the bars. Gandhiji alone has to fulfil the very difficult role of the entire national leadership, that is to say, without the aid of his old and trusted colleagues.</p>
+<p>Congressmen left without a leadership are thinking hard, but along old traditional lines. A fair summary of the dominant trend would be the following:</p>
+<p>British Imperialists are winning the war and therefore they do not listen to us.</p>
+<p>Jinnah is an impossible communalist, he won't come round; he hopes to get a higher price from the British.</p>
+<p>Communists did not join the 9th August struggle and thus betrayed the Congress.</p>
+<p>Food work and epidemic relief will lessen the internal pressure on the Government and any way the bureaucrats won't let us do anything.</p>
+<p>When they discuss among themselves as to what should be done, they come to the conclusion that nothing is possible during war-time, except that the Congress should be reorganised. It is here that the Congress Socialists butt in and demand that the Communists should be excluded.</p>
+<p>Let us see the implications of such a line of thought.</p>
+<p>A theory is made that settlement between Britain and India <span class="pg">[p. 16]</span> is not possible because the British imperialist rulers do not want it. But since when have the British imperialist rulers become the makers of history for the Indian patriots? Could there be a worse demonstration of the slave mind? In the year 1944 even an ordinarily educated person has begun to see the very close interdependence between countries. If there is no settlement with India, the British people will have to bear a greater burden of the war-effort and for a longer period. The war against Japan will be a longer war. If there is no settlement with India, the British people will have to go back to mass unemployment and the dole in the post-war period; a prosperous post-war Britain can be built up only in alliance with a free India with its expanding market and growing needs of machine tools for its industrialisation.</p>
+<p>If we cannot win a National Government in war time, our merchants and industrialists will become a gang of soulless profiteers and racketeers, our peasants in deficit areas will get totally ruined, our youth will know only frustration, our entire race will become enfeebled through epidemics. If our patriotic leadership cannot get the destiny of India in its own hands, we are doomed to a period of political disruption, economic ruination, moral degeneration.</p>
+<p>If what is in the crying interests of the British and the Indian peoples cannot be won, what is our political leadership for? They cannot say it cannot be done, their job is to think out how to do it.</p>
+<p>A belief continues to be held that the League is a communal organisation and that Mr. Jinnah is pro-British. But what is the reality? Mr. Jinnah is to the freedom-loving League masses what Gandhiji is to the Congress masses. They revere their Qaid-e-Azam as much as Congressmen do the Mahatma. They regard the League as their patriotic organisation as we regard the Congress. This is so because Mr. Jinnah has done to the League what Gandhiji did to the Congress in 1919-20—made it a mass organisation.</p>
+<p>This is so because just as in one simple slogan, “Swaraj,” Gandhiji gave expression to our freedom urge, so Mr. Jinnah through the slogan of Pakistan has given expression to the freedom-urge of the Muslims, for absolute independence in their own homelands.</p>
+<p>We do not expect a Congressman to readily admit all this, but we do expect him not to deny the patriotism of others but try to understand how it expresses itself for them; we do not expect a Congressman to claim the monopoly of patriotism for himself. If the Congressmen go narrow and sectarian, who will act the generous unifier of all patriotic elements in our unfortunate country? If Congressmen abuse the League or refuse to understand its phenomenal growth and just demands they are denying their own responsibility as members of the foremost national organisation. Claiming patriotism for oneself and denying it in others is the simplest thing to do. But has not the Congress tradition been its opposite?</p>
+<p>A theory is advanced that food or relief work is either not possible or not desirable or both. It is not possible because the bureaucracy won't let us do it. It is not desirable because it involves co-operation with the Government and will strengthen it.</p>
+<p>Now let us look at experience, past and present. It is true the bureaucrats do not look with favour on any Congress activity, but <span class="pg">[p. 17]</span> have the bureaucrats ever been able to stop constructive work by Congressmen, except when it has been directly a part of the Civil Disobedience programme? To-day, wherever Communists exist, we are doing food and relief work and win the gratitude of the people. Wherever we are strong and the local bureaucrat good and honest, we are able to get even government co-operation; where we are weak and the local bureaucrat unhelpful we do what little we can on our own.</p>
+<p>Theorists sitting in their rooms do charge us with strengthening the Government, but the people among whom we work bless us for struggling our hardest to help and save them.</p>
+<p>When our Congress elders say that as long as the bureaucrats exist, food and relief work cannot be done, all we can say is that they are endowing the bureaucracy with an omnipotence which it does not possess; our elders just do not see what they can do and what no one can prevent them from doing.</p>
+<p>When our Congress elders say that food and relief work will strengthen the bureaucracy, all we can ask is how service of the people can strengthen the bureaucracy, and again: has it not been the Congress tradition that service of the people matures the patriotic worker and strengthens the nation?</p>
+<p>Statements to the effect that the British won't listen, that Jinnah is impossible and nothing can be done till the war is over, only express an outlook of negation and utter defeatism. They do not embody a political policy, they just express lack of any policy.</p>
+<p>Such sentiments are very common among those Congressmen who think that the “national struggle” failed because it was not organised. From “nothing can be done now” they came to the conclusion “organise for the future post-war struggle.” Politically it means a policy of sitting tight and practically it becomes the slogan: “Organise.” Now obviously there is no organisational work possible without a sound and practical political policy. But if the political outlook itself is negative, the organisational plan too must turn out as a plan for disruption.</p>
+<p>I will take the worst case of these "Organise-wallas", viz., Sjt. S. K. Patil, who has printed an amazing document, A Note On The Organisational Reconstruction and Future Programme Of The Congress.</p>
+<p>"In my view the Congress must develop closest contacts with all important elements of society, whether organised or not."</p>
+<p>He mentions them as workers, peasants, students, shop-assistants and others and he wants Congressmen to organise them “on the three basic principles of one United Congress, one Leader and one Programme.” Besides Sjt. S. K. Patil, other people, whom all decent men loathe, have mouthed this slogan. If Sjt. Patil thinks that organisational totalitarianism is going to succeed inside the greatest democratic organisation of our people—the Congress—he is sadly mistaken.</p>
+<p>His basic political understanding is expressed in his own words:</p>
+<p>"We believe that the nation is behind the Congress and whatever does not specifically belong to any other party or group belongs to the Indian National Congress. This is a dangerous way of looking at things and surely it does not make for efficient working of our institutions. This attitude of self-complacency is increasingly corroding our institution from within, while <span class="pg">[p. 18]</span> other parties and groups are getting more powerful at our expense. We must be more positive in our relations to society. The correct way according to me, of measuring our strength is to regard that whatsoever is not with us is against us. (Italics ours.) That way, there is no chance of being deceived."</p>
+<p>This is self-righteousness and sectarianism running riot.</p>
+<p>From the above, it should be no wonder that Sjt. S. K. Patil, who calls himself a Gandhite has become the greatest friend of the Congress-Socialists, and he calls his alliance with the Congress Socialists the achievement of Congress unity and wants the Communists not only to be thrown out of the Congress but no Congressman to associate with us at all. What he has been saying in informal Conferences and talks with Congress workers, bluntly put is as follows:</p>
+<p>The last struggle failed in Bombay because the Communists dominated the working-class and therefore the workers did not strike. But the Communist influence cannot be easily destroyed, because the Communists are remarkably disciplined and hard-working. Congress workers must become like them, go into labour and organise it so that it does not betray the national struggle next time. The Congress will produce the cash and give guidance.</p>
+<p>The Congress Socialists have agreed to produce the workers and Sjt. S. K. Patil has agreed to produce the rest.</p>
+<p>There would be no occasion to bother much if it were only a Bombay phenomenon, or if Sjt. S. K. Patil were an exception. But anti-Communist prejudice prevails in a majority of Congressmen. It is born of the post-August events. A vast mass of Congressmen look upon the August movement in the same way as they do the 1920 and 1930 movements. They are very angry with us for not joining it. The Congress Socialists, with their allies, exploit the released Congressmen's genuine doubts about our policy to fan their prejudices and lead them into an anti-Communist organisational plan.</p>
+<p>We do not hope to be able to convince the handful of Congress Socialists after what they said and did in the name of the Congress, deliberately and planfully, and after they have knowingly spread the slander that we are paid by the Government and handed over Congressmen to the police.</p>
+<p>But we do hope to be able to establish brotherly relations with the other Congressmen, to discuss all differences, clear all doubts and get them to admit that we are as patriotic as they are, though we may differ on this point or that, and there is room for us, as there has always been, in the broad bosom of the Congress, in the struggle for freedom, provided we accept its democratic discipline, which we have always done, which our Party itself demands of us that we observe. A Communist is nothing if not a genuine patriot, disciplined and tireless.</p>
+<p>We do not sneer at the desire of Congressmen to strengthen the Congress and organise the masses. That is exactly what we have been looking forward to in their absence. To us it will mean the restoration of normal political life in our country. We are the happiest to note a genuine desire among a larger section of Congressmen to organise the masses. This is just what we ourselves stood for inside the Congress. We know it will make the Congress and the people stronger.</p>
+<p><span class="pg">[p. 19]</span> We agree that any group of Congressmen has a perfect right to hold an informal Conference and keep us out of it. But we claim for ourselves, with a clear conscience, all the rights of Congressmen, as we are ready in all seriousness to discharge all our duties. We are confident that when the Congress begins to function normally, we cannot be kept out of it. No clique can win against our selflessness. No prejudices will win against our patriotism. When the Working Committee is out, I would be very glad to stand in the dock before them, and let them judge us on the basis of our post-9th August policy and work.</p>
+<p>We have greater faith in their intellectual integrity, political maturity and sense of democratic discipline than most Congressmen. I do not expect them to write to Lord Wavell denying Congress responsibility for what happened after 9th August and then throw us out of the Congress for not participating in that very activity. We have said or written nothing which we need deny. We have done nothing of which we are ashamed. If anything, we regret that our voice has been too feeble, our legs too weak.</p>
+<p>Even in their informal Conferences, released Congressmen elsewhere have not gone so far as in Bombay, where they have even banned association with the Communists. Congress leaders of U.P. want us to stay out of their ad hoc units as long as the present 'critical time' lasts, but they not only agree to, but actually want us to co-operate with them, e.g. in Detenu Relief, Kasturba Memorial etc. That under Sjt. S. K. Patil's leadership such a resolution was passed shows not only the Congress Socialist inspiration behind his political outlook, not only what a ruthless machine-man he is to push such a proposal through, but also how far the anti-Communist prejudices of Bombay Congressmen have gone that they acquiesced in it.</p>
+<p>If released Congressmen do not co-operate with us over issues which both of us consider to be good work, who will suffer but the people, who need to-day more than ever before every patriotic son of theirs to work for them. If Congressmen begin believing in political untouchability, what will things come to in our country? We hope Congressmen elsewhere will not only not repeat the Bombay resolution, but appeal to Bombay Congressmen to be reasonable and rescind it when they meet next.</p>
+<p>We will heartily welcome Congress workers into the Trade Union and Kisan movements where we are ourselves working. The more organisers become available the stronger these organisations will grow, the more they will be able to serve the interests of the masses concerned, the stronger our national movement will become. But we would expect the new enthusiasts for mass organisations to respect the principles and tradition of the All-India Trade Union Congress and the All-India Kisan Sabha as Pandit Nehru did. If, however, under Congress Socialist inspiration, some Congressmen think of starting rival mass organisations, we will try to explain to them how it will lead not to organisation but to disruption.</p>
+<p>The vast mass of the organised workers and peasants respect the Congress as their own national organisation, but they also love their Trade Union or Kisan Sabha as their class organisation. If any rival trade union or kisan sabha is started, they will naturally resent it very strongly and consider it an attempt to disrupt their <span class="pg">[p. 20]</span> existing organisation and unity. If there are Congressmen elsewhere like Sjt. S. K. Patil who want to start rival mass organisations just because they are anti-Communist, the result will be disastrous.</p>
+<p>Where we are strong, no attempt at starting rival organisations will succeed. Sjt. S. K. Patil has been trying it for the last 10 years in Bombay and he has not succeeded. More men and more money will not get the job done. He cannot get more young men nor more money than what Achyut Patwardhan &amp; Co. poured into the working-class area immediately after 9th August, to get the workers on strike, etc. in those hectic days. If the game is tried again, we will have once again to explain to the workers to have patience and that all Congressmen are not like them, that these are bad days for our country.</p>
+<p>Sjt. S. K. Patil's "New Organisational Plan" will turn out as serious a fiasco as the "Freedom Revolution" of the Congress Socialists at an earlier stage. We have enough hard jobs on hand, he would only have created one more for us, to defend the unity of the mass organisation and prevent the militant working-class from developing anti-Congress prejudices because of the disruptive activities of some Congressmen who think they are organising the masses by beginning with the disruption of what mass organisations already exist.</p>
+<p>Where we are weak and rival mass organisations are started by some Congressmen, the result will be that the vast unorganised mass will join neither the organisation [in] which we are working nor the one they start. The masses have an unerring way to judge their real friends and a very simple test: They will ask, if you really want to serve us why cannot you unite among yourselves? In such places, there will not only be disruption of the little that exists, but intensified demoralisation of the masses who will consider us both as two rival groups who are more interested in quarrelling with each other than in really organising and serving them.</p>
+<p>Must political failure lead to organisational disruption or must it give rise to deeper political thinking, greater unity of the Congress and harder work among the people?</p>
+<p>We Communist Congressmen endeavoured to act up to the best traditions of the Congress.</p>
+<p>We draw inspiration from the great days of 1919-20 and the tradition of Hindu-Muslim unity represented by Congress-Khilafat alliance when we work for Congress-League unity to-day.</p>
+<p>We draw inspiration for our work among the workers and kisans from the writings and speeches of Pandit Nehru in the thirties.</p>
+<p>We draw confidence against the present day sectarian and totalitarian trend among Congressmen from the fact that if the plan for a “homogeneous Congress” did not succeed in 1934, it is not likely to succeed in 1944.</p>
+<p>We know that anti-Communism has spread among Congressmen. We consider that it has mostly sprung from genuine misunderstanding and it is our task to remove it; and partly that it is the result of vile slander-mongering which must come to its own miserable end. Against anti-Communist prejudices, we will put our patriotic policy and Congressmen will melt. Against the disruptors we will defend ourselves and we know they cannot win.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>P. C. Joshi, Congress and Communists (Bombay: People's Publishing House, December 1944), pp. 1–20, reprinted from People's War, no. 22, 26 November 1944. The two appendices (pp. 21–26) are omitted.</p>
+<p>Online text: <a href="https://archive.org/details/congress-communists-p.-c.-joshi/page/n4">https://archive.org/details/congress-communists-p.-c.-joshi/page/n4</a></p>
+<p>Archive note: People's Publishing House, Bombay, Dec 1944, pp. 1-20 (main essay; appendices omitted); reprinted from People's War, 26 Nov 1944. A pamphlet, not a speech</p></div>
+</div>
+</body>
+</html>
