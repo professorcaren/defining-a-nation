@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Stafford Cripps: Broadcast on the British Government's Proposals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Speech Library</a></div>
+
+<style>
+    .speech-wrap { max-width: 46rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    .speech-meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: -0.5rem; }
+    .speech-facts { color: var(--text-secondary); font-size: 0.85rem; margin: 1rem 0 2rem;
+        border-left: 2px solid var(--gold-dim); padding-left: 0.9rem; }
+    .speech-facts div { margin: 0.15rem 0; }
+    .badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 3px; padding: 0.05rem 0.4rem;
+        margin-right: 0.35rem; }
+    .speech-text p { line-height: 1.75; }
+    .pg { font-size: 0.7rem; color: var(--ivory-muted); letter-spacing: 0.05em; white-space: nowrap;
+        font-family: 'Lato', sans-serif; }
+    .speech-source { font-size: 0.85rem; color: var(--text-secondary); }
+    .lib-filters { margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lib-filters button { background: none; border: 1px solid var(--gold-dim); color: var(--ivory-dim);
+        font-family: 'Lato', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; }
+    .lib-filters button.on { color: var(--gold); border-color: var(--gold); }
+    .lib-item { display: block; text-decoration: none; padding: 0.8rem 0; border-bottom: 1px solid var(--gold-dim); }
+    .lib-item:hover .lib-title { color: var(--gold-light); }
+    .lib-title { color: var(--ivory); font-weight: 700; }
+    .lib-speaker { color: var(--gold); }
+    .lib-meta { display: block; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+</style>
+<div class="speech-wrap">
+<h1>Broadcast on the British Government&#x27;s Proposals</h1>
+<p class="speech-meta"><strong>Sir Stafford Cripps</strong> · 30 March 1942 · Delhi</p>
+<div class="speech-facts"><div><strong>Occasion:</strong> Broadcast from Delhi explaining the Draft Declaration</div><div><strong>Audience:</strong> All India Radio listeners</div><div><strong>Language:</strong> English</div><div><strong>Length:</strong> 2,451 words, about 11 minutes to read</div></div>
+<h2>Introduction</h2>
+<p>Sir Stafford Cripps, a left-wing member of Churchill's War Cabinet, arrived in India in March 1942, when Japan had taken Singapore and Rangoon and seemed to threaten India itself. He brought a draft declaration agreed by the Cabinet. It promised a dominion "equal to them in every respect" after the war, a constitution-making body chosen mainly by the provincial legislatures, and the right of any province to stay out of the new union. The declaration was published on 30 March, and that evening Cripps explained it in this broadcast on All India Radio from Delhi. The subheadings are those of the <em>Indian Annual Register</em>, which printed the text.</p>
+<p>Cripps presents the offer as a final answer to the old charge that Britain would not trust Indians: "Our object is to give to the Indian peoples full self-government with complete freedom as to how they will devise and organise their own Constitution." He defends the right of provinces to stay out, comparing India's "many peoples and races" to Russia's, and explains that Britain would keep control of defence during the war. He ends by putting the decision on Indian leaders: "it is in the hands of Indians and Indians only whether they will accept that lead," and "If they fail to accept this opportunity the responsibility for that failure must rest with them." The Congress and the Muslim League both rejected the offer within two weeks, for opposite reasons.</p>
+<h2>Text</h2>
+<div class="speech-text"><p><span class="pg">[p. 221]</span> The following is the text of the broadcast talk by Sir Stafford Cripps from the Delhi station of the All India Radio on March 30, 1942 :</p>
+<p>I want tonight to give you a short explanation of the document which was published in the Press this morning, and which gives the proposal of the British War Cabinet for the future of India, a document unanimously agreed upon by every member of that Cabinet.</p>
+<p>First of all you will want to know what object we had in view. Well, we wanted to make it quite clear, and beyond any possibility of doubt or question, that the British Government and the British people desire the Indian peoples to have full self-government, with a Constitution as free in every respect as our own in Great Britain or as of any of the great Dominion members of the British Commonwealth of Nations. In the words of the draft Declaration, India would be, "associated with the United Kingdom and other Dominions by a common allegiance to the Crown but equal to them in every respect, in no way subordinate in any aspect of its domestic or external affairs."</p>
+<p>There is, however, an existing Constitution which regulates the Central and Provincial Governments of India and everyone agrees that in these troublous times we cannot here and now set about forging a new Constitution. It is far too important a matter for the future of India to be improvised in a hurried way.</p>
+<p>The principle on which these proposals are based is that the new Constitution should be framed by the elected representatives of the Indian peoples themselves. So we propose that immediately hostilities are ended a Constitution-making body should be set up consisting of elected representatives from British India, and if the Indian States wish, as we hope they will, to become part of the new Indian Union, they too will be invited to send their representatives to this Constitution-making body, though, if they do, that will not, of itself, bind them to become members of the Union. That is the broad outline of the future.</p>
+<p>Defence of India</p>
+<p>Now what is to happen in the meantime?</p>
+<p>The British people are determined to do their utmost for the defence of India and we are confident that in that great task the Indian peoples of all races and religions are eager to play their full part. Let me read to you what the statement says on this point—</p>
+<p>“(e) During the critical period which now faces India and until the new Constitution can be framed, His Majesty’s Government must inevitably bear the responsibility for, and retain the control and direction of, the defence of India as part of their world war effort, but the task of organising to the full the military, moral and material resources of India must be the responsibility of the Government of India with the co-operation of the peoples of India. His Majesty’s Government desire and invite the immediate and effective participation of the leaders of the principal sections of the Indian people in the counsels of their country, of the Commonwealth and of the United Nations. Thus they will be enabled to give their active and constructive help in the discharge of a task which is vital and essential for the future freedom of India.” So ends the document.</p>
+<p>The Governor-General whose task it is to form the Central Government of <span class="pg">[p. 222]</span> India has done his utmost to assist me with my mission, and I am certain that the Indian leaders can rely upon him to find the best way in consultation with them for carrying out the general principle laid down in the clause that I have just read to you.</p>
+<p>"The Most Vital Question"</p>
+<p>So much for the general framework of the proposals. But as we all know, the most vital and difficult question is that which concerns the interests of the various communities amongst the Indian peoples.</p>
+<p>I will not attempt to go into any of the historical origins of these difficulties; let us instead look at them as a present fact. In the great sub-continent of India there is more than one people, there are many peoples and races as there are in the great sub-continent of Russia. Our object is to give to the Indian peoples full self-government with complete freedom as to how they will devise and organise their own Constitution.</p>
+<p>There are those who claim that India should form a single united country, there are others who say it should be divided up into two, three or more separated countries. There are those who claim that Provincial Autonomy should be very wide with but few centrally controlled federal services; others stress the need for centralisation in view of the growing complexity of economic development.</p>
+<p>These and many other and various ideas are worthy to be explored and debated, but it is for the Indian peoples and not for any outside authority, to decide under which of these forms India will in the future govern herself.</p>
+<p>If the Indian peoples ask our help it will of course be gladly given but it is for you, the Indian peoples, to discuss and decide upon your future Constitution. We shall look on with deep interest and hope that your wisdom will guide you truly in this great adventure.</p>
+<p>We ask you therefore to come together all religions and races—in a Constitution-making body as soon as hostilities are over to frame your own Constitution.</p>
+<p>We have specified the form which that body will take, unless, and this is an important point, the leaders of the principal sections of Indian opinion agree between themselves before the end of hostilities upon some other and better form.</p>
+<p>Single Constitution</p>
+<p>That Constitution-making body will have as its object the framing of a single Constitution for the whole of India—that is, of British India together with such of the Indian States as may decide to join in.</p>
+<p>But we realise this very simple fact. If you want to persuade a number of people who are inclined to be antagonistic to enter the same room, it is unwise to tell them that once they go in there is no way out—they are to be for ever locked in together. It is much wiser to tell them they can go in, and if they find they can't come to a common decision, then there is nothing to prevent those who wish, from leaving again by another door. They are much more likely all to go in if they have knowledge that they can by their free will go out again if they cannot agree.</p>
+<p>Well, that is what we say to the provinces of India. Come together to frame a common Constitution—if you find after all your discussion and all the give and take of a Constitution-making assembly that you cannot overcome your differences and that some provinces are still not satisfied with the constitution, then such provinces can go out and remain out if they wish and just the same degree of self-government and freedom will be available for them as for the Union itself, that is to say, complete self-government.</p>
+<p>We hope and expect to see an Indian Union strong and united, because it is founded upon the free consent of all its peoples, but it is not for us, Britishers, to dictate to you, the Indian peoples; you will work out and decide that problem for yourselves.</p>
+<p>Appeal To Indian Leaders</p>
+<p>So we provide the means and the road by which you can attain that form of the absolute and united self-government that you desire at the earliest possible moment. In the past we have waited for the different Indian communities to come to a common decision as to how a new Constitution for a self-governing India should be framed and because there has been no agreement amongst the Indian leaders, the British Government have been accused by some of using <span class="pg">[p. 223]</span> this fact to delay the granting of freedom to India. We are now giving the lead that has been asked for and it is in the hands of Indians and Indians only whether they will accept that lead and so attain their own freedom. If they fail to accept this opportunity the responsibility for that failure must rest with them.</p>
+<p>We ask you to accept this fulfilment of our pledges in the past and it is that request that I have put before your leaders in the document which you have now seen.</p>
+<p>As regards the position of minority communities within the new Indian Union, I am confident that the constitution-making body will make just provision for their protection. But in view of the undertakings given to these minorities by His Majesty's Government in the past we propose that in the Treaty, which, under the draft Declaration, will be concluded between His Majesty's Government and the Constitution-making body, the new Indian Union should undertake to protect the rights of these minorities. If there should be any non-acceding provinces a similar treaty provision would be made in respect of minority communities within their borders.</p>
+<p>I have already indicated to you the position as to the immediate future.</p>
+<p>The C-in-C's Position</p>
+<p>I know that His Excellency the Viceroy has the greatest hope that the acceptance in principle of this document by the leaders of Indian opinion will make it possible for him to start forthwith upon the consultations which will enable him to implement the principle laid down in the last paragraph of the document which I have already read over to you.</p>
+<p>It contains one essential reservation—that in respect of the responsibility for defence. This reservation does not mean that the Governor-General and his Executive Council will, or indeed could, be excluded from taking an effective share in the counsels for the defence of India. In this wide-flung war, defence cannot be localised in a single country and its preparation must permeate the activities of every department of Government and must demand from every department the fullest co-operation. If His Majesty's Government are to take full responsibility for the conduct of the naval, military and air defence of India, as it is their duty to do, then the defence of India must be dealt with by them as part of the world war effort in which they are now engaged, and the direction of that defence must rest in the hands of the Commander-in-Chief under the War Cabinet and their highest staff officers. But, as I have already pointed out, the Government of India must also have an effective share in the defence counsels and so we have decided that the Commander-in-Chief must retain his position as a Member of the Executive Council.</p>
+<p>In order, however, that India may have her full voice in this central control of strategy, defensive and offensive, not only in India itself but in all the inter-related theatres of war, we have invited the appointment of a representative Indian to the War Cabinet and to the Pacific Council of the United Nations—that is one of the ways in which India will have her full say in the counsels of the Commonwealth and of the United Nations as an equal partner. And when it comes to the making of the peace, India will appoint her own representatives to the Peace Conference side by side with those of the other free nations and so make her contribution to the building of a new world order.</p>
+<p>Definite And Precise</p>
+<p>I am confident that nothing further or more complete could be done towards the immediate realisation of the just claims and demands of the Indian peoples. Our proposals are definite and precise. If they were to be rejected by the leaders of Indian opinion, there would be neither the time nor the opportunity to reconsider this matter till after the war and it would be a bitter blow to the friends of India all over the world.</p>
+<p>I consider it a high honour that it has fallen to my lot to be the messenger of the War Cabinet in a matter of such vital and far-reaching importance to the future world order. I personally am convinced of the soundness and completeness of these proposals, and I have asked your leaders to give to them an ungrudging acceptance.</p>
+<p>There will still be difficulties perhaps—the result of the distrust which has grown up between us in past years, but I ask you to turn your back upon that past, to accept our hand, our hand of friendship and trust and allow us to join with you for the time being in working to establish and complete your <span class="pg">[p. 224]</span> freedom and your self-government. This, as you may know, has long been a cause dear to my heart and it is with the greatest hopes that I look to the events of the next few days which may, if wisely handled, seal for ever your freedom and our friendship.</p>
+<p>Your country today is in peril from a cruel aggressor, an aggressor whose hand has soaked in blood and suffering great areas of China with its friendly and democratic peoples, an aggressor allied to those nations who have deluged with tragedy the once peaceful plains of Russia. Against those aggressors we and the Allied Nations will fight to victory.</p>
+<p>The outlook is overcast for the moment but, believe me, I have no doubt as to the final result. Russia, the United States, China and Great Britain have resources which the Axis and its allies can never defeat.</p>
+<p>We stand by our duty, growing out of our past historical associations, to give you every protection that we can, but with your willing help and co-operation this can be made more effective and more powerful.</p>
+<p>Let us enter upon this primary task of the defence of India in the now sure knowledge that when we emerge from the fire and travail of war it will be to build a free India upon foundations wrought by the Indian peoples themselves, and to forge a long, lasting and free friendship between our two peoples. Regrets and recriminations as to the past can have no place beside the confident and sure hopes of the future, when a Free India will take her rightful place as a co-worker with the other free nations in that world reconstruction which alone can make the toil and suffering of the war worth while. Let the dead past bury its dead! And let us march together side by side through the night of high endeavour and courage to the already waking dawn of a new world of liberty for all the peoples.</p></div>
+<h2>Source</h2>
+<div class="speech-source"><p>The Indian Annual Register, 1942, vol. I (January–June), ed. N. N. Mitra (Calcutta: Annual Register Office), pp. 221–224. The subheadings are the Register's.</p>
+<p>Online text: <a href="https://archive.org/details/in.ernet.dli.2015.206665/page/n271">https://archive.org/details/in.ernet.dli.2015.206665/page/n271</a></p>
+<p>Archive note: IAR 1942 I pp. 221-224.</p></div>
+</div>
+</body>
+</html>
