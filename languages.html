@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Languages of India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f0e17;
+            --bg-card: #1a1932;
+            --gold: #d4a843;
+            --gold-light: #e8c96a;
+            --gold-dim: rgba(212, 168, 67, 0.15);
+            --gold-glow: rgba(212, 168, 67, 0.08);
+            --ivory: #f0e9d6;
+            --ivory-dim: rgba(240, 233, 214, 0.7);
+            --ivory-muted: rgba(240, 233, 214, 0.4);
+            --text-primary: #f0e9d6;
+            --text-secondary: rgba(240, 233, 214, 0.72);
+            --text-muted: rgba(240, 233, 214, 0.38);
+            --border-gold: rgba(212, 168, 67, 0.25);
+            --border-subtle: rgba(240, 233, 214, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Lato', 'Segoe UI', sans-serif;
+            background: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            color: var(--text-primary);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            line-height: 1.75;
+            font-size: 1.1rem;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.8em;
+            color: var(--gold);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 10px;
+            margin-bottom: 0.3em;
+        }
+        h1 + p em {
+            color: var(--ivory-muted);
+        }
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25em;
+            color: var(--gold-light);
+            margin-top: 2.5em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--ivory-dim);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 0.8em;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+            margin: 2.5em 0;
+        }
+        blockquote {
+            border-left: 2px solid var(--gold);
+            margin-left: 0;
+            padding-left: 1.2em;
+            color: var(--ivory-dim);
+            font-style: italic;
+        }
+        /* "Start Here" dispatch at the top of a role sheet: an in-world note */
+        .dispatch {
+            position: relative;
+            background: #f1e7cf;
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            padding: 1.7em 1.8em 1.1em;
+            margin: 2.2em 0 2.5em;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+        .dispatch p {
+            color: #2b2416;
+            margin: 0 0 0.8em;
+            line-height: 1.6;
+        }
+        .dispatch-tag {
+            position: absolute;
+            top: -0.85em;
+            left: 1.2em;
+            background: var(--gold);
+            color: var(--bg-deep);
+            font-family: "Cinzel", serif;
+            font-weight: 700;
+            font-size: 0.75em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.2em 0.8em;
+            border-radius: 2px;
+        }
+        .dispatch p.dispatch-head {
+            font-style: italic;
+            color: #5a4a2a;
+            border-bottom: 1px solid rgba(90, 74, 42, 0.3);
+            padding-bottom: 0.5em;
+        }
+        .dispatch p.dispatch-sign {
+            text-align: right;
+            font-style: italic;
+        }
+        /* Plain "Who's who" key printed under a dispatch, outside the card */
+        .dispatch-key {
+            margin: -1.4em 0 2.5em;
+            padding: 0.7em 1.2em;
+            border-left: 2px solid var(--gold);
+            font-size: 0.88em;
+        }
+        .dispatch-key p {
+            color: var(--ivory-dim);
+            margin: 0.25em 0;
+        }
+        .overview {
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            padding: 1.5em 2em;
+            margin: 2em 0;
+            background: rgba(212, 168, 67, 0.06);
+        }
+        .overview p {
+            margin: 0.8em 0;
+        }
+        .overview p:first-child {
+            margin-top: 0;
+        }
+        .overview p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        /* Glossary term with hover tooltip */
+        strong[data-def] {
+            border-bottom: 1px dotted var(--border-gold);
+            cursor: help;
+            position: relative;
+        }
+        strong[data-def]:hover {
+            color: var(--gold-light);
+        }
+        strong[data-def]:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            color: var(--ivory-dim);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.82em;
+            font-weight: 400;
+            line-height: 1.5;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            pointer-events: none;
+            white-space: normal;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        /* Flip tooltip below when near top of viewport */
+        strong[data-def]:hover::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--border-gold);
+            z-index: 101;
+            pointer-events: none;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            width: 100%;
+            font-size: 0.92em;
+        }
+        th, td {
+            border: 1px solid var(--border-gold);
+            padding: 8px 12px;
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        th {
+            background: var(--gold-glow);
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        /* Figure: image paragraph + caption as a cohesive block */
+        p:has(> img) {
+            max-width: 520px;
+            margin: 2em auto 0;
+            text-align: center;
+        }
+        p:has(> img) img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        /* Caption: italic paragraph immediately following an image */
+        p:has(> img) + p > em:only-child {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            font-style: normal;
+        }
+        p:has(> img) + p > em:only-child a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+        p:has(> img) + p {
+            max-width: 520px;
+            margin: 0.4em auto 2em;
+        }
+        /* Standalone images not followed by a caption */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2em auto 0;
+            border: 1px solid var(--border-gold);
+            border-radius: 2px;
+        }
+        ul, ol {
+            padding-left: 1.5em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.4em;
+        }
+        .nav {
+            position: fixed;
+            top: 0.75rem;
+            left: 1rem;
+            z-index: 9999;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .nav a {
+            color: var(--gold);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .nav a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="nav"><a href="index.html">&larr; Home</a></div>
+<h1 id="languages-of-india">Languages of India</h1>
+<p><em>Estimated language distribution in India, 1946</em></p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Percent</th>
+<th>Region</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hindi</td>
+<td>31%</td>
+<td>North/Northwest</td>
+<td>Linguistically similar to Urdu, but historically associated with Hindus.</td>
+</tr>
+<tr>
+<td>Bengali</td>
+<td>17%</td>
+<td>Bengal</td>
+<td>Spoken by Hindus and Muslims in the Bengal region, although with some differences.</td>
+</tr>
+<tr>
+<td>Punjabi</td>
+<td>7%</td>
+<td>Punjab</td>
+<td>Predominant language spoken by Sikhs and Muslims in and around the Punjab.</td>
+</tr>
+<tr>
+<td>Telugu</td>
+<td>5%</td>
+<td>Hyderabad, Andhra</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Marathi</td>
+<td>5%</td>
+<td>Western India</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Tamil</td>
+<td>4%</td>
+<td>Southern India</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Urdu</td>
+<td>4%</td>
+<td>North/Northwest</td>
+<td>Linguistically similar to Hindi, but historically associated with Muslims. Prominent in Kashmir.</td>
+</tr>
+<tr>
+<td>Gujarati</td>
+<td>4%</td>
+<td>Western India</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Malayalam</td>
+<td>3%</td>
+<td>Southern India</td>
+<td>Hindu, Christian and Muslim speakers.</td>
+</tr>
+<tr>
+<td>Kannada</td>
+<td>3%</td>
+<td>Southern India</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Oriya</td>
+<td>2%</td>
+<td>Eastern India</td>
+<td>Primarily Hindu speakers.</td>
+</tr>
+<tr>
+<td>Pashto</td>
+<td>1%</td>
+<td>North-West Frontier Province</td>
+<td>Muslim region bordering Afghanistan.</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>14%</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Censuses of the period often counted Hindi and Urdu together as <strong>Hindustani</strong>, so the split between them here is an estimate.</p>
+</body>
+</html>
